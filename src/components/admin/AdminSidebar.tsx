@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAdminAuth } from "@/context/AdminAuthContext";
+import { canRoleAccessRoute } from "@/lib/permissions";
 
 // ─── Nav definition ───────────────────────────────────────────────
 const NAV_GROUPS = [
@@ -167,6 +169,15 @@ export function AdminSidebar() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { currentUser, role } = useAdminAuth();
+  const effectiveRole = currentUser?.role || role || "super_admin";
+
+  const filteredNavGroups = useMemo(() => {
+    return NAV_GROUPS.map((group) => ({
+      ...group,
+      items: group.items.filter((item) => canRoleAccessRoute(effectiveRole, item.href)),
+    })).filter((group) => group.items.length > 0);
+  }, [effectiveRole]);
 
   // Close mobile on route change
   useEffect(() => {
@@ -264,7 +275,7 @@ export function AdminSidebar() {
 
       {/* Nav Groups */}
       <nav className="flex-1 overflow-y-auto px-3 pb-4 space-y-0">
-        {NAV_GROUPS.map((group) => (
+        {filteredNavGroups.map((group) => (
           <div key={group.label}>
             {!collapsed && (
               <div className="a-nav-group-label">{group.label}</div>

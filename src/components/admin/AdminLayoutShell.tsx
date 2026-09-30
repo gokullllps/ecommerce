@@ -1,14 +1,27 @@
 "use client";
 
-import React from "react";
-import { usePathname } from "next/navigation";
+import React, { useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { AdminSidebar } from "./AdminSidebar";
 import { AdminTopBar } from "./AdminTopBar";
 import { AdminDataProvider } from "@/context/AdminDataContext";
+import { useAdminAuth } from "@/context/AdminAuthContext";
+import { canRoleAccessRoute } from "@/lib/permissions";
 
 export function AdminLayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const { currentUser, isReady } = useAdminAuth();
   const isLoginPage = pathname === "/admin/login";
+  const isUnauthorizedPage = pathname === "/admin/unauthorized";
+
+  useEffect(() => {
+    if (isReady && currentUser && !isLoginPage && !isUnauthorizedPage) {
+      if (!canRoleAccessRoute(currentUser.role, pathname)) {
+        router.replace("/admin/unauthorized");
+      }
+    }
+  }, [isReady, currentUser, pathname, isLoginPage, isUnauthorizedPage, router]);
 
   if (isLoginPage) {
     return (

@@ -55,7 +55,7 @@
         "colorName": "Black Noir",
         "sizeName": "M",
         "material": "Cashmere",
-        "stock": 15,
+        "stock": 17,
         "priceOverride": 24000,
         "isAvailable": true
       },
@@ -70,7 +70,7 @@
         "isAvailable": true
       }
     ],
-    "stock": 25,
+    "stock": 27,
     "reservedStock": 0,
     "lowStockThreshold": 5,
     "material": "Grade-A Mongolian Cashmere",
@@ -89,7 +89,7 @@
     "seoTitle": "joker | PABLO Atelier",
     "seoDescription": "wzsexdctbhyunmksexdcrvtgbynujmk",
     "createdAt": "2026-09-30T11:01:48.638Z",
-    "updatedAt": "2026-09-30T11:01:48.806Z"
+    "updatedAt": "2026-09-30T11:51:02.760Z"
   },
   {
     "id": "pab-m-001",
@@ -164,7 +164,7 @@
     "isBestSeller": true,
     "popularityScore": 98,
     "createdAt": "2026-08-15T10:00:00Z",
-    "updatedAt": "2026-09-30T10:57:52.997Z"
+    "updatedAt": "2026-09-30T11:53:45.183Z"
   },
   {
     "id": "pab-m-002",

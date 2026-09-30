@@ -138,7 +138,7 @@ export async function verifySessionToken(
     const isValid = await crypto.subtle.verify(
       "HMAC",
       key,
-      signatureBytes,
+      signatureBytes as unknown as BufferSource,
       enc.encode(payloadB64)
     );
 

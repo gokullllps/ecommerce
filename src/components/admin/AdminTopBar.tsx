@@ -6,13 +6,15 @@ import { useRouter } from "next/navigation";
 import { useAdminData } from "@/context/AdminDataContext";
 import { useAdminAuth } from "@/context/AdminAuthContext";
 import { AdminRole } from "@/types/admin";
+import { getRoleDisplayName } from "@/lib/permissions";
 
 const ROLES: { id: AdminRole; label: string }[] = [
   { id: "super_admin",       label: "Super Admin" },
+  { id: "admin",             label: "Admin" },
   { id: "product_manager",   label: "Product Manager" },
   { id: "content_manager",   label: "Content Manager" },
-  { id: "order_manager",     label: "Order Manager" },
   { id: "inventory_manager", label: "Inventory Manager" },
+  { id: "order_manager",     label: "Order Manager" },
   { id: "marketing_manager", label: "Marketing Manager" },
 ];
 
@@ -239,8 +241,8 @@ export function AdminTopBar() {
               <div className="text-xs font-medium truncate max-w-[100px]" style={{ color: "#111111" }}>
                 {currentUser?.name}
               </div>
-              <div className="text-[10px] capitalize mt-0.5" style={{ color: "rgba(17,17,17,0.45)" }}>
-                {currentUser?.role?.replace("_", " ")}
+              <div className="text-[10px] uppercase tracking-wider mt-0.5" style={{ color: "rgba(17,17,17,0.55)" }}>
+                {getRoleDisplayName(currentUser?.role || "admin")}
               </div>
             </div>
             <svg className="w-3 h-3 hidden sm:block" style={{ color: "rgba(17,17,17,0.35)" }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -261,6 +263,9 @@ export function AdminTopBar() {
               <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(17,17,17,0.08)" }}>
                 <div className="text-xs font-medium" style={{ color: "#111111" }}>{currentUser?.name}</div>
                 <div className="text-[11px] mt-0.5 truncate" style={{ color: "rgba(17,17,17,0.45)" }}>{currentUser?.email}</div>
+                <div className="text-[10px] uppercase tracking-wider font-semibold mt-1" style={{ color: "#111111" }}>
+                  {getRoleDisplayName(currentUser?.role || "admin")}
+                </div>
               </div>
 
               {/* RBAC simulator */}

@@ -1,9 +1,8 @@
-import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
 import { adminUsersRepository } from "@/lib/repositories/adminUsersRepository";
 import { AdminRole, AdminPermission } from "@/types/admin";
 import { AuthenticationError } from "@/lib/errors";
-import { assertPermission } from "@/lib/permissions";
+import { assertPermission, getRoleDisplayName } from "@/lib/permissions";
 import { loginRateLimiter } from "@/lib/security/rateLimiter";
 import {
   AdminSession,
@@ -15,8 +14,21 @@ import {
 
 export interface ConfiguredAdmin {
   email: string;
-  passwordHash: string;
-  role?: AdminRole;
+  password: string;
+  role: AdminRole;
+}
+
+/**
+ * Constant-time string comparison to prevent timing attacks.
+ */
+function timingSafeCompare(a: string, b: string): boolean {
+  if (typeof a !== "string" || typeof b !== "string") return false;
+  if (a.length !== b.length) return false;
+  let mismatch = 0;
+  for (let i = 0; i < a.length; i++) {
+    mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return mismatch === 0;
 }
 
 /**
@@ -39,18 +51,33 @@ export function getSessionSecret(): string {
 }
 
 /**
- * Discovers configured admins from environment variables (PABLO_ADMIN_1_EMAIL, PABLO_ADMIN_2_EMAIL, etc.)
+ * Default role assignment by slot index (1-7).
+ */
+const DEFAULT_SLOT_ROLES: AdminRole[] = [
+  "super_admin",
+  "admin",
+  "product_manager",
+  "content_manager",
+  "inventory_manager",
+  "order_manager",
+  "marketing_manager",
+];
+
+/**
+ * Discovers configured admins from environment variables:
+ * PABLO_ADMIN_1_EMAIL, PABLO_ADMIN_1_PASSWORD, PABLO_ADMIN_1_ROLE, etc.
  */
 export function getConfiguredAdmins(): ConfiguredAdmin[] {
   const admins: ConfiguredAdmin[] = [];
 
   for (let i = 1; i <= 10; i++) {
     const email = process.env[`PABLO_ADMIN_${i}_EMAIL`]?.trim();
-    const passwordHash = process.env[`PABLO_ADMIN_${i}_PASSWORD_HASH`]?.trim();
-    const role = process.env[`PABLO_ADMIN_${i}_ROLE`]?.trim() as AdminRole | undefined;
+    const password = process.env[`PABLO_ADMIN_${i}_PASSWORD`]?.trim();
+    const roleEnv = process.env[`PABLO_ADMIN_${i}_ROLE`]?.trim() as AdminRole | undefined;
+    const role: AdminRole = roleEnv || DEFAULT_SLOT_ROLES[i - 1] || "admin";
 
-    if (email && passwordHash) {
-      admins.push({ email, passwordHash, role });
+    if (email && password) {
+      admins.push({ email, password, role });
     }
   }
 
@@ -64,7 +91,7 @@ export function getConfiguredAdmins(): ConfiguredAdmin[] {
 }
 
 /**
- * Authenticates admin credentials server-side against configured bcrypt hashes in environment.
+ * Authenticates admin credentials server-side against configured environment variables.
  * Returns the admin profile payload for session creation.
  */
 export async function authenticateAdmin(
@@ -93,8 +120,8 @@ export async function authenticateAdmin(
     throw new AuthenticationError("Invalid email or password.");
   }
 
-  // 3. Verify bcrypt password hash
-  const isValidPassword = await bcrypt.compare(password, match.passwordHash);
+  // 3. Verify password against configured environment variable in constant time
+  const isValidPassword = timingSafeCompare(password, match.password);
   if (!isValidPassword) {
     throw new AuthenticationError("Invalid email or password.");
   }
@@ -113,11 +140,15 @@ export async function authenticateAdmin(
       .catch((err) => console.warn("[Admin Auth] Failed to update lastLogin:", err));
   }
 
+  // Effective role: environment-configured role is authoritative
+  const effectiveRole: AdminRole = match.role || userProfile?.role || "admin";
+  const displayName = userProfile?.name || getRoleDisplayName(effectiveRole);
+
   return {
     adminId: userProfile?.id || `usr_admin_${Date.now()}`,
     email: match.email,
-    name: userProfile?.name || "Administrator",
-    role: userProfile?.role || match.role || "super_admin",
+    name: displayName,
+    role: effectiveRole,
   };
 }
 
@@ -167,19 +198,6 @@ export async function getAdminSession(): Promise<AdminSession | null> {
 export async function requireAdminSession(
   permission?: AdminPermission
 ): Promise<AdminSession> {
-  // If running in automated offline test runner scripts (e.g. tsx scripts/...)
-  // allow the test runner to operate without an active HTTP cookie context.
-  if (process.env.NODE_ENV === "test") {
-    return {
-      adminId: "usr_01",
-      email: "vikram@pablo-luxury.com",
-      name: "Vikram Singhania",
-      role: "super_admin",
-      iat: Math.floor(Date.now() / 1000),
-      exp: Math.floor(Date.now() / 1000) + 86400,
-    };
-  }
-
   const session = await getAdminSession();
   if (!session) {
     throw new AuthenticationError(

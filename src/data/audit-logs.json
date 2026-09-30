@@ -1,5 +1,113 @@
 [
   {
+    "id": "log_1790769225153_hgh1",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-98534",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T11:53:45.153Z"
+  },
+  {
+    "id": "log_1790769223513_jjg1",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T11:53:43.513Z"
+  },
+  {
+    "id": "log_1790769062775_q0r6",
+    "adminName": "Administrator",
+    "adminEmail": "admin@gmail.com",
+    "action": "STOCK_ADJUSTED",
+    "resource": "joker (PAB-NEW-TL17-BLK-M)",
+    "details": "Adjusted stock by +1 (Reason: Quick restock (+)). Persisted to products.json & inventory.json",
+    "timestamp": "2026-09-30T11:51:02.775Z"
+  },
+  {
+    "id": "log_1790769061037_o5o9",
+    "adminName": "Administrator",
+    "adminEmail": "admin@gmail.com",
+    "action": "STOCK_ADJUSTED",
+    "resource": "joker (PAB-NEW-TL17-BLK-M)",
+    "details": "Adjusted stock by +1 (Reason: Quick restock (+)). Persisted to products.json & inventory.json",
+    "timestamp": "2026-09-30T11:51:01.037Z"
+  },
+  {
+    "id": "log_1790768175050_fzdw",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-41645",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T11:36:15.050Z"
+  },
+  {
+    "id": "log_1790768171757_893o",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T11:36:11.757Z"
+  },
+  {
+    "id": "log_1790767499703_b6k6",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-59839",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T11:24:59.703Z"
+  },
+  {
+    "id": "log_1790767496036_hlot",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T11:24:56.036Z"
+  },
+  {
+    "id": "log_1790766876018_gnyo",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-84831",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T11:14:36.018Z"
+  },
+  {
+    "id": "log_1790766873911_17xo",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T11:14:33.912Z"
+  },
+  {
+    "id": "log_1790766626576_fhe3",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-13102",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T11:10:26.576Z"
+  },
+  {
+    "id": "log_1790766624316_nx6c",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T11:10:24.316Z"
+  },
+  {
     "id": "log_1790766108819_ps59",
     "adminName": "Vikram Singhania",
     "adminEmail": "admin@pablo-luxury.com",

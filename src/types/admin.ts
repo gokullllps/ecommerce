@@ -23,7 +23,8 @@ export type AdminPermission =
   | "themes.manage"
   | "media.manage"
   | "users.manage"
-  | "settings.manage";
+  | "settings.manage"
+  | "audit.view";
 
 export interface AdminUser {
   id: string;

@@ -10,6 +10,8 @@ const suites = [
   { name: "Admin CMS 19-Mutation Operations", cmd: "npx tsx scripts/testAdminCMS.ts" },
   { name: "Storefront & Admin Route Health Checks", cmd: "npx tsx scripts/verifyRoutes.ts" },
   { name: "Product Image Persistence Pipeline", cmd: "npx tsx scripts/verifyImagePersistence.ts" },
+  { name: "Vercel Admin Authentication & Security (9 Specs)", cmd: "npx tsx scripts/verifyAdminAuth.ts" },
+  { name: "Multi-Admin Authentication & Strict RBAC (Sections 31-33)", cmd: "npx tsx scripts/verifyMultiAdminRbac.ts" },
 ];
 
 console.log("==================================================");

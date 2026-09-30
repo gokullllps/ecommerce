@@ -34,12 +34,15 @@ import {
 import { revalidatePath } from "next/cache";
 import { persistProductImageFile } from "@/lib/services/uploadService";
 import { ValidationError } from "@/lib/errors";
-import { assertPermission } from "@/lib/permissions";
+import { requireAdminSession } from "@/lib/auth/adminAuth";
 
 /**
  * Loads all canonical data from JSON files on the server.
+ * Requires active admin session with dashboard.view permission.
  */
 export async function getCanonicalAdminData() {
+  await requireAdminSession("dashboard.view");
+
   const [
     products,
     categories,
@@ -94,13 +97,15 @@ export async function serverAddProduct(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const created = await productsRepository.createProduct(product);
   await auditLogsRepository.logAction(
     "PRODUCT_CREATED",
     `Product ${created.name}`,
     `Created SKU ${created.sku} via JSON repository`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   try {
     revalidatePath("/");
@@ -122,13 +127,15 @@ export async function serverUpdateProduct(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const updated = await productsRepository.updateProduct(product.id, product);
   await auditLogsRepository.logAction(
     "PRODUCT_UPDATED",
     `Product ${updated.name}`,
     `Updated details & price ₹${updated.price} in JSON file`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   try {
     revalidatePath("/");
@@ -149,7 +156,7 @@ export async function serverUploadProductImage(
   formData: FormData,
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  await requireAdminSession("products.edit");
   const files = formData.getAll("files") as File[];
   const singleFile = formData.get("file") as File | null;
   const productId = (formData.get("productId") as string) || "prod";
@@ -182,7 +189,8 @@ export async function serverDeleteProduct(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const product = await productsRepository.getProductById(productId);
   const ok = await productsRepository.deleteProduct(productId);
   if (ok) {
@@ -190,7 +198,8 @@ export async function serverDeleteProduct(
       "PRODUCT_DELETED",
       `Product ${product?.name || productId}`,
       `Deleted from JSON repository`,
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -201,13 +210,15 @@ export async function serverArchiveProduct(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const archived = await productsRepository.archiveProduct(productId);
   await auditLogsRepository.logAction(
     "PRODUCT_ARCHIVED",
     `Product ${archived.name}`,
     `Archived in JSON file`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return archived;
 }
@@ -217,13 +228,15 @@ export async function serverRestoreProduct(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const restored = await productsRepository.restoreProduct(productId);
   await auditLogsRepository.logAction(
     "PRODUCT_RESTORED",
     `Product ${restored.name}`,
     `Restored active status in JSON file`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return restored;
 }
@@ -233,13 +246,15 @@ export async function serverDuplicateProduct(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const duplicated = await productsRepository.duplicateProduct(productId);
   await auditLogsRepository.logAction(
     "PRODUCT_DUPLICATED",
     `Product ${duplicated.name}`,
     `Duplicated to SKU ${duplicated.sku} in JSON file`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return duplicated;
 }
@@ -250,13 +265,15 @@ export async function serverBulkUpdateProducts(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const updated = await productsRepository.bulkUpdateProducts(ids, updates);
   await auditLogsRepository.logAction(
     "PRODUCT_BULK_UPDATED",
     `${ids.length} Products`,
     `Applied updates in JSON: ${Object.keys(updates).join(", ")}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -266,14 +283,16 @@ export async function serverBulkDeleteProducts(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "products.edit");
+  const session = await requireAdminSession("products.edit");
+  const effectiveAdmin = session.name || adminName;
   const ok = await productsRepository.bulkDeleteProducts(ids);
   if (ok) {
     await auditLogsRepository.logAction(
       "PRODUCT_BULK_DELETED",
       `${ids.length} Products`,
       `Deleted from JSON files`,
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -287,13 +306,15 @@ export async function serverAddCategory(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "categories.manage");
+  const session = await requireAdminSession("categories.manage");
+  const effectiveAdmin = session.name || adminName;
   const created = await categoriesRepository.createCategory(category);
   await auditLogsRepository.logAction(
     "CATEGORY_CREATED",
     `Category ${created.name}`,
     `Created /${created.slug} in JSON file`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -303,13 +324,15 @@ export async function serverUpdateCategory(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "categories.manage");
+  const session = await requireAdminSession("categories.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await categoriesRepository.updateCategory(category.id, category);
   await auditLogsRepository.logAction(
     "CATEGORY_UPDATED",
     `Category ${updated.name}`,
     `Updated /${updated.slug} in JSON file`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -319,7 +342,8 @@ export async function serverDeleteCategory(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "categories.manage");
+  const session = await requireAdminSession("categories.manage");
+  const effectiveAdmin = session.name || adminName;
   const cat = await categoriesRepository.getCategoryById(id);
   const ok = await categoriesRepository.deleteCategory(id);
   if (ok) {
@@ -327,7 +351,8 @@ export async function serverDeleteCategory(
       "CATEGORY_DELETED",
       `Category ${cat?.name || id}`,
       `Deleted from JSON file`,
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -338,13 +363,15 @@ export async function serverReorderCategories(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "categories.manage");
+  const session = await requireAdminSession("categories.manage");
+  const effectiveAdmin = session.name || adminName;
   const reordered = await categoriesRepository.reorderCategories(categories);
   await auditLogsRepository.logAction(
     "CATEGORY_REORDERED",
     "Category Hierarchy",
     "Persisted reordered sequence in categories.json",
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return reordered;
 }
@@ -357,13 +384,15 @@ export async function serverAddCollection(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "collections.manage");
+  const session = await requireAdminSession("collections.manage");
+  const effectiveAdmin = session.name || adminName;
   const created = await collectionsRepository.createCollection(collection);
   await auditLogsRepository.logAction(
     "COLLECTION_CREATED",
     `Collection ${created.name}`,
     `Created ${created.mode} collection in collections.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -373,13 +402,15 @@ export async function serverUpdateCollection(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "collections.manage");
+  const session = await requireAdminSession("collections.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await collectionsRepository.updateCollection(collection.id, collection);
   await auditLogsRepository.logAction(
     "COLLECTION_UPDATED",
     `Collection ${updated.name}`,
     `Updated in collections.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -389,7 +420,8 @@ export async function serverDeleteCollection(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "collections.manage");
+  const session = await requireAdminSession("collections.manage");
+  const effectiveAdmin = session.name || adminName;
   const col = await collectionsRepository.getCollectionById(id);
   const ok = await collectionsRepository.deleteCollection(id);
   if (ok) {
@@ -397,7 +429,8 @@ export async function serverDeleteCollection(
       "COLLECTION_DELETED",
       `Collection ${col?.name || id}`,
       "Deleted from collections.json",
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -409,13 +442,15 @@ export async function serverReorderCollectionProducts(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "collections.manage");
+  const session = await requireAdminSession("collections.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await collectionsRepository.reorderCollectionProducts(id, productIds);
   await auditLogsRepository.logAction(
     "COLLECTION_PRODUCTS_REORDERED",
     `Collection ${updated.name}`,
     `Reordered ${productIds.length} products in collections.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -431,19 +466,21 @@ export async function serverAdjustInventory(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "inventory.manage");
+  const session = await requireAdminSession("inventory.manage");
+  const effectiveAdmin = session.name || adminName;
   const result = await inventoryRepository.adjustInventory(
     productId,
     variantSku,
     delta,
     reason,
-    adminName
+    effectiveAdmin
   );
   await auditLogsRepository.logAction(
     "STOCK_ADJUSTED",
     `${result.updatedProduct.name} ${variantSku ? `(${variantSku})` : ""}`,
     `Adjusted stock by ${delta >= 0 ? `+${delta}` : delta} (Reason: ${reason}). Persisted to products.json & inventory.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return result;
 }
@@ -456,13 +493,15 @@ export async function serverUpdateOrder(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "orders.edit");
+  const session = await requireAdminSession("orders.edit");
+  const effectiveAdmin = session.name || adminName;
   const updated = await ordersRepository.updateOrder(order.id, order);
   await auditLogsRepository.logAction(
     "ORDER_UPDATED",
     `Order ${order.orderNumber || order.id}`,
     `Updated order details in orders.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -475,13 +514,15 @@ export async function serverUpdateOrderStatus(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "orders.edit");
+  const session = await requireAdminSession("orders.edit");
+  const effectiveAdmin = session.name || adminName;
   const updated = await ordersRepository.updateOrderStatus(orderId, status, trackingNumber, carrier);
   await auditLogsRepository.logAction(
     "ORDER_STATUS_CHANGED",
     `Order ${updated.orderNumber || orderId}`,
     `Status changed to ${status.toUpperCase()}${trackingNumber ? ` (Tracking: ${trackingNumber})` : ""} in orders.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -492,13 +533,15 @@ export async function serverCancelOrder(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "orders.edit");
+  const session = await requireAdminSession("orders.edit");
+  const effectiveAdmin = session.name || adminName;
   const updated = await ordersRepository.updateOrderStatus(orderId, "cancelled");
   await auditLogsRepository.logAction(
     "ORDER_CANCELLED",
     `Order ${updated.orderNumber || orderId}`,
     `Order cancelled with reason: "${reason}"`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -511,13 +554,15 @@ export async function serverCreateCustomer(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "customers.edit");
+  const session = await requireAdminSession("customers.edit");
+  const effectiveAdmin = session.name || adminName;
   const created = await customersRepository.createCustomer(customer);
   await auditLogsRepository.logAction(
     "CUSTOMER_CREATED",
     `Patron ${created.name}`,
     `Created customer profile for ${created.email}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -527,13 +572,15 @@ export async function serverUpdateCustomer(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "customers.edit");
+  const session = await requireAdminSession("customers.edit");
+  const effectiveAdmin = session.name || adminName;
   const updated = await customersRepository.updateCustomer(customer.id, customer);
   await auditLogsRepository.logAction(
     "CUSTOMER_UPDATED",
     `Patron ${updated.name}`,
     `Updated status to ${updated.status} / spend ₹${updated.totalSpent}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -543,7 +590,8 @@ export async function serverDeleteCustomer(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "customers.edit");
+  const session = await requireAdminSession("customers.edit");
+  const effectiveAdmin = session.name || adminName;
   const customer = await customersRepository.getCustomerById(customerId);
   const ok = await customersRepository.deleteCustomer(customerId);
   if (ok) {
@@ -551,7 +599,8 @@ export async function serverDeleteCustomer(
       "CUSTOMER_DELETED",
       `Patron ${customer?.name || customerId}`,
       `Removed patron record from customers.json`,
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -565,13 +614,15 @@ export async function serverAddPromotion(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "promotions.manage");
+  const session = await requireAdminSession("promotions.manage");
+  const effectiveAdmin = session.name || adminName;
   const created = await promotionsRepository.createPromotion(promo);
   await auditLogsRepository.logAction(
     "PROMOTION_CREATED",
     `Privilege Code ${created.code}`,
     `Created ${created.type === "percentage" ? `${created.value}%` : `₹${created.value}`} discount in promotions.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -581,13 +632,15 @@ export async function serverUpdatePromotion(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "promotions.manage");
+  const session = await requireAdminSession("promotions.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await promotionsRepository.updatePromotion(promo.id, promo);
   await auditLogsRepository.logAction(
     "PROMOTION_UPDATED",
     `Privilege Code ${updated.code}`,
     `Updated rules & limits in promotions.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -597,13 +650,15 @@ export async function serverTogglePromotion(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "promotions.manage");
+  const session = await requireAdminSession("promotions.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await promotionsRepository.togglePromotion(id);
   await auditLogsRepository.logAction(
     "PROMOTION_TOGGLED",
     `Privilege Code ${updated.code}`,
     `Active status set to ${updated.isActive ? "ACTIVE" : "INACTIVE"}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -613,13 +668,15 @@ export async function serverDuplicatePromotion(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "promotions.manage");
+  const session = await requireAdminSession("promotions.manage");
+  const effectiveAdmin = session.name || adminName;
   const duplicated = await promotionsRepository.duplicatePromotion(id);
   await auditLogsRepository.logAction(
     "PROMOTION_DUPLICATED",
     `Privilege Code ${duplicated.code}`,
     `Duplicated from promo ${id}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return duplicated;
 }
@@ -629,7 +686,8 @@ export async function serverDeletePromotion(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "promotions.manage");
+  const session = await requireAdminSession("promotions.manage");
+  const effectiveAdmin = session.name || adminName;
   const promo = await promotionsRepository.getPromotionById(id);
   const ok = await promotionsRepository.deletePromotion(id);
   if (ok) {
@@ -637,7 +695,8 @@ export async function serverDeletePromotion(
       "PROMOTION_DELETED",
       `Privilege Code ${promo?.code || id}`,
       `Removed from promotions.json`,
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -651,13 +710,15 @@ export async function serverCreateTheme(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "themes.manage");
+  const session = await requireAdminSession("themes.manage");
+  const effectiveAdmin = session.name || adminName;
   const created = await themesRepository.createTheme(theme);
   await auditLogsRepository.logAction(
     "THEME_CREATED",
     `Theme "${created.name}"`,
     `Created ${created.type} theme in themes.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -667,13 +728,15 @@ export async function serverUpdateTheme(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "themes.manage");
+  const session = await requireAdminSession("themes.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await themesRepository.updateTheme(theme.id, theme);
   await auditLogsRepository.logAction(
     "THEME_UPDATED",
     `Theme "${updated.name}"`,
     "Updated theme configuration in themes.json",
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -683,13 +746,15 @@ export async function serverActivateTheme(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "themes.manage");
+  const session = await requireAdminSession("themes.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await themesRepository.activateTheme(id);
   await auditLogsRepository.logAction(
     "THEME_ACTIVATED",
     `Theme "${updated.name}"`,
     `Activated theme for scope: ${updated.scope}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -699,13 +764,15 @@ export async function serverDeactivateTheme(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "themes.manage");
+  const session = await requireAdminSession("themes.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await themesRepository.deactivateTheme(id);
   await auditLogsRepository.logAction(
     "THEME_DEACTIVATED",
     `Theme "${updated.name}"`,
     "Deactivated theme and returned to draft",
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -715,13 +782,15 @@ export async function serverDuplicateTheme(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "themes.manage");
+  const session = await requireAdminSession("themes.manage");
+  const effectiveAdmin = session.name || adminName;
   const duplicated = await themesRepository.duplicateTheme(id);
   await auditLogsRepository.logAction(
     "THEME_DUPLICATED",
     `Theme "${duplicated.name}"`,
     `Duplicated from theme ${id}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return duplicated;
 }
@@ -731,7 +800,8 @@ export async function serverDeleteTheme(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "themes.manage");
+  const session = await requireAdminSession("themes.manage");
+  const effectiveAdmin = session.name || adminName;
   const theme = await themesRepository.getThemeById(id);
   const ok = await themesRepository.deleteTheme(id);
   if (ok) {
@@ -739,7 +809,8 @@ export async function serverDeleteTheme(
       "THEME_DELETED",
       `Theme "${theme?.name || id}"`,
       "Removed theme from themes.json",
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -753,13 +824,15 @@ export async function serverUpdateHeroSlides(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "storefront.manage");
+  const session = await requireAdminSession("storefront.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await storefrontRepository.updateHeroSlides(slides);
   await auditLogsRepository.logAction(
     "HERO_SLIDES_UPDATED",
     "Storefront Hero",
     `Updated ${slides.length} hero slides in storefront.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -769,13 +842,15 @@ export async function serverUpdateSections(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "storefront.manage");
+  const session = await requireAdminSession("storefront.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await storefrontRepository.updateSections(sections);
   await auditLogsRepository.logAction(
     "SECTIONS_UPDATED",
     "Storefront Layout",
     `Updated layout and sequence of ${sections.length} homepage sections`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -785,13 +860,15 @@ export async function serverUpdateStoreSettings(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "settings.manage");
+  const session = await requireAdminSession("settings.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await storefrontRepository.updateSettings(settings);
   await auditLogsRepository.logAction(
     "SETTINGS_UPDATED",
     "Commerce Platform Settings",
     `Updated store settings in storefront.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -804,13 +881,15 @@ export async function serverAddMediaAsset(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "media.manage");
+  const session = await requireAdminSession("media.manage");
+  const effectiveAdmin = session.name || adminName;
   const created = await mediaRepository.createMediaAsset(asset);
   await auditLogsRepository.logAction(
     "MEDIA_UPLOADED",
     `Asset ${asset.filename}`,
     `Registered metadata for ${asset.folder} (${asset.mimeType}) in media.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -820,13 +899,15 @@ export async function serverUpdateMediaAsset(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "media.manage");
+  const session = await requireAdminSession("media.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await mediaRepository.updateMediaAsset(asset.id, asset);
   await auditLogsRepository.logAction(
     "MEDIA_UPDATED",
     `Asset ${updated.filename}`,
     `Updated metadata and tags in media.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -836,7 +917,8 @@ export async function serverDeleteMediaAsset(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "media.manage");
+  const session = await requireAdminSession("media.manage");
+  const effectiveAdmin = session.name || adminName;
   const asset = await mediaRepository.getMediaAssetById(id);
   const ok = await mediaRepository.deleteMediaAsset(id);
   if (ok) {
@@ -844,7 +926,8 @@ export async function serverDeleteMediaAsset(
       "MEDIA_DELETED",
       `Asset ${asset?.filename || id}`,
       "Deleted media metadata record from media.json",
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -858,13 +941,15 @@ export async function serverCreateAdminUser(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "users.manage");
+  const session = await requireAdminSession("users.manage");
+  const effectiveAdmin = session.name || adminName;
   const created = await adminUsersRepository.createAdminUser(user);
   await auditLogsRepository.logAction(
     "ADMIN_USER_CREATED",
     `User ${created.name}`,
     `Assigned role ${created.role} with ${created.permissions.length} permissions in admin-users.json`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return created;
 }
@@ -874,13 +959,15 @@ export async function serverUpdateAdminUser(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "users.manage");
+  const session = await requireAdminSession("users.manage");
+  const effectiveAdmin = session.name || adminName;
   const updated = await adminUsersRepository.updateAdminUser(user.id, user);
   await auditLogsRepository.logAction(
     "ADMIN_USER_UPDATED",
     `User ${updated.name}`,
     `Updated status ${updated.status} and role ${updated.role}`,
-    adminName
+    effectiveAdmin,
+    session.email
   );
   return updated;
 }
@@ -890,7 +977,8 @@ export async function serverDeleteAdminUser(
   adminName: string = "Admin",
   role?: AdminRole
 ) {
-  if (role) assertPermission(role, "users.manage");
+  const session = await requireAdminSession("users.manage");
+  const effectiveAdmin = session.name || adminName;
   const user = await adminUsersRepository.getAdminUserById(id);
   const ok = await adminUsersRepository.deleteAdminUser(id);
   if (ok) {
@@ -898,7 +986,8 @@ export async function serverDeleteAdminUser(
       "ADMIN_USER_DELETED",
       `User ${user?.name || id}`,
       "Removed administrative user account from admin-users.json",
-      adminName
+      effectiveAdmin,
+      session.email
     );
   }
   return ok;
@@ -914,5 +1003,8 @@ export async function serverLogAction(
   adminName: string,
   adminEmail: string = "admin@pablo-luxury.com"
 ): Promise<AuditLogEntry> {
-  return auditLogsRepository.logAction(action, resource, details, adminName, adminEmail);
+  const session = await requireAdminSession();
+  const effectiveAdmin = session.name || adminName;
+  const effectiveEmail = session.email || adminEmail;
+  return auditLogsRepository.logAction(action, resource, details, effectiveAdmin, effectiveEmail);
 }
