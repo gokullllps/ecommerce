@@ -1,0 +1,353 @@
+[
+  {
+    "id": "log_1790766108819_ps59",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "PRODUCT_CREATED",
+    "resource": "Product joker",
+    "details": "Created SKU PAB-NEW-TL17 via JSON repository",
+    "timestamp": "2026-09-30T11:01:48.819Z"
+  },
+  {
+    "id": "log_1790765872899_cnon",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-58626",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T10:57:52.899Z"
+  },
+  {
+    "id": "log_1790765870668_9t3e",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T10:57:50.668Z"
+  },
+  {
+    "id": "log_1790765784166_t58c",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-43483",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T10:56:24.166Z"
+  },
+  {
+    "id": "log_1790765781914_hayt",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T10:56:21.914Z"
+  },
+  {
+    "id": "log_1790765596474_v4g2",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-11385",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T10:53:16.474Z"
+  },
+  {
+    "id": "log_1790765594391_1zlm",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T10:53:14.391Z"
+  },
+  {
+    "id": "log_1790765535845_gw0s",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T10:52:15.845Z"
+  },
+  {
+    "id": "log_1790764406175_jqk1",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-22308",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T10:33:26.175Z"
+  },
+  {
+    "id": "log_1790763747281_d5wu",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-58176",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T10:22:27.281Z"
+  },
+  {
+    "id": "log_1790763306415_9me3",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "PRODUCT_CREATED",
+    "resource": "Product peter",
+    "details": "Created SKU PAB-NEW-6RKF via JSON repository",
+    "timestamp": "2026-09-30T10:15:06.415Z"
+  },
+  {
+    "id": "log_03",
+    "adminName": "Devika Nair",
+    "adminEmail": "devika@pablo-luxury.com",
+    "action": "ORDER_STATUS_UPDATED",
+    "resource": "Order PAB-8921",
+    "details": "Order marked as DELIVERED by courier verification.",
+    "timestamp": "2026-09-30T10:15:00Z"
+  },
+  {
+    "id": "log_1790762346822_y5bo",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-33111",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T09:59:06.822Z"
+  },
+  {
+    "id": "log_02",
+    "adminName": "Anya Sharma",
+    "adminEmail": "anya@pablo-luxury.com",
+    "action": "THEME_SCHEDULED",
+    "resource": "Theme / Diwali 2026",
+    "details": "Scheduled Diwali Gold & Obsidian theme for 17 Oct 2026 - 25 Oct 2026.",
+    "timestamp": "2026-09-30T09:12:00Z"
+  },
+  {
+    "id": "log_1790758243733_nya0",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_STATUS_CHANGED",
+    "resource": "Order PAB-8924",
+    "details": "Status changed to DELIVERED in orders.json",
+    "timestamp": "2026-09-30T08:50:43.733Z"
+  },
+  {
+    "id": "log_1790758227376_d31r",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "THEME_ACTIVATED",
+    "resource": "Theme \"PABLO Signature Editorial\"",
+    "details": "Activated theme for scope: all",
+    "timestamp": "2026-09-30T08:50:27.376Z"
+  },
+  {
+    "id": "log_1790758214491_n7x6",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "THEME_ACTIVATED",
+    "resource": "Theme \"Winter Alpine & Silver 2026\"",
+    "details": "Activated theme for scope: all",
+    "timestamp": "2026-09-30T08:50:14.491Z"
+  },
+  {
+    "id": "log_1790758195343_5k94",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "THEME_ACTIVATED",
+    "resource": "Theme \"Diwali Gold & Obsidian 2026\"",
+    "details": "Activated theme for scope: all",
+    "timestamp": "2026-09-30T08:49:55.343Z"
+  },
+  {
+    "id": "log_1790757898248_it3s",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-95582",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:44:58.248Z"
+  },
+  {
+    "id": "log_1790757230515_qhpq",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-14231",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:33:50.515Z"
+  },
+  {
+    "id": "log_1790757228484_kcow",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T08:33:48.484Z"
+  },
+  {
+    "id": "log_1790756859519_k0hc",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-40714",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:27:39.519Z"
+  },
+  {
+    "id": "log_1790756857690_0cy0",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T08:27:37.690Z"
+  },
+  {
+    "id": "log_1790756705169_pti8",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-85973",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:25:05.169Z"
+  },
+  {
+    "id": "log_1790756703369_3ab8",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T08:25:03.369Z"
+  },
+  {
+    "id": "log_1790756635863_bf27",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-43244",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:23:55.863Z"
+  },
+  {
+    "id": "log_1790756566535_rgiy",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-13451",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:22:46.535Z"
+  },
+  {
+    "id": "log_1790756476057_v9ue",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-74277",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹3,572)",
+    "timestamp": "2026-09-30T08:21:16.057Z"
+  },
+  {
+    "id": "log_01",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "vikram@pablo-luxury.com",
+    "action": "SYSTEM_INITIALIZED",
+    "resource": "Admin CMS",
+    "details": "Initialized PABLO centralized commerce engine and data store.",
+    "timestamp": "2026-09-30T08:00:00Z"
+  },
+  {
+    "id": "log_1790754599971_rlzu",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T07:49:59.971Z"
+  },
+  {
+    "id": "log_1790754372755_11ig",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T07:46:12.755Z"
+  },
+  {
+    "id": "log_1790753859017_44lh",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_STATUS_CHANGED",
+    "resource": "Order PAB-8922",
+    "details": "Status changed to SHIPPED in orders.json",
+    "timestamp": "2026-09-30T07:37:39.017Z"
+  },
+  {
+    "id": "log_1790753856306_zoek",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_STATUS_CHANGED",
+    "resource": "Order PAB-8924",
+    "details": "Status changed to SHIPPED in orders.json",
+    "timestamp": "2026-09-30T07:37:36.306Z"
+  },
+  {
+    "id": "log_1790753854370_2u18",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_STATUS_CHANGED",
+    "resource": "Order PAB-8924",
+    "details": "Status changed to PROCESSING in orders.json",
+    "timestamp": "2026-09-30T07:37:34.370Z"
+  },
+  {
+    "id": "log_1790753305129_1kz2",
+    "adminName": "Automated QA Suite",
+    "adminEmail": "qa@pablo-luxury.com",
+    "action": "PHASE_4_VALIDATION",
+    "resource": "System Integration",
+    "details": "Verified all Phase 4 modules against canonical JSON data",
+    "timestamp": "2026-09-30T07:28:25.129Z"
+  },
+  {
+    "id": "log_1790753239697_eesy",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "CATEGORY_REORDERED",
+    "resource": "Category Hierarchy",
+    "details": "Persisted reordered sequence in categories.json",
+    "timestamp": "2026-09-30T07:27:19.697Z"
+  },
+  {
+    "id": "log_1790753239014_umbe",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "CATEGORY_REORDERED",
+    "resource": "Category Hierarchy",
+    "details": "Persisted reordered sequence in categories.json",
+    "timestamp": "2026-09-30T07:27:19.014Z"
+  },
+  {
+    "id": "log_1790753238157_t226",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "CATEGORY_REORDERED",
+    "resource": "Category Hierarchy",
+    "details": "Persisted reordered sequence in categories.json",
+    "timestamp": "2026-09-30T07:27:18.157Z"
+  },
+  {
+    "id": "log_1790753237613_04xu",
+    "adminName": "Vikram Singhania",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "CATEGORY_REORDERED",
+    "resource": "Category Hierarchy",
+    "details": "Persisted reordered sequence in categories.json",
+    "timestamp": "2026-09-30T07:27:17.613Z"
+  }
+]

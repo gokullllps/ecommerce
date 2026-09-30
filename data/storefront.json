@@ -1,0 +1,82 @@
+{
+  "settings": {
+    "storeName": "PABLO Luxury Fashion",
+    "supportEmail": "concierge@pablo-luxury.com",
+    "currency": "INR",
+    "currencySymbol": "₹",
+    "country": "India",
+    "taxRate": 12,
+    "freeShippingThreshold": 50000,
+    "standardShippingFee": 1500,
+    "maintenanceMode": false,
+    "defaultThemeId": "theme-default",
+    "seoTitle": "PABLO — Distinctive Luxury Fashion",
+    "seoDescription": "PABLO luxury fashion editorial e-commerce. Architectural outerwear, cashmere knits, and bespoke tailoring."
+  },
+  "heroSlides": [
+    {
+      "id": "slide_01",
+      "title": "ARCHITECTURAL PROPORTION",
+      "subtitle": "AUTUMN / WINTER 2026",
+      "description": "Unstructured tailoring sculpted from bespoke bi-color solaros and double-faced zibeline cashmere.",
+      "ctaText": "EXPLORE THE COLLECTION",
+      "ctaLink": "/collections/aw26",
+      "desktopImage": "/images/hero-desktop.jpg",
+      "mobileImage": "/images/hero-mobile.jpg",
+      "alignment": "left",
+      "isActive": true,
+      "order": 1
+    },
+    {
+      "id": "slide_02",
+      "title": "HEIRLOOM OUTERWEAR",
+      "subtitle": "PERENNIAL CRAFT",
+      "description": "Hand-finished trench coats and shearling field blousons made to withstand generations.",
+      "ctaText": "DISCOVER OUTERWEAR",
+      "ctaLink": "/men/outerwear",
+      "desktopImage": "/images/hero-desktop-2.jpg",
+      "alignment": "center",
+      "isActive": true,
+      "order": 2
+    }
+  ],
+  "sections": [
+    {
+      "id": "sec_hero",
+      "type": "hero",
+      "title": "Main Campaign Hero",
+      "enabled": true,
+      "order": 1
+    },
+    {
+      "id": "sec_ticker",
+      "type": "ticker",
+      "title": "Editorial Ticker",
+      "enabled": false,
+      "order": 2
+    },
+    {
+      "id": "sec_new_in",
+      "type": "new_in",
+      "title": "New In Capsule",
+      "subtitle": "Just arrived from our Milan atelier",
+      "enabled": true,
+      "order": 3
+    },
+    {
+      "id": "sec_categories",
+      "type": "categories",
+      "title": "Curated Portfolios",
+      "enabled": true,
+      "order": 4
+    },
+    {
+      "id": "sec_featured",
+      "type": "featured_collection",
+      "title": "The Cashmere Suite",
+      "subtitle": "Hand-spun 4-ply Mongolian fibers",
+      "enabled": true,
+      "order": 5
+    }
+  ]
+}

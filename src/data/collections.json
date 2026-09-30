@@ -1,0 +1,120 @@
+[
+  {
+    "id": "col_aw26",
+    "name": "Autumn / Winter 2026",
+    "slug": "aw26",
+    "description": "Architectural proportion, unstructured tailoring, and double-faced zibeline cashmere.",
+    "image": "/images/pablo-men-hero.png",
+    "banner": "/images/pablo-men-hero.png",
+    "status": "active",
+    "gender": "all",
+    "mode": "manual",
+    "productIds": [
+      "men-knit-01",
+      "men-outer-01",
+      "men-pant-01",
+      "men-shirt-01",
+      "men-shoe-01",
+      "men-bag-01"
+    ],
+    "seoTitle": "Autumn / Winter 2026 Collection | PABLO",
+    "seoDescription": "Explore the PABLO AW26 campaign featuring double-faced cashmere and sculptural tailoring.",
+    "updatedAt": "2026-09-30T07:12:39.894Z"
+  },
+  {
+    "id": "col_new_in",
+    "name": "New Arrivals Capsule",
+    "slug": "new-in",
+    "description": "The latest atelier creations freshly released for the discerning wardrobe.",
+    "image": "/images/categories/outerwear.png",
+    "banner": "/images/pablo-women-hero.png",
+    "status": "active",
+    "gender": "all",
+    "mode": "rule_based",
+    "productIds": [],
+    "rules": [
+      {
+        "id": "rule_new",
+        "field": "isNewArrival",
+        "operator": "equals",
+        "value": true
+      }
+    ],
+    "seoTitle": "New In Luxury Arrivals | PABLO",
+    "seoDescription": "Discover latest runway arrivals and contemporary sartorial pieces.",
+    "updatedAt": "2026-09-30T09:00:00Z"
+  },
+  {
+    "id": "col_bestsellers",
+    "name": "Permanent Atelier Icons",
+    "slug": "best-sellers",
+    "description": "Our signature heritage pieces, perfected through decades of continuous craft.",
+    "image": "/images/categories/knitwear.jpg",
+    "banner": "/images/pablo-men-hero.png",
+    "status": "active",
+    "gender": "all",
+    "mode": "rule_based",
+    "productIds": [],
+    "rules": [
+      {
+        "id": "rule_best",
+        "field": "isBestSeller",
+        "operator": "equals",
+        "value": true
+      }
+    ],
+    "seoTitle": "Best Sellers & Atelier Icons | PABLO",
+    "seoDescription": "Timeless luxury silhouettes, coveted cashmere knits, and signature footwear.",
+    "updatedAt": "2026-09-28T12:00:00Z"
+  },
+  {
+    "id": "col_denim",
+    "name": "The Raw Denim Atelier",
+    "slug": "denim-capsule",
+    "description": "Curated 14.5oz shuttle-loomed Japanese selvedge denim crafted by master artisans.",
+    "image": "/images/categories/denim.jpg",
+    "banner": "/images/categories/denim.jpg",
+    "status": "active",
+    "gender": "men",
+    "mode": "rule_based",
+    "productIds": [],
+    "rules": [
+      {
+        "id": "rule_cat",
+        "field": "category",
+        "operator": "equals",
+        "value": "denim"
+      },
+      {
+        "id": "rule_price",
+        "field": "minPrice",
+        "operator": "greater_than",
+        "value": 3000
+      }
+    ],
+    "seoTitle": "Selvedge Denim Atelier | PABLO",
+    "seoDescription": "Authentic ring-spun Japanese selvedge denim.",
+    "updatedAt": "2026-09-27T10:00:00Z"
+  },
+  {
+    "id": "col_festive",
+    "name": "Festive Evening Edit 2026",
+    "slug": "festive-edit",
+    "description": "Opulent silk velvet smoking jackets, metallic brocade lapels, and evening accessories.",
+    "image": "/images/categories/shirts.jpg",
+    "banner": "/images/pablo-men-hero.png",
+    "status": "scheduled",
+    "startDate": "2026-10-15T00:00:00Z",
+    "endDate": "2026-11-10T23:59:59Z",
+    "gender": "all",
+    "mode": "manual",
+    "productIds": [
+      "men-shirt-01",
+      "men-knit-01",
+      "men-shoe-01"
+    ],
+    "seoTitle": "Festive & Evening Collection 2026 | PABLO",
+    "seoDescription": "High-octane eveningwear and festive gala attire.",
+    "updatedAt": "2026-09-25T14:00:00Z"
+  }
+]

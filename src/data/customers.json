@@ -1,0 +1,67 @@
+[
+  {
+    "id": "cust_1790757898229",
+    "name": "Gokul Prasath",
+    "email": "gokul@example.com",
+    "phone": "+91 98765 43210",
+    "totalOrders": 2,
+    "totalSpent": 7144,
+    "lastOrderDate": "2026-09-30T09:59:06.808Z",
+    "status": "active",
+    "city": "Mumbai",
+    "country": "India",
+    "joinedAt": "2026-09-30T08:44:58.212Z"
+  },
+  {
+    "id": "cust_03",
+    "name": "Pooja Varma",
+    "email": "pooja.varma@studio.design",
+    "phone": "+91 99801 88123",
+    "totalOrders": 2,
+    "totalSpent": 112000,
+    "lastOrderDate": "2026-09-30T09:45:00Z",
+    "status": "active",
+    "city": "Bengaluru",
+    "country": "India",
+    "joinedAt": "2026-05-18T00:00:00Z"
+  },
+  {
+    "id": "cust_02",
+    "name": "Rohit Malhotra",
+    "email": "rohit.m@capitalpartners.com",
+    "phone": "+91 98110 33819",
+    "totalOrders": 3,
+    "totalSpent": 420000,
+    "lastOrderDate": "2026-09-30T08:14:00Z",
+    "status": "active",
+    "city": "New Delhi",
+    "country": "India",
+    "joinedAt": "2026-02-14T00:00:00Z"
+  },
+  {
+    "id": "cust_04",
+    "name": "Kavita Sethi",
+    "email": "kavita.sethi@heritage.org",
+    "phone": "+91 97170 55192",
+    "totalOrders": 4,
+    "totalSpent": 630000,
+    "lastOrderDate": "2026-09-30T11:05:00Z",
+    "status": "vip",
+    "city": "Hyderabad",
+    "country": "India",
+    "joinedAt": "2026-01-20T00:00:00Z"
+  },
+  {
+    "id": "cust_01",
+    "name": "Aarav Mehra",
+    "email": "aarav.mehra@atelier.in",
+    "phone": "+91 98201 44920",
+    "totalOrders": 6,
+    "totalSpent": 842000,
+    "lastOrderDate": "2026-09-29T14:22:00Z",
+    "status": "vip",
+    "city": "Mumbai",
+    "country": "India",
+    "joinedAt": "2025-11-10T00:00:00Z"
+  }
+]

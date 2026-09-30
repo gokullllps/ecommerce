@@ -1,0 +1,112 @@
+[
+  {
+    "id": "theme-default",
+    "name": "PABLO Signature Editorial",
+    "description": "The official immutable luxury foundation palette of PABLO.",
+    "type": "custom",
+    "scope": "all",
+    "priority": 0,
+    "status": "active",
+    "timezone": "Asia/Kolkata",
+    "tokens": {
+      "primaryBg": "#EAE8E1",
+      "primaryText": "#111111",
+      "darkSurface": "#181818",
+      "accent": "#181818",
+      "borderColor": "#D9D8D3"
+    },
+    "navbar": {
+      "bannerMessage": "COMPLIMENTARY WHITE-GLOVE DELIVERY ACROSS INDIA",
+      "bannerBg": "#181818",
+      "bannerTextColor": "#EAE8E1"
+    },
+    "hero": {
+      "headline": "DISTINCTIVE LUXURY",
+      "tagline": "Autumn / Winter 2026 Campaign"
+    },
+    "ticker": {
+      "enabled": false,
+      "text": "",
+      "speed": 30
+    },
+    "decorations": {
+      "style": "none",
+      "density": "low"
+    },
+    "createdAt": "2026-01-01T00:00:00Z",
+    "updatedAt": "2026-09-30T08:50:27.370Z"
+  },
+  {
+    "id": "theme-diwali-2026",
+    "name": "Diwali Gold & Obsidian 2026",
+    "description": "Subtle celebratory warm gold and candlelit ambiance for Diwali season.",
+    "type": "festival",
+    "scope": "all",
+    "priority": 10,
+    "status": "draft",
+    "startAt": "2026-10-17T00:00:00Z",
+    "endAt": "2026-10-25T23:59:59Z",
+    "timezone": "Asia/Kolkata",
+    "tokens": {
+      "primaryBg": "#EAE8E1",
+      "primaryText": "#111111",
+      "darkSurface": "#1A1713",
+      "accent": "#B4833E",
+      "borderColor": "#D8CDBE"
+    },
+    "navbar": {
+      "bannerMessage": "DIWALI PRIVATE SELECTION · COMPLIMENTARY EXPEDITED ATELIER PACKAGING",
+      "bannerBg": "#1A1713",
+      "bannerTextColor": "#FBF6EE"
+    },
+    "hero": {
+      "headline": "LIGHT & OPULENCE",
+      "tagline": "Diwali 2026 Festive Edition"
+    },
+    "ticker": {
+      "enabled": true,
+      "text": "FESTIVE COUTURE · LIMITED EDITION EMBROIDERED CASHMERE · COMPLIMENTARY BESPOKE GIFT BOXING",
+      "speed": 35
+    },
+    "decorations": {
+      "style": "lanterns",
+      "density": "low"
+    },
+    "createdAt": "2026-09-20T00:00:00Z",
+    "updatedAt": "2026-09-30T08:50:14.485Z"
+  },
+  {
+    "id": "theme-christmas-2026",
+    "name": "Winter Alpine & Silver 2026",
+    "description": "Crisp architectural silver and deep evergreen hints for the holiday winter solstice.",
+    "type": "festival",
+    "scope": "all",
+    "priority": 8,
+    "status": "draft",
+    "startAt": "2026-12-15T00:00:00Z",
+    "endAt": "2026-12-28T23:59:59Z",
+    "timezone": "Asia/Kolkata",
+    "tokens": {
+      "primaryBg": "#EAE8E1",
+      "primaryText": "#111111",
+      "darkSurface": "#121816",
+      "accent": "#2D4A3E",
+      "borderColor": "#D2D6D3"
+    },
+    "navbar": {
+      "bannerMessage": "HOLIDAY ATELIER PRIVILEGE · GUARANTEED PRE-CHRISTMAS DISPATCH",
+      "bannerBg": "#121816",
+      "bannerTextColor": "#EAE8E1"
+    },
+    "hero": {
+      "headline": "THE WINTER EDIT",
+      "tagline": "High-Alpine Cashmere & Structured Tailoring"
+    },
+    "decorations": {
+      "style": "snow",
+      "density": "low"
+    },
+    "createdAt": "2026-09-10T00:00:00Z",
+    "updatedAt": "2026-09-30T08:50:27.370Z"
+  }
+]

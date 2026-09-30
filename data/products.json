@@ -1,0 +1,6108 @@
+[
+  {
+    "id": "prod_1790766108500_cfe9",
+    "sku": "PAB-NEW-TL17",
+    "name": "joker",
+    "slug": "joker",
+    "brand": "PABLO",
+    "productType": "Apparel",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "kids",
+    "subCategory": "Knitwear",
+    "collections": [],
+    "description": "zawsexrdctfbgyhnjsexdrctfbgynhujm sxetdvtbghnujmsxedcrvtgbyhnujmik xesdcvtgbynjmxecrdfvtbnhujmi cdrfvtgbyhnmjiko, ed45rfgtyhujmik",
+    "shortDescription": "wzsexdctbhyunmksexdcrvtgbynujmk",
+    "price": 200000,
+    "originalPrice": 24000,
+    "salePrice": 1,
+    "images": [
+      {
+        "id": "img-1790766051137-0-s1et",
+        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.jpg",
+        "alt": "",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "id": "img-1790766060429-0-cwvm",
+        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.jpg",
+        "alt": "",
+        "isPrimary": false,
+        "viewType": "front"
+      }
+    ],
+    "primaryImage": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.jpg",
+    "hoverImage": "",
+    "videoUrl": "",
+    "colors": [
+      {
+        "name": "Standard",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "size": "M",
+        "inStock": true
+      }
+    ],
+    "variants": [
+      {
+        "id": "v-1",
+        "sku": "PAB-NEW-TL17-BLK-M",
+        "colorName": "Black Noir",
+        "sizeName": "M",
+        "material": "Cashmere",
+        "stock": 15,
+        "priceOverride": 24000,
+        "isAvailable": true
+      },
+      {
+        "id": "v-2",
+        "sku": "PAB-NEW-TL17-BLK-L",
+        "colorName": "Black Noir",
+        "sizeName": "L",
+        "material": "Cashmere",
+        "stock": 10,
+        "priceOverride": 24000,
+        "isAvailable": true
+      }
+    ],
+    "stock": 25,
+    "reservedStock": 0,
+    "lowStockThreshold": 5,
+    "material": "Grade-A Mongolian Cashmere",
+    "fit": "Regular fit",
+    "tags": [
+      "luxury",
+      "knitwear"
+    ],
+    "isAvailable": true,
+    "status": "active",
+    "isNewArrival": true,
+    "isSale": true,
+    "isBestSeller": false,
+    "isLimitedEdition": false,
+    "popularityScore": 75,
+    "seoTitle": "joker | PABLO Atelier",
+    "seoDescription": "wzsexdctbhyunmksexdcrvtgbynujmk",
+    "createdAt": "2026-09-30T11:01:48.638Z",
+    "updatedAt": "2026-09-30T11:01:48.806Z"
+  },
+  {
+    "id": "pab-m-001",
+    "sku": "PAB-OC-01-BLK",
+    "name": "Double-Breasted Wool Overcoat",
+    "slug": "double-breasted-wool-overcoat",
+    "gender": "men",
+    "category": "outerwear",
+    "subCategory": "coats",
+    "collections": [
+      "new-season",
+      "editorial",
+      "formal",
+      "limited-edition"
+    ],
+    "description": "Sculptural double-breasted overcoat tailored from dense Italian virgin wool melton. Features sharp peaked lapels, natural horn buttons, and a clean ankle-length drape.",
+    "price": 1850,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Double-Breasted Wool Overcoat in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Double-Breasted Wool Overcoat Back Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Charcoal",
+        "hex": "#2C2C2C",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      },
+      {
+        "name": "52",
+        "inStock": false
+      }
+    ],
+    "stock": 16,
+    "material": "100% Italian Virgin Wool (550gsm)",
+    "fit": "Tailored Architectural",
+    "careInstructions": "Specialist luxury dry clean only. Store on wide cedar hanger.",
+    "tags": [
+      "Runway",
+      "Melton Wool",
+      "Outerwear"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 98,
+    "createdAt": "2026-08-15T10:00:00Z",
+    "updatedAt": "2026-09-30T10:57:52.997Z"
+  },
+  {
+    "id": "pab-m-002",
+    "sku": "PAB-JK-02-BLK",
+    "name": "Double-Face Cashmere Bomber Jacket",
+    "slug": "double-face-cashmere-bomber-jacket",
+    "gender": "men",
+    "category": "outerwear",
+    "subCategory": "jackets",
+    "collections": [
+      "new-season",
+      "editorial",
+      "sale"
+    ],
+    "description": "A modernist interpretation of the military flight silhouette, crafted from double-faced Mongolian cashmere. Features tone-on-tone cashmere ribbing and a concealed RiRi two-way zip.",
+    "price": 2200,
+    "salePrice": 1650,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Double-Face Cashmere Bomber in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Double-Face Cashmere Bomber Texture",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Basalt",
+        "hex": "#3A3A3A",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      },
+      {
+        "name": "52",
+        "inStock": false
+      }
+    ],
+    "stock": 8,
+    "material": "100% Double-Face Cashmere",
+    "fit": "Relaxed Boxy",
+    "careInstructions": "Specialist dry clean only.",
+    "tags": [
+      "Cashmere",
+      "Sale",
+      "Bomber"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "isBestSeller": false,
+    "popularityScore": 92,
+    "createdAt": "2026-06-12T10:00:00Z"
+  },
+  {
+    "id": "pab-m-003",
+    "sku": "PAB-TR-03-BLK",
+    "name": "Architectural Relaxed Trousers",
+    "slug": "architectural-relaxed-trousers",
+    "gender": "men",
+    "category": "trousers",
+    "subCategory": "relaxed-trousers",
+    "collections": [
+      "new-season",
+      "essentials",
+      "formal"
+    ],
+    "description": "Wide-leg trousers cut with a deep forward pleat and subtle taper. Woven from high-twist tropical wool for a fluid, crease-resistant break over shoes.",
+    "price": 680,
+    "images": [
+      {
+        "url": "/images/categories/trousers.jpg",
+        "alt": "Architectural Relaxed Trousers in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Architectural Relaxed Trousers Drape Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Raw Ivory",
+        "hex": "#EAE8E1",
+        "inStock": true
+      },
+      {
+        "name": "Espresso",
+        "hex": "#261E1A",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      },
+      {
+        "name": "52",
+        "inStock": true
+      }
+    ],
+    "stock": 32,
+    "material": "100% High-Twist Wool Worsted",
+    "fit": "Relaxed Wide Leg",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Tailoring",
+      "PABLO Classic"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 94,
+    "createdAt": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": "pab-m-004",
+    "sku": "PAB-TR-04-GRY",
+    "name": "Pleated Flannel Straight Trousers",
+    "slug": "pleated-flannel-straight-trousers",
+    "gender": "men",
+    "category": "trousers",
+    "subCategory": "straight-trousers",
+    "collections": [
+      "essentials",
+      "formal"
+    ],
+    "description": "Tailored from brushed Italian wool flannel, these trousers boast an interior curtain waistband, side tab adjusters, and unhemmed cuffs for bespoke tailoring.",
+    "price": 640,
+    "images": [
+      {
+        "url": "/images/categories/trousers.jpg",
+        "alt": "Pleated Flannel Trousers",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Pleated Flannel Trousers Profile",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Flannel Grey",
+        "hex": "#4A4D52",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      },
+      {
+        "name": "52",
+        "inStock": false
+      }
+    ],
+    "stock": 19,
+    "material": "100% Vitale Barberis Wool Flannel",
+    "fit": "Straight Tailored",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Flannel",
+      "Formal"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 87,
+    "createdAt": "2026-07-08T10:00:00Z"
+  },
+  {
+    "id": "pab-m-005",
+    "sku": "PAB-JN-05-RAW",
+    "name": "14oz Japanese Selvedge Straight Jeans",
+    "slug": "14oz-japanese-selvedge-straight-jeans",
+    "gender": "men",
+    "category": "denim",
+    "subCategory": "straight-jeans",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Woven on vintage Toyoda shuttle looms in Kojima, Okayama. Pure indigo rope-dyed warp with silver selvedge ID line and matte gunmetal rivets.",
+    "price": 480,
+    "images": [
+      {
+        "url": "/images/categories/denim.jpg",
+        "alt": "14oz Japanese Selvedge Denim",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "14oz Selvedge Hem Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Raw Indigo",
+        "hex": "#1A2438",
+        "inStock": true
+      },
+      {
+        "name": "Washed Noir",
+        "hex": "#2E2E2E",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "30",
+        "inStock": true
+      },
+      {
+        "name": "31",
+        "inStock": true
+      },
+      {
+        "name": "32",
+        "inStock": true
+      },
+      {
+        "name": "33",
+        "inStock": true
+      },
+      {
+        "name": "34",
+        "inStock": true
+      }
+    ],
+    "stock": 44,
+    "material": "100% Cotton (14oz Kojima Selvedge Denim)",
+    "fit": "Straight Leg",
+    "careInstructions": "Cold soak inside out; hang dry away from direct sunlight.",
+    "tags": [
+      "Selvedge",
+      "Denim",
+      "Kojima"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 93,
+    "createdAt": "2026-05-18T10:00:00Z"
+  },
+  {
+    "id": "pab-m-006",
+    "sku": "PAB-JN-06-FAD",
+    "name": "Sculptural Wide-Leg Washed Jeans",
+    "slug": "sculptural-wide-leg-washed-jeans",
+    "gender": "men",
+    "category": "denim",
+    "subCategory": "wide-jeans",
+    "collections": [
+      "new-season",
+      "casual"
+    ],
+    "description": "Cut with an exaggerated wide silhouette and subtle knee darting that creates an architectural break. Garment-dyed and mineral-washed for lived-in softness.",
+    "price": 520,
+    "images": [
+      {
+        "url": "/images/categories/denim.jpg",
+        "alt": "Sculptural Wide-Leg Jeans",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Sculptural Wide-Leg Profile",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Basalt Wash",
+        "hex": "#3D3D3D",
+        "inStock": true
+      },
+      {
+        "name": "Ecru",
+        "hex": "#EBE7DF",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "30",
+        "inStock": true
+      },
+      {
+        "name": "32",
+        "inStock": true
+      },
+      {
+        "name": "34",
+        "inStock": true
+      }
+    ],
+    "stock": 22,
+    "material": "100% Organic Cotton Denim (13.5oz)",
+    "fit": "Wide Architectural",
+    "careInstructions": "Machine wash cold inside out with similar colors.",
+    "tags": [
+      "Wide Leg",
+      "Mineral Wash"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 89,
+    "createdAt": "2026-08-14T10:00:00Z"
+  },
+  {
+    "id": "pab-m-007",
+    "sku": "PAB-TS-07-BLK",
+    "name": "Heavyweight Supima Crewneck T-Shirt",
+    "slug": "heavyweight-supima-crewneck-tshirt",
+    "gender": "men",
+    "category": "t-shirts",
+    "subCategory": "oversized-tees",
+    "collections": [
+      "essentials",
+      "best-sellers",
+      "casual"
+    ],
+    "description": "Meticulously crafted from extra-long staple Supima cotton at 280gsm. Minimalist blind-stitched hem and substantial collar that retains its shape indefinitely.",
+    "price": 240,
+    "images": [
+      {
+        "url": "/images/categories/t-shirts.jpg",
+        "alt": "Heavyweight Supima Crewneck T-Shirt in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Heavyweight Supima Crewneck Neckline Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Chalk White",
+        "hex": "#F7F6F2",
+        "inStock": true
+      },
+      {
+        "name": "Faded Basalt",
+        "hex": "#3A3A3A",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": true
+      }
+    ],
+    "stock": 70,
+    "material": "100% Supima Cotton (280gsm)",
+    "fit": "Oversized Boxy",
+    "careInstructions": "Machine wash cold on gentle cycle. Lay flat to dry.",
+    "tags": [
+      "Essential",
+      "Core Collection",
+      "Supima"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 99,
+    "createdAt": "2026-06-10T10:00:00Z"
+  },
+  {
+    "id": "pab-m-008",
+    "sku": "PAB-TS-08-RAW",
+    "name": "Raw-Edge Boxy Heavy Cotton Tee",
+    "slug": "raw-edge-boxy-heavy-cotton-tee",
+    "gender": "men",
+    "category": "t-shirts",
+    "subCategory": "box-tees",
+    "collections": [
+      "new-season",
+      "casual"
+    ],
+    "description": "Cut with a dropped shoulder and seamless tubular body. Laser-cut raw edges along the sleeves and hem that gently curl after the initial cold wash.",
+    "price": 260,
+    "images": [
+      {
+        "url": "/images/categories/t-shirts.jpg",
+        "alt": "Raw-Edge Boxy Heavy Cotton Tee",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Raw Edge Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Vintage Chalk",
+        "hex": "#EDECE8",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": false
+      }
+    ],
+    "stock": 35,
+    "material": "100% Combed Mako Cotton (310gsm)",
+    "fit": "Boxy Drop-Shoulder",
+    "careInstructions": "Cold wash inside out. Do not tumble dry.",
+    "tags": [
+      "Mako Cotton",
+      "Raw Edge"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 91,
+    "createdAt": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": "pab-m-009",
+    "sku": "PAB-SH-09-WHT",
+    "name": "Concealed Placket Poplin Shirt",
+    "slug": "concealed-placket-poplin-shirt",
+    "gender": "men",
+    "category": "shirts",
+    "subCategory": "dress-shirts",
+    "collections": [
+      "new-season",
+      "formal",
+      "evening"
+    ],
+    "description": "An ultra-clean dress shirt featuring a hidden mother-of-pearl button placket, forward-point collar, and elongated French cuffs for sartorial restraint.",
+    "price": 490,
+    "images": [
+      {
+        "url": "/images/categories/shirts.jpg",
+        "alt": "Concealed Placket Poplin Shirt in Pure White",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Concealed Placket Collar Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Pure White",
+        "hex": "#FFFFFF",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "39",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      },
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      }
+    ],
+    "stock": 35,
+    "material": "100% Giza Egyptian Cotton (120/2 Poplin)",
+    "fit": "Tailored Relaxed",
+    "careInstructions": "Professional laundering recommended. Warm iron with steam.",
+    "tags": [
+      "Formal",
+      "Shirting",
+      "Giza Cotton"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 95,
+    "createdAt": "2026-08-01T10:00:00Z"
+  },
+  {
+    "id": "pab-m-010",
+    "sku": "PAB-SH-10-OVR",
+    "name": "Heavy Silk Twill Overshirt",
+    "slug": "heavy-silk-twill-overshirt",
+    "gender": "men",
+    "category": "shirts",
+    "subCategory": "overshirts",
+    "collections": [
+      "editorial",
+      "evening",
+      "sale"
+    ],
+    "description": "Substantial 32-momme Mulberry silk twill tailored with patch chest pockets and matte horn hardware. Drapes with liquid weight across the shoulders.",
+    "price": 780,
+    "salePrice": 585,
+    "images": [
+      {
+        "url": "/images/categories/shirts.jpg",
+        "alt": "Heavy Silk Twill Overshirt",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Heavy Silk Texture",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Smoked Noir",
+        "hex": "#1C1C1E",
+        "inStock": true
+      },
+      {
+        "name": "Champagne Ivory",
+        "hex": "#EFEBD9",
+        "inStock": false
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      }
+    ],
+    "stock": 14,
+    "material": "100% Mulberry Silk Twill (32mm)",
+    "fit": "Relaxed Boxy",
+    "careInstructions": "Dry clean only. Cool iron under cloth.",
+    "tags": [
+      "Mulberry Silk",
+      "Overshirt",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 88,
+    "createdAt": "2026-05-30T10:00:00Z"
+  },
+  {
+    "id": "pab-m-011",
+    "sku": "PAB-PL-11-TAU",
+    "name": "Milanese Milan Rib Knit Polo",
+    "slug": "milanese-milan-rib-knit-polo",
+    "gender": "men",
+    "category": "polos",
+    "subCategory": "knit-polos",
+    "collections": [
+      "new-season",
+      "casual",
+      "essentials"
+    ],
+    "description": "Buttonless open-collar polo knit in a compact Milano stitch with high recovery. Features subtle fully-fashioned armhole detailing.",
+    "price": 520,
+    "images": [
+      {
+        "url": "/images/categories/polos.jpg",
+        "alt": "Milanese Milan Rib Knit Polo",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Milano Rib Open Collar Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Taupe",
+        "hex": "#5E564F",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": true
+      }
+    ],
+    "stock": 27,
+    "material": "70% Silk, 30% Extrafine Merino Wool",
+    "fit": "Classic Tailored",
+    "careInstructions": "Hand wash cold with wool detergent. Dry flat.",
+    "tags": [
+      "Polo",
+      "Silk Merino"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 90,
+    "createdAt": "2026-07-28T10:00:00Z"
+  },
+  {
+    "id": "pab-m-012",
+    "sku": "PAB-KW-12-CHA",
+    "name": "Seamless Cashmere Mockneck",
+    "slug": "seamless-cashmere-mockneck",
+    "gender": "men",
+    "category": "knitwear",
+    "subCategory": "sweaters",
+    "collections": [
+      "new-season",
+      "essentials",
+      "editorial"
+    ],
+    "description": "Knitted in Northern Italy using 3-ply Grade-A Mongolian cashmere. 3D circular knit technology removes all seams for uninterrupted tactile comfort.",
+    "price": 890,
+    "images": [
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Seamless Cashmere Mockneck in Charcoal",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Seamless Cashmere Ribbed Neck Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Charcoal",
+        "hex": "#2B2B2B",
+        "inStock": true
+      },
+      {
+        "name": "Stone",
+        "hex": "#8E8A82",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": false
+      }
+    ],
+    "stock": 16,
+    "material": "100% Grade-A Mongolian Cashmere (7-gauge)",
+    "fit": "Relaxed Boxy",
+    "careInstructions": "Hand wash cold with cashmere wash. Dry flat on towels.",
+    "tags": [
+      "Cashmere",
+      "Italian Knitwear"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 96,
+    "createdAt": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": "pab-m-013",
+    "sku": "PAB-HD-13-BLK",
+    "name": "500gsm Loopback Structured Hoodie",
+    "slug": "500gsm-loopback-structured-hoodie",
+    "gender": "men",
+    "category": "sweatshirts",
+    "subCategory": "hoodies",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Built from bespoke ultra-heavyweight cotton fleece that maintains an architectural drape. Self-lined hood with zero drawstrings for pure minimalist restraint.",
+    "price": 380,
+    "images": [
+      {
+        "url": "/images/categories/sweatshirts.png",
+        "alt": "500gsm Loopback Structured Hoodie",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Structured Double Hood Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Washed Slate",
+        "hex": "#383B3D",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": true
+      }
+    ],
+    "stock": 48,
+    "material": "100% Heavyweight Cotton Fleece (500gsm)",
+    "fit": "Oversized Architectural",
+    "careInstructions": "Machine wash cold inside out. Hang dry.",
+    "tags": [
+      "Core",
+      "Heavyweight",
+      "Sweatshirt"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 93,
+    "createdAt": "2026-07-12T10:00:00Z"
+  },
+  {
+    "id": "pab-m-014",
+    "sku": "PAB-SH-14-LIN",
+    "name": "Tailored Relaxed Linen Shorts",
+    "slug": "tailored-relaxed-linen-shorts",
+    "gender": "men",
+    "category": "shorts",
+    "subCategory": "linen-shorts",
+    "collections": [
+      "casual",
+      "sale"
+    ],
+    "description": "Cut from heavy Norman flax linen with a wide leg, double front pleats, and an extended tab closure. Finished with deep slanted side pockets.",
+    "price": 420,
+    "salePrice": 295,
+    "images": [
+      {
+        "url": "/images/categories/shorts.jpg",
+        "alt": "Tailored Relaxed Linen Shorts",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Linen Pleat Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Raw Sand",
+        "hex": "#D6CDBF",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      }
+    ],
+    "stock": 21,
+    "material": "100% Normandy Flax Linen (320gsm)",
+    "fit": "Relaxed Wide Bermuda",
+    "careInstructions": "Cold delicate wash. Line dry in shade.",
+    "tags": [
+      "Linen",
+      "Shorts",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 84,
+    "createdAt": "2026-06-01T10:00:00Z"
+  },
+  {
+    "id": "pab-m-015",
+    "sku": "PAB-FW-15-BLK",
+    "name": "Blake-Stitched Calfskin Penny Loafers",
+    "slug": "blake-stitched-calfskin-penny-loafers",
+    "gender": "men",
+    "category": "footwear",
+    "subCategory": "loafers",
+    "collections": [
+      "new-season",
+      "formal",
+      "essentials"
+    ],
+    "description": "Handcrafted in Florence from vegetable-tanned French box calfskin. Finished with channeled leather soles, beveled waists, and stacked leather heels.",
+    "price": 940,
+    "images": [
+      {
+        "url": "/images/categories/footwear.jpg",
+        "alt": "Blake-Stitched Calfskin Penny Loafers in Glossed Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Loafer Saddle and Sole Profile",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir Glacé",
+        "hex": "#0A0A0A",
+        "inStock": true
+      },
+      {
+        "name": "Deep Cognac",
+        "hex": "#3D2314",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "40",
+        "inStock": true
+      },
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      },
+      {
+        "name": "43",
+        "inStock": true
+      },
+      {
+        "name": "44",
+        "inStock": true
+      },
+      {
+        "name": "45",
+        "inStock": false
+      }
+    ],
+    "stock": 26,
+    "material": "100% French Box Calfskin / Oak Bark Leather Sole",
+    "fit": "Standard European",
+    "careInstructions": "Nourish regularly with natural beeswax shoe cream.",
+    "tags": [
+      "Footwear",
+      "Handcrafted in Italy",
+      "Loafers"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 97,
+    "createdAt": "2026-08-10T10:00:00Z"
+  },
+  {
+    "id": "pab-m-016",
+    "sku": "PAB-FW-16-CHE",
+    "name": "Monolithic Leather Chelsea Boots",
+    "slug": "monolithic-leather-chelsea-boots",
+    "gender": "men",
+    "category": "footwear",
+    "subCategory": "boots",
+    "collections": [
+      "editorial",
+      "formal"
+    ],
+    "description": "Sculpted from thick wax-treated leather with concealed tonal elastic side gussets. Features an angular chisel toe and custom bevelled Vibram commando sole.",
+    "price": 1150,
+    "images": [
+      {
+        "url": "/images/categories/footwear.jpg",
+        "alt": "Monolithic Chelsea Boots",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Boot Heel and Pull-Tab",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      },
+      {
+        "name": "43",
+        "inStock": true
+      },
+      {
+        "name": "44",
+        "inStock": true
+      }
+    ],
+    "stock": 15,
+    "material": "100% Waxed Tuscan Calfskin",
+    "fit": "Chisel Toe Standard",
+    "careInstructions": "Wipe with damp cloth and treat with leather balm.",
+    "tags": [
+      "Boots",
+      "Chelsea",
+      "Italian"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 89,
+    "createdAt": "2026-07-15T10:00:00Z"
+  },
+  {
+    "id": "pab-m-017",
+    "sku": "PAB-BG-17-BLK",
+    "name": "Architectural Calfskin Briefcase",
+    "slug": "architectural-calfskin-briefcase",
+    "gender": "men",
+    "category": "bags",
+    "subCategory": "briefcases",
+    "collections": [
+      "new-season",
+      "formal",
+      "limited-edition"
+    ],
+    "description": "Sculpted leather briefcase with bevelled edges, brushed palladium hardware, and suede lining. Designed to hold 16-inch laptops with refined slimness.",
+    "price": 1450,
+    "images": [
+      {
+        "url": "/images/categories/bags.jpg",
+        "alt": "Architectural Calfskin Briefcase in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Briefcase Handle and Lock Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 8,
+    "material": "Full-Grain Italian Calfskin / Alcantara Lining",
+    "fit": "One Size (40cm x 29cm x 6cm)",
+    "careInstructions": "Store in supplied flannel dust bag with filling.",
+    "tags": [
+      "Leather Goods",
+      "Bags",
+      "Limited Edition"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 92,
+    "createdAt": "2026-08-28T10:00:00Z"
+  },
+  {
+    "id": "pab-m-018",
+    "sku": "PAB-BG-18-TOT",
+    "name": "Minimalist Grain Leather Day Tote",
+    "slug": "minimalist-grain-leather-day-tote",
+    "gender": "men",
+    "category": "bags",
+    "subCategory": "totes",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Cut from supple pebble-grain leather with magnetic bridge closure, structured flat base, and interior zip pocket. Accommodates weekend travel or daily atelier carry.",
+    "price": 1100,
+    "images": [
+      {
+        "url": "/images/categories/bags.jpg",
+        "alt": "Minimalist Grain Leather Tote",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Tote Handle Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Dark Umber",
+        "hex": "#32251D",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 18,
+    "material": "Pebble-Grain Italian Calf Leather",
+    "fit": "One Size (46cm x 36cm x 15cm)",
+    "careInstructions": "Clean with soft dry cloth.",
+    "tags": [
+      "Tote",
+      "Bags",
+      "Leather"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 88,
+    "createdAt": "2026-07-02T10:00:00Z"
+  },
+  {
+    "id": "pab-m-019",
+    "sku": "PAB-AC-19-BEL",
+    "name": "Architectural Palladium Buckle Belt",
+    "slug": "architectural-palladium-buckle-belt",
+    "gender": "men",
+    "category": "accessories",
+    "subCategory": "belts",
+    "collections": [
+      "essentials",
+      "formal"
+    ],
+    "description": "Sleek 30mm dress belt crafted from smooth bridle leather with a brushed matte palladium pin buckle. Hand-burnished edges sealed with natural lacquer.",
+    "price": 290,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Palladium Buckle Belt",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Buckle Finish Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Cognac",
+        "hex": "#422817",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "85cm",
+        "inStock": true
+      },
+      {
+        "name": "90cm",
+        "inStock": true
+      },
+      {
+        "name": "95cm",
+        "inStock": true
+      },
+      {
+        "name": "100cm",
+        "inStock": true
+      }
+    ],
+    "stock": 40,
+    "material": "100% Bridle Leather / Solid Brass with Palladium Plating",
+    "fit": "Width 30mm",
+    "careInstructions": "Wipe clean with soft cloth.",
+    "tags": [
+      "Accessories",
+      "Belts"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 86,
+    "createdAt": "2026-06-20T10:00:00Z"
+  },
+  {
+    "id": "pab-m-020",
+    "sku": "PAB-AC-20-RNG",
+    "name": "Sterling Silver Atelier Signet Ring",
+    "slug": "sterling-silver-atelier-signet-ring",
+    "gender": "men",
+    "category": "accessories",
+    "subCategory": "jewelry",
+    "collections": [
+      "limited-edition",
+      "editorial"
+    ],
+    "description": "Hand-cast in Arezzo from solid 925 sterling silver with a satin-brushed face and polished bevels. Subtle discreet PABLO hallmark engraved on the inner band.",
+    "price": 360,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Sterling Silver Signet Ring",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Ring Profile and Engraving",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Silver 925",
+        "hex": "#CCCCCC",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "US 8",
+        "inStock": true
+      },
+      {
+        "name": "US 9",
+        "inStock": true
+      },
+      {
+        "name": "US 10",
+        "inStock": true
+      },
+      {
+        "name": "US 11",
+        "inStock": false
+      }
+    ],
+    "stock": 12,
+    "material": "100% Solid 925 Sterling Silver",
+    "fit": "Signet 14mm Face",
+    "careInstructions": "Store in anti-tarnish pouch. Clean with polishing cloth.",
+    "tags": [
+      "Jewelry",
+      "Sterling Silver",
+      "Accessories"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 91,
+    "createdAt": "2026-08-18T10:00:00Z"
+  },
+  {
+    "id": "pab-w-021",
+    "sku": "PAB-WD-21-BLK",
+    "name": "Sculptural Column Silk Maxi Dress",
+    "slug": "sculptural-column-silk-maxi-dress",
+    "gender": "women",
+    "category": "dresses",
+    "subCategory": "evening-dresses",
+    "collections": [
+      "new-season",
+      "editorial",
+      "evening"
+    ],
+    "description": "Floor-sweeping column gown tailored from weighty silk crepe de chine. Features an architectural high neckline, open blade-cut back, and discreet side slit.",
+    "price": 1650,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Sculptural Column Silk Maxi Dress in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Column Dress Back Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Raw Ivory",
+        "hex": "#EAE8E1",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": false
+      }
+    ],
+    "stock": 14,
+    "material": "100% Mulberry Silk Crepe (40mm)",
+    "fit": "Architectural Column Fit",
+    "careInstructions": "Dry clean only. Cool iron under pressing cloth.",
+    "tags": [
+      "Dresses",
+      "Evening",
+      "Silk"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 97,
+    "createdAt": "2026-08-22T10:00:00Z"
+  },
+  {
+    "id": "pab-w-022",
+    "sku": "PAB-WD-22-BIA",
+    "name": "Asymmetric Bias-Cut Slip Dress",
+    "slug": "asymmetric-bias-cut-slip-dress",
+    "gender": "women",
+    "category": "dresses",
+    "subCategory": "slip-dresses",
+    "collections": [
+      "new-season",
+      "casual",
+      "sale"
+    ],
+    "description": "Cut on the true 45-degree grain from fluid sandwashed silk satin that gently moulds to the body. Features razor-thin roulette straps and a handkerchief hem.",
+    "price": 890,
+    "salePrice": 620,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Asymmetric Bias-Cut Slip Dress",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Slip Dress Hem Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Midnight Noir",
+        "hex": "#0E0E10",
+        "inStock": true
+      },
+      {
+        "name": "Basalt Grey",
+        "hex": "#4B4B4B",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 18,
+    "material": "100% Sandwashed Silk Satin",
+    "fit": "Fluid Bias Fit",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Slip Dress",
+      "Silk",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 91,
+    "createdAt": "2026-06-15T10:00:00Z"
+  },
+  {
+    "id": "pab-w-023",
+    "sku": "PAB-WC-23-CAM",
+    "name": "Belted Cocoon Double-Face Coat",
+    "slug": "belted-cocoon-double-face-coat",
+    "gender": "women",
+    "category": "outerwear",
+    "subCategory": "coats",
+    "collections": [
+      "new-season",
+      "editorial",
+      "formal"
+    ],
+    "description": "An enveloping wrap silhouette sculpted from double-faced baby camelhair and wool. Hand-stitched split edges and an extended self-fabric tie belt.",
+    "price": 2100,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Belted Cocoon Double-Face Coat",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Cocoon Coat Lapel Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Camel",
+        "hex": "#9E7B54",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      }
+    ],
+    "stock": 10,
+    "material": "60% Baby Camelhair, 40% Virgin Wool",
+    "fit": "Oversized Cocoon",
+    "careInstructions": "Specialist luxury dry clean only.",
+    "tags": [
+      "Coat",
+      "Outerwear",
+      "Camelhair"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 98,
+    "createdAt": "2026-08-28T10:00:00Z"
+  },
+  {
+    "id": "pab-w-024",
+    "sku": "PAB-WT-24-PAL",
+    "name": "High-Waisted Palazzo Wool Trousers",
+    "slug": "high-waisted-palazzo-wool-trousers",
+    "gender": "women",
+    "category": "trousers",
+    "subCategory": "palazzo",
+    "collections": [
+      "essentials",
+      "formal"
+    ],
+    "description": "Architectural floor-length trousers with deep inverted pleats originating from an ultra-clean high-rise waistband. Impeccable drape tailored from Biella gabardine.",
+    "price": 720,
+    "images": [
+      {
+        "url": "/images/categories/trousers.jpg",
+        "alt": "High-Waisted Palazzo Trousers in Noir",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Palazzo Waistband Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Ecru",
+        "hex": "#EAE7DF",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "34",
+        "inStock": true
+      },
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 24,
+    "material": "100% Fine Italian Wool Gabardine",
+    "fit": "High-Rise Wide Leg",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Palazzo",
+      "Tailoring",
+      "Trousers"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 94,
+    "createdAt": "2026-07-20T10:00:00Z"
+  },
+  {
+    "id": "pab-w-025",
+    "sku": "PAB-WT-25-TOP",
+    "name": "Draped Asymmetric Silk Georgette Top",
+    "slug": "draped-asymmetric-silk-georgette-top",
+    "gender": "women",
+    "category": "tops",
+    "subCategory": "blouses",
+    "collections": [
+      "new-season",
+      "evening"
+    ],
+    "description": "A cascade of semi-sheer double georgette engineered with a fluid diagonal drape and cowl neckline. Concealed zip fastening at the shoulder.",
+    "price": 540,
+    "images": [
+      {
+        "url": "/images/categories/shirts.jpg",
+        "alt": "Draped Silk Georgette Top",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Draped Top Shoulder Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Chalk",
+        "hex": "#F3F1ED",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 20,
+    "material": "100% Silk Double Georgette",
+    "fit": "Fluid Asymmetric",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Tops",
+      "Silk",
+      "Evening"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 89,
+    "createdAt": "2026-08-16T10:00:00Z"
+  },
+  {
+    "id": "pab-w-026",
+    "sku": "PAB-WK-26-CSH",
+    "name": "Oversized Ribbed Cashmere Turtleneck",
+    "slug": "oversized-ribbed-cashmere-turtleneck",
+    "gender": "women",
+    "category": "knitwear",
+    "subCategory": "sweaters",
+    "collections": [
+      "new-season",
+      "essentials"
+    ],
+    "description": "Substantial 5-gauge fisherman rib knitted from Grade-A white cashmere. Features dropped shoulders, a foldover funnel neck, and stepped side-slit hem.",
+    "price": 980,
+    "images": [
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Ribbed Cashmere Turtleneck",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Turtleneck Collar and Cuff",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Ivory Melange",
+        "hex": "#E8E4DA",
+        "inStock": true
+      },
+      {
+        "name": "Anthracite",
+        "hex": "#2E2E31",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "XS",
+        "inStock": true
+      },
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      }
+    ],
+    "stock": 19,
+    "material": "100% Mongolian Cashmere (5-gauge)",
+    "fit": "Oversized Cocoon",
+    "careInstructions": "Hand wash cold with wool wash. Dry flat.",
+    "tags": [
+      "Cashmere",
+      "Knitwear",
+      "Winter"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 95,
+    "createdAt": "2026-08-26T10:00:00Z"
+  },
+  {
+    "id": "pab-w-027",
+    "sku": "PAB-WJ-27-SEL",
+    "name": "High-Rise Selvedge Wide-Leg Jeans",
+    "slug": "high-rise-selvedge-wide-leg-jeans",
+    "gender": "women",
+    "category": "denim",
+    "subCategory": "jeans",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Crafted from raw 13oz Japanese shuttle-loom denim. Engineered with an ultra-high 32cm rise that hugs the natural waist before breaking into a wide, architectural leg.",
+    "price": 490,
+    "images": [
+      {
+        "url": "/images/categories/denim.jpg",
+        "alt": "High-Rise Selvedge Jeans",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Selvedge Hem and Pocket Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Raw Indigo",
+        "hex": "#162238",
+        "inStock": true
+      },
+      {
+        "name": "Washed Carbon",
+        "hex": "#353538",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "25",
+        "inStock": true
+      },
+      {
+        "name": "26",
+        "inStock": true
+      },
+      {
+        "name": "27",
+        "inStock": true
+      },
+      {
+        "name": "28",
+        "inStock": true
+      },
+      {
+        "name": "29",
+        "inStock": true
+      }
+    ],
+    "stock": 30,
+    "material": "100% Cotton (13oz Okayama Selvedge)",
+    "fit": "High-Rise Wide Leg",
+    "careInstructions": "Cold wash inside out. Line dry.",
+    "tags": [
+      "Denim",
+      "Selvedge",
+      "Jeans"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 92,
+    "createdAt": "2026-07-10T10:00:00Z"
+  },
+  {
+    "id": "pab-w-028",
+    "sku": "PAB-WF-28-MUL",
+    "name": "Architectural Leather Pointed Mule",
+    "slug": "architectural-leather-pointed-mule",
+    "gender": "women",
+    "category": "footwear",
+    "subCategory": "mules",
+    "collections": [
+      "new-season",
+      "formal",
+      "evening"
+    ],
+    "description": "Handmade in Marche from mirror-finish French calfskin. Features an exaggerated elongated pointed toe and sculpted 55mm cylindrical kitten heel.",
+    "price": 780,
+    "images": [
+      {
+        "url": "/images/categories/footwear.jpg",
+        "alt": "Pointed Leather Mule",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Cylindrical Heel Profile",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir Glacé",
+        "hex": "#080808",
+        "inStock": true
+      },
+      {
+        "name": "Alabaster",
+        "hex": "#F2EFE8",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "37",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "39",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": false
+      }
+    ],
+    "stock": 16,
+    "material": "100% French Calfskin / Natural Leather Sole",
+    "fit": "European Standard (runs true)",
+    "careInstructions": "Protect with neutral shoe balm.",
+    "tags": [
+      "Footwear",
+      "Mules",
+      "Leather"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 93,
+    "createdAt": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": "pab-w-029",
+    "sku": "PAB-WB-29-BAG",
+    "name": "Structured Calfskin Crossbody Minaudière",
+    "slug": "structured-calfskin-crossbody-minaudiere",
+    "gender": "women",
+    "category": "bags",
+    "subCategory": "crossbody",
+    "collections": [
+      "new-season",
+      "evening",
+      "limited-edition"
+    ],
+    "description": "A compact geometric jewel box bag sculpted from smooth saddle leather. Concealed magnetic clasp and detachable curb chain in brushed palladium.",
+    "price": 920,
+    "images": [
+      {
+        "url": "/images/categories/bags.jpg",
+        "alt": "Structured Calfskin Crossbody",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Bag Lock and Strap Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Burgundy",
+        "hex": "#451B21",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 11,
+    "material": "Full-Grain Saddle Leather / Palladium Hardware",
+    "fit": "One Size (19cm x 13cm x 5.5cm)",
+    "careInstructions": "Store in protective dust bag.",
+    "tags": [
+      "Bags",
+      "Leather Goods",
+      "Crossbody"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 96,
+    "createdAt": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": "pab-w-030",
+    "sku": "PAB-WA-30-CUF",
+    "name": "Sculptural Palladium Ear Cuff & Hoop",
+    "slug": "sculptural-palladium-ear-cuff-and-hoop",
+    "gender": "women",
+    "category": "accessories",
+    "subCategory": "jewelry",
+    "collections": [
+      "editorial",
+      "limited-edition"
+    ],
+    "description": "An architectural single-ear statement piece crafted in Italy. Solid silver core plated in pure rhodium/palladium with an ergonomic slip-on tension fit.",
+    "price": 320,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Palladium Ear Cuff",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Ear Cuff Form and Finish",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Palladium",
+        "hex": "#D4D4D6",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 25,
+    "material": "Solid 925 Silver with Rhodium Palladium Plating",
+    "fit": "Ergonomic Tension Fit",
+    "careInstructions": "Keep dry. Polish with microfiber jeweler's cloth.",
+    "tags": [
+      "Jewelry",
+      "Accessories",
+      "Ear Cuff"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 88,
+    "createdAt": "2026-07-18T10:00:00Z"
+  },
+  {
+    "id": "pab-m-041",
+    "sku": "PAB-MC-41-TRN",
+    "name": "Double-Layer Storm Flap Trench Coat",
+    "slug": "double-layer-storm-flap-trench-coat",
+    "gender": "men",
+    "category": "outerwear",
+    "subCategory": "trench-coats",
+    "collections": [
+      "editorial",
+      "new-season"
+    ],
+    "description": "An elongated trench cut from water-repellent British cotton gabardine. Features exaggerated storm flaps, a high throat latch, and storm welt pockets.",
+    "price": 1750,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Storm Flap Trench Coat",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Trench Storm Flap Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Basalt Black",
+        "hex": "#1C1C1D",
+        "inStock": true
+      },
+      {
+        "name": "Dry Olive",
+        "hex": "#464A3E",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      },
+      {
+        "name": "52",
+        "inStock": true
+      }
+    ],
+    "stock": 12,
+    "material": "100% Water-Resistant Cotton Gabardine",
+    "fit": "Oversized Ankle Length",
+    "careInstructions": "Specialist dry clean only.",
+    "tags": [
+      "Trench",
+      "Outerwear",
+      "Editorial"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 93,
+    "createdAt": "2026-08-24T10:00:00Z"
+  },
+  {
+    "id": "pab-m-042",
+    "sku": "PAB-MC-42-CG",
+    "name": "Concealed Pocket Tactical Cargo Trousers",
+    "slug": "concealed-pocket-tactical-cargo-trousers",
+    "gender": "men",
+    "category": "cargo-utility",
+    "subCategory": "utility-pants",
+    "collections": [
+      "casual",
+      "new-season"
+    ],
+    "description": "Sleek utility trousers cut from Japanese high-density cotton gabardine. Flush magnetic pocket closures maintain a clean, unencumbered silhouette.",
+    "price": 590,
+    "images": [
+      {
+        "url": "/images/categories/trousers.jpg",
+        "alt": "Tactical Cargo Trousers",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Flush Magnetic Pocket Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Volcanic Taupe",
+        "hex": "#4A453F",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "46",
+        "inStock": true
+      },
+      {
+        "name": "48",
+        "inStock": true
+      },
+      {
+        "name": "50",
+        "inStock": true
+      },
+      {
+        "name": "52",
+        "inStock": true
+      }
+    ],
+    "stock": 23,
+    "material": "100% Japanese High-Density Cotton",
+    "fit": "Tapered Utility",
+    "careInstructions": "Machine wash cold inside out. Hang dry.",
+    "tags": [
+      "Utility",
+      "Cargo",
+      "New Season"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 91,
+    "createdAt": "2026-08-11T10:00:00Z"
+  },
+  {
+    "id": "pab-m-043",
+    "sku": "PAB-MK-43-WAF",
+    "name": "Heavy Waffle Wool Cardigan",
+    "slug": "heavy-waffle-wool-cardigan",
+    "gender": "men",
+    "category": "knitwear",
+    "subCategory": "cardigans",
+    "collections": [
+      "casual",
+      "sale"
+    ],
+    "description": "Chunky 3-gauge waffle knit spun from British Shetland wool. Features genuine horn buttons and patch front pockets.",
+    "price": 720,
+    "salePrice": 490,
+    "images": [
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Heavy Waffle Cardigan",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Waffle Texture and Horn Buttons",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Oatmeal",
+        "hex": "#D9D2C5",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": false
+      }
+    ],
+    "stock": 15,
+    "material": "100% Shetland Pure New Wool (3-gauge)",
+    "fit": "Relaxed Boxy",
+    "careInstructions": "Hand wash cold with wool wash. Dry flat.",
+    "tags": [
+      "Knitwear",
+      "Cardigan",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 86,
+    "createdAt": "2026-06-08T10:00:00Z"
+  },
+  {
+    "id": "pab-w-044",
+    "sku": "PAB-WC-44-BLZ",
+    "name": "Hourglass Architectural Wool Blazer",
+    "slug": "hourglass-architectural-wool-blazer",
+    "gender": "women",
+    "category": "outerwear",
+    "subCategory": "blazers",
+    "collections": [
+      "new-season",
+      "formal",
+      "editorial"
+    ],
+    "description": "A tailored jacket featuring pronounced sculptural shoulders, a nipped-in waist, and extended hip basques. Cut from compact Italian wool barathea.",
+    "price": 1450,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Hourglass Architectural Blazer",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Hourglass Waist and Lapel Profile",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": false
+      }
+    ],
+    "stock": 12,
+    "material": "100% Wool Barathea / Cupro Bemberg Lining",
+    "fit": "Sculpted Hourglass Fit",
+    "careInstructions": "Specialist dry clean only.",
+    "tags": [
+      "Blazer",
+      "Tailoring",
+      "Runway"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 97,
+    "createdAt": "2026-08-27T10:00:00Z"
+  },
+  {
+    "id": "pab-w-045",
+    "sku": "PAB-WD-45-PLT",
+    "name": "Sunburst Accordion Pleated Midi Dress",
+    "slug": "sunburst-accordion-pleated-midi-dress",
+    "gender": "women",
+    "category": "dresses",
+    "subCategory": "midi-dresses",
+    "collections": [
+      "editorial",
+      "evening",
+      "sale"
+    ],
+    "description": "Heat-set permanent accordion pleating engineered from fluid recycled satin. Features a sculptural halter neckline that cascades down into an airy calf-skimming hem.",
+    "price": 1100,
+    "salePrice": 770,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Accordion Pleated Midi Dress",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Sunburst Pleat Motion",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Raw Basalt",
+        "hex": "#29292B",
+        "inStock": true
+      },
+      {
+        "name": "Ivory",
+        "hex": "#EBE8DF",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 16,
+    "material": "100% Recycled Pleated Satin",
+    "fit": "Fluid Trapeze",
+    "careInstructions": "Specialist dry clean only. Do not iron pleats.",
+    "tags": [
+      "Dresses",
+      "Pleats",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 89,
+    "createdAt": "2026-06-18T10:00:00Z"
+  },
+  {
+    "id": "pab-w-046",
+    "sku": "PAB-WB-46-TOT",
+    "name": "Architectural Oversized Leather Tote",
+    "slug": "architectural-oversized-leather-tote",
+    "gender": "women",
+    "category": "bags",
+    "subCategory": "totes",
+    "collections": [
+      "new-season",
+      "essentials"
+    ],
+    "description": "Monolithic shoulder bag crafted from unlined double-face Italian saddle leather. Features hand-painted edge finishes and an interior tie strap closure.",
+    "price": 1350,
+    "images": [
+      {
+        "url": "/images/categories/bags.jpg",
+        "alt": "Oversized Leather Tote",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Tote Handle Arch Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Cognac",
+        "hex": "#432A1B",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 15,
+    "material": "100% Vegetable-Tanned Tuscan Saddle Leather",
+    "fit": "One Size (52cm x 38cm x 18cm)",
+    "careInstructions": "Store in cloth dust bag. Condition annually with leather cream.",
+    "tags": [
+      "Bags",
+      "Tote",
+      "Leather"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 95,
+    "createdAt": "2026-08-23T10:00:00Z"
+  },
+  {
+    "id": "pab-w-047",
+    "sku": "PAB-WF-47-SLG",
+    "name": "Square-Toe Patent Slingback Pumps",
+    "slug": "square-toe-patent-slingback-pumps",
+    "gender": "women",
+    "category": "footwear",
+    "subCategory": "heels",
+    "collections": [
+      "formal",
+      "evening"
+    ],
+    "description": "Crafted in Vigevano from high-gloss patent calfskin with a modern blunt square toe, architectural 65mm block heel, and elasticated slingback strap.",
+    "price": 820,
+    "images": [
+      {
+        "url": "/images/categories/footwear.jpg",
+        "alt": "Patent Slingback Pumps",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Slingback Heel and Square Toe",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Mirror Noir",
+        "hex": "#0A0A0A",
+        "inStock": true
+      },
+      {
+        "name": "Oxblood",
+        "hex": "#3A171B",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "37",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "39",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 20,
+    "material": "Patent Calfskin / Gloss Leather Sole",
+    "fit": "Square Toe European",
+    "careInstructions": "Buff with soft dry cloth.",
+    "tags": [
+      "Footwear",
+      "Heels",
+      "Slingbacks"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 91,
+    "createdAt": "2026-07-25T10:00:00Z"
+  },
+  {
+    "id": "pab-w-048",
+    "sku": "PAB-WA-48-SCF",
+    "name": "Hand-Rolled 90cm Silk Twill Carre",
+    "slug": "hand-rolled-90cm-silk-twill-carre",
+    "gender": "women",
+    "category": "accessories",
+    "subCategory": "scarves",
+    "collections": [
+      "new-season",
+      "limited-edition"
+    ],
+    "description": "Screen-printed by hand in Lake Como on heavy 18-momme silk twill with contrast hand-rolled roulotté hems. Features an abstract architectural blueprint motif.",
+    "price": 340,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Silk Twill Carre Scarf",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Hand-Rolled Edge Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Monochrome Print",
+        "hex": "#222222",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "90cm x 90cm",
+        "inStock": true
+      }
+    ],
+    "stock": 30,
+    "material": "100% Mulberry Silk Twill (18mm)",
+    "fit": "90cm x 90cm Square",
+    "careInstructions": "Dry clean only. Cool iron under cloth.",
+    "tags": [
+      "Accessories",
+      "Silk Scarf",
+      "Como"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 90,
+    "createdAt": "2026-08-19T10:00:00Z"
+  },
+  {
+    "id": "pab-m-051",
+    "sku": "PAB-MS-51-LNN",
+    "name": "Band-Collar Raw Linen Shirt",
+    "slug": "band-collar-raw-linen-shirt",
+    "gender": "men",
+    "category": "shirts",
+    "subCategory": "casual-shirts",
+    "collections": [
+      "casual",
+      "essentials"
+    ],
+    "description": "Cut from textured Belgian flax linen with an unlined grandad band collar, mother-of-pearl buttons, and curved shirttail hem.",
+    "price": 440,
+    "images": [
+      {
+        "url": "/images/categories/shirts.jpg",
+        "alt": "Band-Collar Raw Linen Shirt",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Linen Band Collar Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Natural Ecru",
+        "hex": "#E6DFD3",
+        "inStock": true
+      },
+      {
+        "name": "Washed Noir",
+        "hex": "#222222",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": true
+      }
+    ],
+    "stock": 28,
+    "material": "100% Belgian Flax Linen",
+    "fit": "Relaxed Fluid",
+    "careInstructions": "Machine wash cold gentle. Line dry.",
+    "tags": [
+      "Linen",
+      "Shirts",
+      "Band Collar"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 89,
+    "createdAt": "2026-07-04T10:00:00Z"
+  },
+  {
+    "id": "pab-w-052",
+    "sku": "PAB-WT-52-TNK",
+    "name": "Ribbed Mulberry Silk Tank Top",
+    "slug": "ribbed-mulberry-silk-tank-top",
+    "gender": "women",
+    "category": "tops",
+    "subCategory": "tanks",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Spun in a delicate 2x2 rib from 100% Mulberry silk. Features a clean squared scoop neckline and bound armholes for an elegant, elevated foundation layer.",
+    "price": 320,
+    "images": [
+      {
+        "url": "/images/categories/shirts.jpg",
+        "alt": "Ribbed Silk Tank Top",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Silk Rib Texture and Neckline",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Chalk",
+        "hex": "#F3F1EC",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Basalt",
+        "hex": "#3A3A3D",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "XS",
+        "inStock": true
+      },
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      }
+    ],
+    "stock": 45,
+    "material": "100% Spun Mulberry Silk",
+    "fit": "Fitted Stretch Rib",
+    "careInstructions": "Hand wash cold. Lay flat to dry.",
+    "tags": [
+      "Tops",
+      "Silk",
+      "Essentials"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 94,
+    "createdAt": "2026-07-16T10:00:00Z"
+  },
+  {
+    "id": "pab-m-053",
+    "sku": "PAB-MF-53-DRB",
+    "name": "Cordovan Leather Chunky Derby Shoes",
+    "slug": "cordovan-leather-chunky-derby-shoes",
+    "gender": "men",
+    "category": "footwear",
+    "subCategory": "derbies",
+    "collections": [
+      "editorial",
+      "new-season"
+    ],
+    "description": "Goodyear welted in Northamptonshire using genuine Shell Cordovan leather. Features a substantial storm welt and custom lightweight lug rubber sole.",
+    "price": 1280,
+    "images": [
+      {
+        "url": "/images/categories/footwear.jpg",
+        "alt": "Cordovan Chunky Derby Shoes",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Derby Sole Welt and Eyelets",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Dark Burgundy",
+        "hex": "#2B1418",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      },
+      {
+        "name": "43",
+        "inStock": true
+      },
+      {
+        "name": "44",
+        "inStock": true
+      }
+    ],
+    "stock": 14,
+    "material": "100% Genuine Shell Cordovan / Vibram Lug Sole",
+    "fit": "Wide Round Toe",
+    "careInstructions": "Buff with deer bone and specialized cordovan wax.",
+    "tags": [
+      "Footwear",
+      "Derby",
+      "Cordovan"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 95,
+    "createdAt": "2026-08-28T10:00:00Z"
+  },
+  {
+    "id": "pab-w-054",
+    "sku": "PAB-WK-54-CDG",
+    "name": "Fine-Gauge Cashmere Knit Cardigan",
+    "slug": "fine-gauge-cashmere-knit-cardigan",
+    "gender": "women",
+    "category": "knitwear",
+    "subCategory": "cardigans",
+    "collections": [
+      "essentials",
+      "new-season"
+    ],
+    "description": "An ultra-soft 16-gauge knit crafted from two-ply superfine cashmere with a clean V-neck, fully-fashioned shoulders, and tone-on-tone horn buttons.",
+    "price": 680,
+    "images": [
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Fine-Gauge Cashmere Cardigan",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Cashmere Button and Placket",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Warm Camel",
+        "hex": "#9E7A53",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "XS",
+        "inStock": true
+      },
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      }
+    ],
+    "stock": 22,
+    "material": "100% Superfine Mongolian Cashmere",
+    "fit": "Tailored Slim",
+    "careInstructions": "Hand wash cold. Dry flat.",
+    "tags": [
+      "Knitwear",
+      "Cardigan",
+      "Cashmere"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 92,
+    "createdAt": "2026-08-21T10:00:00Z"
+  },
+  {
+    "id": "pab-m-055",
+    "sku": "PAB-MA-55-GLV",
+    "name": "Cashmere-Lined Deerskin Dress Gloves",
+    "slug": "cashmere-lined-deerskin-dress-gloves",
+    "gender": "men",
+    "category": "accessories",
+    "subCategory": "gloves",
+    "collections": [
+      "formal",
+      "limited-edition"
+    ],
+    "description": "Hand-stitched in Naples from supple North American deerskin lined with 100% Scottish cashmere. Features three traditional point stitching on back.",
+    "price": 360,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Deerskin Dress Gloves",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Glove Stitching Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Dark Havana",
+        "hex": "#352219",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "8",
+        "inStock": true
+      },
+      {
+        "name": "8.5",
+        "inStock": true
+      },
+      {
+        "name": "9",
+        "inStock": true
+      }
+    ],
+    "stock": 18,
+    "material": "100% Deerskin / 100% Cashmere Lining",
+    "fit": "Standard European Glove Sizing",
+    "careInstructions": "Specialist leather care only.",
+    "tags": [
+      "Accessories",
+      "Gloves",
+      "Leather"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 86,
+    "createdAt": "2026-07-28T10:00:00Z"
+  },
+  {
+    "id": "pab-w-056",
+    "sku": "PAB-WD-56-WRM",
+    "name": "Architectural Virgin Wool Wrap Midi Dress",
+    "slug": "architectural-virgin-wool-wrap-midi-dress",
+    "gender": "women",
+    "category": "dresses",
+    "subCategory": "wrap-dresses",
+    "collections": [
+      "formal",
+      "editorial"
+    ],
+    "description": "Structured wrap silhouette cut from high-twist stretch virgin wool crepe. Features sharp asymmetric notch lapels and an interior button stay.",
+    "price": 1380,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Wool Wrap Midi Dress",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Wrap Closure and Lapel",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 15,
+    "material": "98% Virgin Wool, 2% Elastane",
+    "fit": "Fitted Waist Tailored",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Dresses",
+      "Wool",
+      "Formal"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 93,
+    "createdAt": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": "pab-m-057",
+    "sku": "PAB-MP-57-STP",
+    "name": "Silk-Cotton Striped Open Collar Polo",
+    "slug": "silk-cotton-striped-open-collar-polo",
+    "gender": "men",
+    "category": "polos",
+    "subCategory": "striped-polos",
+    "collections": [
+      "casual",
+      "sale"
+    ],
+    "description": "Knitted on 18-gauge machines in a micro-stripe jacquard from mulberry silk and Egyptian cotton. Relaxed French spread collar with no buttons.",
+    "price": 480,
+    "salePrice": 335,
+    "images": [
+      {
+        "url": "/images/categories/polos.jpg",
+        "alt": "Striped Open Collar Polo",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Stripe Jacquard Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir & Chalk",
+        "hex": "#1F1F1F",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": false
+      }
+    ],
+    "stock": 20,
+    "material": "55% Silk, 45% Egyptian Cotton",
+    "fit": "Relaxed Classic",
+    "careInstructions": "Hand wash cold. Dry flat.",
+    "tags": [
+      "Polo",
+      "Silk Cotton",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 87,
+    "createdAt": "2026-06-14T10:00:00Z"
+  },
+  {
+    "id": "pab-w-058",
+    "sku": "PAB-WB-58-HLT",
+    "name": "Sculpted Curved Hobo Bag",
+    "slug": "sculpted-curved-hobo-bag",
+    "gender": "women",
+    "category": "bags",
+    "subCategory": "hobo-bags",
+    "collections": [
+      "new-season",
+      "editorial"
+    ],
+    "description": "A seamless crescent-shaped shoulder bag crafted in Florence from padded box calfskin. Integrates an ergonomic wide strap and concealed magnetic closure.",
+    "price": 1180,
+    "images": [
+      {
+        "url": "/images/categories/bags.jpg",
+        "alt": "Curved Hobo Bag",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Hobo Crescent Curve",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Ivory",
+        "hex": "#EDE8DF",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 14,
+    "material": "100% Padded Box Calfskin",
+    "fit": "One Size (38cm x 24cm x 8cm)",
+    "careInstructions": "Store in dust bag away from heat.",
+    "tags": [
+      "Bags",
+      "Hobo",
+      "Leather"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 96,
+    "createdAt": "2026-08-27T10:00:00Z"
+  },
+  {
+    "id": "pab-w-060",
+    "sku": "PAB-WA-60-SUN",
+    "name": "Architectural Bold Acetate Sunglasses",
+    "slug": "architectural-bold-acetate-sunglasses",
+    "gender": "women",
+    "category": "accessories",
+    "subCategory": "eyewear",
+    "collections": [
+      "new-season",
+      "essentials"
+    ],
+    "description": "Handmade in the Cadore valley from 8mm Japanese cellulose acetate. Features flat scratch-resistant Carl Zeiss lenses with 100% UVA/UVB protection.",
+    "price": 420,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Bold Acetate Sunglasses",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Sunglasses Temple and Hinge",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Polished Noir",
+        "hex": "#080808",
+        "inStock": true
+      },
+      {
+        "name": "Dark Tortoise",
+        "hex": "#2E1C12",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 25,
+    "material": "Mazzucchelli Cellulose Acetate / Carl Zeiss Lenses",
+    "fit": "Universal Fit (50-22-145)",
+    "careInstructions": "Clean with microfiber cloth and lens solution.",
+    "tags": [
+      "Accessories",
+      "Sunglasses",
+      "Eyewear"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 94,
+    "createdAt": "2026-08-26T10:00:00Z"
+  },
+  {
+    "id": "pab-m-061",
+    "sku": "PAB-MA-61-WL",
+    "name": "Bifold Calfskin Atelier Card Wallet",
+    "slug": "bifold-calfskin-atelier-card-wallet",
+    "gender": "men",
+    "category": "accessories",
+    "subCategory": "small-leather-goods",
+    "collections": [
+      "essentials",
+      "sale"
+    ],
+    "description": "Compact 6-card bifold wallet handcrafted from French box calf leather with hand-turned edges, foil logo stamp, and two internal currency sleeves.",
+    "price": 280,
+    "salePrice": 195,
+    "images": [
+      {
+        "url": "/images/categories/accessories.jpg",
+        "alt": "Bifold Calfskin Card Wallet",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Wallet Interior Card Slots",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Espresso",
+        "hex": "#2A1F1A",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "One Size",
+        "inStock": true
+      }
+    ],
+    "stock": 30,
+    "material": "100% Box Calfskin Leather",
+    "fit": "One Size (10.5cm x 8cm)",
+    "careInstructions": "Wipe with soft dry cloth.",
+    "tags": [
+      "Accessories",
+      "Wallets",
+      "Leather Goods",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 89,
+    "createdAt": "2026-06-10T10:00:00Z"
+  },
+  {
+    "id": "pab-w-062",
+    "sku": "PAB-WD-62-EVN",
+    "name": "Architectural Cutout Back Crepe Gown",
+    "slug": "architectural-cutout-back-crepe-gown",
+    "gender": "women",
+    "category": "dresses",
+    "subCategory": "evening-dresses",
+    "collections": [
+      "evening",
+      "editorial",
+      "limited-edition"
+    ],
+    "description": "Numbered limited edition of 50. Floor-skimming heavy wool crepe gown engineered with an exact geometric diamond cutout back and razor-sharp train.",
+    "price": 2400,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Architectural Cutout Back Gown",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Diamond Cutout Back Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": false
+      }
+    ],
+    "stock": 5,
+    "material": "100% Italian Double-Face Wool Crepe",
+    "fit": "Architectural Body-Conscious",
+    "careInstructions": "Specialist couture dry clean only.",
+    "tags": [
+      "Evening",
+      "Couture",
+      "Limited Edition"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 99,
+    "createdAt": "2026-08-30T10:00:00Z"
+  },
+  {
+    "id": "pab-m-063",
+    "sku": "PAB-MS-63-SLK",
+    "name": "Camp-Collar Printed Silk Resort Shirt",
+    "slug": "camp-collar-printed-silk-resort-shirt",
+    "gender": "men",
+    "category": "shirts",
+    "subCategory": "casual-shirts",
+    "collections": [
+      "casual",
+      "sale"
+    ],
+    "description": "Tailored from fluid 19-momme silk habotai with a Cuban camp collar, straight vented hem, and mother-of-pearl buttons. Features a subtle tonal marble print.",
+    "price": 580,
+    "salePrice": 410,
+    "images": [
+      {
+        "url": "/images/categories/shirts.jpg",
+        "alt": "Silk Resort Shirt",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Camp Collar Print Close-Up",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Basalt Marble",
+        "hex": "#2B2B2D",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "inStock": true
+      },
+      {
+        "name": "M",
+        "inStock": true
+      },
+      {
+        "name": "L",
+        "inStock": true
+      },
+      {
+        "name": "XL",
+        "inStock": true
+      }
+    ],
+    "stock": 18,
+    "material": "100% Silk Habotai",
+    "fit": "Relaxed Camp Fit",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Shirts",
+      "Silk",
+      "Resort",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 88,
+    "createdAt": "2026-06-22T10:00:00Z"
+  },
+  {
+    "id": "pab-w-064",
+    "sku": "PAB-WT-64-SLK",
+    "name": "Wide-Leg Fluid Silk Crepe Trousers",
+    "slug": "wide-leg-fluid-silk-crepe-trousers",
+    "gender": "women",
+    "category": "trousers",
+    "subCategory": "silk-trousers",
+    "collections": [
+      "evening",
+      "editorial",
+      "sale"
+    ],
+    "description": "Liquid drape trousers tailored from 36-momme silk crepe de chine. Features a flat clean waistband, concealed side zipper, and pooling floor break.",
+    "price": 890,
+    "salePrice": 620,
+    "images": [
+      {
+        "url": "/images/categories/trousers.jpg",
+        "alt": "Wide-Leg Silk Crepe Trousers",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion.png",
+        "alt": "Silk Trousers Drape and Break",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Ivory",
+        "hex": "#EAE7DF",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "36",
+        "inStock": true
+      },
+      {
+        "name": "38",
+        "inStock": true
+      },
+      {
+        "name": "40",
+        "inStock": true
+      }
+    ],
+    "stock": 17,
+    "material": "100% Heavy Silk Crepe de Chine",
+    "fit": "Fluid Wide Leg",
+    "careInstructions": "Dry clean only.",
+    "tags": [
+      "Trousers",
+      "Silk",
+      "Evening",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "popularityScore": 92,
+    "createdAt": "2026-06-30T10:00:00Z"
+  },
+  {
+    "id": "pab-m-030",
+    "sku": "PAB-FW-04-WHT",
+    "name": "Minimalist Calfskin Low-Top Sneakers",
+    "slug": "minimalist-calfskin-low-top-sneakers",
+    "gender": "men",
+    "department": "footwear",
+    "category": "footwear",
+    "subCategory": "sneakers",
+    "collections": [
+      "new-season",
+      "essentials",
+      "casual"
+    ],
+    "description": "Streamlined low-profile court sneaker crafted from full-grain Italian calfskin with tonal Margom rubber sole and waxed cotton laces.",
+    "price": 620,
+    "images": [
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Minimalist Calfskin Low-Top Sneakers",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Minimalist Calfskin Sneakers Profile",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Chalk White",
+        "hex": "#F3F1EC",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "40",
+        "inStock": true
+      },
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      },
+      {
+        "name": "43",
+        "inStock": true
+      },
+      {
+        "name": "44",
+        "inStock": true
+      }
+    ],
+    "stock": 22,
+    "material": "100% Italian Box Calfskin",
+    "fit": "True to Size",
+    "careInstructions": "Wipe with damp cloth and apply neutral leather balm.",
+    "tags": [
+      "Men",
+      "Footwear",
+      "Sneakers"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 94,
+    "createdAt": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": "pab-m-031",
+    "sku": "PAB-FW-05-SDE",
+    "name": "Architectural Suede Atelier Slides",
+    "slug": "architectural-suede-atelier-slides",
+    "gender": "men",
+    "department": "footwear",
+    "category": "footwear",
+    "subCategory": "slides",
+    "collections": [
+      "new-season",
+      "casual"
+    ],
+    "description": "Sculptural slip-on slide fashioned with a wide crossover upper in supple Tuscan reverse calf suede and anatomical cushioned leather footbed.",
+    "price": 540,
+    "images": [
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Architectural Suede Atelier Slides in Sand",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Architectural Suede Slides Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Sandstone",
+        "hex": "#B8A898",
+        "inStock": true
+      },
+      {
+        "name": "Noir",
+        "hex": "#181818",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      },
+      {
+        "name": "43",
+        "inStock": true
+      },
+      {
+        "name": "44",
+        "inStock": true
+      }
+    ],
+    "stock": 16,
+    "material": "100% Tuscan Reverse Calfskin Suede",
+    "fit": "Relaxed Contoured",
+    "careInstructions": "Protect with suede spray before first wear.",
+    "tags": [
+      "Men",
+      "Footwear",
+      "Slides"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 89,
+    "createdAt": "2026-08-22T10:00:00Z"
+  },
+  {
+    "id": "pab-m-032",
+    "sku": "PAB-FW-06-SND",
+    "name": "Strapped Leather Atelier Sandals",
+    "slug": "strapped-leather-atelier-sandals",
+    "gender": "men",
+    "department": "footwear",
+    "category": "footwear",
+    "subCategory": "sandals",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Minimalist leather sandals featuring hand-burnished bridle leather straps, brushed palladium hardware, and vibram micro-lug sole.",
+    "price": 580,
+    "images": [
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Strapped Leather Atelier Sandals",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Strapped Leather Sandals Angle",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Chestnut",
+        "hex": "#4A3222",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "41",
+        "inStock": true
+      },
+      {
+        "name": "42",
+        "inStock": true
+      },
+      {
+        "name": "43",
+        "inStock": true
+      },
+      {
+        "name": "44",
+        "inStock": false
+      }
+    ],
+    "stock": 14,
+    "material": "100% Bridle Calfskin Leather",
+    "fit": "True to Size",
+    "careInstructions": "Condition regularly with natural beeswax balm.",
+    "tags": [
+      "Men",
+      "Footwear",
+      "Sandals"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 85,
+    "createdAt": "2026-07-28T10:00:00Z"
+  },
+  {
+    "id": "pab-m-033",
+    "sku": "PAB-AC-06-CAP",
+    "name": "Heavy Wool Gabardine Atelier Cap",
+    "slug": "heavy-wool-gabardine-atelier-cap",
+    "gender": "men",
+    "department": "accessories",
+    "category": "accessories",
+    "subCategory": "caps",
+    "collections": [
+      "new-season",
+      "essentials"
+    ],
+    "description": "Unstructured 6-panel baseball cap tailored from dense military-grade virgin wool gabardine with matte tonal metal slide buckle.",
+    "price": 240,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Heavy Wool Gabardine Atelier Cap",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Wool Gabardine Cap Hardware Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Ardoise Grey",
+        "hex": "#4A4D52",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "Adjustable",
+        "inStock": true
+      }
+    ],
+    "stock": 35,
+    "material": "100% Virgin Wool Gabardine",
+    "fit": "Adjustable Crown",
+    "careInstructions": "Spot clean only.",
+    "tags": [
+      "Men",
+      "Accessories",
+      "Caps"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 92,
+    "createdAt": "2026-08-25T10:00:00Z"
+  },
+  {
+    "id": "pab-m-034",
+    "sku": "PAB-AC-07-SUN",
+    "name": "Matte Titanium Sculptural Sunglasses",
+    "slug": "matte-titanium-sculptural-sunglasses",
+    "gender": "men",
+    "department": "accessories",
+    "category": "accessories",
+    "subCategory": "sunglasses",
+    "collections": [
+      "editorial",
+      "limited-edition"
+    ],
+    "description": "Architectural geometric frame hand-milled from lightweight Japanese grade-5 titanium with Zeiss anti-reflective mineral lenses.",
+    "price": 680,
+    "images": [
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Matte Titanium Sculptural Sunglasses",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Titanium Sunglasses Lens Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Matte Gunmetal",
+        "hex": "#3A3B3D",
+        "inStock": true
+      },
+      {
+        "name": "Brushed Platinum",
+        "hex": "#8A8D91",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "Universal",
+        "inStock": true
+      }
+    ],
+    "stock": 18,
+    "material": "100% Japanese Beta-Titanium",
+    "fit": "Universal Fit",
+    "careInstructions": "Clean with microfiber cloth.",
+    "tags": [
+      "Men",
+      "Accessories",
+      "Sunglasses"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "popularityScore": 97,
+    "createdAt": "2026-08-30T10:00:00Z"
+  },
+  {
+    "id": "pab-m-035",
+    "sku": "PAB-AC-08-SCK",
+    "name": "Mercerized Egyptian Cotton Ribbed Socks",
+    "slug": "mercerized-egyptian-cotton-ribbed-socks",
+    "gender": "men",
+    "department": "accessories",
+    "category": "accessories",
+    "subCategory": "socks",
+    "collections": [
+      "essentials"
+    ],
+    "description": "Finely knitted mid-calf socks in 2-ply long-staple Giza cotton with hand-linked seamless toes and reinforced heel cups.",
+    "price": 95,
+    "images": [
+      {
+        "url": "/images/categories/knitwear.jpg",
+        "alt": "Mercerized Egyptian Cotton Ribbed Socks",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/hero-fashion-source.png",
+        "alt": "Ribbed Socks Texture Detail",
+        "isPrimary": false
+      }
+    ],
+    "colors": [
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true
+      },
+      {
+        "name": "Ivory Ecru",
+        "hex": "#ECE8E1",
+        "inStock": true
+      },
+      {
+        "name": "Espresso",
+        "hex": "#2C1E18",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "name": "M (40-42)",
+        "inStock": true
+      },
+      {
+        "name": "L (43-45)",
+        "inStock": true
+      }
+    ],
+    "stock": 50,
+    "material": "90% Mercerized Egyptian Giza Cotton, 10% Polyamide",
+    "fit": "Mid-Calf Stay-Up",
+    "careInstructions": "Machine wash delicate at 30°C.",
+    "tags": [
+      "Men",
+      "Accessories",
+      "Socks"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "popularityScore": 88,
+    "createdAt": "2026-08-01T10:00:00Z"
+  },
+  {
+    "id": "pab-k-001",
+    "sku": "PAB-KD-HD-01-SKY",
+    "name": "Junior Cloud-Soft Cashmere Hoodie",
+    "slug": "junior-cloud-soft-cashmere-hoodie",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "hoodies-sweatshirts",
+    "subCategory": "hoodies",
+    "collections": [
+      "new-season",
+      "essentials",
+      "best-sellers"
+    ],
+    "description": "Spun from exceptionally gentle 2-ply Mongolian cashmere. Features raglan sleeves for unrestrained play, a seamless kangaroo pocket, and rib-knit cuffs that roll comfortably as your child grows.",
+    "subtitle": "100% Cloud-Soft Cashmere Knit",
+    "price": 380,
+    "badge": "BESTSELLER",
+    "images": [
+      {
+        "url": "/images/kids/hoodie-sky-front.jpg",
+        "alt": "Junior Cloud-Soft Cashmere Hoodie in Sky Mist Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/kids/hoodie-sky-back.jpg",
+        "alt": "Junior Cashmere Hoodie Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/kids/hoodie-sky-detail.jpg",
+        "alt": "Junior Cashmere Hoodie Knit Texture & Stitching Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "alt": "Junior Cashmere Hoodie Lifestyle Editorial",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/hoodie-cream-front.jpg",
+        "alt": "Junior Cashmere Hoodie in Butter Cream View",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/kids/hoodie-sky-front.jpg",
+    "hoverImage": "/images/kids/hoodie-sky-back.jpg",
+    "colorVariants": [
+      {
+        "name": "Sky Mist",
+        "value": "#93C5FD",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/hoodie-sky-front.jpg",
+            "alt": "Junior Cashmere Hoodie Sky Mist Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-back.jpg",
+            "alt": "Junior Cashmere Hoodie Sky Mist Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-detail.jpg",
+            "alt": "Junior Cashmere Hoodie Sky Mist Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "alt": "Junior Cashmere Hoodie Sky Mist Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Butter Cream",
+        "value": "#FEF08A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/hoodie-cream-front.jpg",
+            "alt": "Junior Cashmere Hoodie Butter Cream Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-back.jpg",
+            "alt": "Junior Cashmere Hoodie Butter Cream Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-detail.jpg",
+            "alt": "Junior Cashmere Hoodie Butter Cream Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "alt": "Junior Cashmere Hoodie Butter Cream Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Basalt Noir",
+        "value": "#181818",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/hoodie-noir.jpg",
+            "alt": "Junior Cashmere Hoodie Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-back.jpg",
+            "alt": "Junior Cashmere Hoodie Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-detail.jpg",
+            "alt": "Junior Cashmere Hoodie Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "alt": "Junior Cashmere Hoodie Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Sky Mist",
+        "hex": "#93C5FD",
+        "inStock": true,
+        "imageOverride": "/images/kids/hoodie-sky-front.jpg"
+      },
+      {
+        "name": "Butter Cream",
+        "hex": "#FEF08A",
+        "inStock": true,
+        "imageOverride": "/images/kids/hoodie-cream-front.jpg"
+      },
+      {
+        "name": "Basalt Noir",
+        "hex": "#181818",
+        "inStock": true,
+        "imageOverride": "/images/products/hoodie-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "2Y",
+        "inStock": true
+      },
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": false
+      }
+    ],
+    "stock": 24,
+    "material": "100% Grade-A Mongolian Cashmere (2-ply 12gg)",
+    "fit": "Relaxed Boxy Play Fit — room to layer and move freely",
+    "careInstructions": "Hand wash cold inside out with mild organic wool wash. Dry flat on a clean towel.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Play Pick",
+      "Cashmere",
+      "Hoodie",
+      "Cloud Soft"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 99,
+    "createdAt": "2026-09-01T10:00:00Z"
+  },
+  {
+    "id": "pab-k-002",
+    "sku": "PAB-KD-CT-02-NVY",
+    "name": "Mini Heirloom Melton Wool Duffle Coat",
+    "slug": "mini-heirloom-melton-wool-duffle-coat",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "outerwear",
+    "subCategory": "coats",
+    "collections": [
+      "new-season",
+      "editorial"
+    ],
+    "description": "An archival luxury classic scaled down for young explorers. Tailored from water-repellent Italian wool melton, featuring genuine hand-turned wooden toggle fasteners with braided jute cords and a generous storm hood.",
+    "subtitle": "Italian Melton Wool & Hand-Turned Wood Toggles",
+    "price": 620,
+    "badge": "JUNIOR",
+    "images": [
+      {
+        "url": "/images/kids/duffle-navy-front.jpg",
+        "alt": "Mini Heirloom Melton Wool Duffle Coat in Deep Navy Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/kids/duffle-navy-back.jpg",
+        "alt": "Mini Duffle Coat Deep Navy Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/kids/duffle-navy-detail.jpg",
+        "alt": "Mini Duffle Coat Wood Toggle & Wool Texture Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/duffle-camel-front.jpg",
+        "alt": "Mini Duffle Coat in Camel Tan Alternate View",
+        "isPrimary": false,
+        "viewType": "alternate"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Mini Duffle Coat Outdoor Lifestyle Portrait",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      }
+    ],
+    "primaryImage": "/images/kids/duffle-navy-front.jpg",
+    "hoverImage": "/images/kids/duffle-navy-back.jpg",
+    "colorVariants": [
+      {
+        "name": "Deep Navy",
+        "value": "#0F172A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/duffle-navy-front.jpg",
+            "alt": "Mini Duffle Coat Deep Navy Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/duffle-navy-back.jpg",
+            "alt": "Mini Duffle Coat Deep Navy Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/kids/duffle-navy-detail.jpg",
+            "alt": "Mini Duffle Coat Deep Navy Toggle Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Mini Duffle Coat Deep Navy Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Camel Tan",
+        "value": "#C2A378",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/duffle-camel-front.jpg",
+            "alt": "Mini Duffle Coat Camel Tan Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/duffle-navy-back.jpg",
+            "alt": "Mini Duffle Coat Camel Tan Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/kids/duffle-navy-detail.jpg",
+            "alt": "Mini Duffle Coat Camel Tan Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Mini Duffle Coat Camel Tan Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Deep Navy",
+        "hex": "#0F172A",
+        "inStock": true,
+        "imageOverride": "/images/kids/duffle-navy-front.jpg"
+      },
+      {
+        "name": "Camel Tan",
+        "hex": "#C2A378",
+        "inStock": true,
+        "imageOverride": "/images/kids/duffle-camel-front.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": false
+      }
+    ],
+    "stock": 16,
+    "material": "100% Italian Virgin Melton Wool (520gsm) with Cupro Lining",
+    "fit": "Classic Outerwear Tailored Fit — allows mid-layer knitwear underneath",
+    "careInstructions": "Specialist luxury dry clean only. Brush with soft natural bristle brush.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Outerwear",
+      "Duffle Coat",
+      "Melton Wool",
+      "Heirloom"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 96,
+    "createdAt": "2026-09-02T10:00:00Z"
+  },
+  {
+    "id": "pab-k-003",
+    "sku": "PAB-KD-KN-03-IVR",
+    "name": "Petit Cable-Knit Merino Crewneck",
+    "slug": "petit-cable-knit-merino-crewneck",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "knitwear",
+    "subCategory": "sweaters",
+    "collections": [
+      "new-season",
+      "essentials"
+    ],
+    "description": "Chunky traditional Aran rope-cable sweater spun from extrafine Australian merino wool. Ultra-soft on tender skin, naturally thermoregulating for brisk playground mornings and family dinners.",
+    "subtitle": "Extrafine Australian Merino Wool",
+    "price": 310,
+    "badge": "NEW",
+    "images": [
+      {
+        "url": "/images/kids/cable-knit-ivory-front.jpg",
+        "alt": "Petit Cable-Knit Merino Crewneck in Ivory Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/kids/cable-knit-ivory-back.jpg",
+        "alt": "Petit Cable-Knit Merino Crewneck Ivory Back",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/products/knit-stone.jpg",
+        "alt": "Petit Cable-Knit Wool Cable Weave Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Petit Cable-Knit Lifestyle Portrait",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/products/knit-charcoal.jpg",
+        "alt": "Petit Cable-Knit in Basalt Charcoal Alternate",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/kids/cable-knit-ivory-front.jpg",
+    "hoverImage": "/images/kids/cable-knit-ivory-back.jpg",
+    "colorVariants": [
+      {
+        "name": "Ivory Cream",
+        "value": "#FDFBF7",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/cable-knit-ivory-front.jpg",
+            "alt": "Petit Cable-Knit Ivory Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/cable-knit-ivory-back.jpg",
+            "alt": "Petit Cable-Knit Ivory Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/products/knit-stone.jpg",
+            "alt": "Petit Cable-Knit Ivory Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Cable-Knit Ivory Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Basalt Charcoal",
+        "value": "#2C2C2C",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/knit-charcoal.jpg",
+            "alt": "Petit Cable-Knit Charcoal Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/cable-knit-ivory-back.jpg",
+            "alt": "Petit Cable-Knit Charcoal Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/products/knit-stone.jpg",
+            "alt": "Petit Cable-Knit Charcoal Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Cable-Knit Charcoal Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Ivory Cream",
+        "hex": "#FDFBF7",
+        "inStock": true,
+        "imageOverride": "/images/kids/cable-knit-ivory-front.jpg"
+      },
+      {
+        "name": "Basalt Charcoal",
+        "hex": "#2C2C2C",
+        "inStock": true,
+        "imageOverride": "/images/products/knit-charcoal.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 20,
+    "material": "100% Extrafine Merino Wool (19.5 micron)",
+    "fit": "Classic Regular Fit with ribbed mock-collar and drop shoulder",
+    "careInstructions": "Hand wash cold with wool-approved liquid detergent. Reshape whilst damp.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Knitwear",
+      "Merino",
+      "Sweater"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 94,
+    "createdAt": "2026-09-05T10:00:00Z"
+  },
+  {
+    "id": "pab-k-004",
+    "sku": "PAB-KD-SH-04-WHT",
+    "name": "Petit Tailored Organic Poplin Shirt",
+    "slug": "petit-tailored-organic-poplin-shirt",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "shirts",
+    "subCategory": "shirts",
+    "collections": [
+      "essentials",
+      "editorial"
+    ],
+    "description": "Crisp yet butter-soft button-down shirt cut from long-staple GOTS-certified organic cotton poplin. Mother-of-pearl buttons with cross-stitch reinforcement and rounded barrel cuffs.",
+    "subtitle": "GOTS-Certified Organic Cotton Poplin",
+    "price": 190,
+    "badge": "JUST IN",
+    "images": [
+      {
+        "url": "/images/kids/poplin-shirt-white-front.jpg",
+        "alt": "Petit Tailored Poplin Shirt in Chalk White Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/kids/poplin-shirt-white-back.jpg",
+        "alt": "Petit Tailored Poplin Shirt Chalk White Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/products/shirt-white.jpg",
+        "alt": "Petit Poplin Shirt Collar & Mother of Pearl Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Petit Poplin Shirt Editorial Lifestyle",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/products/shirt-noir.jpg",
+        "alt": "Petit Poplin Shirt in Noir Alternate",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/kids/poplin-shirt-white-front.jpg",
+    "hoverImage": "/images/kids/poplin-shirt-white-back.jpg",
+    "colorVariants": [
+      {
+        "name": "Chalk White",
+        "value": "#FFFFFF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/poplin-shirt-white-front.jpg",
+            "alt": "Petit Poplin Shirt Chalk White Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/poplin-shirt-white-back.jpg",
+            "alt": "Petit Poplin Shirt Chalk White Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/products/shirt-white.jpg",
+            "alt": "Petit Poplin Shirt Chalk White Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Poplin Shirt Chalk White Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#181818",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/shirt-noir.jpg",
+            "alt": "Petit Poplin Shirt Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/poplin-shirt-white-back.jpg",
+            "alt": "Petit Poplin Shirt Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/products/shirt-white.jpg",
+            "alt": "Petit Poplin Shirt Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Poplin Shirt Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Chalk White",
+        "hex": "#FFFFFF",
+        "inStock": true,
+        "imageOverride": "/images/kids/poplin-shirt-white-front.jpg"
+      },
+      {
+        "name": "Noir",
+        "hex": "#181818",
+        "inStock": true,
+        "imageOverride": "/images/products/shirt-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 28,
+    "material": "100% GOTS-Certified Organic Supima Cotton Poplin (130gsm)",
+    "fit": "Tailored Smart Fit — curved hem looks sharp tucked or untucked",
+    "careInstructions": "Machine wash warm gentle cycle (30°C). Warm iron while damp.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Shirts",
+      "Organic Cotton",
+      "Tailoring"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 91,
+    "createdAt": "2026-09-08T10:00:00Z"
+  },
+  {
+    "id": "pab-k-005",
+    "sku": "PAB-KD-TR-05-KHK",
+    "name": "Little Explorer Tailored Trench Coat",
+    "slug": "little-explorer-tailored-trench-coat",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "outerwear",
+    "subCategory": "coats",
+    "collections": [
+      "new-season",
+      "editorial",
+      "limited-edition"
+    ],
+    "description": "The signature PABLO trench reimagined for young pioneers. Crafted from showerproof cotton gabardine with a soft cotton check lining, raglan storm sleeves, throat latch, and tortoiseshell horn buttons.",
+    "subtitle": "Showerproof English Cotton Gabardine",
+    "price": 540,
+    "badge": "LIMITED",
+    "images": [
+      {
+        "url": "/images/pablo-kids-hero.png",
+        "alt": "Little Explorer Tailored Trench Coat Signature Look Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Little Explorer Trench Lifestyle Editorial",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/duffle-navy-detail.jpg",
+        "alt": "Little Explorer Trench Craftsmanship Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/duffle-camel-front.jpg",
+        "alt": "Little Explorer Trench Alternate Perspective",
+        "isPrimary": false,
+        "viewType": "alternate"
+      },
+      {
+        "url": "/images/kids/duffle-navy-back.jpg",
+        "alt": "Little Explorer Trench Back Storm Flap Detail",
+        "isPrimary": false,
+        "viewType": "back"
+      }
+    ],
+    "primaryImage": "/images/pablo-kids-hero.png",
+    "hoverImage": "/images/kids/kids-model-lifestyle.jpg",
+    "colorVariants": [
+      {
+        "name": "Honey Khaki",
+        "value": "#D4B996",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/pablo-kids-hero.png",
+            "alt": "Little Explorer Trench Honey Khaki Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Little Explorer Trench Honey Khaki Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          },
+          {
+            "url": "/images/kids/duffle-navy-detail.jpg",
+            "alt": "Little Explorer Trench Honey Khaki Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/duffle-camel-front.jpg",
+            "alt": "Little Explorer Trench Honey Khaki Alternate",
+            "isPrimary": false,
+            "viewType": "alternate"
+          }
+        ]
+      },
+      {
+        "name": "Midnight Navy",
+        "value": "#1E293B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/kids/duffle-navy-front.jpg",
+            "alt": "Little Explorer Trench Midnight Navy Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/kids/duffle-navy-back.jpg",
+            "alt": "Little Explorer Trench Midnight Navy Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/kids/duffle-navy-detail.jpg",
+            "alt": "Little Explorer Trench Midnight Navy Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Little Explorer Trench Midnight Navy Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Honey Khaki",
+        "hex": "#D4B996",
+        "inStock": true,
+        "imageOverride": "/images/pablo-kids-hero.png"
+      },
+      {
+        "name": "Midnight Navy",
+        "hex": "#1E293B",
+        "inStock": true,
+        "imageOverride": "/images/kids/duffle-navy-front.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 14,
+    "material": "100% Cotton Showerproof Gabardine (380gsm) with Cupro Sleeve Lining",
+    "fit": "Tailored Knee-Length Trench with removable storm belt",
+    "careInstructions": "Specialist luxury dry clean only.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Trench",
+      "Outerwear",
+      "Hero Piece"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 98,
+    "createdAt": "2026-09-10T10:00:00Z"
+  },
+  {
+    "id": "pab-k-006",
+    "sku": "PAB-KD-DN-06-IND",
+    "name": "Petit Japanese Selvedge Denim Jeans",
+    "slug": "petit-japanese-selvedge-denim-jeans",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "denim",
+    "subCategory": "jeans",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Woven on vintage shuttle looms in Okayama, Japan from 11oz soft-spun rope-dyed cotton. Features an adjustable interior elastic waistband for growth, copper rivets, and a classic red-line selvedge turn-up cuff.",
+    "subtitle": "11oz Okayama Red-Line Selvedge Denim",
+    "price": 220,
+    "badge": "PLAY PICK",
+    "images": [
+      {
+        "url": "/images/products/jeans-indigo.jpg",
+        "alt": "Petit Japanese Selvedge Denim Jeans in Rinsed Indigo Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/jeans-washed-noir.jpg",
+        "alt": "Petit Selvedge Denim in Washed Noir Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/categories/denim.jpg",
+        "alt": "Petit Selvedge Denim Red-Line Cuff Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Petit Selvedge Denim Lifestyle",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "alt": "Petit Selvedge Denim Outfit Look",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/jeans-indigo.jpg",
+    "hoverImage": "/images/products/jeans-washed-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Rinsed Indigo",
+        "value": "#1E3A8A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/jeans-indigo.jpg",
+            "alt": "Petit Selvedge Denim Indigo Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/jeans-washed-noir.jpg",
+            "alt": "Petit Selvedge Denim Indigo Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/denim.jpg",
+            "alt": "Petit Selvedge Denim Indigo Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Selvedge Denim Indigo Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Washed Noir",
+        "value": "#1F2937",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/jeans-washed-noir.jpg",
+            "alt": "Petit Selvedge Denim Washed Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/jeans-indigo.jpg",
+            "alt": "Petit Selvedge Denim Washed Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/denim.jpg",
+            "alt": "Petit Selvedge Denim Washed Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Selvedge Denim Washed Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Rinsed Indigo",
+        "hex": "#1E3A8A",
+        "inStock": true,
+        "imageOverride": "/images/products/jeans-indigo.jpg"
+      },
+      {
+        "name": "Washed Noir",
+        "hex": "#1F2937",
+        "inStock": true,
+        "imageOverride": "/images/products/jeans-washed-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 35,
+    "material": "100% Long-Staple Cotton Japanese Selvedge Denim (11oz)",
+    "fit": "Relaxed Straight Leg with hidden interior button-hole elastic waist adjuster",
+    "careInstructions": "Turn inside out. Machine wash cold with like colors. Line dry in shade.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Denim",
+      "Jeans",
+      "Selvedge"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 95,
+    "createdAt": "2026-08-20T10:00:00Z"
+  },
+  {
+    "id": "pab-k-007",
+    "sku": "PAB-KD-TE-07-WHT",
+    "name": "Petit Supima Heavyweight Tee",
+    "slug": "petit-supima-heavyweight-tee",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "t-shirts",
+    "subCategory": "t-shirts",
+    "collections": [
+      "essentials",
+      "casual"
+    ],
+    "description": "Scale model of our iconic adult crewneck. Cut from breathable long-staple organic Supima cotton with taped shoulder seams, double-needle coverstitch hem, and a gentle stretch neckband that won't sag over time.",
+    "subtitle": "220gsm Organic American Supima Cotton",
+    "price": 120,
+    "badge": "NEW",
+    "images": [
+      {
+        "url": "/images/products/tshirt-white.jpg",
+        "alt": "Petit Supima Heavyweight Tee in Chalk White Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/tshirt-noir.jpg",
+        "alt": "Petit Supima Tee in Noir Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/categories/t-shirts.jpg",
+        "alt": "Petit Supima Tee Jersey Weave Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "alt": "Petit Supima Tee Playground Lifestyle",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Petit Supima Tee Editorial View",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/tshirt-white.jpg",
+    "hoverImage": "/images/products/tshirt-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Chalk White",
+        "value": "#F8FAFC",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/tshirt-white.jpg",
+            "alt": "Petit Supima Tee Chalk White Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/tshirt-noir.jpg",
+            "alt": "Petit Supima Tee Chalk White Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/t-shirts.jpg",
+            "alt": "Petit Supima Tee Chalk White Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "alt": "Petit Supima Tee Chalk White Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Onyx Noir",
+        "value": "#0F172A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/tshirt-noir.jpg",
+            "alt": "Petit Supima Tee Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/tshirt-white.jpg",
+            "alt": "Petit Supima Tee Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/t-shirts.jpg",
+            "alt": "Petit Supima Tee Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "alt": "Petit Supima Tee Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Chalk White",
+        "hex": "#F8FAFC",
+        "inStock": true,
+        "imageOverride": "/images/products/tshirt-white.jpg"
+      },
+      {
+        "name": "Onyx Noir",
+        "hex": "#0F172A",
+        "inStock": true,
+        "imageOverride": "/images/products/tshirt-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "2Y",
+        "inStock": true
+      },
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": false
+      }
+    ],
+    "stock": 45,
+    "material": "100% Certified Organic American Supima Cotton (220gsm)",
+    "fit": "Relaxed Boxy Fit with reinforced crewneck",
+    "careInstructions": "Machine wash cold gentle. Tumble dry low or dry flat.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "T-Shirt",
+      "Supima",
+      "Basics"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 93,
+    "createdAt": "2026-09-03T10:00:00Z"
+  },
+  {
+    "id": "pab-k-008",
+    "sku": "PAB-KD-TR-08-TPE",
+    "name": "Junior Wool-Blend Utility Cargo Trousers",
+    "slug": "junior-wool-blend-utility-cargo-trousers",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "bottoms",
+    "subCategory": "trousers",
+    "collections": [
+      "new-season",
+      "editorial"
+    ],
+    "description": "Rugged yet refined cargo trousers woven from stretch wool twill. Features low-profile flap utility pockets, ergonomic articulated knee darts for clambering, and soft elasticated drawcord hems.",
+    "subtitle": "Stretch Wool Twill with Articulated Knees",
+    "price": 260,
+    "badge": "BESTSELLER",
+    "images": [
+      {
+        "url": "/images/products/utility-taupe.jpg",
+        "alt": "Junior Wool-Blend Utility Cargo Trousers in Taupe Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/trousers-noir.jpg",
+        "alt": "Junior Cargo Trousers in Noir Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/categories/trousers.jpg",
+        "alt": "Junior Cargo Pockets & Twill Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/cable-knit-ivory-front.jpg",
+        "alt": "Junior Cargo Outfit Pairing Look",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Junior Cargo Editorial Portrait",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/utility-taupe.jpg",
+    "hoverImage": "/images/products/trousers-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Field Taupe",
+        "value": "#8B7E74",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/utility-taupe.jpg",
+            "alt": "Junior Cargo Field Taupe Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/trousers-noir.jpg",
+            "alt": "Junior Cargo Field Taupe Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/trousers.jpg",
+            "alt": "Junior Cargo Field Taupe Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/cable-knit-ivory-front.jpg",
+            "alt": "Junior Cargo Field Taupe Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Basalt Noir",
+        "value": "#1C1917",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-noir.jpg",
+            "alt": "Junior Cargo Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/utility-taupe.jpg",
+            "alt": "Junior Cargo Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/trousers.jpg",
+            "alt": "Junior Cargo Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/cable-knit-ivory-front.jpg",
+            "alt": "Junior Cargo Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Field Taupe",
+        "hex": "#8B7E74",
+        "inStock": true,
+        "imageOverride": "/images/products/utility-taupe.jpg"
+      },
+      {
+        "name": "Basalt Noir",
+        "hex": "#1C1917",
+        "inStock": true,
+        "imageOverride": "/images/products/trousers-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": false
+      }
+    ],
+    "stock": 22,
+    "material": "97% Virgin Wool, 3% Elastane Twill (290gsm)",
+    "fit": "Tapered Utility Fit with elastic internal waist adjusters",
+    "careInstructions": "Dry clean or gentle hand wash cold. Cool iron with pressing cloth.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Pants",
+      "Cargo",
+      "Utility",
+      "Trousers"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": true,
+    "popularityScore": 97,
+    "createdAt": "2026-08-15T10:00:00Z"
+  },
+  {
+    "id": "pab-k-009",
+    "sku": "PAB-KD-LF-09-COG",
+    "name": "Miniature Calfskin Penny Loafers",
+    "slug": "miniature-calfskin-penny-loafers",
+    "gender": "kids",
+    "department": "footwear",
+    "category": "footwear",
+    "subCategory": "loafers",
+    "collections": [
+      "new-season",
+      "formal"
+    ],
+    "description": "Handcrafted in Florence from buttery Tuscan calfskin. Lined with natural un-dyed leather, with cushioned memory foam arch support and a lightweight non-slip rubber sole designed for active young feet.",
+    "subtitle": "Handcrafted Florentine Calfskin",
+    "price": 340,
+    "badge": "HEIRLOOM",
+    "images": [
+      {
+        "url": "/images/products/loafers-cognac.jpg",
+        "alt": "Miniature Calfskin Penny Loafers in Cognac Amber Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/loafers-noir.jpg",
+        "alt": "Miniature Calfskin Penny Loafers in Polished Noir Angle",
+        "isPrimary": false,
+        "viewType": "alternate"
+      },
+      {
+        "url": "/images/categories/footwear.jpg",
+        "alt": "Miniature Loafers Hand-Stitched Apron Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Miniature Loafers Worn on Child Model",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/duffle-navy-front.jpg",
+        "alt": "Miniature Loafers Head-to-Toe Styling",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/loafers-cognac.jpg",
+    "hoverImage": "/images/products/loafers-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Cognac Amber",
+        "value": "#9A3412",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/loafers-cognac.jpg",
+            "alt": "Miniature Loafers Cognac Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/loafers-noir.jpg",
+            "alt": "Miniature Loafers Cognac Alternate",
+            "isPrimary": false,
+            "viewType": "alternate"
+          },
+          {
+            "url": "/images/categories/footwear.jpg",
+            "alt": "Miniature Loafers Cognac Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Miniature Loafers Cognac Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Polished Noir",
+        "value": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/loafers-noir.jpg",
+            "alt": "Miniature Loafers Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/loafers-cognac.jpg",
+            "alt": "Miniature Loafers Noir Alternate",
+            "isPrimary": false,
+            "viewType": "alternate"
+          },
+          {
+            "url": "/images/categories/footwear.jpg",
+            "alt": "Miniature Loafers Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Miniature Loafers Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Cognac Amber",
+        "hex": "#9A3412",
+        "inStock": true,
+        "imageOverride": "/images/products/loafers-cognac.jpg"
+      },
+      {
+        "name": "Polished Noir",
+        "hex": "#111111",
+        "inStock": true,
+        "imageOverride": "/images/products/loafers-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "EU 28 (US 11K)",
+        "inStock": true
+      },
+      {
+        "name": "EU 30 (US 12.5K)",
+        "inStock": true
+      },
+      {
+        "name": "EU 32 (US 1)",
+        "inStock": true
+      },
+      {
+        "name": "EU 34 (US 2.5)",
+        "inStock": true
+      },
+      {
+        "name": "EU 36 (US 4)",
+        "inStock": false
+      }
+    ],
+    "stock": 15,
+    "material": "100% Full-Grain Florentine Calf Leather with Vibram Rubber Sole",
+    "fit": "True to EU children's sizing with supportive ergonomic arch",
+    "careInstructions": "Nourish regularly with natural beeswax balm. Buff with soft cotton cloth.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Footwear",
+      "Shoes",
+      "Loafers",
+      "Leather"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 90,
+    "createdAt": "2026-08-10T10:00:00Z"
+  },
+  {
+    "id": "pab-k-010",
+    "sku": "PAB-KD-PO-10-TPE",
+    "name": "Petit Piqué Cotton Tennis Polo",
+    "slug": "petit-pique-cotton-tennis-polo",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "polos",
+    "subCategory": "polos",
+    "collections": [
+      "new-season",
+      "essentials"
+    ],
+    "description": "Classic court-inspired polo knit from breathable double-mercerized organic cotton piqué. Detailed with a contrast-tipped ribbed collar, mother-of-pearl two-button placket, and stepped tennis tail vents.",
+    "subtitle": "Double-Mercerized Organic Cotton Piqué",
+    "price": 160,
+    "badge": "JUST IN",
+    "images": [
+      {
+        "url": "/images/products/polo-taupe.jpg",
+        "alt": "Petit Piqué Cotton Tennis Polo in Oatmeal Taupe Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/polo-noir.jpg",
+        "alt": "Petit Tennis Polo in Noir Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/categories/polos.jpg",
+        "alt": "Petit Polo Piqué Texture & Ribbed Collar Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/poplin-shirt-white-front.jpg",
+        "alt": "Petit Polo Smart Outfit Styling",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Petit Polo Editorial Look",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/polo-taupe.jpg",
+    "hoverImage": "/images/products/polo-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Oatmeal Taupe",
+        "value": "#D6D3D1",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/polo-taupe.jpg",
+            "alt": "Petit Polo Oatmeal Taupe Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/polo-noir.jpg",
+            "alt": "Petit Polo Oatmeal Taupe Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/polos.jpg",
+            "alt": "Petit Polo Oatmeal Taupe Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/poplin-shirt-white-front.jpg",
+            "alt": "Petit Polo Oatmeal Taupe Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#181818",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/polo-noir.jpg",
+            "alt": "Petit Polo Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/polo-taupe.jpg",
+            "alt": "Petit Polo Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/polos.jpg",
+            "alt": "Petit Polo Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/poplin-shirt-white-front.jpg",
+            "alt": "Petit Polo Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Oatmeal Taupe",
+        "hex": "#D6D3D1",
+        "inStock": true,
+        "imageOverride": "/images/products/polo-taupe.jpg"
+      },
+      {
+        "name": "Noir",
+        "hex": "#181818",
+        "inStock": true,
+        "imageOverride": "/images/products/polo-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 30,
+    "material": "100% Long-Staple Organic Cotton Piqué (210gsm)",
+    "fit": "Sport-Luxe Tailored Fit with ribbed collar and tennis-tail vents",
+    "careInstructions": "Machine wash cold inside out with mild detergent. Flat dry.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Polo",
+      "Cotton",
+      "Tennis"
+    ],
+    "isAvailable": true,
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 88,
+    "createdAt": "2026-09-07T10:00:00Z"
+  },
+  {
+    "id": "pab-k-011",
+    "sku": "PAB-KD-BM-11-SLT",
+    "name": "Junior Reversible Silk-Lined Bomber",
+    "slug": "junior-reversible-silk-lined-bomber",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "outerwear",
+    "subCategory": "jackets",
+    "collections": [
+      "new-season",
+      "sale"
+    ],
+    "description": "An ultra-lightweight flight jacket engineered from water-resistant micro-twill on one face, reversing to a luxurious quilted Mulberry silk satin lining. Completed with pure cashmere ribbed neck, cuffs, and hem.",
+    "subtitle": "Water-Resistant Micro-Twill & Mulberry Silk",
+    "price": 490,
+    "salePrice": 365,
+    "discountPercent": 25,
+    "badge": "SALE",
+    "images": [
+      {
+        "url": "/images/products/bomber-slate.jpg",
+        "alt": "Junior Reversible Silk-Lined Bomber in Slate Grey Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/bomber-noir.jpg",
+        "alt": "Junior Reversible Bomber in Noir Reverse Face",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/categories/outerwear.png",
+        "alt": "Junior Bomber Cashmere Ribbing Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Junior Bomber Playground Editorial",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "alt": "Junior Bomber Alternate View",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/bomber-slate.jpg",
+    "hoverImage": "/images/products/bomber-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Slate Grey",
+        "value": "#64748B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/bomber-slate.jpg",
+            "alt": "Junior Bomber Slate Grey Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/bomber-noir.jpg",
+            "alt": "Junior Bomber Slate Grey Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/outerwear.png",
+            "alt": "Junior Bomber Slate Grey Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Junior Bomber Slate Grey Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/bomber-noir.jpg",
+            "alt": "Junior Bomber Noir Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/bomber-slate.jpg",
+            "alt": "Junior Bomber Noir Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/outerwear.png",
+            "alt": "Junior Bomber Noir Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Junior Bomber Noir Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Slate Grey",
+        "hex": "#64748B",
+        "inStock": true,
+        "imageOverride": "/images/products/bomber-slate.jpg"
+      },
+      {
+        "name": "Noir",
+        "hex": "#111111",
+        "inStock": true,
+        "imageOverride": "/images/products/bomber-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 12,
+    "material": "Face: 100% Water-Resistant Technical Micro-Twill; Reverse: 100% Mulberry Silk",
+    "fit": "Relaxed Bomber Silhouette with soft cashmere stretch cuffs",
+    "careInstructions": "Specialist luxury dry clean only.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Bomber",
+      "Jackets",
+      "Silk",
+      "Sale"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": true,
+    "isBestSeller": false,
+    "popularityScore": 92,
+    "createdAt": "2026-07-28T10:00:00Z"
+  },
+  {
+    "id": "pab-k-012",
+    "sku": "PAB-KD-CH-12-IVR",
+    "name": "Petit Architectural Relaxed Chinos",
+    "slug": "petit-architectural-relaxed-chinos",
+    "gender": "kids",
+    "department": "clothing",
+    "category": "trousers",
+    "subCategory": "trousers",
+    "collections": [
+      "essentials",
+      "formal"
+    ],
+    "description": "Wide-leg relaxed chinos cut from high-density organic cotton twill. Features deep forward single pleats, slash side pockets, horn button closure, and internal button elastic waist adjusters.",
+    "subtitle": "High-Density Organic Cotton Twill",
+    "price": 210,
+    "badge": "ESSENTIAL",
+    "images": [
+      {
+        "url": "/images/products/trousers-ivory.jpg",
+        "alt": "Petit Architectural Relaxed Chinos in Raw Ivory Front",
+        "isPrimary": true,
+        "viewType": "front"
+      },
+      {
+        "url": "/images/products/trousers-noir.jpg",
+        "alt": "Petit Chinos in Noir Back View",
+        "isPrimary": false,
+        "viewType": "back"
+      },
+      {
+        "url": "/images/categories/shorts.jpg",
+        "alt": "Petit Chinos Forward Pleat Detail",
+        "isPrimary": false,
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "alt": "Petit Chinos Editorial Full Look",
+        "isPrimary": false,
+        "viewType": "lifestyle"
+      },
+      {
+        "url": "/images/kids/cable-knit-ivory-front.jpg",
+        "alt": "Petit Chinos Pairing with Knitwear",
+        "isPrimary": false,
+        "viewType": "alternate"
+      }
+    ],
+    "primaryImage": "/images/products/trousers-ivory.jpg",
+    "hoverImage": "/images/products/trousers-noir.jpg",
+    "colorVariants": [
+      {
+        "name": "Raw Ivory",
+        "value": "#EAE8E1",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-ivory.jpg",
+            "alt": "Petit Chinos Raw Ivory Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/trousers-noir.jpg",
+            "alt": "Petit Chinos Raw Ivory Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/shorts.jpg",
+            "alt": "Petit Chinos Raw Ivory Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Chinos Raw Ivory Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      },
+      {
+        "name": "Charcoal",
+        "value": "#334155",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-noir.jpg",
+            "alt": "Petit Chinos Charcoal Front",
+            "isPrimary": true,
+            "viewType": "front"
+          },
+          {
+            "url": "/images/products/trousers-ivory.jpg",
+            "alt": "Petit Chinos Charcoal Back",
+            "isPrimary": false,
+            "viewType": "back"
+          },
+          {
+            "url": "/images/categories/shorts.jpg",
+            "alt": "Petit Chinos Charcoal Detail",
+            "isPrimary": false,
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "alt": "Petit Chinos Charcoal Lifestyle",
+            "isPrimary": false,
+            "viewType": "lifestyle"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "name": "Raw Ivory",
+        "hex": "#EAE8E1",
+        "inStock": true,
+        "imageOverride": "/images/products/trousers-ivory.jpg"
+      },
+      {
+        "name": "Charcoal",
+        "hex": "#334155",
+        "inStock": true,
+        "imageOverride": "/images/products/trousers-noir.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "4Y",
+        "inStock": true
+      },
+      {
+        "name": "6Y",
+        "inStock": true
+      },
+      {
+        "name": "8Y",
+        "inStock": true
+      },
+      {
+        "name": "10Y",
+        "inStock": true
+      },
+      {
+        "name": "12Y",
+        "inStock": true
+      }
+    ],
+    "stock": 26,
+    "material": "100% Organic Long-Staple Cotton Twill (260gsm)",
+    "fit": "Fluid Wide-Leg Cut with gentle break and growth-ready waistband",
+    "careInstructions": "Machine wash cold gentle. Medium iron. Do not bleach.",
+    "deliveryInfo": "Complimentary signature gift box delivery in 2–4 business days.",
+    "returnsInfo": "Complimentary 30-day returns & doorstep exchanges.",
+    "tags": [
+      "Kids",
+      "Chinos",
+      "Trousers",
+      "Tailored"
+    ],
+    "isAvailable": true,
+    "isNewArrival": false,
+    "isSale": false,
+    "isBestSeller": false,
+    "popularityScore": 89,
+    "createdAt": "2026-08-12T10:00:00Z"
+  }
+]

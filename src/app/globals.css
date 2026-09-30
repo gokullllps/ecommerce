@@ -1,1 +1,1046 @@
 @import "tailwindcss";
+
+@theme {
+  --color-pablo-bg: #EAE8E1;
+  --color-pablo-text: #111111;
+  --color-pablo-dark: #181818;
+  --color-pablo-secondary: #666666;
+  --color-pablo-muted: #999999;
+  --color-pablo-border: #D9D8D3;
+  --color-pablo-white: #FFFFFF;
+
+  --font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-pablo: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-body: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* PABLO OFFICIAL BRAND & DISPLAY TYPOGRAPHY UTILITIES */
+.font-pablo,
+.font-display,
+.font-serif {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif !important;
+}
+
+.font-sans,
+.font-body {
+  font-family: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Major Headings & Titles default to PABLO display typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+}
+
+:root {
+  --bg-primary: #EAE8E1;
+  --text-primary: #111111;
+  --surface-dark: #181818;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-divider: #D9D8D3;
+  --surface-white: #FFFFFF;
+
+  /* PABLO OFFICIAL DARK TONAL GRADIENT SYSTEM
+     Restrained exclusively to: #050505 | #0A0A0A | #111111 | #181818 */
+  --gradient-dark-surface: linear-gradient(135deg, #0A0A0A 0%, #181818 50%, #050505 100%);
+  --gradient-dark-surface-soft: linear-gradient(180deg, #111111 0%, #181818 100%);
+  --gradient-dark-surface-deep: linear-gradient(180deg, #050505 0%, #111111 100%);
+  --gradient-dark-footer: radial-gradient(ellipse 95% 75% at 50% 35%, #181818 0%, #0c0c0c 55%, #050505 100%);
+  --gradient-dark-ticker: linear-gradient(90deg, #111111 0%, #181818 50%, #111111 100%);
+  --gradient-dark-btn: linear-gradient(180deg, #1c1c1c 0%, #0c0c0c 100%);
+  --gradient-dark-btn-hover: linear-gradient(180deg, #262626 0%, #141414 100%);
+  --gradient-dark-badge: linear-gradient(135deg, rgba(24, 24, 24, 0.94) 0%, rgba(10, 10, 10, 0.96) 100%);
+  --gradient-dark-card: linear-gradient(180deg, #181818 0%, #0e0e0e 55%, #050505 100%);
+
+  /* PABLO UNIFIED SPACING SCALE TOKENS */
+  --space-2xs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  --space-4xl: 5rem;      /* 80px */
+
+  /* Master Responsive Gutter Tokens */
+  --page-gutter-mobile: 1.25rem;   /* 20px */
+  --page-gutter-tablet: 2rem;      /* 32px */
+  --page-gutter-desktop: 3rem;     /* 48px */
+  --page-gutter-wide: 3.75rem;     /* 60px */
+
+  /* Global Content Max Width */
+  --container-max-width: 1600px;
+  --container-narrow-max-width: 1024px;
+  --container-reading-max-width: 1140px;
+}
+
+/* ===================================================
+   PABLO GLOBAL RESPONSIVE CONTAINER & SPACING SYSTEM
+   ===================================================
+   Enforces identical horizontal alignment across Navbar,
+   Hero sections, Catalogue, Product Grid, Filters, and Footer.
+   - Mobile (< 640px): 1.25rem (20px) gutters
+   - Tablet (640px - 1024px): 2rem (32px) gutters
+   - Desktop (1024px - 1536px): 3rem (48px) gutters
+   - Wide (>= 1536px): 3.75rem (60px) gutters
+   - Max Width: 1600px centered
+   =================================================== */
+
+.page-container {
+  width: 100%;
+  max-width: var(--container-max-width, 1600px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-gutter-mobile, 1.25rem);
+  padding-right: var(--page-gutter-mobile, 1.25rem);
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    padding-left: var(--page-gutter-tablet, 2rem);
+    padding-right: var(--page-gutter-tablet, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-left: var(--page-gutter-desktop, 3rem);
+    padding-right: var(--page-gutter-desktop, 3rem);
+  }
+}
+
+@media (min-width: 1536px) {
+  .page-container {
+    padding-left: var(--page-gutter-wide, 3.75rem);
+    padding-right: var(--page-gutter-wide, 3.75rem);
+  }
+}
+
+.page-container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow-max-width, 1024px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-gutter-mobile, 1.25rem);
+  padding-right: var(--page-gutter-mobile, 1.25rem);
+}
+
+@media (min-width: 640px) {
+  .page-container-narrow {
+    padding-left: var(--page-gutter-tablet, 2rem);
+    padding-right: var(--page-gutter-tablet, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container-narrow {
+    padding-left: var(--page-gutter-desktop, 3rem);
+    padding-right: var(--page-gutter-desktop, 3rem);
+  }
+}
+
+@media (min-width: 1536px) {
+  .page-container-narrow {
+    padding-left: var(--page-gutter-wide, 3.75rem);
+    padding-right: var(--page-gutter-wide, 3.75rem);
+  }
+}
+
+.page-container-reading {
+  width: 100%;
+  max-width: var(--container-reading-max-width, 1140px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-gutter-mobile, 1.25rem);
+  padding-right: var(--page-gutter-mobile, 1.25rem);
+}
+
+@media (min-width: 640px) {
+  .page-container-reading {
+    padding-left: var(--page-gutter-tablet, 2rem);
+    padding-right: var(--page-gutter-tablet, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container-reading {
+    padding-left: var(--page-gutter-desktop, 3rem);
+    padding-right: var(--page-gutter-desktop, 3rem);
+  }
+}
+
+@media (min-width: 1536px) {
+  .page-container-reading {
+    padding-left: var(--page-gutter-wide, 3.75rem);
+    padding-right: var(--page-gutter-wide, 3.75rem);
+  }
+}
+
+.page-container-fluid {
+  width: 100%;
+  padding-left: var(--page-gutter-mobile, 1.25rem);
+  padding-right: var(--page-gutter-mobile, 1.25rem);
+}
+
+@media (min-width: 640px) {
+  .page-container-fluid {
+    padding-left: var(--page-gutter-tablet, 2rem);
+    padding-right: var(--page-gutter-tablet, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container-fluid {
+    padding-left: var(--page-gutter-desktop, 3rem);
+    padding-right: var(--page-gutter-desktop, 3rem);
+  }
+}
+
+@media (min-width: 1536px) {
+  .page-container-fluid {
+    padding-left: var(--page-gutter-wide, 3.75rem);
+    padding-right: var(--page-gutter-wide, 3.75rem);
+  }
+}
+
+/* Reusable Dark Surface Utility Classes */
+.pablo-dark-surface {
+  background: var(--gradient-dark-surface) !important;
+}
+
+.pablo-dark-surface-soft {
+  background: var(--gradient-dark-surface-soft) !important;
+}
+
+.pablo-dark-surface-deep {
+  background: var(--gradient-dark-surface-deep) !important;
+}
+
+.pablo-dark-footer {
+  background: var(--gradient-dark-footer) !important;
+}
+
+.pablo-dark-ticker {
+  background: var(--gradient-dark-ticker) !important;
+}
+
+.pablo-btn-dark {
+  background: var(--gradient-dark-btn) !important;
+  color: #EAE8E1 !important;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.pablo-btn-dark:hover {
+  background: var(--gradient-dark-btn-hover) !important;
+  color: #FFFFFF !important;
+}
+
+.pablo-dark-card {
+  background: var(--gradient-dark-card) !important;
+}
+
+.pablo-dark-badge {
+  background: var(--gradient-dark-badge) !important;
+}
+
+html {
+  background-color: #EAE8E1;
+  color: #111111;
+  font-family: var(--font-body), sans-serif;
+}
+
+body {
+  background-color: #EAE8E1;
+  color: #111111;
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================================
+   FOOTER REVEAL — STACKING ARCHITECTURE
+   ===================================================
+   Footer: position sticky, bottom: 0, z-index: 0  →  lowest layer
+   Main content block: position relative, z-index: 1  →  covers footer
+   Navbar: position sticky, z-index: 50  →  always on top
+
+   As the user scrolls, the solid #EAE8E1 main content covers the footer.
+   When main content ends at the page bottom, the footer is revealed beneath.
+   No JavaScript, no fixed overlays, no spacer hacks.
+   =================================================== */
+
+/* All <main> elements carry the page background and sit above the footer */
+main {
+  position: relative;
+  z-index: 1;
+  background-color: #EAE8E1;
+}
+
+/* Kids Universe — Scoped styling so Kids pages never inherit the beige background */
+.kids-universe-wrapper,
+.pablo-page-wrapper[data-theme="kids"],
+.kids-universe-wrapper.pablo-page-wrapper {
+  background-color: #EBF4FA !important;
+}
+
+.kids-universe-wrapper .pablo-main-layer,
+.pablo-main-layer[data-theme="kids"] {
+  background-color: #EBF4FA !important;
+  position: relative;
+  z-index: 1;
+}
+
+.kids-universe-wrapper main,
+main[data-gender="kids"] {
+  background-color: transparent !important;
+}
+
+/* ── Kids Page: Clean scroll without visible browser scrollbar ── */
+html[data-theme="kids"],
+body[data-theme="kids"],
+.kids-universe-wrapper {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE & Edge */
+}
+
+html[data-theme="kids"]::-webkit-scrollbar,
+body[data-theme="kids"]::-webkit-scrollbar,
+.kids-universe-wrapper::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Edge, Opera */
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.pablo-page-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 100%;
+  background-color: #EAE8E1;
+}
+
+.pablo-main-layer {
+  position: relative;
+  z-index: 1;
+  background-color: #EAE8E1;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background-color: #111111;
+  color: #EAE8E1;
+}
+
+/* ===================================================
+   PABLO OFFICIAL TYPOGRAPHY HIERARCHY SYSTEM
+   =================================================== */
+
+/* 1. Display / Hero Headline */
+.type-display-hero {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.5rem, 6.5vw + 0.5rem, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+/* 2. Large Editorial Heading */
+.type-display-lg {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.125rem, 4.5vw + 0.5rem, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+/* 3. Section Heading */
+.type-heading-section {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.75rem, 2.75vw + 0.5rem, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+/* 4. Subheading */
+.type-subheading {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: clamp(1.0625rem, 0.75vw + 0.875rem, 1.25rem);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+/* 5. Standard Body Copy */
+.type-body {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: normal;
+  font-weight: 300;
+}
+
+/* 6. Small Body / Supporting Information */
+.type-body-sm {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: normal;
+  font-weight: 300;
+}
+
+/* 7. Product Name */
+.type-product-name {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+/* 8. Product Metadata (Price, Code, Category) */
+.type-product-meta {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  letter-spacing: 0.035em;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* 9. Navigation Link */
+.type-nav {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* 10. Button Label */
+.type-button {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* 11. Caption / Timestamp */
+.type-caption {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  letter-spacing: 0.025em;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+/* 12. Overline / Eyebrow Text */
+.type-overline {
+  font-family: var(--font-body), "Inter", sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ===================================================
+   PROMOTIONAL TICKER MARQUEE ANIMATION
+   =================================================== */
+@keyframes pabloTicker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-pablo-ticker {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: pabloTicker 42s linear infinite;
+}
+
+/* Pause on ticker hover or keyboard focus-within, resume smoothly on leave */
+#hero-promotional-ticker:hover .animate-pablo-ticker,
+#hero-promotional-ticker:focus-within .animate-pablo-ticker,
+.animate-pablo-ticker:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pablo-ticker {
+    animation: none !important;
+    transform: none !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+  }
+  .animate-pablo-ticker > [aria-hidden="true"] {
+    display: none !important;
+  }
+}
+@keyframes pablo-wheel-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-wheel-spin {
+  animation: pablo-wheel-rotate 50s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.animate-wheel-spin:hover,
+.group:hover .animate-wheel-spin {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-wheel-spin {
+    animation: none !important;
+  }
+}
+
+/* ===================================================
+   LUXURY DROPDOWN REVEAL ANIMATION
+   =================================================== */
+@keyframes pabloDropdownReveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dropdown-reveal {
+  animation: pabloDropdownReveal 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-dropdown-reveal {
+    animation: none !important;
+  }
+}
+
+/* ===================================================
+   PABLO HERO MODEL SIMPLE LUXURY FADE ANIMATION
+   Subtle horizontal translation: -30px -> 0 -> +30px
+   Total cycle: 2.8s (~500ms fade-in, 1.8s visible, ~500ms fade-out)
+   =================================================== */
+@keyframes pabloModelSubtleFade {
+  0% {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  18% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  82% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(30px, 0, 0);
+  }
+}
+
+@keyframes pabloModelInitialFadeOut {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(30px, 0, 0);
+  }
+}
+
+.animate-model-subtle-fade {
+  animation: pabloModelSubtleFade 2.8s ease-in-out forwards;
+  will-change: transform, opacity;
+}
+
+.animate-model-initial-fadeout {
+  animation: pabloModelInitialFadeOut 0.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-model-subtle-fade,
+  .animate-model-initial-fadeout {
+    animation: none !important;
+    transform: translate3d(0, 0, 0) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ===================================================
+   PABLO KIDS — CARTOON WORLD THEME ANIMATIONS
+   Gentle, smooth micro-movements for clouds, stars, stickers
+   =================================================== */
+@keyframes kidsFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes kidsFloatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1.5deg);
+  }
+}
+
+@keyframes kidsTwinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.18) rotate(15deg);
+    opacity: 1;
+  }
+}
+
+@keyframes kidsDrift {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(18px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes kidsPulseSoft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.animate-kids-float {
+  animation: kidsFloat 4.5s ease-in-out infinite;
+}
+
+.animate-kids-float-slow {
+  animation: kidsFloatSlow 6.5s ease-in-out infinite;
+}
+
+.animate-kids-twinkle {
+  animation: kidsTwinkle 3s ease-in-out infinite;
+}
+
+.animate-kids-drift {
+  animation: kidsDrift 10s ease-in-out infinite;
+}
+
+.animate-kids-pulse {
+  animation: kidsPulseSoft 3.5s ease-in-out infinite;
+}
+
+@keyframes kidsMonkeyIdleSway {
+  0% {
+    transform: rotate(-3.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3.5deg) translateY(1px);
+  }
+  100% {
+    transform: rotate(-3.5deg) translateY(0);
+  }
+}
+
+.animate-kids-monkey-idle {
+  transform-origin: 30px 10px;
+  animation: kidsMonkeyIdleSway 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kids-float,
+  .animate-kids-float-slow,
+  .animate-kids-twinkle,
+  .animate-kids-drift,
+  .animate-kids-pulse,
+  .animate-kids-monkey-idle {
+    animation: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   KIDS MICRO-INTERACTION SYSTEM
+   Premium playful animations for /kids section
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Reveal Animations ── */
+@keyframes kidsRevealUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes kidsRevealScale {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes kidsRevealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.kids-reveal-up {
+  animation: kidsRevealUp 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.kids-reveal-scale {
+  animation: kidsRevealScale 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.kids-reveal-fade {
+  animation: kidsRevealFade 0.30s ease both;
+}
+
+/* ── Stagger delays for product grid ── */
+.kids-stagger-1  { animation-delay: 0.04s; }
+.kids-stagger-2  { animation-delay: 0.08s; }
+.kids-stagger-3  { animation-delay: 0.12s; }
+.kids-stagger-4  { animation-delay: 0.16s; }
+.kids-stagger-5  { animation-delay: 0.20s; }
+.kids-stagger-6  { animation-delay: 0.24s; }
+.kids-stagger-7  { animation-delay: 0.28s; }
+.kids-stagger-8  { animation-delay: 0.32s; }
+
+/* ── Tab switch product exit / enter ── */
+@keyframes kidsGridExit {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-8px) scale(0.98); }
+}
+@keyframes kidsGridEnter {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.kids-grid-exit {
+  animation: kidsGridExit 0.18s cubic-bezier(0.4, 0, 1, 1) both;
+}
+.kids-grid-enter {
+  animation: kidsGridEnter 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Wishlist sparkle ── */
+@keyframes kidsSparkleIn {
+  0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+  60%  { opacity: 1; transform: scale(1.25) rotate(30deg); }
+  100% { opacity: 0; transform: scale(0.8) rotate(45deg) translateY(-8px); }
+}
+@keyframes kidsHeartPop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.32); }
+  60%  { transform: scale(0.88); }
+  80%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+@keyframes kidsHeartDeflate {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.72); }
+  100% { transform: scale(1); }
+}
+
+.kids-heart-pop {
+  animation: kidsHeartPop 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.kids-heart-deflate {
+  animation: kidsHeartDeflate 0.28s ease-in;
+}
+.kids-sparkle-particle {
+  animation: kidsSparkleIn 0.5s ease-out both;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* ── Add to Bag fly animation ── */
+@keyframes kidsFlyToBag {
+  0%   {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+  35%  {
+    opacity: 0.95;
+    transform: scale(0.8) translate(calc(var(--fly-x) * 0.35), calc(var(--fly-y) * 0.35 - 50px));
+  }
+  70%  {
+    opacity: 0.75;
+    transform: scale(0.45) translate(calc(var(--fly-x) * 0.75), calc(var(--fly-y) * 0.75 - 20px));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.12) translate(var(--fly-x), var(--fly-y));
+  }
+}
+@keyframes kidsBagBounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.3) rotate(-6deg); }
+  60%  { transform: scale(0.88) rotate(4deg); }
+  80%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.kids-fly-to-bag {
+  animation: kidsFlyToBag 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  pointer-events: none;
+  position: fixed;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 99999;
+}
+.kids-bag-bounce {
+  animation: kidsBagBounce 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Star pop (games + Easter egg) ── */
+@keyframes kidsStarPop {
+  0%   { opacity: 0; transform: scale(0) rotate(-20deg); }
+  55%  { opacity: 1; transform: scale(1.3) rotate(10deg); }
+  75%  { transform: scale(0.9) rotate(-5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes kidsStarDismiss {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2.2) rotate(20deg); }
+}
+@keyframes kidsStarFloat {
+  0%   { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  25%  { transform: translateY(-12px) translateX(6px) rotate(6deg); }
+  50%  { transform: translateY(-4px) translateX(-6px) rotate(-4deg); }
+  75%  { transform: translateY(8px) translateX(4px) rotate(5deg); }
+  100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+}
+@keyframes kidsScorePop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.kids-star-pop     { animation: kidsStarPop 0.38s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.kids-star-dismiss { animation: kidsStarDismiss 0.28s ease-in forwards; }
+.kids-star-float   { animation: kidsStarFloat 3s ease-in-out infinite; }
+.kids-score-pop    { animation: kidsScorePop 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ── "Found it!" Easter egg toast ── */
+@keyframes kidsToastIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes kidsToastOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-8px) scale(0.95); }
+}
+.kids-toast-in  { animation: kidsToastIn  0.3s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.kids-toast-out { animation: kidsToastOut 0.25s ease-in both; }
+
+/* ── Card image zoom on hover (group) ── */
+.kids-card-img {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .kids-card-img {
+  transform: scale(1.04) translateY(-3px);
+}
+
+/* ── Product info lift on hover ── */
+.kids-card-info {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .kids-card-info {
+  transform: translateY(-5px);
+}
+
+/* ── Celebration burst ── */
+@keyframes kidsBurst {
+  0%   { opacity: 1; transform: scale(0) rotate(0deg); }
+  70%  { opacity: 0.8; transform: scale(1.4) rotate(var(--burst-angle)); }
+  100% { opacity: 0; transform: scale(2.2) rotate(var(--burst-angle)); }
+}
+.kids-burst-particle {
+  animation: kidsBurst 0.55s ease-out both;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* ── Tab pill slide indicator ── */
+.kids-tab-pill {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* ── Kids Monkey Scrollbar & Particle Effects ── */
+@keyframes kidsMonkeyIdleSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+}
+
+.kids-monkey-idle {
+  animation: kidsMonkeyIdleSway 2.4s ease-in-out infinite;
+}
+
+@keyframes kidsDustDriftDown {
+  0% {
+    opacity: 0.85;
+    transform: translate3d(0, 0, 0) scale(0.6);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate3d(var(--drift-x, 4px), 10px, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--drift-x, 4px) * 1.6), 22px, 0) scale(0.2);
+  }
+}
+
+@keyframes kidsDustDriftUp {
+  0% {
+    opacity: 0.85;
+    transform: translate3d(0, 0, 0) scale(0.6);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate3d(var(--drift-x, -4px), -10px, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--drift-x, -4px) * 1.6), -22px, 0) scale(0.2);
+  }
+}
+
+@keyframes kidsLeafDriftDown {
+  0% {
+    opacity: 0.95;
+    transform: translate3d(0, 0, 0) rotate(var(--init-rot, 0deg)) scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate3d(var(--drift-x, 8px), 16px, 0) rotate(calc(var(--init-rot, 0deg) + 40deg)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--drift-x, 8px) * 1.8), 34px, 0) rotate(calc(var(--init-rot, 0deg) + 90deg)) scale(0.4);
+  }
+}
+
+@keyframes kidsLeafDriftUp {
+  0% {
+    opacity: 0.95;
+    transform: translate3d(0, 0, 0) rotate(var(--init-rot, 0deg)) scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate3d(var(--drift-x, -8px), -16px, 0) rotate(calc(var(--init-rot, 0deg) - 40deg)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--drift-x, -8px) * 1.8), -34px, 0) rotate(calc(var(--init-rot, 0deg) - 90deg)) scale(0.4);
+  }
+}
+
+.kids-dust-down {
+  animation: kidsDustDriftDown 0.45s ease-out forwards;
+}
+
+.kids-dust-up {
+  animation: kidsDustDriftUp 0.45s ease-out forwards;
+}
+
+.kids-leaf-down {
+  animation: kidsLeafDriftDown 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.kids-leaf-up {
+  animation: kidsLeafDriftUp 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ── Prefers-reduced-motion overrides ── */
+@media (prefers-reduced-motion: reduce) {
+  .kids-reveal-up,
+  .kids-reveal-scale,
+  .kids-reveal-fade,
+  .kids-grid-exit,
+  .kids-grid-enter,
+  .kids-heart-pop,
+  .kids-heart-deflate,
+  .kids-sparkle-particle,
+  .kids-fly-to-bag,
+  .kids-bag-bounce,
+  .kids-star-pop,
+  .kids-star-dismiss,
+  .kids-star-float,
+  .kids-score-pop,
+  .kids-toast-in,
+  .kids-toast-out,
+  .kids-card-img,
+  .kids-card-info,
+  .kids-burst-particle,
+  .kids-tab-pill,
+  .kids-monkey-idle,
+  .kids-dust-down,
+  .kids-dust-up,
+  .kids-leaf-down,
+  .kids-leaf-up {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ── Hide native browser scrollbar ONLY on the Kids route ── */
+html[data-theme="kids"],
+body[data-theme="kids"] {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+html[data-theme="kids"]::-webkit-scrollbar,
+body[data-theme="kids"]::-webkit-scrollbar {
+  display: none !important; /* Chrome / Safari / Opera / Edge */
+  width: 0 !important;
+  height: 0 !important;
+}
+
