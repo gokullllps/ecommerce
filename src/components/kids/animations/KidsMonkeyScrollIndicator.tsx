@@ -271,12 +271,8 @@ export function KidsMonkeyScrollIndicator() {
   return (
     <aside
       aria-label="Kids interactive jungle scrolling path"
-      className="fixed z-40 select-none pointer-events-none"
+      className="fixed z-40 select-none pointer-events-none right-0 w-3.5 sm:w-8 md:w-9 sm:right-1 md:right-1.5 top-[60px] sm:top-[72px] h-[calc(100dvh-75px)] sm:h-[calc(100vh-96px)] overflow-hidden sm:overflow-visible opacity-60 sm:opacity-100"
       style={{
-        top: "72px",
-        right: "6px",
-        width: "36px",
-        height: "calc(100vh - 96px)",
         touchAction: "none",
       }}
     >
@@ -519,7 +515,7 @@ export function KidsMonkeyScrollIndicator() {
           onPointerMove={handleThumbPointerMove}
           onPointerUp={handleThumbPointerUp}
           onPointerCancel={handleThumbPointerUp}
-          className="absolute left-1/2 w-10 h-11 flex items-center justify-center cursor-grab active:cursor-grabbing pointer-events-auto select-none z-30"
+          className="absolute left-1/2 w-10 h-11 flex items-center justify-center cursor-grab active:cursor-grabbing pointer-events-auto select-none z-30 origin-center scale-[0.62] sm:scale-90 md:scale-100"
           style={{
             top: 0,
             transform: "translate3d(-50%, 0px, 0)",

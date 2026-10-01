@@ -57,7 +57,7 @@ export function CategoriesSection() {
         */}
         <div
           id="categories-grid"
-          className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-8 sm:gap-y-10 lg:gap-y-10"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-6 lg:gap-x-8 gap-y-5 sm:gap-y-10"
         >
           {MEN_CATEGORIES_DATA.map((category, index) => {
             const isHidden = index >= INITIAL_VISIBLE;
@@ -142,7 +142,7 @@ function CategoryCard({
       aria-label={`Explore ${category.name} collection`}
     >
       {/* ─── LARGE FASHION IMAGE CONTAINER WITH HOVER DYNAMICS ─── */}
-      <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#DDD9D0]">
+      <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[#DDD9D0]">
         {/* Editorial Catalogue Index Number (Top-Left) */}
         <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 pointer-events-none">
           <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.24em] text-[#111111]/50 group-hover:text-[#111111] transition-colors duration-500 font-semibold bg-[#EAE8E1]/60 group-hover:bg-[#EAE8E1]/90 backdrop-blur-sm px-2 py-1 rounded-[2px]">

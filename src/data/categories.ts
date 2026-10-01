@@ -125,3 +125,53 @@ export const MEN_CATEGORIES_DATA: CategoryCardData[] = [
     indexNumber: "12",
   },
 ];
+
+export interface MenEditorialCategory {
+  id: string;
+  label: string;
+  route: string;
+  category: string;
+  image: string;
+  alt: string;
+  objectPosition: string;
+}
+
+export const MEN_EDITORIAL_CATEGORIES: MenEditorialCategory[] = [
+  {
+    id: "shirts",
+    label: "SHIRTS",
+    route: "/men/shirts",
+    category: "shirts",
+    image: "/images/categories/men-category-shirts.jpg",
+    alt: "Men's Black Graphic Heavyweight Shirt",
+    objectPosition: "center 10%",
+  },
+  {
+    id: "trousers",
+    label: "TROUSERS",
+    route: "/men/trousers",
+    category: "trousers",
+    image: "/images/categories/men-category-trousers.jpg",
+    alt: "Men's Black Cargo Trousers with Chains",
+    objectPosition: "center center",
+  },
+  {
+    id: "footwear",
+    label: "FOOTWEAR",
+    route: "/men/footwear",
+    category: "footwear",
+    image: "/images/categories/men-category-footwear.jpg",
+    alt: "Black and White High-Top Leather Sneakers",
+    objectPosition: "center 50%",
+  },
+  {
+    id: "accessories",
+    label: "ACCESSORIES",
+    route: "/men/accessories",
+    category: "accessories",
+    image: "/images/categories/men-category-accessories.jpg",
+    alt: "Luxury Sunglasses, Chronograph Watch, Wallet, and Silver Jewelry",
+    objectPosition: "center center",
+  },
+];
+

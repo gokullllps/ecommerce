@@ -196,7 +196,7 @@ export function NewInSection() {
           onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative w-full bg-[#050505] overflow-hidden h-[270px] sm:h-[310px] md:h-[350px] lg:h-[370px] max-h-[380px] focus:outline-none"
+          className="relative w-full bg-[#050505] overflow-hidden h-[380px] md:h-[350px] lg:h-[370px] focus:outline-none"
           style={{ backgroundColor: "#050505" }}
         >
           {/* Slides Track with Ultra-Smooth Hardware Accelerated Motion */}
@@ -221,56 +221,136 @@ export function NewInSection() {
                   className="relative w-full h-full shrink-0 flex-none bg-[#050505] overflow-hidden flex items-center"
                   style={{ backgroundColor: "#050505" }}
                 >
-                  {/* ─── LEFT: MODEL WEARING MARVEL LUXURY TEE WITH THEME RIM LIGHT ─── */}
-                  <div className="absolute left-0 top-0 bottom-0 w-[46%] sm:w-[42%] md:w-[40%] flex items-center justify-center pointer-events-none z-10 overflow-hidden">
-                    {/* Theme-Specific Ambient Radial Neon Backlight */}
-                    <div
-                      className="absolute inset-0 pointer-events-none opacity-90 transition-opacity duration-700"
-                      style={{
-                        background: slide.theme.radialGlow,
-                      }}
-                      aria-hidden="true"
-                    />
-
-                    {/* High-Contrast Model Portrait Cutout with Zero Background */}
-                    <div
-                      className={`relative w-full h-full flex items-end justify-center transition-all duration-700 ease-out ${
-                        isActive ? "scale-100 opacity-100" : "scale-[0.97] opacity-80"
-                      }`}
-                    >
-                      <Image
-                        src={slide.imageSrc}
-                        alt={slide.imageAlt}
-                        width={600}
-                        height={600}
-                        priority={index === 0}
-                        unoptimized
-                        className="object-contain object-bottom w-auto h-[96%] sm:h-full max-h-[365px] select-none filter contrast-105"
+                  {/* ─── DESKTOP SLIDE LAYOUT (>= md) — 100% UNTOUCHED ─── */}
+                  <div className="hidden md:flex w-full h-full relative items-center">
+                    {/* LEFT: MODEL WEARING MARVEL LUXURY TEE */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[40%] flex items-center justify-center pointer-events-none z-10 overflow-hidden">
+                      <div
+                        className="absolute inset-0 pointer-events-none opacity-90 transition-opacity duration-700"
+                        style={{ background: slide.theme.radialGlow }}
+                        aria-hidden="true"
                       />
+                      <div
+                        className={`relative w-full h-full flex items-end justify-center transition-all duration-700 ease-out ${
+                          isActive ? "scale-100 opacity-100" : "scale-[0.97] opacity-80"
+                        }`}
+                      >
+                        <Image
+                          src={slide.imageSrc}
+                          alt={slide.imageAlt}
+                          width={600}
+                          height={600}
+                          priority={index === 0}
+                          unoptimized
+                          className="object-contain object-bottom w-auto h-full max-h-[365px] select-none filter contrast-105"
+                        />
+                      </div>
+                    </div>
+
+                    {/* RIGHT: EDITORIAL TYPOGRAPHY */}
+                    <div className="relative z-10 w-full flex justify-end items-center pr-16 lg:pr-36 pl-[40%]">
+                      <div
+                        className={`w-full max-w-xl text-center flex flex-col items-center select-none transition-all duration-700 ease-out ${
+                          isActive ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"
+                        }`}
+                      >
+                        <p
+                          className="text-xs md:text-sm font-semibold uppercase tracking-[0.28em] transition-colors duration-500"
+                          style={{
+                            color: slide.theme.eyebrowColor,
+                            textShadow: slide.theme.textShadowEyebrow,
+                          }}
+                        >
+                          {slide.eyebrow}
+                        </p>
+
+                        <h3
+                          className="text-4xl md:text-5xl lg:text-[56px] font-black tracking-[0.16em] uppercase text-white leading-tight mt-1 sm:mt-1.5"
+                          style={{
+                            fontFamily: "var(--font-body, 'Inter', sans-serif)",
+                            textShadow: slide.theme.textShadowTitle,
+                          }}
+                        >
+                          {slide.title}
+                        </h3>
+
+                        <p
+                          className="text-sm md:text-base font-extrabold uppercase tracking-[0.24em] mt-0.5 sm:mt-1 transition-colors duration-500"
+                          style={{
+                            color: slide.theme.tagColor,
+                            textShadow: slide.theme.textShadowTag,
+                          }}
+                        >
+                          {slide.tag}
+                        </p>
+
+                        <div className="h-3.5 md:h-4" aria-hidden="true" />
+
+                        <p className="text-xs md:text-sm font-bold uppercase tracking-[0.26em] text-white">
+                          {slide.subtitle}
+                        </p>
+
+                        <p className="text-xs md:text-sm font-bold uppercase tracking-[0.26em] text-white mt-0.5">
+                          {slide.actionPrefix}{" "}
+                          <span
+                            className="font-black transition-colors duration-500"
+                            style={{
+                              color: slide.theme.highlightColor,
+                              textShadow: slide.theme.textShadowHighlight,
+                            }}
+                          >
+                            {slide.actionHighlight}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-3.5 left-8 z-20 pointer-events-none">
+                      <span className="text-[9px] uppercase tracking-[0.2em] text-[#888888] font-normal">
+                        {slide.editionTag}
+                      </span>
                     </div>
                   </div>
 
-                  {/* ─── RIGHT: EXACT REFERENCE EDITORIAL TYPOGRAPHY WITH THEMED GLOW ─── */}
-                  <div className="relative z-10 w-full flex justify-end items-center pr-12 sm:pr-20 md:pr-28 lg:pr-36 pl-[40%] sm:pl-[42%]">
-                    <div
-                      className={`w-full max-w-xl text-center flex flex-col items-center select-none transition-all duration-700 ease-out ${
-                        isActive ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"
-                      }`}
-                    >
-                      {/* Eyebrow: Glowing theme color uppercase */}
-                      <p
-                        className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.28em] transition-colors duration-500"
+                  {/* ─── DEDICATED PURPOSE-BUILT MOBILE SLIDE LAYOUT (< md) ─── */}
+                  <div className="flex md:hidden flex-col items-center justify-between w-full h-full p-4 relative z-10 select-none">
+                    {/* Top: Glowing Hero Model Feature */}
+                    <div className="relative w-full h-[180px] flex items-center justify-center overflow-hidden">
+                      <div
+                        className="absolute inset-0 pointer-events-none opacity-85"
+                        style={{ background: slide.theme.radialGlow }}
+                        aria-hidden="true"
+                      />
+                      <div
+                        className={`relative h-full w-auto transition-transform duration-500 ${
+                          isActive ? "scale-100 opacity-100" : "scale-95 opacity-70"
+                        }`}
+                      >
+                        <Image
+                          src={slide.imageSrc}
+                          alt={slide.imageAlt}
+                          width={400}
+                          height={400}
+                          priority={index === 0}
+                          unoptimized
+                          className="h-full w-auto object-contain filter contrast-105"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Center: Compact Title & Editorial Details */}
+                    <div className="w-full text-center flex flex-col items-center px-2">
+                      <span
+                        className="text-[9px] font-semibold uppercase tracking-[0.26em]"
                         style={{
                           color: slide.theme.eyebrowColor,
                           textShadow: slide.theme.textShadowEyebrow,
                         }}
                       >
                         {slide.eyebrow}
-                      </p>
-
-                      {/* Main Title: Bold, large glowing all-caps */}
+                      </span>
                       <h3
-                        className="text-2xl sm:text-4xl md:text-5xl lg:text-[56px] font-black tracking-[0.16em] uppercase text-white leading-tight mt-1 sm:mt-1.5"
+                        className="text-2xl font-black tracking-[0.16em] uppercase text-white mt-0.5"
                         style={{
                           fontFamily: "var(--font-body, 'Inter', sans-serif)",
                           textShadow: slide.theme.textShadowTitle,
@@ -278,47 +358,31 @@ export function NewInSection() {
                       >
                         {slide.title}
                       </h3>
-
-                      {/* Follow-up Tag (e.g. LEGEND): Glowing tracked theme color */}
-                      <p
-                        className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.24em] mt-0.5 sm:mt-1 transition-colors duration-500"
+                      <span
+                        className="text-[11px] font-extrabold uppercase tracking-[0.22em]"
                         style={{
                           color: slide.theme.tagColor,
                           textShadow: slide.theme.textShadowTag,
                         }}
                       >
                         {slide.tag}
-                      </p>
+                      </span>
 
-                      {/* Gap / Divider Spacer */}
-                      <div className="h-2.5 sm:h-3.5 md:h-4" aria-hidden="true" />
-
-                      {/* Subtitle Top Line: MEMBER EARLY / CORE */}
-                      <p className="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.26em] text-white">
-                        {slide.subtitle}
-                      </p>
-
-                      {/* Subtitle Bottom Line: ACCESS NOW LIVE (with NOW LIVE highlighted in themed neon) */}
-                      <p className="text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.26em] text-white mt-0.5">
-                        {slide.actionPrefix}{" "}
-                        <span
-                          className="font-black transition-colors duration-500"
-                          style={{
-                            color: slide.theme.highlightColor,
-                            textShadow: slide.theme.textShadowHighlight,
-                          }}
-                        >
-                          {slide.actionHighlight}
+                      {/* Tappable Mobile Action Pill */}
+                      <div className="mt-3">
+                        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-bold tracking-[0.2em] uppercase">
+                          <span>{slide.subtitle}</span>
+                          <span style={{ color: slide.theme.highlightColor }}>{slide.actionHighlight}</span>
+                          <span>→</span>
                         </span>
-                      </p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* ─── BOTTOM-LEFT COPYRIGHT / EDITION TAG ─── */}
-                  <div className="absolute bottom-2.5 left-4 sm:bottom-3 sm:left-6 md:bottom-3.5 md:left-8 z-20 pointer-events-none">
-                    <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-[#888888] font-normal">
-                      {slide.editionTag}
-                    </span>
+                    {/* Bottom Tag */}
+                    <div className="w-full flex justify-between items-center text-[8px] uppercase tracking-[0.18em] text-[#888888] pt-1">
+                      <span>{slide.editionTag}</span>
+                      <span className="text-[#666]">SWIPE TO EXPLORE</span>
+                    </div>
                   </div>
                 </div>
               );

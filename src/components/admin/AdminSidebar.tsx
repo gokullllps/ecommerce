@@ -184,6 +184,13 @@ export function AdminSidebar() {
     setMobileOpen(false);
   }, [pathname]);
 
+  // Listen for mobile nav toggle from mobile topbar
+  useEffect(() => {
+    const handleToggle = () => setMobileOpen((prev) => !prev);
+    window.addEventListener("pablo-toggle-admin-nav", handleToggle);
+    return () => window.removeEventListener("pablo-toggle-admin-nav", handleToggle);
+  }, []);
+
   const isActive = (href: string) => {
     if (href === "/admin") return pathname === "/admin";
     return pathname.startsWith(href);

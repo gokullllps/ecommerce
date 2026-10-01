@@ -5,17 +5,22 @@ import React from "react";
 
 interface HeroSaleStampProps {
   isVisible: boolean;
+  className?: string;
 }
 
-export function HeroSaleStamp({ isVisible }: HeroSaleStampProps) {
+export function HeroSaleStamp({ isVisible, className }: HeroSaleStampProps) {
   return (
     <div
-      className="
-        absolute top-5 sm:top-6 md:top-8 lg:top-10
-        right-[18vw] sm:right-[19vw] md:right-[20vw] lg:right-[21vw]
-        z-30 pointer-events-auto select-none
-        transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-      "
+      className={
+        className
+          ? `z-30 pointer-events-auto select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${className}`
+          : `
+            absolute top-5 sm:top-6 md:top-8 lg:top-10
+            right-[18vw] sm:right-[19vw] md:right-[20vw] lg:right-[21vw]
+            z-30 pointer-events-auto select-none
+            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+          `
+      }
       style={{
         opacity: isVisible ? 0.85 : 0,
         transform: isVisible ? "scale(1) rotate(-8deg)" : "scale(0.9) rotate(-14deg)",

@@ -192,11 +192,57 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
 
       {/* ─── 2. PRODUCT INFO & VARIANTS ─── */}
       <div
-        className={`pt-2.5 pb-3 flex flex-col justify-between flex-1 space-y-2 w-full min-w-0 ${
-          isKids ? "px-3 kids-card-info" : ""
+        className={`pt-2 pb-2.5 flex flex-col justify-between flex-1 w-full min-w-0 ${
+          isKids ? "px-2.5 kids-card-info" : "px-1"
         }`}
       >
-        <div className="space-y-1 min-w-0">
+        {/* MOBILE KIDS COMPACT INFO (sm:hidden) — Exactly matches Screen 3 reference */}
+        {isKids && (
+          <div className="flex sm:hidden flex-col justify-between flex-1 space-y-1">
+            <Link
+              href={`/product/${product.slug}`}
+              className="block text-xs font-sans font-black tracking-tight text-[#181818] line-clamp-2 leading-tight"
+            >
+              {product.name}
+            </Link>
+
+            <div className="pt-0.5">
+              <span className="text-xs font-sans font-black text-[#181818]">
+                {formatPrice(product.salePrice || product.price)}
+              </span>
+            </div>
+
+            {/* Color Swatch Dots ● ● ● */}
+            {swatches.length > 0 && (
+              <div className="flex items-center gap-1 pt-0.5">
+                {swatches.slice(0, 4).map((variant) => {
+                  const isCurrent = activeColorName.toLowerCase() === variant.name.toLowerCase();
+                  return (
+                    <button
+                      key={variant.name}
+                      type="button"
+                      aria-label={`Select ${variant.name}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setSelectedColor(variant.name);
+                      }}
+                      className={`w-2.5 h-2.5 rounded-full border transition-all ${
+                        isCurrent
+                          ? "border-[#181818] ring-1 ring-[#181818] scale-110"
+                          : "border-[#181818]/40"
+                      }`}
+                      style={{ backgroundColor: variant.hex || (variant as any).value }}
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* DESKTOP & NON-KIDS INFO (hidden sm:block for Kids, always block for non-kids) */}
+        <div className={`space-y-1 min-w-0 ${isKids ? "hidden sm:block" : "block"}`}>
           {/* Product Name */}
           <Link
             href={`/product/${product.slug}`}
@@ -256,10 +302,12 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           )}
         </div>
 
-        {/* ─── 3. PRICE + ADD TO BAG ─── */}
+        {/* ─── 3. PRICE + ADD TO BAG (DESKTOP & NON-KIDS) ─── */}
         <div
-          className={`flex items-center justify-between pt-2 mt-auto gap-2 min-w-0 w-full ${
-            isKids ? "border-t-2 border-[#181818]" : "border-t border-[#D9D8D3]/70"
+          className={`items-center justify-between pt-2 mt-auto gap-2 min-w-0 w-full ${
+            isKids
+              ? "hidden sm:flex border-t-2 border-[#181818]"
+              : "flex border-t border-[#D9D8D3]/70"
           }`}
         >
           <div>
@@ -308,10 +356,11 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
                 e.stopPropagation();
                 handleAddToBag();
               }}
-              className="group/btn shrink-0 px-3 py-1.5 sm:px-3.5 sm:py-2 text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.16em] flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#181818] pablo-btn-dark text-white border border-[#222222] hover:border-white font-medium"
+              className="group/btn shrink-0 px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.16em] flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#181818] pablo-btn-dark text-white border border-[#222222] hover:border-white font-medium"
               aria-label={`Add ${product.name} to bag`}
             >
-              <span>{isJustAdded ? "ADDED" : "ADD TO BAG"}</span>
+              <span>{isJustAdded ? "ADDED" : "ADD"}</span>
+              {!isJustAdded && <span className="hidden sm:inline"> TO BAG</span>}
               <span
                 className="inline-block transition-transform duration-200 group-hover/btn:translate-x-1"
                 aria-hidden="true"

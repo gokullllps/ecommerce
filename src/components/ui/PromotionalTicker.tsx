@@ -41,17 +41,17 @@ export function PromotionalTicker() {
       aria-label="PABLO Announcements"
       id="hero-promotional-ticker"
       tabIndex={0}
-      className="group w-full text-white overflow-hidden h-8 sm:h-9 z-30 select-none shrink-0 cursor-default focus:outline-none flex items-center border-t border-[#222222]/90 pablo-dark-ticker"
+      className="group w-full max-w-full text-white overflow-hidden h-7 sm:h-9 z-30 select-none shrink-0 cursor-default focus:outline-none flex items-center border-t border-[#222222]/90 pablo-dark-ticker"
       style={{ background: "var(--gradient-dark-ticker)", color: "#FFFFFF" }}
     >
-      <div className="relative w-full overflow-hidden flex items-center">
-        <div className="animate-pablo-ticker group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] flex items-center shrink-0">
+      <div className="relative w-full max-w-full overflow-hidden flex items-center">
+        <div className="animate-pablo-ticker md:group-hover:[animation-play-state:paused] md:group-focus-within:[animation-play-state:paused] flex items-center shrink-0">
           {/* Primary Track */}
           <div className="flex items-center shrink-0">
             {TICKER_TRACK.map((item, idx) => (
               <span
                 key={`track1-${idx}`}
-                className="inline-flex items-center shrink-0 font-body text-[9px] sm:text-[10px] uppercase tracking-[0.26em] font-light text-[#EAE8E1]/90 whitespace-nowrap"
+                className="inline-flex items-center shrink-0 font-body text-[8.5px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.26em] font-light text-[#EAE8E1]/90 whitespace-nowrap"
               >
                 <span>{item}</span>
                 <span

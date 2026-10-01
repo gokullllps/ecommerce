@@ -242,9 +242,93 @@ export default function AdminOrdersPage() {
         </div>
       </div>
 
-      {/* Orders List Table */}
+      {/* Orders List Table & Mobile Card List */}
       <div className="rounded-xl bg-white border border-[rgba(17,17,17,0.10)] overflow-hidden shadow-lg">
-        <div className="overflow-x-auto">
+        {/* Mobile Card List View (md:hidden) */}
+        <div className="block md:hidden divide-y divide-[rgba(17,17,17,0.08)]">
+          {paginatedOrders.length === 0 ? (
+            <div className="py-8 text-center text-xs text-[rgba(17,17,17,0.55)]">
+              No orders match the selected criteria.
+            </div>
+          ) : (
+            paginatedOrders.map((o) => {
+              const statusStyle = ORDER_STATUS_COLORS[o.status] || ORDER_STATUS_COLORS.pending;
+
+              return (
+                <div
+                  key={o.id}
+                  onClick={() => setSelectedOrder(o)}
+                  className="p-4 active:bg-black/5 transition-colors cursor-pointer space-y-3"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-mono font-bold text-xs text-[#111111]">{o.orderNumber}</span>
+                      <span className="ml-2 text-[10px] text-[rgba(17,17,17,0.45)]">
+                        {new Date(o.createdAt).toLocaleDateString("en-IN", {
+                          day: "numeric",
+                          month: "short",
+                        })}
+                      </span>
+                    </div>
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-medium border uppercase tracking-wider ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}>
+                      {o.status}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-12 h-12 rounded shrink-0 overflow-hidden border"
+                      style={{ backgroundColor: "#EAE8E1", borderColor: "rgba(17,17,17,0.10)" }}
+                    >
+                      {o.items[0]?.image ? (
+                        <img
+                          src={o.items[0].image}
+                          alt=""
+                          role="presentation"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                          }}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center font-serif text-[10px]">
+                          P
+                        </div>
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-xs font-semibold text-[#111111] truncate">{o.customerName}</div>
+                      <div className="text-[11px] text-[rgba(17,17,17,0.55)] truncate">{o.customerEmail}</div>
+                      <div className="text-[10px] text-[rgba(17,17,17,0.45)] mt-0.5">
+                        {o.items.length} {o.items.length === 1 ? "item" : "items"} · {o.shippingAddress?.city || "India"}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 border-t border-[rgba(17,17,17,0.06)]">
+                    <div>
+                      <span className="text-[10px] text-[rgba(17,17,17,0.45)] uppercase tracking-wider block">Total</span>
+                      <span className="font-mono text-xs font-bold text-[#111111]">₹{o.total.toLocaleString("en-IN")}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedOrder(o);
+                      }}
+                      className="px-3 py-1 bg-[#181818] text-white rounded text-[11px] font-sans font-medium"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+
+        {/* Desktop Table View (hidden md:block) */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
               <tr className="bg-[#EAE8E1]/70 border-b border-[rgba(17,17,17,0.10)] text-[10px] uppercase font-bold text-[rgba(17,17,17,0.45)]">

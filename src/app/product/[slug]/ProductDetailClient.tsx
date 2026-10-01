@@ -281,16 +281,23 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 </>
               )}
 
-              {/* Image Counter Badge (1 / 5) */}
+              {/* Pagination Dots at bottom of image (Screen 4 Reference) */}
               {images.length > 1 && (
-                <div
-                  className={`absolute bottom-4 right-4 z-20 px-3 py-1 text-xs font-mono font-bold select-none ${
-                    isKids
-                      ? "rounded-full border-2 border-[#181818] bg-white text-[#181818] shadow-[2px_2px_0px_#181818]"
-                      : "bg-black/60 text-white rounded-full backdrop-blur-xs"
-                  }`}
-                >
-                  {activeImageIdx + 1} / {images.length}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 pointer-events-none">
+                  {images.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-1.5 rounded-full transition-all ${
+                        activeImageIdx === i
+                          ? isKids
+                            ? "w-4 bg-[#181818]"
+                            : "w-4 bg-[#111111]"
+                          : isKids
+                          ? "w-1.5 bg-[#181818]/30"
+                          : "w-1.5 bg-[#111111]/30"
+                      }`}
+                    />
+                  ))}
                 </div>
               )}
 
@@ -370,36 +377,47 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 {product.subtitle || product.material}
               </p>
 
-              {/* Pricing */}
+              {/* Pricing & Rating Row (Screen 4 Reference) */}
               <div
-                className={`flex items-baseline space-x-3 mt-4 pb-6 ${
+                className={`flex items-center justify-between pb-5 mt-3 ${
                   isKids ? "border-b-2 border-[#181818]" : "border-b border-[#D9D8D3]"
                 }`}
               >
-                <span
-                  className={
-                    isKids
-                      ? "text-2xl sm:text-3xl font-sans font-black text-[#181818]"
-                      : "text-xl sm:text-2xl font-medium text-[#111111]"
-                  }
-                >
-                  {formatPrice(product.salePrice || product.price)}
-                </span>
-                {(product.originalPrice || product.salePrice) && (
-                  <span className="text-base text-[#999999] line-through font-light">
-                    {formatPrice(product.originalPrice || product.price)}
-                  </span>
-                )}
-                {product.originalPrice && product.originalPrice > product.price && (
+                <div className="flex items-baseline space-x-3">
                   <span
-                    className={`text-xs uppercase tracking-wider px-2 py-0.5 ${
+                    className={
                       isKids
-                        ? "rounded-full border border-[#181818] bg-[#FEF08A] text-[#181818] font-bold"
-                        : "text-red-700 bg-red-100/60"
-                    }`}
+                        ? "text-2xl sm:text-3xl font-sans font-black text-[#181818]"
+                        : "text-xl sm:text-2xl font-medium text-[#111111]"
+                    }
                   >
-                    Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                    {formatPrice(product.salePrice || product.price)}
                   </span>
+                  {(product.originalPrice || product.salePrice) && (
+                    <span className="text-base text-[#999999] line-through font-light">
+                      {formatPrice(product.originalPrice || product.price)}
+                    </span>
+                  )}
+                  {product.originalPrice && product.originalPrice > product.price && (
+                    <span
+                      className={`text-xs uppercase tracking-wider px-2 py-0.5 ${
+                        isKids
+                          ? "rounded-full border border-[#181818] bg-[#FEF08A] text-[#181818] font-bold"
+                          : "text-red-700 bg-red-100/60"
+                      }`}
+                    >
+                      Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                    </span>
+                  )}
+                </div>
+
+                {/* Rating Badge for Kids (★ 4.8 (120) — Screen 4 Reference) */}
+                {isKids && (
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border-2 border-[#181818] shadow-[1.5px_1.5px_0px_#181818] text-xs font-sans font-black text-[#181818]">
+                    <span className="text-[#EA580C] text-sm leading-none">★</span>
+                    <span>4.8</span>
+                    <span className="text-[#666666] font-normal text-[11px]">(120)</span>
+                  </div>
                 )}
               </div>
 
@@ -520,29 +538,36 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="py-6 space-y-3">
+              {/* Action Buttons (Screen 4 Reference) */}
+              <div className="py-5 space-y-2.5">
                 <button
                   type="button"
                   onClick={handleAddToBag}
-                  className={`w-full py-4 uppercase tracking-[0.24em] transition-all cursor-pointer active:scale-[0.98] ${
+                  className={`w-full py-3.5 uppercase tracking-[0.16em] transition-all cursor-pointer active:scale-[0.98] ${
                     isKids
-                      ? "rounded-full border-2 border-[#181818] bg-[#FEF08A] hover:bg-[#FDE047] text-[#181818] font-sans font-black text-xs shadow-[4px_4px_0px_#181818] hover:shadow-[2px_2px_0px_#181818] hover:translate-x-[2px] hover:translate-y-[2px]"
+                      ? "rounded-full border-2 border-[#181818] bg-[#FEF08A] hover:bg-[#FDE047] text-[#181818] font-sans font-black text-xs shadow-[3px_3px_0px_#181818] flex items-center justify-center gap-2"
                       : "pablo-btn-dark text-[#EAE8E1] text-xs font-sans font-medium border border-[#222222] hover:border-white shadow-xs"
                   }`}
                 >
-                  ADD TO SHOPPING BAG
+                  {isKids && (
+                    <svg className="w-4 h-4 fill-none stroke-[#181818] stroke-[2.2]" viewBox="0 0 24 24">
+                      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                      <path d="M3 6h18" />
+                      <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                  )}
+                  <span>ADD TO BAG</span>
                 </button>
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className={`w-full py-4 uppercase tracking-[0.24em] transition-all cursor-pointer active:scale-[0.98] ${
+                  className={`w-full py-3.5 uppercase tracking-[0.16em] transition-all cursor-pointer active:scale-[0.98] ${
                     isKids
-                      ? "rounded-full border-2 border-[#181818] bg-white hover:bg-black hover:text-white text-[#181818] font-sans font-bold text-xs shadow-[2px_2px_0px_#181818]"
+                      ? "rounded-full border-2 border-[#181818] bg-white hover:bg-black hover:text-white text-[#181818] font-sans font-black text-xs shadow-[2px_2px_0px_#181818]"
                       : "border border-[#181818] text-[#181818] hover:bg-black hover:text-white text-xs font-sans font-medium"
                   }`}
                 >
-                  BUY NOW WITH EXPRESS CHECKOUT
+                  BUY NOW
                 </button>
 
                 {addedNotification && (

@@ -1,5 +1,19 @@
 [
   {
+    "id": "med_1790789062355_qnecp5",
+    "filename": "product_test-persistence-prod_1790789062355_qnecp5.png",
+    "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
+    "sizeBytes": 70,
+    "mimeType": "image/png",
+    "folder": "products",
+    "tags": [
+      "product",
+      "test-persistence-prod",
+      "png"
+    ],
+    "uploadedAt": "2026-09-30T17:24:22.358Z"
+  },
+  {
     "id": "med_1790766108618_tk3hiq",
     "filename": "product_prod_1790766108500_cfe9_1790766108618_tk3hiq.jpg",
     "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.jpg",

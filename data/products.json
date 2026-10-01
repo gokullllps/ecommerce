@@ -1,5 +1,62 @@
 [
   {
+    "id": "pab-test-persistence-001",
+    "sku": "PAB-PERSIST-001",
+    "name": "Architectural Cashmere Trench",
+    "slug": "architectural-cashmere-trench-test",
+    "brand": "PABLO",
+    "productType": "Apparel",
+    "gender": "men",
+    "department": "clothing",
+    "category": "outerwear",
+    "subCategory": "coats",
+    "collections": [
+      "new-season"
+    ],
+    "description": "Tailored architectural trench coat with persistent imagery.",
+    "price": 95000,
+    "images": [
+      {
+        "id": "img-persist-1",
+        "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
+        "alt": "Front view",
+        "isPrimary": true,
+        "viewType": "front"
+      }
+    ],
+    "primaryImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
+    "hoverImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
+    "colors": [
+      {
+        "name": "Standard",
+        "hex": "#111111",
+        "inStock": true
+      }
+    ],
+    "sizes": [
+      {
+        "size": "M",
+        "inStock": true
+      }
+    ],
+    "stock": 10,
+    "material": "100% Italian Virgin Wool",
+    "fit": "Tailored architectural cut",
+    "tags": [
+      "luxury",
+      "trench"
+    ],
+    "isAvailable": true,
+    "status": "active",
+    "isNewArrival": true,
+    "isSale": false,
+    "isBestSeller": false,
+    "isLimitedEdition": true,
+    "popularityScore": 90,
+    "createdAt": "2026-09-30T17:24:22.395Z",
+    "updatedAt": "2026-09-30T17:24:22.400Z"
+  },
+  {
     "id": "prod_1790766108500_cfe9",
     "sku": "PAB-NEW-TL17",
     "name": "joker",
@@ -164,7 +221,7 @@
     "isBestSeller": true,
     "popularityScore": 98,
     "createdAt": "2026-08-15T10:00:00Z",
-    "updatedAt": "2026-09-30T11:53:45.183Z"
+    "updatedAt": "2026-09-30T17:25:50.422Z"
   },
   {
     "id": "pab-m-002",

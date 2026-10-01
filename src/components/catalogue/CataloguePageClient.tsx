@@ -13,6 +13,8 @@ import { ProductGrid } from "./ProductGrid";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import KidsCategorySection from "@/components/sections/KidsCategorySection";
+import WomenCategorySection from "./WomenCategorySection";
+import MenCategorySection from "./MenCategorySection";
 import { DoodleStar } from "@/components/kids/KidsDoodles";
 import { HiddenStar } from "@/components/kids/games/HiddenStar";
 import { HiddenStarsProvider } from "@/components/kids/games/HiddenStarsContext";
@@ -346,14 +348,28 @@ function CatalogueContent({
         <main
           id="catalogue"
           data-gender={isKids ? "kids" : gender}
-          className={`page-container relative z-10 flex-1 ${
-            isKids ? "pt-6 sm:pt-8 pb-16 bg-transparent" : "pt-8 sm:pt-10 lg:pt-12 pb-16 lg:pb-20"
+          className={`page-container relative z-10 flex-1 scroll-mt-20 ${
+            isKids
+              ? "pt-6 sm:pt-8 pb-16 bg-transparent"
+              : gender === "women" || gender === "men"
+              ? "pt-0 sm:pt-4 lg:pt-8 pb-16 lg:pb-20"
+              : "pt-8 sm:pt-10 lg:pt-12 pb-16 lg:pb-20"
           }`}
           style={isKids ? { backgroundColor: "transparent" } : undefined}
         >
 
-          {/* Header - Only for non-kids (removed for kids as requested) */}
-          {!isKids && (
+          {/* Dedicated Men's Editorial Section (Category Navigation Pills + 4-Column Category Grid) */}
+          {gender === "men" && (
+            <MenCategorySection currentDepartment={currentDepartment} />
+          )}
+
+          {/* Dedicated Women's Editorial Section */}
+          {gender === "women" && (
+            <WomenCategorySection currentDepartment={currentDepartment} />
+          )}
+
+          {/* Header - Only for non-kids, non-women, non-men (Sale, New-In) */}
+          {!isKids && gender !== "women" && gender !== "men" && (
             <div className="text-center max-w-3xl mx-auto pt-3 pb-2 mb-4">
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#111111] mt-1">
                 {title}
@@ -364,8 +380,8 @@ function CatalogueContent({
             </div>
           )}
 
-          {/* PRIMARY DESTINATION NAVIGATION (Tabs for non-kids gender catalogues) */}
-          {showDestinationTabs && !isKids && (
+          {/* PRIMARY DESTINATION NAVIGATION (Tabs for non-kids, non-women, non-men gender catalogues) */}
+          {showDestinationTabs && !isKids && gender !== "women" && gender !== "men" && (
             <div className="flex items-center justify-center mb-8">
               <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-white/60 border border-[#D9D8D3]">
                 {destinationTabs.map((tab) => {
@@ -389,10 +405,106 @@ function CatalogueContent({
           )}
 
 
-          {/* ─── CONTROLS ROW ─── */}
+          {/* ─── DEDICATED MOBILE KIDS CATEGORY HEADER & CONTROLS (< sm) ─── */}
+          {isKids && (
+            <div className="flex sm:hidden flex-col gap-3 mb-4 select-none">
+              {/* Category Title + Breadcrumbs + Sun Doodle (Screen 3 Reference) */}
+              <div className="flex items-center justify-between px-1">
+                <div>
+                  <h2 className="text-2xl font-black text-[#181818] font-sans tracking-tight capitalize">
+                    {kidsCategory === "all" ? "New Arrivals" : kidsCategory}
+                  </h2>
+                  <p className="text-[11px] text-[#666666] font-medium tracking-wide">
+                    Home &gt; Kids &gt; <span className="capitalize text-[#181818] font-bold">{kidsCategory === "all" ? "New Arrivals" : kidsCategory}</span>
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="w-10 h-10 flex items-center justify-center">
+                    <svg className="w-8 h-8 fill-[#FEF08A] stroke-[#181818] stroke-[1.5]" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="5" />
+                      <line x1="12" y1="1" x2="12" y2="3" />
+                      <line x1="12" y1="21" x2="12" y2="23" />
+                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                      <line x1="1" y1="12" x2="3" y2="12" />
+                      <line x1="21" y1="12" x2="23" y2="12" />
+                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Filter & Sort Bar (Screen 3 Reference) */}
+              <div className="flex items-center justify-between gap-3 px-1">
+                {/* [ 🎚️ FILTER ] Yellow Pill Button */}
+                <button
+                  type="button"
+                  onClick={() => setMobileDrawerOpen(true)}
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#FEF08A] text-[#181818] border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-[11px] font-sans font-black tracking-widest uppercase cursor-pointer active:scale-95 transition-all"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    <line x1="4" y1="21" x2="4" y2="14" />
+                    <line x1="4" y1="10" x2="4" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="12" />
+                    <line x1="12" y1="8" x2="12" y2="3" />
+                    <line x1="20" y1="21" x2="20" y2="16" />
+                    <line x1="20" y1="12" x2="20" y2="3" />
+                    <line x1="1" y1="14" x2="7" y2="14" />
+                    <line x1="9" y1="8" x2="15" y2="8" />
+                    <line x1="17" y1="16" x2="23" y2="16" />
+                  </svg>
+                  <span>FILTER</span>
+                  {hasActiveFilters && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#181818]" />
+                  )}
+                </button>
+
+                {/* Right: Sort Trigger */}
+                <div className="flex items-center">
+                  <ProductSort currentSort={activeFilters.sort} onSortChange={setSort} />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ─── DEDICATED MOBILE CONTROL BAR FOR NON-KIDS (< sm) ─── */}
+          {!isKids && (
+            <div className="flex sm:hidden items-center justify-between py-2 mb-4 text-xs select-none border-y border-[#D9D8D3]">
+              {/* Left: Filter Trigger Button */}
+              <button
+                type="button"
+                onClick={() => setMobileDrawerOpen(true)}
+                className="flex-1 flex items-center justify-center gap-2 py-1.5 border-r border-[#D9D8D3]/70 font-medium text-[#111111] active:bg-black/5 transition-colors cursor-pointer"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                  <line x1="4" y1="21" x2="4" y2="14" />
+                  <line x1="4" y1="10" x2="4" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12" y2="3" />
+                  <line x1="20" y1="21" x2="20" y2="16" />
+                  <line x1="20" y1="12" x2="20" y2="3" />
+                  <line x1="1" y1="14" x2="7" y2="14" />
+                  <line x1="9" y1="8" x2="15" y2="8" />
+                  <line x1="17" y1="16" x2="23" y2="16" />
+                </svg>
+                <span className="tracking-[0.16em] uppercase">FILTER</span>
+                {hasActiveFilters && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#111111]" />
+                )}
+              </button>
+
+              {/* Right: Sort Trigger */}
+              <div className="flex-1 flex items-center justify-center">
+                <ProductSort currentSort={activeFilters.sort} onSortChange={setSort} />
+              </div>
+            </div>
+          )}
+
+          {/* ─── DESKTOP CONTROLS ROW (>= sm) — 100% UNCHANGED ─── */}
           <div
             id="catalogue-controls"
-            className={`relative flex items-center justify-between py-3 mb-6 text-xs select-none ${
+            className={`hidden sm:flex relative items-center justify-between py-3 mb-6 text-xs select-none ${
               isKids ? "border-y-2 border-[#181818]" : "border-y border-[#D9D8D3]"
             }`}
           >

@@ -523,9 +523,98 @@ export default function AdminProductsPage() {
         </div>
       )}
 
-      {/* Main Products Table */}
+      {/* Main Products Table & Mobile Card List */}
       <div className="rounded-xl bg-white border border-[rgba(17,17,17,0.10)] overflow-hidden shadow-xl">
-        <div className="overflow-x-auto">
+        {/* Mobile Product Card List View (md:hidden) */}
+        <div className="block md:hidden divide-y divide-[rgba(17,17,17,0.08)]">
+          {paginatedProducts.length === 0 ? (
+            <div className="py-8 text-center text-xs text-[rgba(17,17,17,0.55)]">
+              No products match your filters.
+            </div>
+          ) : (
+            paginatedProducts.map((p) => {
+              const status = p.status || (p.isAvailable ? "active" : "archived");
+              const stock = p.stock ?? 10;
+              const threshold = p.lowStockThreshold ?? 5;
+              const isLow = stock > 0 && stock <= threshold;
+              const isOut = stock === 0;
+              const thumbnail =
+                p.primaryImage ||
+                p.images?.[0]?.url ||
+                "/images/categories/knitwear.jpg";
+
+              return (
+                <div
+                  key={p.id}
+                  onClick={() => {
+                    setEditingProduct(p);
+                    setIsEditorOpen(true);
+                  }}
+                  className="p-3.5 active:bg-black/5 transition-colors cursor-pointer space-y-2.5"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-14 h-16 rounded overflow-hidden bg-[#EAE8E1] shrink-0 border border-[rgba(17,17,17,0.10)] relative">
+                      <img
+                        src={thumbnail}
+                        alt={p.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "/images/categories/knitwear.jpg";
+                        }}
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="font-mono text-[10px] text-[rgba(17,17,17,0.45)] uppercase">{p.sku}</span>
+                        <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${
+                          status === "active" ? "bg-emerald-50 text-emerald-800 border border-emerald-200" : "bg-neutral-100 text-neutral-600 border border-neutral-200"
+                        }`}>
+                          {status}
+                        </span>
+                      </div>
+                      <div className="text-xs font-semibold text-[#111111] truncate mt-0.5">{p.name}</div>
+                      <div className="text-[10px] text-[rgba(17,17,17,0.55)] capitalize mt-0.5">
+                        {p.gender} · {p.category}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 border-t border-[rgba(17,17,17,0.06)] text-xs">
+                    <div>
+                      <span className="font-mono font-bold text-[#111111]">₹{p.price.toLocaleString("en-IN")}</span>
+                      {p.salePrice && p.salePrice < p.price && (
+                        <span className="ml-1.5 font-mono text-[10px] line-through text-[rgba(17,17,17,0.40)]">
+                          ₹{p.salePrice.toLocaleString("en-IN")}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                        isOut ? "bg-rose-50 text-rose-700" : isLow ? "bg-amber-50 text-amber-700" : "bg-emerald-50 text-emerald-700"
+                      }`}>
+                        {stock} in stock
+                      </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setEditingProduct(p);
+                          setIsEditorOpen(true);
+                        }}
+                        className="px-2.5 py-0.5 bg-[#181818] text-white rounded text-[10.5px] font-sans font-medium"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+
+        {/* Desktop Table View (hidden md:block) */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
               <tr className="bg-[#EAE8E1] border-b border-[rgba(17,17,17,0.10)] text-[10px] uppercase font-bold text-[rgba(17,17,17,0.45)] font-mono tracking-wider">

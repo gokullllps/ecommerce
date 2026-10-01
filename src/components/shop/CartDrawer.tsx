@@ -256,14 +256,33 @@ export default function CartDrawer() {
                 "Complimentary express shipping and bespoke gift packaging included."
               )}
             </p>
-            <div className="grid grid-cols-2 gap-3 pt-1">
-              <Link href="/cart" onClick={() => setIsCartOpen(false)} className={T.viewBag}>
-                VIEW BAG
-              </Link>
-              <Link href="/checkout" onClick={() => setIsCartOpen(false)} className={T.checkout}>
-                CHECKOUT
-              </Link>
-            </div>
+            {isKids ? (
+              <div className="space-y-2 pt-1">
+                <Link
+                  href="/checkout"
+                  onClick={() => setIsCartOpen(false)}
+                  className="w-full block text-center py-3.5 rounded-full border-2 border-[#181818] bg-[#FEF08A] hover:bg-[#FDE047] text-[#181818] font-sans text-xs font-black tracking-widest uppercase shadow-[3px_3px_0px_#181818] active:translate-x-[2px] active:translate-y-[2px] transition-all"
+                >
+                  PROCEED TO CHECKOUT
+                </Link>
+                <Link
+                  href="/cart"
+                  onClick={() => setIsCartOpen(false)}
+                  className="w-full block text-center py-2.5 rounded-full border-2 border-[#181818] bg-white text-[#181818] font-sans text-[11px] font-bold tracking-wider uppercase hover:bg-black/5 transition-all"
+                >
+                  VIEW BAG
+                </Link>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <Link href="/cart" onClick={() => setIsCartOpen(false)} className={T.viewBag}>
+                  VIEW BAG
+                </Link>
+                <Link href="/checkout" onClick={() => setIsCartOpen(false)} className={T.checkout}>
+                  CHECKOUT
+                </Link>
+              </div>
+            )}
           </div>
         )}
       </div>

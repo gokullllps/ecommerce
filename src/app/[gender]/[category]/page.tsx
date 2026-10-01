@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ALL_PRODUCTS, getProductsByGender } from "@/data/products";
 import CataloguePage from "@/components/catalogue/CataloguePageClient";
 import type { Metadata } from "next";
@@ -11,7 +11,8 @@ interface CategoryPageProps {
   }>;
 }
 
-const VALID_GENDERS = ["men", "women", "kids"];
+// Men has dedicated route structure under /men/[category]
+const VALID_GENDERS = ["women", "kids"];
 
 export async function generateStaticParams() {
   const params: { gender: string; category: string }[] = [];
@@ -29,6 +30,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { gender, category } = await params;
+  if (gender === "men") {
+    const formattedCategory = category.replace("-", " ").toUpperCase();
+    return {
+      title: `Men's ${formattedCategory} — PABLO`,
+      description: `Shop luxury Men's ${category.replace("-", " ")} at Maison PABLO.`,
+    };
+  }
+
   const formattedCategory = category.replace("-", " ").toUpperCase();
   const formattedGender = gender.toUpperCase();
 
@@ -41,15 +50,19 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { gender, category } = await params;
 
+  if (gender === "men") {
+    redirect(`/men/${category}`);
+  }
+
   if (!VALID_GENDERS.includes(gender)) {
     notFound();
   }
 
-  const genderProducts = getProductsByGender(gender as "men" | "women" | "kids");
+  const genderProducts = getProductsByGender(gender as "women" | "kids");
 
   return (
     <CataloguePage
-      gender={gender as "men" | "women" | "kids"}
+      gender={gender as "women" | "kids"}
       title={`${category.replace("-", " ").toUpperCase()}`}
       subtitle={`Curated ${category.replace("-", " ")} engineered with sartorial precision and timeless character.`}
       products={genderProducts}

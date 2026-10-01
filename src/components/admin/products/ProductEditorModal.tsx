@@ -619,10 +619,10 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
   if (!isOpen) return null;
 
   return (
-    <div className="pablo-admin-modal fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm overflow-y-auto animate-fadeIn">
-      <div className="bg-white border border-[rgba(17,17,17,0.10)] rounded-2xl w-full max-w-5xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+    <div className="pablo-admin-modal fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6 bg-black/80 backdrop-blur-sm overflow-y-auto animate-fadeIn">
+      <div className="bg-white border-0 sm:border border-[rgba(17,17,17,0.10)] rounded-none sm:rounded-2xl w-full max-w-5xl h-full sm:h-auto sm:max-h-[92vh] flex flex-col shadow-2xl overflow-hidden sm:my-auto">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-[rgba(17,17,17,0.10)] flex items-center justify-between bg-[#EAE8E1]">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-[rgba(17,17,17,0.10)] flex items-center justify-between bg-[#EAE8E1] shrink-0">
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#111111] font-bold">
@@ -654,7 +654,7 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
         </div>
 
         {/* Tab Navigation */}
-        <div className="px-6 border-b border-[rgba(17,17,17,0.10)] bg-[#F5F4F0] flex items-center gap-1 overflow-x-auto text-xs font-mono uppercase tracking-wider no-scrollbar">
+        <div className="px-3 sm:px-6 border-b border-[rgba(17,17,17,0.10)] bg-[#F5F4F0] flex items-center gap-1 overflow-x-auto text-[11px] sm:text-xs font-mono uppercase tracking-wider no-scrollbar shrink-0">
           {[
             { id: "basic", label: "Basic Info" },
             { id: "category", label: "Category & Taxo" },
@@ -669,7 +669,7 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`px-4 py-3 border-b-2 font-medium transition-colors whitespace-nowrap cursor-pointer ${
+              className={`px-3 sm:px-4 py-2.5 sm:py-3 border-b-2 font-medium transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === tab.id
                   ? "border-[#181818] text-[#111111] bg-[#EAE8E1]/40"
                   : "border-transparent text-[rgba(17,17,17,0.55)] hover:text-[#111111] hover:border-[rgba(17,17,17,0.15)]"
@@ -681,7 +681,7 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
         </div>
 
         {/* Tab Body */}
-        <div className="flex-1 p-6 overflow-y-auto space-y-6 text-xs" style={{ color: "#111111" }}>
+        <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-6 text-xs" style={{ color: "#111111" }}>
           {/* TAB 1: BASIC INFORMATION */}
           {activeTab === "basic" && (
             <div className="space-y-4 max-w-3xl">
@@ -1116,6 +1116,17 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
                   <div style={{ fontSize: 10, color: "rgba(17,17,17,0.38)", marginTop: 6, fontFamily: "monospace", letterSpacing: "0.05em" }}>
                     JPG · PNG · WEBP · Max 10 MB per image
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      fileInputRef.current?.click();
+                    }}
+                    className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#181818] text-white rounded-md text-xs font-mono font-medium hover:bg-black active:scale-95 transition-all shadow-sm"
+                  >
+                    <span>+ Upload Images</span>
+                  </button>
                 </div>
               </div>
 

@@ -234,6 +234,20 @@ export function filterProducts(
       if (!match) return false;
     }
 
+    // Check default category if provided by route context
+    if (context.defaultCategory && context.defaultCategory !== "all") {
+      const cat = (p.category || "").toLowerCase();
+      const sub = (p.subCategory || "").toLowerCase();
+      const target = context.defaultCategory.toLowerCase();
+      const match =
+        cat === target ||
+        sub === target ||
+        (target === "shirts" && (cat === "shirts" || sub.includes("shirt"))) ||
+        (target === "trousers" && (cat === "trousers" || sub.includes("trouser"))) ||
+        p.tags?.some((t) => t.toLowerCase() === target);
+      if (!match) return false;
+    }
+
     // 1. Categories
     if (ignoreDimension !== "categories" && !matchesFilterDimension(p, "categories", state, context)) return false;
     // 2. Product Types

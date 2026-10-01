@@ -50,15 +50,14 @@ export default function KidsHero() {
     <section
       id="kids-hero"
       aria-label="PABLO Kids Cartoon Fashion Universe"
-      className="relative w-full bg-transparent select-none flex flex-col justify-between overflow-hidden -mt-14 sm:-mt-16 pt-14 sm:pt-16"
+      className="relative w-full bg-transparent select-none flex flex-col md:justify-between overflow-hidden -mt-14 sm:-mt-16 pt-14 sm:pt-16 md:h-auto md:min-h-screen"
       style={{
         backgroundColor: "transparent",
-        minHeight: "100vh",
       }}
     >
 
-      {/* ─── 1. CARTOON SKY BACKGROUND & DECORATIVE HORIZON ─── */}
-      <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+      {/* â”€â”€â”€ 1. CARTOON SKY BACKGROUND & DECORATIVE HORIZON (DESKTOP ONLY) â”€â”€â”€ */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none z-10 overflow-hidden">
         {/* Playful pastel sky glow circle merging with navbar */}
         <div
           className="absolute -top-24 -left-24 sm:-top-32 sm:-left-32 w-[550px] sm:w-[600px] h-[550px] sm:h-[600px] rounded-full bg-[#FEF08A]/35 blur-3xl"
@@ -75,18 +74,18 @@ export default function KidsHero() {
 
         {/* Playful Smiling Sun in the top corner (safely below navbar) */}
         <div
-          className="absolute top-20 sm:top-24 lg:top-28 right-6 sm:right-12 lg:right-16 z-0 animate-kids-pulse pointer-events-none"
+          className="absolute top-16 sm:top-24 lg:top-28 right-4 sm:right-12 lg:right-16 z-0 animate-kids-pulse pointer-events-none"
           style={{
             opacity: phase >= 1 || prefersReducedMotion ? 1 : 0,
             transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out",
           }}
         >
-          <DoodleSun className="w-16 h-16 sm:w-20 sm:h-20 pointer-events-none" color="#FEF08A" />
+          <DoodleSun className="w-14 h-14 sm:w-20 sm:h-20 pointer-events-none" color="#FEF08A" />
         </div>
 
         {/* Drifting Cloud with Hidden Star (peeks on hover) */}
         <div
-          className="group absolute top-20 sm:top-24 lg:top-28 left-6 sm:left-12 animate-kids-drift"
+          className="group absolute top-16 sm:top-24 lg:top-28 left-4 sm:left-12 animate-kids-drift"
           style={{
             opacity: phase >= 1 || prefersReducedMotion ? 0.9 : 0,
             transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out",
@@ -94,7 +93,7 @@ export default function KidsHero() {
         >
           <div className="relative">
             <DoodleCloud
-              className="w-28 sm:w-36 h-auto transition-transform group-hover:scale-105 relative z-10 pointer-events-none"
+              className="w-24 sm:w-36 h-auto transition-transform group-hover:scale-105 relative z-10 pointer-events-none"
               color="#FFFFFF"
               borderColor="#181818"
               borderWidth={2.5}
@@ -135,7 +134,7 @@ export default function KidsHero() {
         <div className="absolute top-32 sm:top-36 left-[40%] animate-kids-twinkle pointer-events-none">
           <DoodleStar className="w-7 h-7 pointer-events-none" color="#FEF08A" strokeColor="#181818" />
         </div>
-        <div className="absolute top-24 sm:top-28 lg:top-32 right-[46%] animate-kids-twinkle pointer-events-none" style={{ animationDelay: "1.2s" }}>
+        <div className="absolute top-20 sm:top-28 lg:top-32 right-[46%] animate-kids-twinkle pointer-events-none" style={{ animationDelay: "1.2s" }}>
           <div className="relative pointer-events-auto">
             <DoodleStar className="w-5 h-5 pointer-events-none" color="#F472B6" strokeColor="#181818" />
             {/* Zone A: Beside the upper decorative star cluster */}
@@ -150,11 +149,229 @@ export default function KidsHero() {
         </div>
       </div>
 
+      {/* ─── 2. DEDICATED PURPOSE-BUILT MOBILE KIDS HERO COMPOSITION (< md) ─── */}
+      <div className="flex md:hidden relative flex-col z-20 px-4 pt-3 pb-5 w-full select-none overflow-hidden">
+        {/* Soft pastel ambient sky glow for mobile */}
+        <div
+          className="absolute -top-16 -left-16 w-[340px] h-[340px] rounded-full bg-[#FEF08A]/35 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute top-1/2 -right-20 w-[300px] h-[300px] rounded-full bg-[#DCFCE7]/25 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
 
-      <div className="page-container relative flex-1 flex items-center z-10 py-8 lg:py-6">
+        {/* ── Row 1: Top Badges Row [PABLO KIDS] [100% PLAY-READY] + SUN ── */}
+        <div className="w-full flex items-center justify-between z-20 shrink-0">
+          <div
+            className="flex items-center gap-2"
+            style={{
+              opacity: phase >= 1 || prefersReducedMotion ? 1 : 0,
+              transform: phase >= 1 || prefersReducedMotion ? "translateY(0)" : "translateY(-6px)",
+              transition: prefersReducedMotion ? "none" : "opacity 400ms ease-out, transform 400ms ease-out",
+            }}
+          >
+            <div className="relative inline-flex items-center">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FEF08A] text-[#181818] border-2 border-[#181818] text-[10px] font-sans font-bold tracking-wider uppercase shadow-[1.5px_1.5px_0px_#181818]">
+                <svg className="w-2.5 h-2.5 fill-[#181818]" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l2.4 7.6 7.6 2.4-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z"/>
+                </svg>
+                <span>PABLO KIDS</span>
+              </span>
+              <HiddenStar
+                slotId="slot-b-badge-under"
+                className="-bottom-1 -right-1 z-30 pointer-events-auto"
+                rotate="8deg"
+              />
+            </div>
+            <div className="relative inline-block">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FFFFFF] text-[#181818] border-2 border-[#181818] text-[10px] font-sans font-bold tracking-wider uppercase shadow-[1.5px_1.5px_0px_#181818]">
+                <svg className="w-2.5 h-2.5 fill-[#181818]" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                <span>PLAY-READY</span>
+              </span>
+              <HiddenStar
+                slotId="slot-b-badge-play-ready"
+                className="-top-1 -right-1 z-30 pointer-events-auto"
+                rotate="-12deg"
+              />
+            </div>
+          </div>
+
+          {/* Smiling Sun */}
+          <div
+            className="relative shrink-0 animate-kids-pulse pointer-events-none"
+            style={{
+              opacity: phase >= 1 || prefersReducedMotion ? 1 : 0,
+              transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out",
+            }}
+          >
+            <div className="relative pointer-events-auto">
+              <DoodleSun className="w-11 h-11 pointer-events-none" color="#FEF08A" />
+              <HiddenStar
+                slotId="slot-a-sky-star-cluster"
+                className="-top-1 -left-2 z-30 pointer-events-auto"
+                rotate="18deg"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* ── Row 2: Headline (left) + Model (right) — tight grid ── */}
+        <div className="relative w-full grid grid-cols-[1fr_auto] gap-0 items-stretch mt-2.5">
+
+          {/* LEFT: Playful headline + Cloud Soft badge + supporting text */}
+          <div
+            className="flex flex-col justify-between py-1 z-20"
+            style={{
+              opacity: phase >= 2 || prefersReducedMotion ? 1 : 0,
+              transform: phase >= 2 || prefersReducedMotion ? "translateY(0)" : "translateY(6px)",
+              transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out, transform 500ms ease-out",
+            }}
+          >
+            {/* Top: Headline */}
+            <div>
+              <h1
+                className="font-black tracking-tight leading-[0.90] select-none text-[40px] sm:text-[46px]"
+                style={{ fontFamily: "var(--font-sans, 'Inter', sans-serif)" }}
+              >
+                <span className="block text-[#181818]">PLAY.</span>
+                <span className="block text-[#EA580C]">MOVE.</span>
+                <span className="block text-[#16A34A] relative inline-block">
+                  EXPLORE.
+                  <HiddenStar
+                    slotId="slot-b-headline-period"
+                    className="-top-1 -right-4 z-30 pointer-events-auto"
+                    rotate="-10deg"
+                  />
+                </span>
+              </h1>
+
+              {/* Cloud Soft badge below headline */}
+              <div className="mt-2 animate-kids-float-slow">
+                <div className="relative inline-block">
+                  <StickerBadge
+                    text="CLOUD SOFT"
+                    icon={
+                      <svg className="w-2 h-2 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+                      </svg>
+                    }
+                    bgColor="#E0F2FE"
+                    textColor="#0369A1"
+                    borderColor="#181818"
+                    rotate="-2deg"
+                  />
+                  <HiddenStar
+                    slotId="slot-b-sticker-cloud-soft"
+                    className="-top-1 -left-1 z-30 pointer-events-auto"
+                    rotate="-8deg"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom: Supporting text */}
+            <div>
+              <p className="text-[10px] sm:text-[10.5px] text-[#334155] font-semibold leading-snug max-w-[170px] mb-1">
+                Luxury silhouettes from cloud-soft natural fibers for wild curiosity.
+              </p>
+              <DoodleArrow className="w-8 h-auto text-[#181818] opacity-60" />
+            </div>
+          </div>
+
+          {/* RIGHT: Model â€” fills full column height, anchored bottom */}
+          <div
+            className="relative flex items-end justify-end pointer-events-none z-10"
+            style={{
+              opacity: phase >= 2 || prefersReducedMotion ? 1 : 0,
+              transform: prefersReducedMotion
+                ? "none"
+                : phase >= 2
+                ? "translate3d(0, 0, 0) scale(1)"
+                : "translate3d(20px, 0, 0) scale(1.02)",
+              transition: prefersReducedMotion
+                ? "none"
+                : "opacity 850ms cubic-bezier(0.16, 1, 0.3, 1), transform 850ms cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+          >
+            {/* Decorative clouds flanking model â€” constrained, not clipping */}
+            <div className="absolute top-1/4 -left-10 z-0 animate-kids-float pointer-events-none">
+              <div className="relative pointer-events-auto">
+                <DoodleCloud className="w-14 h-auto opacity-80" color="#FFFFFF" borderColor="#181818" borderWidth={1.8} />
+                <HiddenStar slotId="slot-a-cloud-left-tuck" className="-top-1 -right-1 z-30 pointer-events-auto" rotate="12deg" />
+              </div>
+            </div>
+
+            {/* Ground shadow */}
+            <div
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-28 h-2.5 rounded-[100%] bg-[#181818]/15 z-0"
+              aria-hidden="true"
+            />
+
+            {/* Sneaker motion lines */}
+            <div className="absolute bottom-2 -left-4 z-20 pointer-events-none">
+              <DoodleSneakerMotion className="w-10 h-auto" color="#FB923C" />
+            </div>
+
+            {/* Model â€” full height */}
+            <Image
+              src="/images/pablo-kids-hero.png"
+              alt="PABLO Kids Fashion Model"
+              width={457}
+              height={1168}
+              priority
+              unoptimized
+              className="object-contain object-bottom w-auto h-[300px] sm:h-[340px] select-none pointer-events-none drop-shadow-md z-10 -mr-2"
+            />
+          </div>
+        </div>
+
+        {/* â”€â”€ Row 3: CTA â”€â”€ */}
+        <div
+          className="relative w-full flex justify-center mt-3 shrink-0"
+          style={{
+            opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
+            transform: phase >= 3 || prefersReducedMotion ? "translateY(0)" : "translateY(6px)",
+            transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out, transform 500ms ease-out",
+          }}
+        >
+          <a
+            href="#kids-category-section"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("kids-category-section")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="
+              group w-[88%] max-w-[320px] flex items-center justify-center gap-2
+              py-3.5 min-h-[46px] px-6
+              bg-[#FEF08A] text-[#181818] active:bg-[#FDE047]
+              border-2 border-[#181818] rounded-full
+              text-xs font-sans tracking-[0.14em] uppercase font-black
+              transition-all duration-200 ease-out
+              shadow-[3px_3px_0px_#181818] active:shadow-[1px_1px_0px_#181818]
+              active:translate-x-[2px] active:translate-y-[2px]
+              cursor-pointer select-none text-center
+            "
+          >
+            <span>EXPLORE KIDS&apos; WORLD</span>
+            <span className="text-sm font-bold transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+          <HiddenStar
+            slotId="slot-b-explore-btn"
+            className="-top-1 right-8 z-30 pointer-events-auto"
+            rotate="15deg"
+          />
+        </div>
+      </div>
+
+
+      {/* â”€â”€â”€ 3. PRESERVED UNTOUCHED DESKTOP KIDS HERO (md:flex) â”€â”€â”€ */}
+      <div className="hidden md:flex page-container relative flex-1 items-center z-10 py-8 lg:py-6">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center h-full">
 
-          {/* ── LEFT COLUMN: PLAYFUL OVERSIZED DISPLAY TYPOGRAPHY & STICKERS ── */}
+          {/* â”€â”€ LEFT COLUMN: PLAYFUL OVERSIZED DISPLAY TYPOGRAPHY & STICKERS â”€â”€ */}
           <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center z-20 order-2 lg:order-1 pt-4 lg:pt-0">
             {/* Top Playful Brand Badge & Season */}
             <div
@@ -296,7 +513,7 @@ export default function KidsHero() {
                 >
                   <span>EXPLORE KIDS&apos; WORLD</span>
                   <span className="text-base transform group-hover:translate-y-0.5 transition-transform duration-200">
-                    ↓
+                    â†“
                   </span>
                 </a>
                 {/* Zone B: Subtle star tucked near the button shadow corner */}
@@ -310,7 +527,7 @@ export default function KidsHero() {
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN: REAL CHILD MODEL INSIDE CARTOON SURROUNDINGS ── */}
+          {/* â”€â”€ RIGHT COLUMN: REAL CHILD MODEL INSIDE CARTOON SURROUNDINGS â”€â”€ */}
           <div className="lg:col-span-5 xl:col-span-5 relative flex items-end justify-center lg:justify-end xl:justify-center h-full z-10 order-1 lg:order-2">
             <div
               className="relative flex items-end justify-center lg:justify-end xl:justify-center w-full pb-2 sm:pb-4 lg:pb-6"
@@ -394,7 +611,7 @@ export default function KidsHero() {
                 <DoodleStar className="w-8 h-8" color="#FEF08A" strokeColor="#181818" />
               </div>
 
-              {/* ── THE EXACT CHILD MODEL (Preserved exactly, 0 changes to face, clothes, or shoes) ── */}
+              {/* â”€â”€ THE EXACT CHILD MODEL (Preserved exactly, 0 changes to face, clothes, or shoes) â”€â”€ */}
               <div className="relative z-10">
                 <Image
                   src="/images/pablo-kids-hero.png"

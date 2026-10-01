@@ -4,15 +4,18 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function MenHero() {
-  // Staged luxury editorial entrance animation:
-  // Phase 1 (50ms):  Background subtle typography and metadata appear
-  // Phase 2 (200ms): Men model softly fades in from left with subtle horizontal shift
-  // Phase 3 (400ms): Monumental heading "THE MODERN MAN" appears
-  // Phase 4 (600ms): Supporting philosophy description appears
-  // Phase 5 (750ms): Explore collection CTA button appears
-  // Phase 6 (900ms): Right-side editorial details & progress indicator appear
+  // Desktop staged luxury entrance animation:
   const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5 | 6>(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  // Phone 2 Dedicated Mobile Men Hero Animation Sequence:
+  // 0.15s: breadcrumb & campaign label appear
+  // 0.25s: headline THE MODERN MAN reveals
+  // 0.35s: model begins entering from LEFT (-25vw to 0 over 900ms)
+  // 0.85s: editorial crosshair & corner marks reveal
+  // 1.00s: supporting copy reveals
+  // 1.15s: CTA reveals
+  const [menPhase, setMenPhase] = useState<0 | 1 | 2 | 3 | 4 | 5 | 6>(0);
 
   useEffect(() => {
     if (
@@ -21,6 +24,7 @@ export default function MenHero() {
     ) {
       setPrefersReducedMotion(true);
       setPhase(6);
+      setMenPhase(6);
       return;
     }
 
@@ -31,6 +35,14 @@ export default function MenHero() {
     const t5 = setTimeout(() => setPhase(5), 750);
     const t6 = setTimeout(() => setPhase(6), 900);
 
+    // Mobile Staged Timers:
+    const m1 = setTimeout(() => setMenPhase(1), 150);
+    const m2 = setTimeout(() => setMenPhase(2), 250);
+    const m3 = setTimeout(() => setMenPhase(3), 350);
+    const m4 = setTimeout(() => setMenPhase(4), 850);
+    const m5 = setTimeout(() => setMenPhase(5), 1000);
+    const m6 = setTimeout(() => setMenPhase(6), 1150);
+
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -38,6 +50,12 @@ export default function MenHero() {
       clearTimeout(t4);
       clearTimeout(t5);
       clearTimeout(t6);
+      clearTimeout(m1);
+      clearTimeout(m2);
+      clearTimeout(m3);
+      clearTimeout(m4);
+      clearTimeout(m5);
+      clearTimeout(m6);
     };
   }, []);
 
@@ -52,15 +70,162 @@ export default function MenHero() {
   return (
     <section
       aria-label="PABLO Men's Architectural Campaign"
-      className="relative w-full bg-[#EAE8E1] select-none flex flex-col justify-between overflow-hidden border-b border-[#D9D8D3]"
+      className="relative w-full bg-[#EAE8E1] select-none flex flex-col md:justify-between overflow-hidden border-b border-[#D9D8D3]"
       style={{
         backgroundColor: "#EAE8E1",
-        minHeight: "calc(100vh - 4rem)",
       }}
     >
+      {/* ─── 1. DEDICATED PURPOSE-BUILT MOBILE MEN HERO (< md) ─── */}
+      {/* Built strictly from Phone 2 in primary art-direction reference */}
+      <div className="flex md:hidden relative flex-col z-20 px-5 pt-3 pb-6 w-full overflow-hidden select-none">
+        {/* ── Row 1: Breadcrumb + Season label ── */}
+        <div className="mobile-hero-meta w-full flex items-center justify-between z-30 shrink-0">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-1.5"
+            style={{
+              opacity: menPhase >= 1 || prefersReducedMotion ? 1 : 0,
+              transform: menPhase >= 1 || prefersReducedMotion ? "translateY(0)" : "translateY(-4px)",
+              transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out, transform 500ms ease-out",
+            }}
+          >
+            <a href="/" className="text-[11px] font-sans tracking-[0.14em] text-[#666666] hover:text-[#111111] transition-colors">
+              Home
+            </a>
+            <span className="text-[10px] text-[#999999] select-none">&gt;</span>
+            <span className="text-[11px] font-sans tracking-[0.14em] text-[#111111] font-medium">Men</span>
+          </nav>
+          <div
+            style={{
+              opacity: menPhase >= 1 || prefersReducedMotion ? 1 : 0,
+              transform: menPhase >= 1 || prefersReducedMotion ? "translateY(0)" : "translateY(-4px)",
+              transition: prefersReducedMotion ? "none" : "opacity 500ms ease-out, transform 500ms ease-out",
+            }}
+          >
+            <span className="text-[9.5px] font-sans tracking-[0.24em] uppercase text-[#666666] font-medium">A/W 2026</span>
+          </div>
+        </div>
 
+        {/* ── Row 2: Headline (left) + Model (right) side by side — NO dead space ── */}
+        <div className="relative w-full grid grid-cols-[1fr_auto] gap-0 items-stretch mt-2.5 overflow-hidden">
 
-      <div className="page-container relative flex-1 flex items-center z-10 py-4 sm:py-6 lg:py-8">
+          {/* LEFT: Stacked headline and supporting copy */}
+          <div
+            className="flex flex-col justify-between py-2 z-20"
+            style={{
+              opacity: menPhase >= 2 || prefersReducedMotion ? 1 : 0,
+              transform: menPhase >= 2 || prefersReducedMotion ? "translateY(0)" : "translateY(8px)",
+              transition: prefersReducedMotion ? "none" : "opacity 700ms ease-out, transform 700ms ease-out",
+            }}
+          >
+            {/* Top portion: Headline */}
+            <div>
+              <h1
+                className="font-normal text-[#111111] uppercase tracking-[0.01em] leading-[0.86] select-none text-[44px] sm:text-[50px]"
+                style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+              >
+                THE<br />
+                MODERN<br />
+                MAN
+              </h1>
+
+              {/* Crosshair accent */}
+              <div
+                className="mt-3 pointer-events-none"
+                style={{
+                  opacity: menPhase >= 4 || prefersReducedMotion ? 0.7 : 0,
+                  transition: prefersReducedMotion ? "none" : "opacity 600ms ease-out",
+                }}
+              >
+                <svg width="18" height="42" viewBox="0 0 18 42" fill="none" className="text-[#111111]" aria-hidden="true">
+                  <line x1="9" y1="0" x2="9" y2="42" stroke="currentColor" strokeWidth="0.75" />
+                  <line x1="0" y1="21" x2="18" y2="21" stroke="currentColor" strokeWidth="0.75" />
+                  <polygon points="9,14 11,21 9,28 7,21" fill="currentColor" />
+                  <polygon points="2,21 9,19 16,21 9,23" fill="currentColor" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Bottom portion: Supporting copy + editorial tag */}
+            <div
+              className="mt-auto"
+              style={{
+                opacity: menPhase >= 5 || prefersReducedMotion ? 1 : 0,
+                transform: menPhase >= 5 || prefersReducedMotion ? "translateY(0)" : "translateY(6px)",
+                transition: prefersReducedMotion ? "none" : "opacity 600ms ease-out, transform 600ms ease-out",
+              }}
+            >
+              <p className="text-[10px] sm:text-[10.5px] text-[#222222] font-normal tracking-wide max-w-[170px] leading-[1.45] mb-2.5">
+                Form. Function. Precision. Industrial accents, street-luxury tailoring for the contemporary vanguard.
+              </p>
+              <p className="text-[8.5px] tracking-[0.2em] font-sans font-semibold text-[#111111] uppercase leading-[1.3]">
+                DETAILS<br />DEFINE<br />CHARACTER.
+              </p>
+              <div className="w-5 h-[1px] bg-[#111111] mt-1.5 opacity-70" />
+            </div>
+          </div>
+
+          {/* RIGHT: Model image fills full right column height, touching top */}
+          <div
+            className="relative flex items-end justify-end z-10 pointer-events-none"
+            style={{
+              transform: prefersReducedMotion
+                ? "none"
+                : menPhase >= 3
+                ? "translate3d(0, 0, 0) scale(1)"
+                : "translate3d(-20vw, 0, 0) scale(1.02)",
+              opacity: menPhase >= 3 || prefersReducedMotion ? 1 : 0,
+              transition: prefersReducedMotion
+                ? "none"
+                : "transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 750ms ease-out",
+            }}
+          >
+            {/* Ground shadow */}
+            <div
+              className="absolute bottom-0 right-4 w-36 h-2.5 rounded-[100%] bg-[#111111]/20 blur-[2px] z-0"
+              aria-hidden="true"
+            />
+            <Image
+              src="/images/men_hero.png"
+              alt="PABLO Men's Editorial Campaign Artwork"
+              width={913}
+              height={857}
+              priority
+              unoptimized
+              className="object-contain object-bottom w-auto h-[365px] sm:h-[400px] select-none pointer-events-none drop-shadow-md z-10"
+            />
+          </div>
+        </div>
+
+        {/* ── Row 3: CTA ── */}
+        <div
+          className="w-full flex justify-center z-20 pt-4 shrink-0"
+          style={{
+            opacity: menPhase >= 6 || prefersReducedMotion ? 1 : 0,
+            transform: menPhase >= 6 || prefersReducedMotion ? "translateY(0)" : "translateY(8px)",
+            transition: prefersReducedMotion ? "none" : "opacity 700ms ease-out, transform 700ms ease-out",
+          }}
+        >
+          <a
+            href="#catalogue"
+            onClick={handleScrollToCatalogue}
+            className="
+              group flex items-center justify-center gap-2
+              w-[90%] max-w-[340px] py-3.5 min-h-[46px]
+              bg-[#181818] text-[#FFFFFF] active:bg-[#333333]
+              border border-[#181818]
+              text-xs font-sans tracking-[0.22em] uppercase font-medium
+              transition-all duration-200 ease-out shadow-xs cursor-pointer select-none text-center
+            "
+          >
+            <span>EXPLORE MEN&apos;S COLLECTION</span>
+            <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+          </a>
+        </div>
+      </div>
+
+      {/* ─── 2. PRESERVED UNTOUCHED DESKTOP MEN HERO (>= md) ─── */}
+      <div className="hidden md:flex page-container relative flex-1 items-center z-10 py-4 sm:py-6 lg:py-8 md:min-h-[calc(100vh-4rem)]">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center h-full">
 
           {/* ── LEFT COLUMN: THE MODERN MAN & CTA (Cols 1-6) ── */}

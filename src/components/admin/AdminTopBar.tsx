@@ -57,14 +57,63 @@ export function AdminTopBar() {
 
   return (
     <header
-      className="sticky top-0 z-30 h-16 flex items-center justify-between gap-4 px-6"
+      className="sticky top-0 z-30 h-16 flex items-center justify-between gap-4 px-4 sm:px-6"
       style={{
         backgroundColor: "#EAE8E1",
         borderBottom: "1px solid rgba(17,17,17,0.10)",
       }}
     >
-      {/* ── Search ── */}
-      <div ref={searchRef} className="relative flex-1 max-w-xs">
+      {/* ── Mobile TopBar (lg:hidden) ── */}
+      <div className="flex lg:hidden items-center justify-between w-full">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent("pablo-toggle-admin-nav"))}
+            className="p-1.5 -ml-1.5 rounded active:bg-black/5"
+            aria-label="Open CMS navigation menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-[#111111]">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <div className="flex items-center gap-2">
+            <span className="font-serif text-base font-bold tracking-tight text-[#111111]">PABLO CMS</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          {/* Active Role Indicator */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/5 border border-black/10">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] font-sans font-medium text-[#111111]">
+              {getRoleDisplayName(currentUser?.role || "super_admin")}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={async () => {
+              await logout();
+              window.location.href = "/admin/login";
+            }}
+            className="p-1.5 rounded text-[11px] font-sans text-red-700 active:bg-red-50"
+            title="Log out"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+              <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* ── Desktop TopBar (hidden lg:flex) ── */}
+      <div className="hidden lg:flex items-center justify-between gap-4 w-full">
+        {/* ── Search ── */}
+        <div ref={searchRef} className="relative flex-1 max-w-xs">
         <svg
           className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none"
           style={{ color: "rgba(17,17,17,0.35)" }}
@@ -323,6 +372,7 @@ export function AdminTopBar() {
             </div>
           )}
         </div>
+      </div>
       </div>
     </header>
   );
