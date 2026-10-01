@@ -1,7 +1,6 @@
 import React from "react";
 import { getProductsByDepartment } from "@/data/products";
-import CataloguePage from "@/components/catalogue/CataloguePageClient";
-import MenHero from "@/components/sections/MenHero";
+import MenCatalogueGrid from "@/components/men/MenCatalogueGrid";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,17 +12,10 @@ export default function MenClothingPage() {
   const products = getProductsByDepartment("clothing", "men");
 
   return (
-    <CataloguePage
-      gender="men"
-      title="MEN'S CLOTHING"
-      subtitle="Double-faced cashmere outerwear, virgin wool trousers, silk overshirts, and architectural knitwear."
+    <MenCatalogueGrid
       products={products}
       currentDepartment="clothing"
-      breadcrumbs={[
-        { label: "MEN", href: "/men" },
-        { label: "CLOTHING", href: "/men/clothing" },
-      ]}
-      heroSlot={<MenHero key="men-clothing-hero" />}
+      defaultCategory="clothing"
     />
   );
 }

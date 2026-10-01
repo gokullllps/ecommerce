@@ -1,6 +1,6 @@
 import React from "react";
 import { getProductsByDepartment } from "@/data/products";
-import CataloguePage from "@/components/catalogue/CataloguePageClient";
+import MenCatalogueGrid from "@/components/men/MenCatalogueGrid";
 import type { Metadata } from "next";
 
 interface MenClothingTypePageProps {
@@ -21,13 +21,12 @@ export default async function MenClothingTypePage({ params }: MenClothingTypePag
   const products = getProductsByDepartment("clothing", "men");
 
   return (
-    <CataloguePage
-      gender="men"
-      title={`MEN'S ${type.replace("-", " ").toUpperCase()}`}
-      subtitle={`Architectural ${type.replace("-", " ")} engineered with sartorial precision and timeless character.`}
+    <MenCatalogueGrid
       products={products}
       currentDepartment="clothing"
       defaultSubtype={type}
+      title={`MEN'S ${type.replace("-", " ").toUpperCase()}`}
+      subtitle={`Architectural ${type.replace("-", " ")} engineered with sartorial precision and timeless character.`}
       breadcrumbs={[
         { label: "MEN", href: "/men" },
         { label: "CLOTHING", href: "/men/clothing" },

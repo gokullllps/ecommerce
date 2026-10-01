@@ -1,7 +1,6 @@
 import { ALL_PRODUCTS, getProductsByGender } from "@/data/products";
 import { Product } from "@/types/catalogue";
-import CataloguePage from "@/components/catalogue/CataloguePageClient";
-import MenHero from "@/components/sections/MenHero";
+import MenCatalogueGrid from "@/components/men/MenCatalogueGrid";
 import type { Metadata } from "next";
 
 interface CategoryPageProps {
@@ -11,9 +10,6 @@ interface CategoryPageProps {
 const MEN_VALID_CATEGORIES = [
   "shirts",
   "trousers",
-  "footwear",
-  "accessories",
-  "clothing",
   "outerwear",
   "denim",
   "t-shirts",
@@ -24,11 +20,15 @@ const MEN_VALID_CATEGORIES = [
   "bags",
 ];
 
+const STATIC_FOLDERS = ["footwear", "accessories", "clothing"];
+
 export async function generateStaticParams() {
   const menProducts = ALL_PRODUCTS.filter((p) => (p.gender || "men") === "men");
   const categoriesFromProducts = Array.from(new Set(menProducts.map((p) => p.category.toLowerCase())));
   const allCats = Array.from(new Set([...MEN_VALID_CATEGORIES, ...categoriesFromProducts]));
-  return allCats.map((cat) => ({ category: cat }));
+  return allCats
+    .filter((cat) => !STATIC_FOLDERS.includes(cat))
+    .map((cat) => ({ category: cat }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -86,21 +86,12 @@ export default async function MenCategoryPage({ params }: CategoryPageProps) {
   const { category } = await params;
   const department = getDepartmentForCategory(category);
   const categoryProducts = getMenCategoryProducts(category);
-  const formattedCategory = category.replace("-", " ").toUpperCase();
 
   return (
-    <CataloguePage
-      gender="men"
-      title={`MEN'S ${formattedCategory}`}
-      subtitle={`Curated ${category.replace("-", " ")} engineered with sartorial precision and timeless character.`}
+    <MenCatalogueGrid
       products={categoryProducts}
       currentDepartment={department}
       defaultCategory={category}
-      breadcrumbs={[
-        { label: "MEN", href: "/men" },
-        { label: formattedCategory, href: `/men/${category}` },
-      ]}
-      heroSlot={<MenHero key={`men-${category}-hero`} />}
     />
   );
 }
