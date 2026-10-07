@@ -80,7 +80,7 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
         }}
       >
         <Image
-          src="/images/man-bg.png"
+          src="/images/man-bg.webp"
           alt="PABLO Men's Architectural Campaign Landscape"
           fill
           priority
@@ -391,7 +391,7 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
             }}
           >
             <Image
-              src="/images/man-hero.png"
+              src="/images/man-hero.webp"
               alt="PABLO Men's Editorial Campaign Model"
               width={1170}
               height={1345}
