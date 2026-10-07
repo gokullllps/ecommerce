@@ -82,7 +82,7 @@ export function StockAdjustmentModal({ isOpen, onClose, product, variant }: Stoc
             <div className="w-12 h-14 rounded bg-[#F5F4F0] overflow-hidden flex-shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={product.primaryImage || product.images?.[0]?.url || "/images/categories/knitwear.jpg"}
+                src={product.primaryImage || product.images?.[0]?.url || "/images/categories/knitwear.webp"}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />

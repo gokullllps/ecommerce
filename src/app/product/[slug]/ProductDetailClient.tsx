@@ -77,7 +77,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
     ? activeVariant.images
     : (product.images && product.images.length > 0
         ? product.images
-        : (product.primaryImage ? [{ url: product.primaryImage, alt: product.name }] : [{ url: "/images/pablo-hero-cutout.png", alt: product.name }]));
+        : (product.primaryImage ? [{ url: product.primaryImage, alt: product.name }] : [{ url: "/images/pablo-hero-cutout.webp", alt: product.name }]));
 
   // When color changes, reset image index to 0
   const handleColorChange = (newColor: string) => {

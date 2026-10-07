@@ -27,7 +27,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Heavyweight Supima and Combed Cotton T-Shirts",
-    "image": "/images/categories/t-shirts.jpg",
+    "image": "/images/categories/t-shirts.webp",
     "displayOrder": 3,
     "status": "active"
   },
@@ -38,7 +38,7 @@
     "parentId": "cat_men_footwear",
     "gender": "men",
     "description": "Minimalist Calfskin Court Sneakers",
-    "image": "/images/categories/footwear.jpg",
+    "image": "/images/categories/footwear.webp",
     "displayOrder": 4,
     "status": "active"
   },
@@ -49,7 +49,7 @@
     "parentId": "cat_men_accessories",
     "gender": "men",
     "description": "Architectural Leather Weekend Bags & Briefcases",
-    "image": "/images/categories/bags.jpg",
+    "image": "/images/categories/bags.webp",
     "displayOrder": 5,
     "status": "active"
   },
@@ -121,7 +121,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Tailored Italian Poplin and Silk Blend Shirts",
-    "image": "/images/categories/shirts.jpg",
+    "image": "/images/categories/shirts.webp",
     "displayOrder": 12,
     "status": "active"
   },
@@ -132,7 +132,7 @@
     "parentId": "cat_men_footwear",
     "gender": "men",
     "description": "Blake-Stitched Suede & Box Calf Loafers",
-    "image": "/images/categories/footwear.jpg",
+    "image": "/images/categories/footwear.webp",
     "displayOrder": 13,
     "status": "active"
   },
@@ -143,7 +143,7 @@
     "parentId": "cat_men_accessories",
     "gender": "men",
     "description": "Full-Grain Bifold & Card Cases",
-    "image": "/images/categories/accessories.jpg",
+    "image": "/images/categories/accessories.webp",
     "displayOrder": 14,
     "status": "active"
   },
@@ -205,7 +205,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Fine-Gauge Knit & Double Mercerized Polos",
-    "image": "/images/categories/polos.jpg",
+    "image": "/images/categories/polos.webp",
     "displayOrder": 20,
     "status": "active"
   },
@@ -216,7 +216,7 @@
     "parentId": "cat_men_footwear",
     "gender": "men",
     "description": "Goodyear-Welted Chelsea & Combat Boots",
-    "image": "/images/categories/footwear.jpg",
+    "image": "/images/categories/footwear.webp",
     "displayOrder": 21,
     "status": "active"
   },
@@ -227,7 +227,7 @@
     "parentId": "cat_men_accessories",
     "gender": "men",
     "description": "Saddlery Finish Leather Belts with Brass Hardware",
-    "image": "/images/categories/accessories.jpg",
+    "image": "/images/categories/accessories.webp",
     "displayOrder": 22,
     "status": "active"
   },
@@ -268,7 +268,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Architectural Wool and Linen Pleated Trousers",
-    "image": "/images/categories/trousers.jpg",
+    "image": "/images/categories/trousers.webp",
     "displayOrder": 26,
     "status": "active"
   },
@@ -279,7 +279,7 @@
     "parentId": "cat_men_accessories",
     "gender": "men",
     "description": "Structured Wool-Cashmere and Twill Caps",
-    "image": "/images/categories/accessories.jpg",
+    "image": "/images/categories/accessories.webp",
     "displayOrder": 27,
     "status": "active"
   },
@@ -300,7 +300,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Japanese Selvedge and Rigid Raw Denim",
-    "image": "/images/categories/denim.jpg",
+    "image": "/images/categories/denim.webp",
     "displayOrder": 29,
     "status": "active"
   },
@@ -311,7 +311,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Cashmere Overcoats, Trenches & Leather Jackets",
-    "image": "/images/categories/outerwear.png",
+    "image": "/images/categories/outerwear.webp",
     "displayOrder": 30,
     "status": "active"
   },
@@ -322,7 +322,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Grade-A Mongolian Cashmere & Merino Sweaters",
-    "image": "/images/categories/knitwear.jpg",
+    "image": "/images/categories/knitwear.webp",
     "displayOrder": 31,
     "status": "active"
   },
@@ -333,7 +333,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Sculptural French Terry Hoodies and Crewnecks",
-    "image": "/images/categories/sweatshirts.png",
+    "image": "/images/categories/sweatshirts.webp",
     "displayOrder": 32,
     "status": "active"
   },
@@ -344,7 +344,7 @@
     "parentId": "cat_men_clothing",
     "gender": "men",
     "description": "Relaxed Pleated and Technical Tailored Shorts",
-    "image": "/images/categories/shorts.jpg",
+    "image": "/images/categories/shorts.webp",
     "displayOrder": 33,
     "status": "active"
   }

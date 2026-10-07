@@ -10,6 +10,8 @@ import { AppliedFilters } from "@/components/catalogue/filters/AppliedFilters";
 import { ProductSort } from "@/components/catalogue/ProductSort";
 import { ProductGrid } from "@/components/catalogue/ProductGrid";
 
+import { matchesCategory } from "@/data/products";
+
 export interface BreadcrumbItem {
   label: string;
   href: string;
@@ -23,6 +25,7 @@ export interface MenCatalogueGridProps {
   title?: string;
   subtitle?: string;
   breadcrumbs?: BreadcrumbItem[];
+  activeCategory?: string;
 }
 
 function MenCatalogueGridInner({
@@ -33,6 +36,7 @@ function MenCatalogueGridInner({
   title,
   subtitle,
   breadcrumbs,
+  activeCategory = "all",
 }: MenCatalogueGridProps) {
   const context: CatalogueContext = {
     gender: "men",
@@ -58,6 +62,12 @@ function MenCatalogueGridInner({
     } catch {}
   }, [products]);
 
+  // Dynamically filter according to activeCategory
+  const categoryFilteredBaseProducts = React.useMemo(() => {
+    if (!activeCategory || activeCategory === "all") return liveProducts;
+    return liveProducts.filter((p) => matchesCategory(p, activeCategory));
+  }, [liveProducts, activeCategory]);
+
   const {
     activeFilters,
     filterGroups,
@@ -75,7 +85,7 @@ function MenCatalogueGridInner({
     removeFilter,
     resetAllFilters,
     clearFilterGroup,
-  } = useProductFilters(liveProducts, context);
+  } = useProductFilters(categoryFilteredBaseProducts, context);
 
   return (
     <div className="w-full">
@@ -99,7 +109,17 @@ function MenCatalogueGridInner({
         </nav>
       )}
 
-      {title && (
+      {/* Active Category Header when a specific category is active */}
+      {activeCategory && activeCategory !== "all" ? (
+        <div className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111] uppercase">
+            {activeCategory.replace("-", " ")}
+          </h1>
+          <p className="text-xs sm:text-sm text-[#666666] font-light mt-1.5 max-w-lg mx-auto tracking-wide">
+            Archival craftsmanship and contemporary silhouettes.
+          </p>
+        </div>
+      ) : title ? (
         <div className="text-center max-w-3xl mx-auto pt-2 pb-2 mb-4">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111]">
             {title}
@@ -110,7 +130,7 @@ function MenCatalogueGridInner({
             </p>
           )}
         </div>
-      )}
+      ) : null}
 
       {/* ─── DEDICATED MOBILE CONTROL BAR (< sm) ─── */}
       <div className="flex sm:hidden items-center justify-between py-2 mb-4 text-xs select-none border-y border-[#D9D8D3]">

@@ -1,10 +1,10 @@
 [
   {
     "id": "med_1790789062355_qnecp5",
-    "filename": "product_test-persistence-prod_1790789062355_qnecp5.png",
-    "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
-    "sizeBytes": 70,
-    "mimeType": "image/png",
+    "filename": "product_test-persistence-prod_1790789062355_qnecp5.webp",
+    "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
+    "sizeBytes": 100,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "product",
@@ -15,10 +15,10 @@
   },
   {
     "id": "med_1790766108618_tk3hiq",
-    "filename": "product_prod_1790766108500_cfe9_1790766108618_tk3hiq.jpg",
-    "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.jpg",
-    "sizeBytes": 149138,
-    "mimeType": "image/jpeg",
+    "filename": "product_prod_1790766108500_cfe9_1790766108618_tk3hiq.webp",
+    "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.webp",
+    "sizeBytes": 141626,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "product",
@@ -29,10 +29,10 @@
   },
   {
     "id": "med_1790766108546_ci9f9c",
-    "filename": "product_prod_1790766108500_cfe9_1790766108546_ci9f9c.jpg",
-    "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.jpg",
-    "sizeBytes": 14448,
-    "mimeType": "image/jpeg",
+    "filename": "product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
+    "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
+    "sizeBytes": 15690,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "product",
@@ -43,10 +43,10 @@
   },
   {
     "id": "med_08",
-    "filename": "pablo-kids-hero.png",
-    "url": "/images/pablo-kids-hero.png",
-    "sizeBytes": 691000,
-    "mimeType": "image/png",
+    "filename": "pablo-kids-hero.webp",
+    "url": "/images/pablo-kids-hero.webp",
+    "sizeBytes": 42816,
+    "mimeType": "image/webp",
     "folder": "campaigns",
     "tags": [
       "kids",
@@ -97,10 +97,10 @@
   },
   {
     "id": "med_03",
-    "filename": "knitwear.jpg",
-    "url": "/images/categories/knitwear.jpg",
-    "sizeBytes": 620000,
-    "mimeType": "image/jpeg",
+    "filename": "knitwear.webp",
+    "url": "/images/categories/knitwear.webp",
+    "sizeBytes": 116502,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "category",
@@ -115,10 +115,10 @@
   },
   {
     "id": "med_04",
-    "filename": "outerwear.png",
-    "url": "/images/categories/outerwear.png",
-    "sizeBytes": 840000,
-    "mimeType": "image/png",
+    "filename": "outerwear.webp",
+    "url": "/images/categories/outerwear.webp",
+    "sizeBytes": 23164,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "category",
@@ -133,10 +133,10 @@
   },
   {
     "id": "med_05",
-    "filename": "t-shirts.jpg",
-    "url": "/images/categories/t-shirts.jpg",
-    "sizeBytes": 540000,
-    "mimeType": "image/jpeg",
+    "filename": "t-shirts.webp",
+    "url": "/images/categories/t-shirts.webp",
+    "sizeBytes": 58196,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "category",
@@ -151,10 +151,10 @@
   },
   {
     "id": "med_06",
-    "filename": "denim.jpg",
-    "url": "/images/categories/denim.jpg",
-    "sizeBytes": 780000,
-    "mimeType": "image/jpeg",
+    "filename": "denim.webp",
+    "url": "/images/categories/denim.webp",
+    "sizeBytes": 58208,
+    "mimeType": "image/webp",
     "folder": "products",
     "tags": [
       "category",
@@ -169,10 +169,10 @@
   },
   {
     "id": "med_07",
-    "filename": "pablo-logo.png",
-    "url": "/images/pablo-logo.png",
-    "sizeBytes": 120000,
-    "mimeType": "image/png",
+    "filename": "pablo-logo.webp",
+    "url": "/images/pablo-logo.webp",
+    "sizeBytes": 6012,
+    "mimeType": "image/webp",
     "folder": "general",
     "tags": [
       "logo",

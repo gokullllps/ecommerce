@@ -377,7 +377,7 @@ export default function AdminMediaPage() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. aw26-cashmere-overcoat-noir.jpg"
+                  placeholder="e.g. aw26-cashmere-overcoat-noir.webp"
                   value={uploadForm.filename}
                   onChange={(e) => setUploadForm({ ...uploadForm, filename: e.target.value })}
                   className="w-full px-3 py-2 bg-white border border-[rgba(17,17,17,0.15)] rounded-lg text-xs text-[#111111]"
@@ -389,7 +389,7 @@ export default function AdminMediaPage() {
                 <input
                   type="text"
                   required
-                  placeholder="/images/categories/outerwear.png"
+                  placeholder="/images/categories/outerwear.webp"
                   value={uploadForm.url}
                   onChange={(e) => setUploadForm({ ...uploadForm, url: e.target.value })}
                   className="w-full px-3 py-2 bg-white border border-[rgba(17,17,17,0.15)] rounded-lg text-xs text-[#111111] font-mono"

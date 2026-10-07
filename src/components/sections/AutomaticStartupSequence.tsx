@@ -110,6 +110,8 @@ export function AutomaticStartupSequence() {
       window.history.scrollRestoration = "manual";
     }
 
+    const timers: NodeJS.Timeout[] = [];
+
     try {
       if (sessionStorage.getItem(INTRO_COMPLETED_KEY) === "true") {
         const saved = sessionStorage.getItem("pablo-scroll-y");
@@ -121,18 +123,20 @@ export function AutomaticStartupSequence() {
             };
             restore();
             requestAnimationFrame(restore);
-            const t1 = setTimeout(restore, 40);
-            const t2 = setTimeout(restore, 120);
-            const t3 = setTimeout(restore, 300);
-            return () => {
-              clearTimeout(t1);
-              clearTimeout(t2);
-              clearTimeout(t3);
-            };
+            timers.push(setTimeout(restore, 40));
+            timers.push(setTimeout(restore, 120));
+            timers.push(setTimeout(restore, 300));
           }
         }
       }
     } catch {}
+
+    return () => {
+      timers.forEach(clearTimeout);
+      if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "auto";
+      }
+    };
   }, []);
 
   // Main intro animation sequence: executes ONLY on fresh session when intro has not run
@@ -368,7 +372,7 @@ export function AutomaticStartupSequence() {
             >
               <div className="flex flex-col items-center justify-center -translate-y-[1.5vh] px-6">
                 <Image
-                  src="/images/pablo-logo.png"
+                  src="/images/pablo-logo.webp"
                   alt="PABLO — Luxury Fashion"
                   priority
                   unoptimized
@@ -393,7 +397,7 @@ export function AutomaticStartupSequence() {
         )}
 
         {/* ONE STABLE STICKY HEADER CONTAINER (Navbar + MegaMenu) */}
-        <Navbar isIntroActive={showIntro} />
+        <Navbar isIntroActive={showIntro} isHeroOverlay={true} />
 
         {/* 3. HERO SECTION */}
         <div ref={heroRef} className="w-full relative">

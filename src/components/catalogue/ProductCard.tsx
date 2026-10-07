@@ -47,7 +47,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
     activeVariant?.images?.[0]?.url ||
     product.primaryImage ||
     product.images?.[0]?.url ||
-    "/images/pablo-hero-cutout.png";
+    "/images/pablo-hero-cutout.webp";
 
   const secondaryImage =
     product.hoverImage ||
@@ -131,8 +131,8 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
               className="object-cover w-full h-full"
               priority={index < 4}
               onError={() => {
-                if (imgSrc !== "/images/pablo-hero-cutout.png") {
-                  setImgSrc("/images/pablo-hero-cutout.png");
+                if (imgSrc !== "/images/pablo-hero-cutout.webp") {
+                  setImgSrc("/images/pablo-hero-cutout.webp");
                 }
               }}
             />

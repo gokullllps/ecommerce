@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
   const containerRef = useRef<HTMLElement>(null);
-  
+
   // If intro is not active, reveal hero elements immediately in Phase 3
   const [phase, setPhase] = useState<0 | 1 | 2 | 3>(isIntroActive ? 0 : 3);
   const sequenceStartedRef = useRef(false);
@@ -52,11 +52,12 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
     if (phase < 3 || prefersReducedMotion) return;
 
     let isMounted = true;
+    let femaleTimer: NodeJS.Timeout | null = null;
     const initialHoldTimer = setTimeout(() => {
       if (!isMounted) return;
       setModelState("initial-exit");
 
-      const femaleTimer = setTimeout(() => {
+      femaleTimer = setTimeout(() => {
         if (!isMounted) return;
         setModelState("female");
         setCycleKey((k) => k + 1);
@@ -78,7 +79,11 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
     return () => {
       isMounted = false;
       clearTimeout(initialHoldTimer);
-      if (timerRef.current) clearInterval(timerRef.current as any);
+      if (femaleTimer) clearTimeout(femaleTimer);
+      if (timerRef.current) {
+        clearInterval(timerRef.current as any);
+        timerRef.current = null;
+      }
     };
   }, [phase, prefersReducedMotion]);
 
@@ -140,7 +145,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
           clearTimeout(m5);
         };
       }
-    } catch {}
+    } catch { }
 
     const startSequence = () => {
       if (sequenceStartedRef.current) return;
@@ -202,11 +207,16 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
     }
   }, [isIntroActive]);
 
-  // Clean up animation timeouts on unmount
+  // Clean up animation timeouts and intervals on unmount
   useEffect(() => {
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      if (timerRef.current) {
+        clearInterval(timerRef.current as any);
+        clearTimeout(timerRef.current as any);
+        timerRef.current = null;
+      }
       timeoutsRef.current.forEach(clearTimeout);
+      timeoutsRef.current = [];
     };
   }, []);
 
@@ -215,9 +225,43 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
       ref={containerRef}
       id="hero"
       aria-label="PABLO Luxury Fashion Showcase"
-      className="relative w-full md:h-[calc(100vh-4rem)] md:min-h-[560px] bg-[#EAE8E1] overflow-hidden flex flex-col md:justify-between select-none"
-      style={{ backgroundColor: "#EAE8E1" }}
+      className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden flex flex-col justify-between select-none bg-[#11100E] text-[#111111]"
+      style={{
+        backgroundColor: "#11100E",
+        minHeight: "100svh",
+        height: "100svh",
+      }}
     >
+      {/* ─── HERO BACKGROUND (Uploaded Asset) ─── */}
+      <div
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-cover bg-center bg-no-repeat select-none"
+        style={{
+          backgroundImage: "url('/images/pablo-hero-bg-editorial.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/pablo-hero-bg-editorial.jpg"
+          alt="PABLO Luxury Fashion Campaign"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center w-full h-full select-none"
+        />
+
+        {/* Top Shadow: Seamless integration with transparent sticky navbar (matching Men page reference) */}
+        <div
+          className="absolute inset-x-0 top-0 h-28 sm:h-36 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(17,16,14,0.75) 0%, rgba(17,16,14,0.3) 55%, transparent 100%)",
+          }}
+          aria-hidden="true"
+        />
+      </div>
+
       {/* ══════════════════════════════════════════════════════════════════════════
           1. DEDICATED PURPOSE-BUILT MOBILE HERO (< md)
           - Built strictly from Phone 1 in primary art-direction reference:
@@ -235,20 +279,8 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
             ↓ (12px)
             ticker
          ══════════════════════════════════════════════════════════════════════════ */}
-      <div className="flex md:hidden flex-col w-full relative overflow-hidden select-none px-4 pt-2.5 pb-3">
-        {/* Top: Small Campaign Label */}
-        <div
-          className="w-full flex flex-col items-start px-1 pt-0.5 z-20 shrink-0 transition-all duration-500 ease-out"
-          style={{
-            opacity: mobilePhase >= 1 || prefersReducedMotion ? 1 : 0,
-            transform: mobilePhase >= 1 || prefersReducedMotion ? "translateY(0)" : "translateY(-6px)",
-          }}
-        >
-          <span className="text-[10px] tracking-[0.26em] font-sans font-medium text-[#111111] uppercase">
-            NEW COLLECTIONS AVAILABLE
-          </span>
-          <div className="w-12 h-[1px] bg-[#111111] mt-1.5 opacity-80" />
-        </div>
+      <div className="flex md:hidden relative flex-1 min-h-0 flex-col justify-between w-full overflow-hidden select-none px-4 pt-16 sm:pt-20 pb-2 z-10">
+
 
         {/* Dedicated Mobile Visual Stage: PABLO Typography + Model + Sale Badge + Slender Star */}
         <div className="relative w-full h-[345px] sm:h-[375px] flex items-center justify-center mt-2.5 sm:mt-3 shrink-0">
@@ -301,8 +333,8 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
               transform: prefersReducedMotion
                 ? "none"
                 : mobilePhase >= 3
-                ? "translate3d(0, 0, 0) scale(1)"
-                : "translate3d(-25vw, 0, 0) scale(1.03)",
+                  ? "translate3d(0, 0, 0) scale(1)"
+                  : "translate3d(-25vw, 0, 0) scale(1.03)",
               opacity: mobilePhase >= 3 || prefersReducedMotion ? 1 : 0,
               transition: prefersReducedMotion
                 ? "none"
@@ -316,7 +348,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
             />
 
             <Image
-              src="/images/pablo-hero-cutout.png"
+              src="/images/main-hero.png"
               alt="PABLO Luxury Fashion Campaign"
               width={403}
               height={619}
@@ -370,16 +402,17 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
               target?.scrollIntoView({ behavior: "smooth" });
             }}
             className="
-              w-[90%] max-w-[340px] py-3.5 min-h-[46px]
-              bg-[#181818] text-[#FFFFFF] active:bg-[#333333]
-              border border-[#181818]
-              text-xs font-sans tracking-[0.22em] uppercase font-medium
-              transition-all duration-200 ease-out shadow-xs cursor-pointer select-none text-center
-              flex items-center justify-center gap-2
+              group w-[90%] max-w-[340px] py-3.5 min-h-[46px]
+              bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818]
+              border border-white/25 active:border-white
+              backdrop-blur-sm
+              text-xs font-sans tracking-[0.24em] uppercase font-medium
+              transition-all duration-300 ease-out shadow-lg cursor-pointer select-none text-center
+              flex items-center justify-center gap-2.5
             "
           >
             <span>EXPLORE COLLECTION</span>
-            <span>→</span>
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-xs">→</span>
           </button>
 
           <button
@@ -403,7 +436,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
           2. DESKTOP HERO (>= md) — 100% UNTOUCHED ORIGINAL EDITORIAL COMPOSITION
          ══════════════════════════════════════════════════════════════════════════ */}
       <div className="hidden md:flex relative flex-1 min-h-0 w-full flex-col justify-center items-center px-4 sm:px-8 lg:px-12 py-2 sm:py-4 overflow-hidden">
-        
+
         {/*
           ─── LAYER 1: OVERSIZED (PA [IMAGE] BLO) TYPOGRAPHY ──────────────────────────
           Exact brand logo font: Cormorant Garamond (Weight 400).
@@ -465,15 +498,21 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
         */}
         <div
           className="
-            relative z-20 pointer-events-none flex items-center justify-center
-            w-full h-full max-h-[92vh]
+            absolute inset-0 pointer-events-none z-20 flex items-end justify-center
+            pb-3 sm:pb-4 lg:pb-5
           "
         >
-          <div className="relative flex items-center justify-center -ml-[10vw] sm:-ml-[14vw] lg:-ml-[15vw]">
+          <div className="relative flex items-end justify-center -ml-[10vw] sm:-ml-[14vw] lg:-ml-[15vw]">
+            {/* Ground contact shadow oval under shoes */}
+            <div
+              className="absolute bottom-1 w-64 sm:w-72 lg:w-80 h-3 rounded-[100%] bg-[#111111]/30 blur-[4px] pointer-events-none z-0"
+              aria-hidden="true"
+            />
+
             {/* INITIAL ENTRANCE & SETTLE (Existing Male Entrance) */}
             {modelState === "initial-settle" && (
               <div
-                className="transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="relative z-10 flex items-end transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
                   opacity: phase >= 2 ? 1 : 0,
                   transform:
@@ -483,15 +522,15 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
                 }}
               >
                 <Image
-                  src="/images/pablo-hero-cutout.png"
+                  src="/images/main-hero.png"
                   alt="PABLO Editorial Fashion Campaign — Male Model"
                   width={403}
                   height={619}
                   priority
                   unoptimized
                   className="
-                    object-contain w-auto select-none
-                    h-[57vh] sm:h-[68vh] md:h-[74vh] lg:h-[80vh] max-h-[820px]
+                    object-contain object-bottom w-auto select-none
+                    h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]
                   "
                 />
               </div>
@@ -500,19 +539,19 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
             {/* INITIAL EXIT OF SETTLED MALE MODEL (Soft fade out toward right) */}
             {modelState === "initial-exit" && (
               <div
-                className="animate-model-initial-fadeout"
+                className="relative z-10 flex items-end animate-model-initial-fadeout"
                 onAnimationEnd={handleAnimationEnd}
               >
                 <Image
-                  src="/images/pablo-hero-cutout.png"
+                  src="/images/main-hero.png"
                   alt="PABLO Editorial Fashion Campaign — Male Model"
                   width={403}
                   height={619}
                   priority
                   unoptimized
                   className="
-                    object-contain w-auto select-none
-                    h-[57vh] sm:h-[68vh] md:h-[74vh] lg:h-[80vh] max-h-[820px]
+                    object-contain object-bottom w-auto select-none
+                    h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]
                   "
                 />
               </div>
@@ -522,19 +561,19 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
             {modelState === "female" && (
               <div
                 key={`female-${cycleKey}`}
-                className="animate-model-subtle-fade"
+                className="relative z-10 flex items-end animate-model-subtle-fade"
                 onAnimationEnd={handleAnimationEnd}
               >
                 <Image
-                  src="/images/pablo-hero-female.png"
+                  src="/images/woman-main-hero.png"
                   alt="PABLO Editorial Fashion Campaign — Female Model"
                   width={666}
                   height={1024}
                   priority
                   unoptimized
                   className="
-                    object-contain w-auto select-none
-                    h-[57vh] sm:h-[68vh] md:h-[74vh] lg:h-[80vh] max-h-[820px]
+                    object-contain object-bottom w-auto select-none
+                    h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]
                   "
                 />
               </div>
@@ -544,19 +583,19 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
             {modelState === "male" && (
               <div
                 key={`male-${cycleKey}`}
-                className="animate-model-subtle-fade"
+                className="relative z-10 flex items-end animate-model-subtle-fade"
                 onAnimationEnd={handleAnimationEnd}
               >
                 <Image
-                  src="/images/pablo-hero-cutout.png"
+                  src="/images/main-hero.png"
                   alt="PABLO Editorial Fashion Campaign — Male Model"
                   width={403}
                   height={619}
                   priority
                   unoptimized
                   className="
-                    object-contain w-auto select-none
-                    h-[57vh] sm:h-[68vh] md:h-[74vh] lg:h-[80vh] max-h-[820px]
+                    object-contain object-bottom w-auto select-none
+                    h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]
                   "
                 />
               </div>
@@ -565,7 +604,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
             {/* Preload both images to prevent any blank frames or decoding delay */}
             <div className="sr-only" aria-hidden="true">
               <Image
-                src="/images/pablo-hero-cutout.png"
+                src="/images/main-hero.png"
                 alt=""
                 width={403}
                 height={619}
@@ -573,7 +612,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
                 unoptimized
               />
               <Image
-                src="/images/pablo-hero-female.png"
+                src="/images/woman-main-hero.png"
                 alt=""
                 width={666}
                 height={1024}
@@ -591,22 +630,9 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
           Reveals gracefully at Phase 3 (600ms).
         */}
         <div className="absolute inset-0 pointer-events-none z-30">
-          <div className="page-container relative h-full flex flex-col justify-between pt-4 sm:pt-7 lg:pt-8 pb-4 sm:pb-9 lg:pb-12 pointer-events-none">
-            {/* Top Row: Campaign Definition on left, Vintage Sale Stamp on right */}
-            <div className="flex items-start justify-between w-full pointer-events-none">
-              <div
-                className="pointer-events-auto transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                style={{
-                  opacity: phase >= 3 ? 1 : 0,
-                  transform: phase >= 3 ? "translateY(0)" : "translateY(10px)",
-                }}
-              >
-                <p className="text-[10px] sm:text-[10.5px] uppercase tracking-[0.28em] text-[#111111] font-normal">
-                  New Collections Available
-                </p>
-                <div className="w-8 h-[1px] bg-[#111111] mt-2 opacity-50" />
-              </div>
-
+          <div className="page-container relative h-full flex flex-col justify-between pt-16 sm:pt-20 lg:pt-22 pb-4 sm:pb-9 lg:pb-12 pointer-events-none">
+            {/* Top Row: Vintage Sale Stamp on right */}
+            <div className="flex items-start justify-end w-full pointer-events-none">
               <div className="pointer-events-auto">
                 <HeroSaleStamp isVisible={phase >= 3} />
               </div>
@@ -628,7 +654,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
                     const target = document.getElementById("new-in") || document.getElementById("categories");
                     target?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="group inline-flex items-center gap-2 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#999999] hover:text-[#111111] font-light transition-colors cursor-pointer text-left select-none"
+                  className="group inline-flex items-center gap-2 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#111111]/85 hover:text-[#111111] font-normal transition-colors cursor-pointer text-left select-none"
                 >
                   <span>Scroll to Discover</span>
                   <span
@@ -660,15 +686,25 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
                     }
                   }}
                   className="
-                    px-7 sm:px-9 py-3 sm:py-3.5 pablo-btn-dark text-[#EAE8E1]
-                    border border-[#222222] hover:border-[#333333]
-                    text-[11px] sm:text-[12px] uppercase tracking-[0.24em] font-medium
-                    transition-all duration-300
-                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111]
+                    group inline-flex items-center gap-3
+                    px-8 sm:px-10 py-3.5 sm:py-4
+                    bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818]
+                    border border-white/25 hover:border-white
+                    backdrop-blur-sm
+                    text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium
+                    transition-all duration-300 ease-out
+                    shadow-lg hover:shadow-xl
                     cursor-pointer select-none
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
                   "
                 >
-                  Explore Collection
+                  <span>EXPLORE COLLECTION</span>
+                  <span
+                    className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-xs"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
                 </button>
 
                 <button
@@ -733,13 +769,17 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
                   }
                 }}
                 className="
-                  w-full max-w-[260px] py-3 pablo-btn-dark text-[#EAE8E1]
-                  border border-[#222222] hover:border-[#333333]
-                  text-[11px] uppercase tracking-[0.24em] font-medium
-                  transition-all duration-300 text-center
+                  group w-full max-w-[280px] py-3.5
+                  bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818]
+                  border border-white/25 active:border-white
+                  backdrop-blur-sm
+                  text-[11px] uppercase tracking-[0.24em] font-medium font-sans
+                  transition-all duration-300 ease-out shadow-lg text-center
+                  inline-flex items-center justify-center gap-2.5
                 "
               >
-                Explore Collection
+                <span>Explore Collection</span>
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-xs">→</span>
               </button>
 
               <button
@@ -766,7 +806,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
         </div>
 
       </div>
-      
+
       {/* ─── HERO END PROMOTIONAL TICKER ─── */}
       <PromotionalTicker />
     </section>

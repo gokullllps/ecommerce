@@ -541,7 +541,7 @@ export default function AdminProductsPage() {
               const thumbnail =
                 p.primaryImage ||
                 p.images?.[0]?.url ||
-                "/images/categories/knitwear.jpg";
+                "/images/categories/knitwear.webp";
 
               return (
                 <div
@@ -559,7 +559,7 @@ export default function AdminProductsPage() {
                         alt={p.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          e.currentTarget.src = "/images/categories/knitwear.jpg";
+                          e.currentTarget.src = "/images/categories/knitwear.webp";
                         }}
                       />
                     </div>
@@ -656,7 +656,7 @@ export default function AdminProductsPage() {
                   const thumbnail =
                     p.primaryImage ||
                     p.images?.[0]?.url ||
-                    "/images/categories/knitwear.jpg";
+                    "/images/categories/knitwear.webp";
 
                   return (
                     <tr

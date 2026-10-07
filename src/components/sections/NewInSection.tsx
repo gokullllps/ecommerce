@@ -55,7 +55,7 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
     actionPrefix: "ACCESS",
     actionHighlight: "NOW LIVE",
     editionTag: "© 2026 MARVEL · PABLO ATELIER",
-    imageSrc: "/images/marvel-wakanda.png",
+    imageSrc: "/images/marvel-wakanda.webp",
     imageAlt: "PABLO Wakanda Vibranium Claw Luxury Tee Edition",
     theme: {
       eyebrowColor: "#D8B4FE",
@@ -81,7 +81,7 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
     actionPrefix: "MEMBER ACCESS",
     actionHighlight: "NOW LIVE",
     editionTag: "© 2026 MARVEL · PABLO ATELIER",
-    imageSrc: "/images/marvel-ironman.png",
+    imageSrc: "/images/marvel-ironman.webp",
     imageAlt: "PABLO Stark Arc Reactor Luxury Tee Edition",
     theme: {
       eyebrowColor: "#FDE68A",
@@ -107,7 +107,7 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
     actionPrefix: "EARLY ACCESS",
     actionHighlight: "NOW LIVE",
     editionTag: "© 2026 MARVEL · PABLO ATELIER",
-    imageSrc: "/images/marvel-spiderman.png",
+    imageSrc: "/images/marvel-spiderman.webp",
     imageAlt: "PABLO Spider Emblem Web-Slinger Luxury Tee Edition",
     theme: {
       eyebrowColor: "#BAE6FD",
@@ -173,7 +173,7 @@ export function NewInSection() {
     <section
       id="new-in"
       aria-label="PABLO New In Section"
-      className="w-full bg-[#EAE8E1] text-[#111111] pt-8 pb-10 sm:pt-12 sm:pb-14 select-none"
+      className="w-full bg-[#EAE8E1] text-[#111111] pt-8 pb-10 sm:pt-12 sm:pb-14 select-none scroll-mt-14 sm:scroll-mt-16"
       style={{ backgroundColor: "#EAE8E1", color: "#111111" }}
     >
       {/* ─── 1. SECTION TITLE (Exact Reference Alignment & Spacing) ─── */}

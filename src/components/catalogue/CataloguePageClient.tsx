@@ -2,9 +2,10 @@
 
 import React, { Suspense } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Product } from "@/types/catalogue";
 import { CatalogueContext, DepartmentId } from "@/types/filters";
+import { matchesCategory } from "@/data/products";
 import { useProductFilters } from "./filters/useProductFilters";
 import { ProductFilters } from "./ProductFilters";
 import { AppliedFilters } from "./filters/AppliedFilters";
@@ -114,10 +115,10 @@ function CatalogueContent({
   // Define contextual primary destination tabs
   const showDestinationTabs = gender === "men" || gender === "women" || gender === "kids";
   const destinationTabs = [
-    { id: "all", label: "ALL", href: `/${gender}#catalogue` },
-    { id: "clothing", label: "CLOTHING", href: `/${gender}/clothing#catalogue` },
-    { id: "footwear", label: "FOOTWEAR", href: `/${gender}/footwear#catalogue` },
-    { id: "accessories", label: "ACCESSORIES", href: `/${gender}/accessories#catalogue` },
+    { id: "all", label: "ALL", href: `/${gender}` },
+    { id: "clothing", label: "CLOTHING", href: `/${gender}/clothing` },
+    { id: "footwear", label: "FOOTWEAR", href: `/${gender}/footwear` },
+    { id: "accessories", label: "ACCESSORIES", href: `/${gender}/accessories` },
   ];
 
   const pathname = usePathname();
@@ -140,6 +141,101 @@ function CatalogueContent({
       sessionStorage.setItem("pablo-kids-active-category", kidsCategory);
     } catch {}
   }, [isKids, kidsCategory]);
+
+  const searchParams = useSearchParams();
+
+  // Active Women category state initialized from URL query param or default
+  const [womenCategory, setWomenCategory] = React.useState<string>(() => {
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search);
+      const cat = p.get("category");
+      if (cat) return cat.toLowerCase().trim();
+    }
+    return defaultCategory?.toLowerCase().trim() || "all";
+  });
+
+  // Active Men category state (if CataloguePageClient is rendered for Men)
+  const [menCategory, setMenCategory] = React.useState<string>(() => {
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search);
+      const cat = p.get("category");
+      if (cat) return cat.toLowerCase().trim();
+    }
+    return defaultCategory?.toLowerCase().trim() || "all";
+  });
+
+  // Sync state if searchParams changes
+  React.useEffect(() => {
+    const cat = searchParams?.get("category");
+    if (gender === "women") {
+      if (cat) setWomenCategory(cat.toLowerCase().trim());
+      else if (!defaultCategory) setWomenCategory("all");
+    } else if (gender === "men") {
+      if (cat) setMenCategory(cat.toLowerCase().trim());
+      else if (!defaultCategory) setMenCategory("all");
+    }
+  }, [gender, searchParams, defaultCategory]);
+
+  // Sync state on browser back/forward (popstate)
+  React.useEffect(() => {
+    const handlePopState = () => {
+      const p = new URLSearchParams(window.location.search);
+      const cat = p.get("category");
+      if (gender === "women") {
+        setWomenCategory(cat ? cat.toLowerCase().trim() : "all");
+      } else if (gender === "men") {
+        setMenCategory(cat ? cat.toLowerCase().trim() : "all");
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [gender]);
+
+  const handleSelectWomenCategory = React.useCallback(
+    (catId: string) => {
+      const norm = catId.toLowerCase().trim();
+      setWomenCategory(norm);
+
+      const currentParams = new URLSearchParams(window.location.search);
+      if (norm === "all") {
+        currentParams.delete("category");
+      } else {
+        currentParams.set("category", norm);
+      }
+      const qs = currentParams.toString();
+      const newUrl = qs ? `${pathname}?${qs}` : pathname;
+      window.history.pushState({ category: norm }, "", newUrl);
+
+      const el = document.getElementById("catalogue");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [pathname]
+  );
+
+  const handleSelectMenCategory = React.useCallback(
+    (catId: string) => {
+      const norm = catId.toLowerCase().trim();
+      setMenCategory(norm);
+
+      const currentParams = new URLSearchParams(window.location.search);
+      if (norm === "all") {
+        currentParams.delete("category");
+      } else {
+        currentParams.set("category", norm);
+      }
+      const qs = currentParams.toString();
+      const newUrl = qs ? `${pathname}?${qs}` : pathname;
+      window.history.pushState({ category: norm }, "", newUrl);
+
+      const el = document.getElementById("catalogue");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [pathname]
+  );
 
   // Robust persistent scroll position across reloads for Kids section
   const isRestoringScrollRef = React.useRef(false);
@@ -202,35 +298,52 @@ function CatalogueContent({
     };
   }, [isKids]);
 
-  // Contextual filtering for kids categories (Boys, Girls, Baby, Clothing, Footwear, Accessories, All)
+  // Contextual filtering for kids, women, and men categories
   const displayedProducts = React.useMemo(() => {
-    if (!isKids || kidsCategory === "all") return sortedProducts;
-    if (kidsCategory === "clothing") {
-      return sortedProducts.filter((p) => p.department === "clothing");
+    if (isKids) {
+      if (kidsCategory === "all") return sortedProducts;
+      if (kidsCategory === "clothing") {
+        return sortedProducts.filter((p) => p.department === "clothing");
+      }
+      if (kidsCategory === "footwear") {
+        return sortedProducts.filter((p) => p.department === "footwear");
+      }
+      if (kidsCategory === "accessories") {
+        return sortedProducts.filter((p) => p.department === "accessories");
+      }
+      if (kidsCategory === "boys") {
+        return sortedProducts.filter((p) => p.tags.some((t) => t.toLowerCase().includes("boys")));
+      }
+      if (kidsCategory === "girls") {
+        return sortedProducts.filter((p) => p.tags.some((t) => t.toLowerCase().includes("girls")));
+      }
+      if (kidsCategory === "baby") {
+        return sortedProducts.filter(
+          (p) =>
+            p.tags.some((t) => t.toLowerCase().includes("baby") || t.toLowerCase().includes("soft")) ||
+            p.sizes.some((s) => s.name?.includes("2Y") || s.name?.includes("2-5Y") || s.name?.includes("2-6Y"))
+        );
+      }
+      return sortedProducts;
     }
-    if (kidsCategory === "footwear") {
-      return sortedProducts.filter((p) => p.department === "footwear");
-    }
-    if (kidsCategory === "accessories") {
-      return sortedProducts.filter((p) => p.department === "accessories");
-    }
-    if (kidsCategory === "boys") {
-      return sortedProducts.filter((p) => p.tags.some((t) => t.toLowerCase().includes("boys")));
-    }
-    if (kidsCategory === "girls") {
-      return sortedProducts.filter((p) => p.tags.some((t) => t.toLowerCase().includes("girls")));
-    }
-    if (kidsCategory === "baby") {
-      return sortedProducts.filter(
-        (p) =>
-          p.tags.some((t) => t.toLowerCase().includes("baby") || t.toLowerCase().includes("soft")) ||
-          p.sizes.some((s) => s.name?.includes("2Y") || s.name?.includes("2-5Y") || s.name?.includes("2-6Y"))
-      );
-    }
-    return sortedProducts;
-  }, [isKids, kidsCategory, sortedProducts]);
 
-  const finalCount = isKids ? displayedProducts.length : totalCount;
+    if (gender === "women" && womenCategory && womenCategory !== "all") {
+      return sortedProducts.filter((p) => matchesCategory(p, womenCategory));
+    }
+
+    if (gender === "men" && menCategory && menCategory !== "all") {
+      return sortedProducts.filter((p) => matchesCategory(p, menCategory));
+    }
+
+    return sortedProducts;
+  }, [isKids, kidsCategory, gender, womenCategory, menCategory, sortedProducts]);
+
+  const isCustomFiltered =
+    isKids ||
+    (gender === "women" && womenCategory !== "all") ||
+    (gender === "men" && menCategory !== "all");
+
+  const finalCount = isCustomFiltered ? displayedProducts.length : totalCount;
 
   return (
     <div
@@ -327,7 +440,7 @@ function CatalogueContent({
         )}
 
         {/* Navbar */}
-        <Navbar />
+        <Navbar isHeroOverlay={Boolean((isSalePage || gender === "women") && heroSlot)} />
 
         {/* Full-Width Category Editorial Hero Slot */}
         <div className="relative z-10 w-full">
@@ -344,28 +457,56 @@ function CatalogueContent({
           </div>
         )}
 
+        {/* Dedicated Women's Editorial Section (Above Product Catalogue) */}
+        {gender === "women" && (
+          <section
+            id="categories"
+            aria-label="Women's Categories"
+            className="page-container relative z-10 scroll-mt-14 sm:scroll-mt-16 pt-0 sm:pt-4 lg:pt-6"
+          >
+            <WomenCategorySection
+              currentDepartment={currentDepartment}
+              activeCategory={womenCategory}
+              onSelectCategory={handleSelectWomenCategory}
+            />
+          </section>
+        )}
+
         {/* Main Catalogue Container */}
         <main
           id="catalogue"
           data-gender={isKids ? "kids" : gender}
-          className={`page-container relative z-10 flex-1 scroll-mt-20 ${
+          className={`page-container relative z-10 flex-1 scroll-mt-14 sm:scroll-mt-16 ${
             isKids
               ? "pt-6 sm:pt-8 pb-16 bg-transparent"
               : gender === "women" || gender === "men"
-              ? "pt-0 sm:pt-4 lg:pt-8 pb-16 lg:pb-20"
+              ? "pt-0 sm:pt-2 lg:pt-4 pb-16 lg:pb-20"
               : "pt-8 sm:pt-10 lg:pt-12 pb-16 lg:pb-20"
           }`}
           style={isKids ? { backgroundColor: "transparent" } : undefined}
         >
 
-          {/* Dedicated Men's Editorial Section (Category Navigation Pills + 4-Column Category Grid) */}
-          {gender === "men" && (
-            <MenCategorySection currentDepartment={currentDepartment} />
+          {/* Active Category Header for Women / Men */}
+          {gender === "women" && womenCategory !== "all" && (
+            <div className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111] uppercase">
+                {womenCategory.replace("-", " ")}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#666666] font-light mt-1.5 max-w-lg mx-auto tracking-wide">
+                Fluid silhouettes, architectural draping, and raw modern forms.
+              </p>
+            </div>
           )}
 
-          {/* Dedicated Women's Editorial Section */}
-          {gender === "women" && (
-            <WomenCategorySection currentDepartment={currentDepartment} />
+          {gender === "men" && menCategory !== "all" && (
+            <div className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111] uppercase">
+                {menCategory.replace("-", " ")}
+              </h2>
+              <p className="text-xs sm:text-sm text-[#666666] font-light mt-1.5 max-w-lg mx-auto tracking-wide">
+                Archival craftsmanship and contemporary silhouettes.
+              </p>
+            </div>
           )}
 
           {/* Header - Only for non-kids, non-women, non-men (Sale, New-In) */}
@@ -634,10 +775,12 @@ function CatalogueContent({
             )}
 
             <ProductGrid
-              products={isKids ? displayedProducts : sortedProducts}
-              activeCategory={kidsCategory}
+              products={isCustomFiltered ? displayedProducts : sortedProducts}
+              activeCategory={isKids ? kidsCategory : gender === "women" ? womenCategory : menCategory}
               onResetFilters={() => {
                 if (isKids) setKidsCategory("all");
+                if (gender === "women") handleSelectWomenCategory("all");
+                if (gender === "men") handleSelectMenCategory("all");
                 resetAllFilters();
               }}
             />

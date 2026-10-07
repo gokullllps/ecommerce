@@ -1,6 +1,6 @@
 import React from "react";
 import { getProductsByDepartment } from "@/data/products";
-import MenCatalogueGrid from "@/components/men/MenCatalogueGrid";
+import MenPageTemplate from "@/components/men/MenPageTemplate";
 import type { Metadata } from "next";
 
 interface MenAccessoriesTypePageProps {
@@ -21,7 +21,7 @@ export default async function MenAccessoriesTypePage({ params }: MenAccessoriesT
   const products = getProductsByDepartment("accessories", "men");
 
   return (
-    <MenCatalogueGrid
+    <MenPageTemplate
       products={products}
       currentDepartment="accessories"
       defaultSubtype={type}
@@ -32,6 +32,7 @@ export default async function MenAccessoriesTypePage({ params }: MenAccessoriesT
         { label: "ACCESSORIES", href: "/men/accessories" },
         { label: type.toUpperCase(), href: `/men/accessories/${type}` },
       ]}
+      showHeroAndCategories={false}
     />
   );
 }

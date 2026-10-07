@@ -1,6 +1,7 @@
 import React from "react";
 import { getSaleProducts } from "@/data/products";
 import CataloguePage from "@/components/catalogue/CataloguePageClient";
+import SaleHero from "@/components/sections/SaleHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function SalePage() {
       products={products}
       isSalePage={true}
       breadcrumbs={[{ label: "SALE", href: "/sale" }]}
+      heroSlot={<SaleHero />}
     />
   );
 }

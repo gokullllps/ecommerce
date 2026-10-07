@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import CartDrawer from "@/components/shop/CartDrawer";
 import SearchModal from "@/components/shop/SearchModal";
 import QuickShopModal from "@/components/shop/QuickShopModal";
+import { RouteScrollReset } from "@/components/layout/RouteScrollReset";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -53,6 +54,7 @@ export default function RootLayout({
         />
         <ThemeProvider>
           <ShopProvider>
+            <RouteScrollReset />
             {children}
             <CartDrawer />
             <SearchModal />

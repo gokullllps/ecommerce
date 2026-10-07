@@ -317,7 +317,7 @@ export default function KidsHero() {
 
             {/* Model â€” full height */}
             <Image
-              src="/images/pablo-kids-hero.png"
+              src="/images/pablo-kids-hero.webp"
               alt="PABLO Kids Fashion Model"
               width={457}
               height={1168}
@@ -494,10 +494,10 @@ export default function KidsHero() {
             >
               <div className="relative inline-block">
                 <a
-                  href="#kids-collection"
+                  href="#kids-category-section"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById("kids-collection")?.scrollIntoView({ behavior: "smooth" });
+                    document.getElementById("kids-category-section")?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="
                     group inline-flex items-center justify-center gap-3
@@ -512,8 +512,11 @@ export default function KidsHero() {
                   "
                 >
                   <span>EXPLORE KIDS&apos; WORLD</span>
-                  <span className="text-base transform group-hover:translate-y-0.5 transition-transform duration-200">
-                    â†“
+                  <span
+                    className="text-base transform group-hover:translate-y-0.5 transition-transform duration-200"
+                    aria-hidden="true"
+                  >
+                    &darr;
                   </span>
                 </a>
                 {/* Zone B: Subtle star tucked near the button shadow corner */}
@@ -614,7 +617,7 @@ export default function KidsHero() {
               {/* â”€â”€ THE EXACT CHILD MODEL (Preserved exactly, 0 changes to face, clothes, or shoes) â”€â”€ */}
               <div className="relative z-10">
                 <Image
-                  src="/images/pablo-kids-hero.png"
+                  src="/images/pablo-kids-hero.webp"
                   alt="PABLO Kids Fashion Model"
                   width={457}
                   height={1168}

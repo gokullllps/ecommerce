@@ -1,6 +1,6 @@
 import React from "react";
 import { getProductsByGender } from "@/data/products";
-import MenCatalogueGrid from "@/components/men/MenCatalogueGrid";
+import MenPageTemplate from "@/components/men/MenPageTemplate";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +13,10 @@ export default function MenPage() {
   const products = getProductsByGender("men");
 
   return (
-    <MenCatalogueGrid
+    <MenPageTemplate
       products={products}
       currentDepartment="all"
+      showHeroAndCategories={true}
     />
   );
 }

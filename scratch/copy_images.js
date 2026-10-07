@@ -9,23 +9,23 @@ if (!fs.existsSync(destDir)) {
 }
 
 const map = {
-  'kids_hoodie_front_1790322274781.jpg': 'hoodie-sky-front.jpg',
-  'kids_hoodie_back_1790322298752.jpg': 'hoodie-sky-back.jpg',
-  'kids_hoodie_detail_1790322323665.jpg': 'hoodie-sky-detail.jpg',
-  'kids_hoodie_lifestyle_1790322353225.jpg': 'hoodie-sky-lifestyle.jpg',
-  'kids_hoodie_cream_1790322382819.jpg': 'hoodie-cream-front.jpg',
+  'kids_hoodie_front_1790322274781.jpg': 'hoodie-sky-front.webp',
+  'kids_hoodie_back_1790322298752.jpg': 'hoodie-sky-back.webp',
+  'kids_hoodie_detail_1790322323665.jpg': 'hoodie-sky-detail.webp',
+  'kids_hoodie_lifestyle_1790322353225.jpg': 'hoodie-sky-lifestyle.webp',
+  'kids_hoodie_cream_1790322382819.jpg': 'hoodie-cream-front.webp',
 
-  'kids_duffle_coat_front_1790322413841.jpg': 'duffle-navy-front.jpg',
-  'kids_duffle_coat_back_1790322441432.jpg': 'duffle-navy-back.jpg',
-  'kids_duffle_detail_1790322467666.jpg': 'duffle-navy-detail.jpg',
-  'kids_duffle_camel_1790322496946.jpg': 'duffle-camel-front.jpg',
+  'kids_duffle_coat_front_1790322413841.jpg': 'duffle-navy-front.webp',
+  'kids_duffle_coat_back_1790322441432.jpg': 'duffle-navy-back.webp',
+  'kids_duffle_detail_1790322467666.jpg': 'duffle-navy-detail.webp',
+  'kids_duffle_camel_1790322496946.jpg': 'duffle-camel-front.webp',
 
-  'kids_cable_knit_front_1790322529200.jpg': 'cable-knit-ivory-front.jpg',
-  'kids_cable_knit_back_1790322556597.jpg': 'cable-knit-ivory-back.jpg',
+  'kids_cable_knit_front_1790322529200.jpg': 'cable-knit-ivory-front.webp',
+  'kids_cable_knit_back_1790322556597.jpg': 'cable-knit-ivory-back.webp',
 
-  'kids_poplin_shirt_1790322587849.jpg': 'poplin-shirt-white-front.jpg',
-  'kids_poplin_back_1790322623692.jpg': 'poplin-shirt-white-back.jpg',
-  'kids_hero_model_1790230352277.jpg': 'kids-model-lifestyle.jpg',
+  'kids_poplin_shirt_1790322587849.jpg': 'poplin-shirt-white-front.webp',
+  'kids_poplin_back_1790322623692.jpg': 'poplin-shirt-white-back.webp',
+  'kids_hero_model_1790230352277.jpg': 'kids-model-lifestyle.webp',
 };
 
 for (const [srcName, destName] of Object.entries(map)) {

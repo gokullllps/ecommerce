@@ -127,7 +127,7 @@ export function CollectionPreviewModal({ isOpen, onClose, collection }: Collecti
                     <div className="relative aspect-[3/4] bg-[#D9D8D3] overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.jpg"}
+                        src={p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.webp"}
                         alt={p.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

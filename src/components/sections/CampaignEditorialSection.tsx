@@ -17,7 +17,7 @@ export function CampaignEditorialSection() {
           {/* ─── LEFT COLUMN: MONUMENTAL EDITORIAL PHOTOGRAPH ─── */}
           <div className="lg:col-span-7 relative aspect-[4/5] sm:aspect-[16/11] lg:aspect-[4/3] overflow-hidden pablo-dark-card group">
             <Image
-              src="/images/categories/outerwear.png"
+              src="/images/categories/outerwear.webp"
               alt="PABLO Atelier Sartorial Silhouette"
               fill
               sizes="(max-width: 1024px) 100vw, 55vw"

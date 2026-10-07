@@ -24,25 +24,25 @@ export const MOBILE_2X2_CATEGORIES = [
   {
     id: "boys",
     name: "BOYS",
-    image: "/images/kids/hoodie-sky-front.jpg",
+    image: "/images/kids/hoodie-sky-front.webp",
     alt: "PABLO Kids Boys Collection",
   },
   {
     id: "girls",
     name: "GIRLS",
-    image: "/images/kids/cable-knit-ivory-front.jpg",
+    image: "/images/kids/cable-knit-ivory-front.webp",
     alt: "PABLO Kids Girls Collection",
   },
   {
     id: "baby",
     name: "BABY & TODDLER",
-    image: "/images/kids/hoodie-cream-front.jpg",
+    image: "/images/kids/hoodie-cream-front.webp",
     alt: "PABLO Kids Baby & Toddler Collection",
   },
   {
     id: "accessories",
     name: "ACCESSORIES",
-    image: "/images/categories/bags.jpg",
+    image: "/images/categories/bags.webp",
     alt: "PABLO Kids Accessories Collection",
   },
 ];
@@ -66,7 +66,7 @@ export default function KidsCategorySection({
     <section
       id="kids-category-section"
       aria-label="Kids Category Navigation"
-      className="page-container pt-3 pb-4 sm:pb-6 flex flex-col items-center justify-center select-none bg-transparent scroll-mt-16"
+      className="page-container pt-3 pb-4 sm:pb-6 flex flex-col items-center justify-center select-none bg-transparent scroll-mt-14 sm:scroll-mt-16"
       style={{
         backgroundColor: "transparent",
       }}

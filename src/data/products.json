@@ -18,14 +18,14 @@
     "images": [
       {
         "id": "img-persist-1",
-        "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
+        "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
         "alt": "Front view",
         "isPrimary": true,
         "viewType": "front"
       }
     ],
-    "primaryImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
-    "hoverImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.png",
+    "primaryImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
+    "hoverImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
     "colors": [
       {
         "name": "Standard",
@@ -76,20 +76,20 @@
     "images": [
       {
         "id": "img-1790766051137-0-s1et",
-        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.jpg",
+        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
         "alt": "",
         "isPrimary": true,
         "viewType": "front"
       },
       {
         "id": "img-1790766060429-0-cwvm",
-        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.jpg",
+        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.webp",
         "alt": "",
         "isPrimary": false,
         "viewType": "front"
       }
     ],
-    "primaryImage": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.jpg",
+    "primaryImage": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
     "hoverImage": "",
     "videoUrl": "",
     "colors": [
@@ -166,12 +166,12 @@
     "price": 1850,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Double-Breasted Wool Overcoat in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Double-Breasted Wool Overcoat Back Detail",
         "isPrimary": false
       }
@@ -241,12 +241,12 @@
     "salePrice": 1650,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Double-Face Cashmere Bomber in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Double-Face Cashmere Bomber Texture",
         "isPrimary": false
       }
@@ -314,12 +314,12 @@
     "price": 680,
     "images": [
       {
-        "url": "/images/categories/trousers.jpg",
+        "url": "/images/categories/trousers.webp",
         "alt": "Architectural Relaxed Trousers in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Architectural Relaxed Trousers Drape Detail",
         "isPrimary": false
       }
@@ -390,12 +390,12 @@
     "price": 640,
     "images": [
       {
-        "url": "/images/categories/trousers.jpg",
+        "url": "/images/categories/trousers.webp",
         "alt": "Pleated Flannel Trousers",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Pleated Flannel Trousers Profile",
         "isPrimary": false
       }
@@ -460,12 +460,12 @@
     "price": 480,
     "images": [
       {
-        "url": "/images/categories/denim.jpg",
+        "url": "/images/categories/denim.webp",
         "alt": "14oz Japanese Selvedge Denim",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "14oz Selvedge Hem Detail",
         "isPrimary": false
       }
@@ -536,12 +536,12 @@
     "price": 520,
     "images": [
       {
-        "url": "/images/categories/denim.jpg",
+        "url": "/images/categories/denim.webp",
         "alt": "Sculptural Wide-Leg Jeans",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Sculptural Wide-Leg Profile",
         "isPrimary": false
       }
@@ -603,12 +603,12 @@
     "price": 240,
     "images": [
       {
-        "url": "/images/categories/t-shirts.jpg",
+        "url": "/images/categories/t-shirts.webp",
         "alt": "Heavyweight Supima Crewneck T-Shirt in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Heavyweight Supima Crewneck Neckline Detail",
         "isPrimary": false
       }
@@ -680,12 +680,12 @@
     "price": 260,
     "images": [
       {
-        "url": "/images/categories/t-shirts.jpg",
+        "url": "/images/categories/t-shirts.webp",
         "alt": "Raw-Edge Boxy Heavy Cotton Tee",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Raw Edge Detail",
         "isPrimary": false
       }
@@ -751,12 +751,12 @@
     "price": 490,
     "images": [
       {
-        "url": "/images/categories/shirts.jpg",
+        "url": "/images/categories/shirts.webp",
         "alt": "Concealed Placket Poplin Shirt in Pure White",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Concealed Placket Collar Detail",
         "isPrimary": false
       }
@@ -829,12 +829,12 @@
     "salePrice": 585,
     "images": [
       {
-        "url": "/images/categories/shirts.jpg",
+        "url": "/images/categories/shirts.webp",
         "alt": "Heavy Silk Twill Overshirt",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Heavy Silk Texture",
         "isPrimary": false
       }
@@ -897,12 +897,12 @@
     "price": 520,
     "images": [
       {
-        "url": "/images/categories/polos.jpg",
+        "url": "/images/categories/polos.webp",
         "alt": "Milanese Milan Rib Knit Polo",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Milano Rib Open Collar Detail",
         "isPrimary": false
       }
@@ -968,12 +968,12 @@
     "price": 890,
     "images": [
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Seamless Cashmere Mockneck in Charcoal",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Seamless Cashmere Ribbed Neck Detail",
         "isPrimary": false
       }
@@ -1044,12 +1044,12 @@
     "price": 380,
     "images": [
       {
-        "url": "/images/categories/sweatshirts.png",
+        "url": "/images/categories/sweatshirts.webp",
         "alt": "500gsm Loopback Structured Hoodie",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Structured Double Hood Detail",
         "isPrimary": false
       }
@@ -1117,12 +1117,12 @@
     "salePrice": 295,
     "images": [
       {
-        "url": "/images/categories/shorts.jpg",
+        "url": "/images/categories/shorts.webp",
         "alt": "Tailored Relaxed Linen Shorts",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Linen Pleat Detail",
         "isPrimary": false
       }
@@ -1185,12 +1185,12 @@
     "price": 940,
     "images": [
       {
-        "url": "/images/categories/footwear.jpg",
+        "url": "/images/categories/footwear.webp",
         "alt": "Blake-Stitched Calfskin Penny Loafers in Glossed Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Loafer Saddle and Sole Profile",
         "isPrimary": false
       }
@@ -1265,12 +1265,12 @@
     "price": 1150,
     "images": [
       {
-        "url": "/images/categories/footwear.jpg",
+        "url": "/images/categories/footwear.webp",
         "alt": "Monolithic Chelsea Boots",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Boot Heel and Pull-Tab",
         "isPrimary": false
       }
@@ -1332,12 +1332,12 @@
     "price": 1450,
     "images": [
       {
-        "url": "/images/categories/bags.jpg",
+        "url": "/images/categories/bags.webp",
         "alt": "Architectural Calfskin Briefcase in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Briefcase Handle and Lock Detail",
         "isPrimary": false
       }
@@ -1386,12 +1386,12 @@
     "price": 1100,
     "images": [
       {
-        "url": "/images/categories/bags.jpg",
+        "url": "/images/categories/bags.webp",
         "alt": "Minimalist Grain Leather Tote",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Tote Handle Detail",
         "isPrimary": false
       }
@@ -1445,12 +1445,12 @@
     "price": 290,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Palladium Buckle Belt",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Buckle Finish Detail",
         "isPrimary": false
       }
@@ -1515,12 +1515,12 @@
     "price": 360,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Sterling Silver Signet Ring",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Ring Profile and Engraving",
         "isPrimary": false
       }
@@ -1582,12 +1582,12 @@
     "price": 1650,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Sculptural Column Silk Maxi Dress in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Column Dress Back Detail",
         "isPrimary": false
       }
@@ -1656,12 +1656,12 @@
     "salePrice": 620,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Asymmetric Bias-Cut Slip Dress",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Slip Dress Hem Detail",
         "isPrimary": false
       }
@@ -1724,12 +1724,12 @@
     "price": 2100,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Belted Cocoon Double-Face Coat",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Cocoon Coat Lapel Detail",
         "isPrimary": false
       }
@@ -1796,12 +1796,12 @@
     "price": 720,
     "images": [
       {
-        "url": "/images/categories/trousers.jpg",
+        "url": "/images/categories/trousers.webp",
         "alt": "High-Waisted Palazzo Trousers in Noir",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Palazzo Waistband Detail",
         "isPrimary": false
       }
@@ -1868,12 +1868,12 @@
     "price": 540,
     "images": [
       {
-        "url": "/images/categories/shirts.jpg",
+        "url": "/images/categories/shirts.webp",
         "alt": "Draped Silk Georgette Top",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Draped Top Shoulder Detail",
         "isPrimary": false
       }
@@ -1935,12 +1935,12 @@
     "price": 980,
     "images": [
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Ribbed Cashmere Turtleneck",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Turtleneck Collar and Cuff",
         "isPrimary": false
       }
@@ -2007,12 +2007,12 @@
     "price": 490,
     "images": [
       {
-        "url": "/images/categories/denim.jpg",
+        "url": "/images/categories/denim.webp",
         "alt": "High-Rise Selvedge Jeans",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Selvedge Hem and Pocket Detail",
         "isPrimary": false
       }
@@ -2083,12 +2083,12 @@
     "price": 780,
     "images": [
       {
-        "url": "/images/categories/footwear.jpg",
+        "url": "/images/categories/footwear.webp",
         "alt": "Pointed Leather Mule",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Cylindrical Heel Profile",
         "isPrimary": false
       }
@@ -2159,12 +2159,12 @@
     "price": 920,
     "images": [
       {
-        "url": "/images/categories/bags.jpg",
+        "url": "/images/categories/bags.webp",
         "alt": "Structured Calfskin Crossbody",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Bag Lock and Strap Detail",
         "isPrimary": false
       }
@@ -2218,12 +2218,12 @@
     "price": 320,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Palladium Ear Cuff",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Ear Cuff Form and Finish",
         "isPrimary": false
       }
@@ -2272,12 +2272,12 @@
     "price": 1750,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Storm Flap Trench Coat",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Trench Storm Flap Detail",
         "isPrimary": false
       }
@@ -2343,12 +2343,12 @@
     "price": 590,
     "images": [
       {
-        "url": "/images/categories/trousers.jpg",
+        "url": "/images/categories/trousers.webp",
         "alt": "Tactical Cargo Trousers",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Flush Magnetic Pocket Detail",
         "isPrimary": false
       }
@@ -2415,12 +2415,12 @@
     "salePrice": 490,
     "images": [
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Heavy Waffle Cardigan",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Waffle Texture and Horn Buttons",
         "isPrimary": false
       }
@@ -2487,12 +2487,12 @@
     "price": 1450,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Hourglass Architectural Blazer",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Hourglass Waist and Lapel Profile",
         "isPrimary": false
       }
@@ -2556,12 +2556,12 @@
     "salePrice": 770,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Accordion Pleated Midi Dress",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Sunburst Pleat Motion",
         "isPrimary": false
       }
@@ -2623,12 +2623,12 @@
     "price": 1350,
     "images": [
       {
-        "url": "/images/categories/bags.jpg",
+        "url": "/images/categories/bags.webp",
         "alt": "Oversized Leather Tote",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Tote Handle Arch Detail",
         "isPrimary": false
       }
@@ -2683,12 +2683,12 @@
     "price": 820,
     "images": [
       {
-        "url": "/images/categories/footwear.jpg",
+        "url": "/images/categories/footwear.webp",
         "alt": "Patent Slingback Pumps",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Slingback Heel and Square Toe",
         "isPrimary": false
       }
@@ -2758,12 +2758,12 @@
     "price": 340,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Silk Twill Carre Scarf",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Hand-Rolled Edge Detail",
         "isPrimary": false
       }
@@ -2812,12 +2812,12 @@
     "price": 440,
     "images": [
       {
-        "url": "/images/categories/shirts.jpg",
+        "url": "/images/categories/shirts.webp",
         "alt": "Band-Collar Raw Linen Shirt",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Linen Band Collar Detail",
         "isPrimary": false
       }
@@ -2883,12 +2883,12 @@
     "price": 320,
     "images": [
       {
-        "url": "/images/categories/shirts.jpg",
+        "url": "/images/categories/shirts.webp",
         "alt": "Ribbed Silk Tank Top",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Silk Rib Texture and Neckline",
         "isPrimary": false
       }
@@ -2960,12 +2960,12 @@
     "price": 1280,
     "images": [
       {
-        "url": "/images/categories/footwear.jpg",
+        "url": "/images/categories/footwear.webp",
         "alt": "Cordovan Chunky Derby Shoes",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Derby Sole Welt and Eyelets",
         "isPrimary": false
       }
@@ -3031,12 +3031,12 @@
     "price": 680,
     "images": [
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Fine-Gauge Cashmere Cardigan",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Cashmere Button and Placket",
         "isPrimary": false
       }
@@ -3102,12 +3102,12 @@
     "price": 360,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Deerskin Dress Gloves",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Glove Stitching Detail",
         "isPrimary": false
       }
@@ -3169,12 +3169,12 @@
     "price": 1380,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Wool Wrap Midi Dress",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Wrap Closure and Lapel",
         "isPrimary": false
       }
@@ -3232,12 +3232,12 @@
     "salePrice": 335,
     "images": [
       {
-        "url": "/images/categories/polos.jpg",
+        "url": "/images/categories/polos.webp",
         "alt": "Striped Open Collar Polo",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Stripe Jacquard Detail",
         "isPrimary": false
       }
@@ -3298,12 +3298,12 @@
     "price": 1180,
     "images": [
       {
-        "url": "/images/categories/bags.jpg",
+        "url": "/images/categories/bags.webp",
         "alt": "Curved Hobo Bag",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Hobo Crescent Curve",
         "isPrimary": false
       }
@@ -3358,12 +3358,12 @@
     "price": 420,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Bold Acetate Sunglasses",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Sunglasses Temple and Hinge",
         "isPrimary": false
       }
@@ -3418,12 +3418,12 @@
     "salePrice": 195,
     "images": [
       {
-        "url": "/images/categories/accessories.jpg",
+        "url": "/images/categories/accessories.webp",
         "alt": "Bifold Calfskin Card Wallet",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Wallet Interior Card Slots",
         "isPrimary": false
       }
@@ -3479,12 +3479,12 @@
     "price": 2400,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Architectural Cutout Back Gown",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Diamond Cutout Back Detail",
         "isPrimary": false
       }
@@ -3542,12 +3542,12 @@
     "salePrice": 410,
     "images": [
       {
-        "url": "/images/categories/shirts.jpg",
+        "url": "/images/categories/shirts.webp",
         "alt": "Silk Resort Shirt",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Camp Collar Print Close-Up",
         "isPrimary": false
       }
@@ -3611,12 +3611,12 @@
     "salePrice": 620,
     "images": [
       {
-        "url": "/images/categories/trousers.jpg",
+        "url": "/images/categories/trousers.webp",
         "alt": "Wide-Leg Silk Crepe Trousers",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.png",
+        "url": "/images/hero-fashion.webp",
         "alt": "Silk Trousers Drape and Break",
         "isPrimary": false
       }
@@ -3681,12 +3681,12 @@
     "price": 620,
     "images": [
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Minimalist Calfskin Low-Top Sneakers",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Minimalist Calfskin Sneakers Profile",
         "isPrimary": false
       }
@@ -3757,12 +3757,12 @@
     "price": 540,
     "images": [
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Architectural Suede Atelier Slides in Sand",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Architectural Suede Slides Detail",
         "isPrimary": false
       }
@@ -3829,12 +3829,12 @@
     "price": 580,
     "images": [
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Strapped Leather Atelier Sandals",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Strapped Leather Sandals Angle",
         "isPrimary": false
       }
@@ -3901,12 +3901,12 @@
     "price": 240,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Heavy Wool Gabardine Atelier Cap",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Wool Gabardine Cap Hardware Detail",
         "isPrimary": false
       }
@@ -3961,12 +3961,12 @@
     "price": 680,
     "images": [
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Matte Titanium Sculptural Sunglasses",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Titanium Sunglasses Lens Detail",
         "isPrimary": false
       }
@@ -4020,12 +4020,12 @@
     "price": 95,
     "images": [
       {
-        "url": "/images/categories/knitwear.jpg",
+        "url": "/images/categories/knitwear.webp",
         "alt": "Mercerized Egyptian Cotton Ribbed Socks",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.png",
+        "url": "/images/hero-fashion-source.webp",
         "alt": "Ribbed Socks Texture Detail",
         "isPrimary": false
       }
@@ -4092,38 +4092,38 @@
     "badge": "BESTSELLER",
     "images": [
       {
-        "url": "/images/kids/hoodie-sky-front.jpg",
+        "url": "/images/kids/hoodie-sky-front.webp",
         "alt": "Junior Cloud-Soft Cashmere Hoodie in Sky Mist Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/kids/hoodie-sky-back.jpg",
+        "url": "/images/kids/hoodie-sky-back.webp",
         "alt": "Junior Cashmere Hoodie Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/kids/hoodie-sky-detail.jpg",
+        "url": "/images/kids/hoodie-sky-detail.webp",
         "alt": "Junior Cashmere Hoodie Knit Texture & Stitching Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "url": "/images/kids/hoodie-sky-lifestyle.webp",
         "alt": "Junior Cashmere Hoodie Lifestyle Editorial",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/hoodie-cream-front.jpg",
+        "url": "/images/kids/hoodie-cream-front.webp",
         "alt": "Junior Cashmere Hoodie in Butter Cream View",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/kids/hoodie-sky-front.jpg",
-    "hoverImage": "/images/kids/hoodie-sky-back.jpg",
+    "primaryImage": "/images/kids/hoodie-sky-front.webp",
+    "hoverImage": "/images/kids/hoodie-sky-back.webp",
     "colorVariants": [
       {
         "name": "Sky Mist",
@@ -4131,25 +4131,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/hoodie-sky-front.jpg",
+            "url": "/images/kids/hoodie-sky-front.webp",
             "alt": "Junior Cashmere Hoodie Sky Mist Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/hoodie-sky-back.jpg",
+            "url": "/images/kids/hoodie-sky-back.webp",
             "alt": "Junior Cashmere Hoodie Sky Mist Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/kids/hoodie-sky-detail.jpg",
+            "url": "/images/kids/hoodie-sky-detail.webp",
             "alt": "Junior Cashmere Hoodie Sky Mist Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "url": "/images/kids/hoodie-sky-lifestyle.webp",
             "alt": "Junior Cashmere Hoodie Sky Mist Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4162,25 +4162,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/hoodie-cream-front.jpg",
+            "url": "/images/kids/hoodie-cream-front.webp",
             "alt": "Junior Cashmere Hoodie Butter Cream Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/hoodie-sky-back.jpg",
+            "url": "/images/kids/hoodie-sky-back.webp",
             "alt": "Junior Cashmere Hoodie Butter Cream Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/kids/hoodie-sky-detail.jpg",
+            "url": "/images/kids/hoodie-sky-detail.webp",
             "alt": "Junior Cashmere Hoodie Butter Cream Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "url": "/images/kids/hoodie-sky-lifestyle.webp",
             "alt": "Junior Cashmere Hoodie Butter Cream Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4193,25 +4193,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/hoodie-noir.jpg",
+            "url": "/images/products/hoodie-noir.webp",
             "alt": "Junior Cashmere Hoodie Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/hoodie-sky-back.jpg",
+            "url": "/images/kids/hoodie-sky-back.webp",
             "alt": "Junior Cashmere Hoodie Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/kids/hoodie-sky-detail.jpg",
+            "url": "/images/kids/hoodie-sky-detail.webp",
             "alt": "Junior Cashmere Hoodie Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "url": "/images/kids/hoodie-sky-lifestyle.webp",
             "alt": "Junior Cashmere Hoodie Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4224,19 +4224,19 @@
         "name": "Sky Mist",
         "hex": "#93C5FD",
         "inStock": true,
-        "imageOverride": "/images/kids/hoodie-sky-front.jpg"
+        "imageOverride": "/images/kids/hoodie-sky-front.webp"
       },
       {
         "name": "Butter Cream",
         "hex": "#FEF08A",
         "inStock": true,
-        "imageOverride": "/images/kids/hoodie-cream-front.jpg"
+        "imageOverride": "/images/kids/hoodie-cream-front.webp"
       },
       {
         "name": "Basalt Noir",
         "hex": "#181818",
         "inStock": true,
-        "imageOverride": "/images/products/hoodie-noir.jpg"
+        "imageOverride": "/images/products/hoodie-noir.webp"
       }
     ],
     "sizes": [
@@ -4304,38 +4304,38 @@
     "badge": "JUNIOR",
     "images": [
       {
-        "url": "/images/kids/duffle-navy-front.jpg",
+        "url": "/images/kids/duffle-navy-front.webp",
         "alt": "Mini Heirloom Melton Wool Duffle Coat in Deep Navy Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/kids/duffle-navy-back.jpg",
+        "url": "/images/kids/duffle-navy-back.webp",
         "alt": "Mini Duffle Coat Deep Navy Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/kids/duffle-navy-detail.jpg",
+        "url": "/images/kids/duffle-navy-detail.webp",
         "alt": "Mini Duffle Coat Wood Toggle & Wool Texture Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/duffle-camel-front.jpg",
+        "url": "/images/kids/duffle-camel-front.webp",
         "alt": "Mini Duffle Coat in Camel Tan Alternate View",
         "isPrimary": false,
         "viewType": "alternate"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Mini Duffle Coat Outdoor Lifestyle Portrait",
         "isPrimary": false,
         "viewType": "lifestyle"
       }
     ],
-    "primaryImage": "/images/kids/duffle-navy-front.jpg",
-    "hoverImage": "/images/kids/duffle-navy-back.jpg",
+    "primaryImage": "/images/kids/duffle-navy-front.webp",
+    "hoverImage": "/images/kids/duffle-navy-back.webp",
     "colorVariants": [
       {
         "name": "Deep Navy",
@@ -4343,25 +4343,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/duffle-navy-front.jpg",
+            "url": "/images/kids/duffle-navy-front.webp",
             "alt": "Mini Duffle Coat Deep Navy Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/duffle-navy-back.jpg",
+            "url": "/images/kids/duffle-navy-back.webp",
             "alt": "Mini Duffle Coat Deep Navy Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/kids/duffle-navy-detail.jpg",
+            "url": "/images/kids/duffle-navy-detail.webp",
             "alt": "Mini Duffle Coat Deep Navy Toggle Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Mini Duffle Coat Deep Navy Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4374,25 +4374,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/duffle-camel-front.jpg",
+            "url": "/images/kids/duffle-camel-front.webp",
             "alt": "Mini Duffle Coat Camel Tan Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/duffle-navy-back.jpg",
+            "url": "/images/kids/duffle-navy-back.webp",
             "alt": "Mini Duffle Coat Camel Tan Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/kids/duffle-navy-detail.jpg",
+            "url": "/images/kids/duffle-navy-detail.webp",
             "alt": "Mini Duffle Coat Camel Tan Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Mini Duffle Coat Camel Tan Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4405,13 +4405,13 @@
         "name": "Deep Navy",
         "hex": "#0F172A",
         "inStock": true,
-        "imageOverride": "/images/kids/duffle-navy-front.jpg"
+        "imageOverride": "/images/kids/duffle-navy-front.webp"
       },
       {
         "name": "Camel Tan",
         "hex": "#C2A378",
         "inStock": true,
-        "imageOverride": "/images/kids/duffle-camel-front.jpg"
+        "imageOverride": "/images/kids/duffle-camel-front.webp"
       }
     ],
     "sizes": [
@@ -4475,38 +4475,38 @@
     "badge": "NEW",
     "images": [
       {
-        "url": "/images/kids/cable-knit-ivory-front.jpg",
+        "url": "/images/kids/cable-knit-ivory-front.webp",
         "alt": "Petit Cable-Knit Merino Crewneck in Ivory Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/kids/cable-knit-ivory-back.jpg",
+        "url": "/images/kids/cable-knit-ivory-back.webp",
         "alt": "Petit Cable-Knit Merino Crewneck Ivory Back",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/products/knit-stone.jpg",
+        "url": "/images/products/knit-stone.webp",
         "alt": "Petit Cable-Knit Wool Cable Weave Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Petit Cable-Knit Lifestyle Portrait",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/products/knit-charcoal.jpg",
+        "url": "/images/products/knit-charcoal.webp",
         "alt": "Petit Cable-Knit in Basalt Charcoal Alternate",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/kids/cable-knit-ivory-front.jpg",
-    "hoverImage": "/images/kids/cable-knit-ivory-back.jpg",
+    "primaryImage": "/images/kids/cable-knit-ivory-front.webp",
+    "hoverImage": "/images/kids/cable-knit-ivory-back.webp",
     "colorVariants": [
       {
         "name": "Ivory Cream",
@@ -4514,25 +4514,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/cable-knit-ivory-front.jpg",
+            "url": "/images/kids/cable-knit-ivory-front.webp",
             "alt": "Petit Cable-Knit Ivory Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/cable-knit-ivory-back.jpg",
+            "url": "/images/kids/cable-knit-ivory-back.webp",
             "alt": "Petit Cable-Knit Ivory Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/products/knit-stone.jpg",
+            "url": "/images/products/knit-stone.webp",
             "alt": "Petit Cable-Knit Ivory Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Cable-Knit Ivory Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4545,25 +4545,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/knit-charcoal.jpg",
+            "url": "/images/products/knit-charcoal.webp",
             "alt": "Petit Cable-Knit Charcoal Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/cable-knit-ivory-back.jpg",
+            "url": "/images/kids/cable-knit-ivory-back.webp",
             "alt": "Petit Cable-Knit Charcoal Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/products/knit-stone.jpg",
+            "url": "/images/products/knit-stone.webp",
             "alt": "Petit Cable-Knit Charcoal Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Cable-Knit Charcoal Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4576,13 +4576,13 @@
         "name": "Ivory Cream",
         "hex": "#FDFBF7",
         "inStock": true,
-        "imageOverride": "/images/kids/cable-knit-ivory-front.jpg"
+        "imageOverride": "/images/kids/cable-knit-ivory-front.webp"
       },
       {
         "name": "Basalt Charcoal",
         "hex": "#2C2C2C",
         "inStock": true,
-        "imageOverride": "/images/products/knit-charcoal.jpg"
+        "imageOverride": "/images/products/knit-charcoal.webp"
       }
     ],
     "sizes": [
@@ -4645,38 +4645,38 @@
     "badge": "JUST IN",
     "images": [
       {
-        "url": "/images/kids/poplin-shirt-white-front.jpg",
+        "url": "/images/kids/poplin-shirt-white-front.webp",
         "alt": "Petit Tailored Poplin Shirt in Chalk White Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/kids/poplin-shirt-white-back.jpg",
+        "url": "/images/kids/poplin-shirt-white-back.webp",
         "alt": "Petit Tailored Poplin Shirt Chalk White Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/products/shirt-white.jpg",
+        "url": "/images/products/shirt-white.webp",
         "alt": "Petit Poplin Shirt Collar & Mother of Pearl Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Petit Poplin Shirt Editorial Lifestyle",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/products/shirt-noir.jpg",
+        "url": "/images/products/shirt-noir.webp",
         "alt": "Petit Poplin Shirt in Noir Alternate",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/kids/poplin-shirt-white-front.jpg",
-    "hoverImage": "/images/kids/poplin-shirt-white-back.jpg",
+    "primaryImage": "/images/kids/poplin-shirt-white-front.webp",
+    "hoverImage": "/images/kids/poplin-shirt-white-back.webp",
     "colorVariants": [
       {
         "name": "Chalk White",
@@ -4684,25 +4684,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/poplin-shirt-white-front.jpg",
+            "url": "/images/kids/poplin-shirt-white-front.webp",
             "alt": "Petit Poplin Shirt Chalk White Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/poplin-shirt-white-back.jpg",
+            "url": "/images/kids/poplin-shirt-white-back.webp",
             "alt": "Petit Poplin Shirt Chalk White Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/products/shirt-white.jpg",
+            "url": "/images/products/shirt-white.webp",
             "alt": "Petit Poplin Shirt Chalk White Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Poplin Shirt Chalk White Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4715,25 +4715,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/shirt-noir.jpg",
+            "url": "/images/products/shirt-noir.webp",
             "alt": "Petit Poplin Shirt Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/poplin-shirt-white-back.jpg",
+            "url": "/images/kids/poplin-shirt-white-back.webp",
             "alt": "Petit Poplin Shirt Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/products/shirt-white.jpg",
+            "url": "/images/products/shirt-white.webp",
             "alt": "Petit Poplin Shirt Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Poplin Shirt Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4746,13 +4746,13 @@
         "name": "Chalk White",
         "hex": "#FFFFFF",
         "inStock": true,
-        "imageOverride": "/images/kids/poplin-shirt-white-front.jpg"
+        "imageOverride": "/images/kids/poplin-shirt-white-front.webp"
       },
       {
         "name": "Noir",
         "hex": "#181818",
         "inStock": true,
-        "imageOverride": "/images/products/shirt-noir.jpg"
+        "imageOverride": "/images/products/shirt-noir.webp"
       }
     ],
     "sizes": [
@@ -4816,38 +4816,38 @@
     "badge": "LIMITED",
     "images": [
       {
-        "url": "/images/pablo-kids-hero.png",
+        "url": "/images/pablo-kids-hero.webp",
         "alt": "Little Explorer Tailored Trench Coat Signature Look Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Little Explorer Trench Lifestyle Editorial",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/duffle-navy-detail.jpg",
+        "url": "/images/kids/duffle-navy-detail.webp",
         "alt": "Little Explorer Trench Craftsmanship Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/duffle-camel-front.jpg",
+        "url": "/images/kids/duffle-camel-front.webp",
         "alt": "Little Explorer Trench Alternate Perspective",
         "isPrimary": false,
         "viewType": "alternate"
       },
       {
-        "url": "/images/kids/duffle-navy-back.jpg",
+        "url": "/images/kids/duffle-navy-back.webp",
         "alt": "Little Explorer Trench Back Storm Flap Detail",
         "isPrimary": false,
         "viewType": "back"
       }
     ],
-    "primaryImage": "/images/pablo-kids-hero.png",
-    "hoverImage": "/images/kids/kids-model-lifestyle.jpg",
+    "primaryImage": "/images/pablo-kids-hero.webp",
+    "hoverImage": "/images/kids/kids-model-lifestyle.webp",
     "colorVariants": [
       {
         "name": "Honey Khaki",
@@ -4855,25 +4855,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/pablo-kids-hero.png",
+            "url": "/images/pablo-kids-hero.webp",
             "alt": "Little Explorer Trench Honey Khaki Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Little Explorer Trench Honey Khaki Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
           },
           {
-            "url": "/images/kids/duffle-navy-detail.jpg",
+            "url": "/images/kids/duffle-navy-detail.webp",
             "alt": "Little Explorer Trench Honey Khaki Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/duffle-camel-front.jpg",
+            "url": "/images/kids/duffle-camel-front.webp",
             "alt": "Little Explorer Trench Honey Khaki Alternate",
             "isPrimary": false,
             "viewType": "alternate"
@@ -4886,25 +4886,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/kids/duffle-navy-front.jpg",
+            "url": "/images/kids/duffle-navy-front.webp",
             "alt": "Little Explorer Trench Midnight Navy Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/kids/duffle-navy-back.jpg",
+            "url": "/images/kids/duffle-navy-back.webp",
             "alt": "Little Explorer Trench Midnight Navy Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/kids/duffle-navy-detail.jpg",
+            "url": "/images/kids/duffle-navy-detail.webp",
             "alt": "Little Explorer Trench Midnight Navy Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Little Explorer Trench Midnight Navy Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -4917,13 +4917,13 @@
         "name": "Honey Khaki",
         "hex": "#D4B996",
         "inStock": true,
-        "imageOverride": "/images/pablo-kids-hero.png"
+        "imageOverride": "/images/pablo-kids-hero.webp"
       },
       {
         "name": "Midnight Navy",
         "hex": "#1E293B",
         "inStock": true,
-        "imageOverride": "/images/kids/duffle-navy-front.jpg"
+        "imageOverride": "/images/kids/duffle-navy-front.webp"
       }
     ],
     "sizes": [
@@ -4986,38 +4986,38 @@
     "badge": "PLAY PICK",
     "images": [
       {
-        "url": "/images/products/jeans-indigo.jpg",
+        "url": "/images/products/jeans-indigo.webp",
         "alt": "Petit Japanese Selvedge Denim Jeans in Rinsed Indigo Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/jeans-washed-noir.jpg",
+        "url": "/images/products/jeans-washed-noir.webp",
         "alt": "Petit Selvedge Denim in Washed Noir Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/categories/denim.jpg",
+        "url": "/images/categories/denim.webp",
         "alt": "Petit Selvedge Denim Red-Line Cuff Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Petit Selvedge Denim Lifestyle",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "url": "/images/kids/hoodie-sky-lifestyle.webp",
         "alt": "Petit Selvedge Denim Outfit Look",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/jeans-indigo.jpg",
-    "hoverImage": "/images/products/jeans-washed-noir.jpg",
+    "primaryImage": "/images/products/jeans-indigo.webp",
+    "hoverImage": "/images/products/jeans-washed-noir.webp",
     "colorVariants": [
       {
         "name": "Rinsed Indigo",
@@ -5025,25 +5025,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/jeans-indigo.jpg",
+            "url": "/images/products/jeans-indigo.webp",
             "alt": "Petit Selvedge Denim Indigo Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/jeans-washed-noir.jpg",
+            "url": "/images/products/jeans-washed-noir.webp",
             "alt": "Petit Selvedge Denim Indigo Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/denim.jpg",
+            "url": "/images/categories/denim.webp",
             "alt": "Petit Selvedge Denim Indigo Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Selvedge Denim Indigo Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5056,25 +5056,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/jeans-washed-noir.jpg",
+            "url": "/images/products/jeans-washed-noir.webp",
             "alt": "Petit Selvedge Denim Washed Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/jeans-indigo.jpg",
+            "url": "/images/products/jeans-indigo.webp",
             "alt": "Petit Selvedge Denim Washed Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/denim.jpg",
+            "url": "/images/categories/denim.webp",
             "alt": "Petit Selvedge Denim Washed Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Selvedge Denim Washed Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5087,13 +5087,13 @@
         "name": "Rinsed Indigo",
         "hex": "#1E3A8A",
         "inStock": true,
-        "imageOverride": "/images/products/jeans-indigo.jpg"
+        "imageOverride": "/images/products/jeans-indigo.webp"
       },
       {
         "name": "Washed Noir",
         "hex": "#1F2937",
         "inStock": true,
-        "imageOverride": "/images/products/jeans-washed-noir.jpg"
+        "imageOverride": "/images/products/jeans-washed-noir.webp"
       }
     ],
     "sizes": [
@@ -5156,38 +5156,38 @@
     "badge": "NEW",
     "images": [
       {
-        "url": "/images/products/tshirt-white.jpg",
+        "url": "/images/products/tshirt-white.webp",
         "alt": "Petit Supima Heavyweight Tee in Chalk White Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/tshirt-noir.jpg",
+        "url": "/images/products/tshirt-noir.webp",
         "alt": "Petit Supima Tee in Noir Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/categories/t-shirts.jpg",
+        "url": "/images/categories/t-shirts.webp",
         "alt": "Petit Supima Tee Jersey Weave Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "url": "/images/kids/hoodie-sky-lifestyle.webp",
         "alt": "Petit Supima Tee Playground Lifestyle",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Petit Supima Tee Editorial View",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/tshirt-white.jpg",
-    "hoverImage": "/images/products/tshirt-noir.jpg",
+    "primaryImage": "/images/products/tshirt-white.webp",
+    "hoverImage": "/images/products/tshirt-noir.webp",
     "colorVariants": [
       {
         "name": "Chalk White",
@@ -5195,25 +5195,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/tshirt-white.jpg",
+            "url": "/images/products/tshirt-white.webp",
             "alt": "Petit Supima Tee Chalk White Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/tshirt-noir.jpg",
+            "url": "/images/products/tshirt-noir.webp",
             "alt": "Petit Supima Tee Chalk White Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/t-shirts.jpg",
+            "url": "/images/categories/t-shirts.webp",
             "alt": "Petit Supima Tee Chalk White Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "url": "/images/kids/hoodie-sky-lifestyle.webp",
             "alt": "Petit Supima Tee Chalk White Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5226,25 +5226,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/tshirt-noir.jpg",
+            "url": "/images/products/tshirt-noir.webp",
             "alt": "Petit Supima Tee Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/tshirt-white.jpg",
+            "url": "/images/products/tshirt-white.webp",
             "alt": "Petit Supima Tee Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/t-shirts.jpg",
+            "url": "/images/categories/t-shirts.webp",
             "alt": "Petit Supima Tee Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+            "url": "/images/kids/hoodie-sky-lifestyle.webp",
             "alt": "Petit Supima Tee Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5257,13 +5257,13 @@
         "name": "Chalk White",
         "hex": "#F8FAFC",
         "inStock": true,
-        "imageOverride": "/images/products/tshirt-white.jpg"
+        "imageOverride": "/images/products/tshirt-white.webp"
       },
       {
         "name": "Onyx Noir",
         "hex": "#0F172A",
         "inStock": true,
-        "imageOverride": "/images/products/tshirt-noir.jpg"
+        "imageOverride": "/images/products/tshirt-noir.webp"
       }
     ],
     "sizes": [
@@ -5330,38 +5330,38 @@
     "badge": "BESTSELLER",
     "images": [
       {
-        "url": "/images/products/utility-taupe.jpg",
+        "url": "/images/products/utility-taupe.webp",
         "alt": "Junior Wool-Blend Utility Cargo Trousers in Taupe Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/trousers-noir.jpg",
+        "url": "/images/products/trousers-noir.webp",
         "alt": "Junior Cargo Trousers in Noir Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/categories/trousers.jpg",
+        "url": "/images/categories/trousers.webp",
         "alt": "Junior Cargo Pockets & Twill Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/cable-knit-ivory-front.jpg",
+        "url": "/images/kids/cable-knit-ivory-front.webp",
         "alt": "Junior Cargo Outfit Pairing Look",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Junior Cargo Editorial Portrait",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/utility-taupe.jpg",
-    "hoverImage": "/images/products/trousers-noir.jpg",
+    "primaryImage": "/images/products/utility-taupe.webp",
+    "hoverImage": "/images/products/trousers-noir.webp",
     "colorVariants": [
       {
         "name": "Field Taupe",
@@ -5369,25 +5369,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/utility-taupe.jpg",
+            "url": "/images/products/utility-taupe.webp",
             "alt": "Junior Cargo Field Taupe Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/trousers-noir.jpg",
+            "url": "/images/products/trousers-noir.webp",
             "alt": "Junior Cargo Field Taupe Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/trousers.jpg",
+            "url": "/images/categories/trousers.webp",
             "alt": "Junior Cargo Field Taupe Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/cable-knit-ivory-front.jpg",
+            "url": "/images/kids/cable-knit-ivory-front.webp",
             "alt": "Junior Cargo Field Taupe Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5400,25 +5400,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/trousers-noir.jpg",
+            "url": "/images/products/trousers-noir.webp",
             "alt": "Junior Cargo Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/utility-taupe.jpg",
+            "url": "/images/products/utility-taupe.webp",
             "alt": "Junior Cargo Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/trousers.jpg",
+            "url": "/images/categories/trousers.webp",
             "alt": "Junior Cargo Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/cable-knit-ivory-front.jpg",
+            "url": "/images/kids/cable-knit-ivory-front.webp",
             "alt": "Junior Cargo Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5431,13 +5431,13 @@
         "name": "Field Taupe",
         "hex": "#8B7E74",
         "inStock": true,
-        "imageOverride": "/images/products/utility-taupe.jpg"
+        "imageOverride": "/images/products/utility-taupe.webp"
       },
       {
         "name": "Basalt Noir",
         "hex": "#1C1917",
         "inStock": true,
-        "imageOverride": "/images/products/trousers-noir.jpg"
+        "imageOverride": "/images/products/trousers-noir.webp"
       }
     ],
     "sizes": [
@@ -5501,38 +5501,38 @@
     "badge": "HEIRLOOM",
     "images": [
       {
-        "url": "/images/products/loafers-cognac.jpg",
+        "url": "/images/products/loafers-cognac.webp",
         "alt": "Miniature Calfskin Penny Loafers in Cognac Amber Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/loafers-noir.jpg",
+        "url": "/images/products/loafers-noir.webp",
         "alt": "Miniature Calfskin Penny Loafers in Polished Noir Angle",
         "isPrimary": false,
         "viewType": "alternate"
       },
       {
-        "url": "/images/categories/footwear.jpg",
+        "url": "/images/categories/footwear.webp",
         "alt": "Miniature Loafers Hand-Stitched Apron Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Miniature Loafers Worn on Child Model",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/duffle-navy-front.jpg",
+        "url": "/images/kids/duffle-navy-front.webp",
         "alt": "Miniature Loafers Head-to-Toe Styling",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/loafers-cognac.jpg",
-    "hoverImage": "/images/products/loafers-noir.jpg",
+    "primaryImage": "/images/products/loafers-cognac.webp",
+    "hoverImage": "/images/products/loafers-noir.webp",
     "colorVariants": [
       {
         "name": "Cognac Amber",
@@ -5540,25 +5540,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/loafers-cognac.jpg",
+            "url": "/images/products/loafers-cognac.webp",
             "alt": "Miniature Loafers Cognac Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/loafers-noir.jpg",
+            "url": "/images/products/loafers-noir.webp",
             "alt": "Miniature Loafers Cognac Alternate",
             "isPrimary": false,
             "viewType": "alternate"
           },
           {
-            "url": "/images/categories/footwear.jpg",
+            "url": "/images/categories/footwear.webp",
             "alt": "Miniature Loafers Cognac Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Miniature Loafers Cognac Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5571,25 +5571,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/loafers-noir.jpg",
+            "url": "/images/products/loafers-noir.webp",
             "alt": "Miniature Loafers Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/loafers-cognac.jpg",
+            "url": "/images/products/loafers-cognac.webp",
             "alt": "Miniature Loafers Noir Alternate",
             "isPrimary": false,
             "viewType": "alternate"
           },
           {
-            "url": "/images/categories/footwear.jpg",
+            "url": "/images/categories/footwear.webp",
             "alt": "Miniature Loafers Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Miniature Loafers Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5602,13 +5602,13 @@
         "name": "Cognac Amber",
         "hex": "#9A3412",
         "inStock": true,
-        "imageOverride": "/images/products/loafers-cognac.jpg"
+        "imageOverride": "/images/products/loafers-cognac.webp"
       },
       {
         "name": "Polished Noir",
         "hex": "#111111",
         "inStock": true,
-        "imageOverride": "/images/products/loafers-noir.jpg"
+        "imageOverride": "/images/products/loafers-noir.webp"
       }
     ],
     "sizes": [
@@ -5672,38 +5672,38 @@
     "badge": "JUST IN",
     "images": [
       {
-        "url": "/images/products/polo-taupe.jpg",
+        "url": "/images/products/polo-taupe.webp",
         "alt": "Petit Piqué Cotton Tennis Polo in Oatmeal Taupe Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/polo-noir.jpg",
+        "url": "/images/products/polo-noir.webp",
         "alt": "Petit Tennis Polo in Noir Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/categories/polos.jpg",
+        "url": "/images/categories/polos.webp",
         "alt": "Petit Polo Piqué Texture & Ribbed Collar Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/poplin-shirt-white-front.jpg",
+        "url": "/images/kids/poplin-shirt-white-front.webp",
         "alt": "Petit Polo Smart Outfit Styling",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Petit Polo Editorial Look",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/polo-taupe.jpg",
-    "hoverImage": "/images/products/polo-noir.jpg",
+    "primaryImage": "/images/products/polo-taupe.webp",
+    "hoverImage": "/images/products/polo-noir.webp",
     "colorVariants": [
       {
         "name": "Oatmeal Taupe",
@@ -5711,25 +5711,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/polo-taupe.jpg",
+            "url": "/images/products/polo-taupe.webp",
             "alt": "Petit Polo Oatmeal Taupe Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/polo-noir.jpg",
+            "url": "/images/products/polo-noir.webp",
             "alt": "Petit Polo Oatmeal Taupe Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/polos.jpg",
+            "url": "/images/categories/polos.webp",
             "alt": "Petit Polo Oatmeal Taupe Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/poplin-shirt-white-front.jpg",
+            "url": "/images/kids/poplin-shirt-white-front.webp",
             "alt": "Petit Polo Oatmeal Taupe Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5742,25 +5742,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/polo-noir.jpg",
+            "url": "/images/products/polo-noir.webp",
             "alt": "Petit Polo Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/polo-taupe.jpg",
+            "url": "/images/products/polo-taupe.webp",
             "alt": "Petit Polo Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/polos.jpg",
+            "url": "/images/categories/polos.webp",
             "alt": "Petit Polo Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/poplin-shirt-white-front.jpg",
+            "url": "/images/kids/poplin-shirt-white-front.webp",
             "alt": "Petit Polo Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5773,13 +5773,13 @@
         "name": "Oatmeal Taupe",
         "hex": "#D6D3D1",
         "inStock": true,
-        "imageOverride": "/images/products/polo-taupe.jpg"
+        "imageOverride": "/images/products/polo-taupe.webp"
       },
       {
         "name": "Noir",
         "hex": "#181818",
         "inStock": true,
-        "imageOverride": "/images/products/polo-noir.jpg"
+        "imageOverride": "/images/products/polo-noir.webp"
       }
     ],
     "sizes": [
@@ -5844,38 +5844,38 @@
     "badge": "SALE",
     "images": [
       {
-        "url": "/images/products/bomber-slate.jpg",
+        "url": "/images/products/bomber-slate.webp",
         "alt": "Junior Reversible Silk-Lined Bomber in Slate Grey Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/bomber-noir.jpg",
+        "url": "/images/products/bomber-noir.webp",
         "alt": "Junior Reversible Bomber in Noir Reverse Face",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/categories/outerwear.png",
+        "url": "/images/categories/outerwear.webp",
         "alt": "Junior Bomber Cashmere Ribbing Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Junior Bomber Playground Editorial",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/hoodie-sky-lifestyle.jpg",
+        "url": "/images/kids/hoodie-sky-lifestyle.webp",
         "alt": "Junior Bomber Alternate View",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/bomber-slate.jpg",
-    "hoverImage": "/images/products/bomber-noir.jpg",
+    "primaryImage": "/images/products/bomber-slate.webp",
+    "hoverImage": "/images/products/bomber-noir.webp",
     "colorVariants": [
       {
         "name": "Slate Grey",
@@ -5883,25 +5883,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/bomber-slate.jpg",
+            "url": "/images/products/bomber-slate.webp",
             "alt": "Junior Bomber Slate Grey Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/bomber-noir.jpg",
+            "url": "/images/products/bomber-noir.webp",
             "alt": "Junior Bomber Slate Grey Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/outerwear.png",
+            "url": "/images/categories/outerwear.webp",
             "alt": "Junior Bomber Slate Grey Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Junior Bomber Slate Grey Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5914,25 +5914,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/bomber-noir.jpg",
+            "url": "/images/products/bomber-noir.webp",
             "alt": "Junior Bomber Noir Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/bomber-slate.jpg",
+            "url": "/images/products/bomber-slate.webp",
             "alt": "Junior Bomber Noir Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/outerwear.png",
+            "url": "/images/categories/outerwear.webp",
             "alt": "Junior Bomber Noir Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Junior Bomber Noir Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -5945,13 +5945,13 @@
         "name": "Slate Grey",
         "hex": "#64748B",
         "inStock": true,
-        "imageOverride": "/images/products/bomber-slate.jpg"
+        "imageOverride": "/images/products/bomber-slate.webp"
       },
       {
         "name": "Noir",
         "hex": "#111111",
         "inStock": true,
-        "imageOverride": "/images/products/bomber-noir.jpg"
+        "imageOverride": "/images/products/bomber-noir.webp"
       }
     ],
     "sizes": [
@@ -6011,38 +6011,38 @@
     "badge": "ESSENTIAL",
     "images": [
       {
-        "url": "/images/products/trousers-ivory.jpg",
+        "url": "/images/products/trousers-ivory.webp",
         "alt": "Petit Architectural Relaxed Chinos in Raw Ivory Front",
         "isPrimary": true,
         "viewType": "front"
       },
       {
-        "url": "/images/products/trousers-noir.jpg",
+        "url": "/images/products/trousers-noir.webp",
         "alt": "Petit Chinos in Noir Back View",
         "isPrimary": false,
         "viewType": "back"
       },
       {
-        "url": "/images/categories/shorts.jpg",
+        "url": "/images/categories/shorts.webp",
         "alt": "Petit Chinos Forward Pleat Detail",
         "isPrimary": false,
         "viewType": "detail"
       },
       {
-        "url": "/images/kids/kids-model-lifestyle.jpg",
+        "url": "/images/kids/kids-model-lifestyle.webp",
         "alt": "Petit Chinos Editorial Full Look",
         "isPrimary": false,
         "viewType": "lifestyle"
       },
       {
-        "url": "/images/kids/cable-knit-ivory-front.jpg",
+        "url": "/images/kids/cable-knit-ivory-front.webp",
         "alt": "Petit Chinos Pairing with Knitwear",
         "isPrimary": false,
         "viewType": "alternate"
       }
     ],
-    "primaryImage": "/images/products/trousers-ivory.jpg",
-    "hoverImage": "/images/products/trousers-noir.jpg",
+    "primaryImage": "/images/products/trousers-ivory.webp",
+    "hoverImage": "/images/products/trousers-noir.webp",
     "colorVariants": [
       {
         "name": "Raw Ivory",
@@ -6050,25 +6050,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/trousers-ivory.jpg",
+            "url": "/images/products/trousers-ivory.webp",
             "alt": "Petit Chinos Raw Ivory Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/trousers-noir.jpg",
+            "url": "/images/products/trousers-noir.webp",
             "alt": "Petit Chinos Raw Ivory Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/shorts.jpg",
+            "url": "/images/categories/shorts.webp",
             "alt": "Petit Chinos Raw Ivory Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Chinos Raw Ivory Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -6081,25 +6081,25 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/trousers-noir.jpg",
+            "url": "/images/products/trousers-noir.webp",
             "alt": "Petit Chinos Charcoal Front",
             "isPrimary": true,
             "viewType": "front"
           },
           {
-            "url": "/images/products/trousers-ivory.jpg",
+            "url": "/images/products/trousers-ivory.webp",
             "alt": "Petit Chinos Charcoal Back",
             "isPrimary": false,
             "viewType": "back"
           },
           {
-            "url": "/images/categories/shorts.jpg",
+            "url": "/images/categories/shorts.webp",
             "alt": "Petit Chinos Charcoal Detail",
             "isPrimary": false,
             "viewType": "detail"
           },
           {
-            "url": "/images/kids/kids-model-lifestyle.jpg",
+            "url": "/images/kids/kids-model-lifestyle.webp",
             "alt": "Petit Chinos Charcoal Lifestyle",
             "isPrimary": false,
             "viewType": "lifestyle"
@@ -6112,13 +6112,13 @@
         "name": "Raw Ivory",
         "hex": "#EAE8E1",
         "inStock": true,
-        "imageOverride": "/images/products/trousers-ivory.jpg"
+        "imageOverride": "/images/products/trousers-ivory.webp"
       },
       {
         "name": "Charcoal",
         "hex": "#334155",
         "inStock": true,
-        "imageOverride": "/images/products/trousers-noir.jpg"
+        "imageOverride": "/images/products/trousers-noir.webp"
       }
     ],
     "sizes": [

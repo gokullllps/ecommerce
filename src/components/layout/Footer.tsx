@@ -56,7 +56,7 @@ export function Footer({ theme: themeProp }: FooterProps = {}) {
               <Link href="/" className="inline-block" aria-label="PABLO — Home">
                 <div className="relative h-7 sm:h-8 w-auto">
                   <Image
-                    src="/images/pablo-logo.png"
+                    src="/images/pablo-logo.webp"
                     alt="PABLO — Luxury Fashion"
                     width={566}
                     height={156}
@@ -239,7 +239,7 @@ export function Footer({ theme: themeProp }: FooterProps = {}) {
           <Link href="/" className="inline-block" aria-label="PABLO — Home">
             <div className="relative h-7 sm:h-8 w-auto">
               <Image
-                src="/images/pablo-logo-white.png"
+                src="/images/pablo-logo-white.webp"
                 alt="PABLO — Luxury Fashion"
                 width={566}
                 height={156}

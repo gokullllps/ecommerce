@@ -37,7 +37,7 @@ export function CategoryModal({ isOpen, onClose, category }: CategoryModalProps)
           parentId: null,
           gender: "men",
           description: "",
-          image: "/images/categories/knitwear.jpg",
+          image: "/images/categories/knitwear.webp",
           displayOrder: categories.length + 1,
           status: "active",
           seoTitle: "",
@@ -223,7 +223,7 @@ export function CategoryModal({ isOpen, onClose, category }: CategoryModalProps)
                 type="text"
                 value={formData.image || ""}
                 onChange={(e) => setFormData((prev) => ({ ...prev, image: e.target.value }))}
-                placeholder="/images/categories/t-shirts.jpg"
+                placeholder="/images/categories/t-shirts.webp"
                 className="w-full px-3 py-2 bg-white border border-[rgba(17,17,17,0.15)] rounded-lg text-[#111111] font-mono text-[11px]"
               />
             </div>

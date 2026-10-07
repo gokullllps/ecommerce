@@ -16,7 +16,11 @@ interface NavbarProps {
   theme?: "normal" | "kids";
 }
 
-export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps) {
+export function Navbar({
+  isIntroActive = false,
+  isHeroOverlay = false,
+  theme: themeProp,
+}: NavbarProps) {
   const pathname = usePathname();
   const { isKids: isSiteKids } = useSiteTheme();
   const isKidsRoute = themeProp === "kids" || isSiteKids || Boolean(pathname?.startsWith("/kids"));
@@ -46,6 +50,8 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
   const isOpaque = isScrolled || activeMenuId !== null || mobileMenuOpen;
   // Kids pages: ONLY opaque when scrolled — keeps gradient visible during dropdown hover
   const isKidsOpaque = isScrolled || mobileMenuOpen;
+  // Hero overlay pages: completely transparent at page top, smoothly transitions to solid #EAE8E1 on scroll
+  const isTransparentOverlay = Boolean(isHeroOverlay) && !isOpaque;
 
   const handleNavMouseEnter = (menuId: string, hasDropdown: boolean) => {
     if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
@@ -68,6 +74,10 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
     setMobileMenuOpen(false);
   };
 
+  const actionColorClass = isTransparentOverlay
+    ? "text-white/95 hover:text-white"
+    : "text-[#111111] hover:text-[#666666]";
+
   const navActions = (
     <div className="flex items-center space-x-1 sm:space-x-2">
       {/* Search trigger */}
@@ -75,7 +85,7 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
         type="button"
         onClick={() => setIsSearchOpen(true)}
         aria-label="Open search"
-        className={`text-[#111111] hover:text-[#666666] transition-all p-2 focus-visible:outline-2 focus-visible:outline-[#111111] cursor-pointer ${
+        className={`${actionColorClass} transition-colors p-2 focus-visible:outline-2 focus-visible:outline-[#111111] cursor-pointer ${
           isKidsRoute ? "rounded-full hover:bg-white/80 hover:border border-[#181818]" : ""
         }`}
       >
@@ -98,7 +108,7 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
       <Link
         href="/account"
         aria-label="My Account"
-        className={`text-[#111111] hover:text-[#666666] transition-all p-2 focus-visible:outline-2 focus-visible:outline-[#111111] ${
+        className={`${actionColorClass} transition-colors p-2 focus-visible:outline-2 focus-visible:outline-[#111111] ${
           isKidsRoute ? "rounded-full hover:bg-white/80 hover:border border-[#181818]" : ""
         }`}
       >
@@ -121,7 +131,7 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
       <Link
         href="/wishlist"
         aria-label={`Wishlist (${wishlistCount} items)`}
-        className={`text-[#111111] hover:text-[#666666] transition-all p-2 relative focus-visible:outline-2 focus-visible:outline-[#111111] ${
+        className={`${actionColorClass} transition-colors p-2 relative focus-visible:outline-2 focus-visible:outline-[#111111] ${
           isKidsRoute ? "rounded-full hover:bg-white/80 hover:border border-[#181818]" : ""
         }`}
       >
@@ -156,7 +166,7 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
         type="button"
         onClick={() => setIsCartOpen(true)}
         aria-label={`Shopping Bag (${cartCount} items)`}
-        className={`text-[#111111] hover:text-[#666666] transition-all p-2 relative focus-visible:outline-2 focus-visible:outline-[#111111] cursor-pointer ${
+        className={`${actionColorClass} transition-colors p-2 relative focus-visible:outline-2 focus-visible:outline-[#111111] cursor-pointer ${
           isKidsRoute ? "rounded-full hover:bg-white/80 hover:border border-[#181818]" : ""
         }`}
       >
@@ -192,57 +202,71 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
   return (
     <>
       <header
-      className={`sticky top-0 ${isKidsRoute ? "z-[100]" : "z-50"} w-full select-none ${
-        isKidsRoute
-          ? isOpaque
-            ? "border-b border-[#181818]/10"
-            : "border-b-0"
-          : "border-b"
-      } ${
-        isIntroActive
-          ? "opacity-0 pointer-events-none -translate-y-2"
-          : "opacity-100 pointer-events-auto translate-y-0"
-      }`}
-      style={{
-        backgroundColor: isKidsRoute
-          ? isKidsOpaque
-            ? "rgba(235, 244, 250, 0.82)"
-            : "transparent"
-          : isOpaque
-          ? "rgba(234, 232, 225, 0.96)"
-          : "rgba(234, 232, 225, 0.08)",
-        backdropFilter: isKidsRoute
-          ? isKidsOpaque
-            ? "blur(12px)"
-            : "none"
-          : isOpaque
-          ? "blur(8px)"
-          : "blur(0px)",
-        WebkitBackdropFilter: isKidsRoute
-          ? isKidsOpaque
-            ? "blur(12px)"
-            : "none"
-          : isOpaque
-          ? "blur(8px)"
-          : "blur(0px)",
-        borderBottomColor: isKidsRoute
-          ? isKidsOpaque
-            ? "rgba(24, 24, 24, 0.08)"
-            : "transparent"
-          : isOpaque
-          ? "rgba(217, 216, 211, 0.8)"
-          : "transparent",
-        boxShadow: isKidsRoute
-          ? isKidsOpaque
-            ? "0 4px 16px -2px rgba(24, 24, 24, 0.04)"
-            : "none"
-          : isOpaque
-          ? "0 4px 20px -4px rgba(0, 0, 0, 0.03)"
-          : "none",
-        transition:
-          "background-color 320ms cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 320ms cubic-bezier(0.22, 1, 0.36, 1), -webkit-backdrop-filter 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease, transform 300ms ease",
-      }}
-    >
+        className={`sticky top-0 ${isKidsRoute ? "z-[100]" : "z-50"} w-full select-none ${
+          isHeroOverlay ? "-mb-14 sm:-mb-16" : ""
+        } ${
+          isKidsRoute
+            ? isOpaque
+              ? "border-b border-[#181818]/10"
+              : "border-b-0"
+            : isTransparentOverlay
+            ? "border-b-0"
+            : "border-b"
+        } ${
+          isIntroActive
+            ? "opacity-0 pointer-events-none -translate-y-2"
+            : "opacity-100 pointer-events-auto translate-y-0"
+        }`}
+        style={{
+          backgroundColor: isKidsRoute
+            ? isKidsOpaque
+              ? "rgba(235, 244, 250, 0.82)"
+              : "transparent"
+            : isTransparentOverlay
+            ? "transparent"
+            : isOpaque
+            ? "rgba(234, 232, 225, 0.96)"
+            : "rgba(234, 232, 225, 0.08)",
+          backdropFilter: isKidsRoute
+            ? isKidsOpaque
+              ? "blur(12px)"
+              : "none"
+            : isTransparentOverlay
+            ? "none"
+            : isOpaque
+            ? "blur(8px)"
+            : "blur(0px)",
+          WebkitBackdropFilter: isKidsRoute
+            ? isKidsOpaque
+              ? "blur(12px)"
+              : "none"
+            : isTransparentOverlay
+            ? "none"
+            : isOpaque
+            ? "blur(8px)"
+            : "blur(0px)",
+          borderBottomColor: isKidsRoute
+            ? isKidsOpaque
+              ? "rgba(24, 24, 24, 0.08)"
+              : "transparent"
+            : isTransparentOverlay
+            ? "transparent"
+            : isOpaque
+            ? "rgba(217, 216, 211, 0.8)"
+            : "transparent",
+          boxShadow: isKidsRoute
+            ? isKidsOpaque
+              ? "0 4px 16px -2px rgba(24, 24, 24, 0.04)"
+              : "none"
+            : isTransparentOverlay
+            ? "none"
+            : isOpaque
+            ? "0 4px 20px -4px rgba(0, 0, 0, 0.03)"
+            : "none",
+          transition:
+            "background-color 320ms cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 320ms cubic-bezier(0.22, 1, 0.36, 1), -webkit-backdrop-filter 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease, transform 300ms ease",
+        }}
+      >
 
       {/* ─── DESKTOP NAVBAR (>= md) — 100% UNCHANGED ORIGINAL LAYOUT ─── */}
       <div className="hidden md:flex page-container h-14 sm:h-16 items-center justify-between gap-4">
@@ -254,9 +278,14 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
             className="flex items-center space-x-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111] transition-opacity hover:opacity-85 py-1"
             aria-label="PABLO — Home"
           >
-            <div className="relative h-8 sm:h-9 md:h-10 w-auto flex items-center">
+            <div
+              className="relative h-8 sm:h-9 md:h-10 w-auto flex items-center transition-all duration-300"
+              style={{
+                filter: isTransparentOverlay ? "brightness(0) invert(1)" : "none",
+              }}
+            >
               <Image
-                src="/images/pablo-logo.png"
+                src="/images/pablo-logo.webp"
                 alt="PABLO — Luxury Fashion"
                 width={566}
                 height={156}
@@ -314,6 +343,10 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
                     className={`text-xs sm:text-[13px] tracking-[0.16em] uppercase transition-colors duration-200 relative px-2.5 py-1 rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111] ${
                       isKidsRoute
                         ? "hover:bg-black/5 font-semibold text-[#181818]"
+                        : isTransparentOverlay
+                        ? isHovered
+                          ? "text-white font-medium"
+                          : "text-white/95 hover:text-white font-medium"
                         : isHovered
                         ? "text-[#111111] font-medium hover:text-[#666666]"
                         : "text-[#111111] hover:text-[#666666] font-normal"
@@ -321,7 +354,9 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
                   >
                     {link.label}
                     {link.id === "sale" && (
-                      <span className="absolute top-1/2 -translate-y-1/2 -right-2 w-1.5 h-1.5 rounded-full bg-[#111111] opacity-80" />
+                      <span className={`absolute top-1/2 -translate-y-1/2 -right-2 w-1.5 h-1.5 rounded-full transition-colors duration-200 ${
+                        isTransparentOverlay ? "bg-white opacity-95" : "bg-[#111111] opacity-80"
+                      }`} />
                     )}
                   </Link>
                 )}
@@ -354,6 +389,8 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
           className={`p-2 -ml-1.5 transition-transform active:scale-90 cursor-pointer ${
             isKidsRoute
               ? "rounded-full bg-white/80 border border-[#181818] text-[#181818]"
+              : isTransparentOverlay
+              ? "text-white/95 hover:text-white"
               : "text-[#111111] hover:text-[#666666]"
           }`}
         >
@@ -371,9 +408,14 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
           className="flex flex-col items-center justify-center py-0.5 focus:outline-none"
           aria-label="PABLO — Home"
         >
-          <div className="relative h-6 sm:h-7 w-auto flex items-center">
+          <div
+            className="relative h-6 sm:h-7 w-auto flex items-center transition-all duration-300"
+            style={{
+              filter: isTransparentOverlay ? "brightness(0) invert(1)" : "none",
+            }}
+          >
             <Image
-              src="/images/pablo-logo.png"
+              src="/images/pablo-logo.webp"
               alt="PABLO"
               width={566}
               height={156}
@@ -397,7 +439,11 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
             onClick={() => setIsSearchOpen(true)}
             aria-label="Search collections and products"
             className={`p-2 transition-all cursor-pointer ${
-              isKidsRoute ? "rounded-full hover:bg-white/80 border border-[#181818] text-[#181818]" : "text-[#111111] hover:text-[#666666]"
+              isKidsRoute
+                ? "rounded-full hover:bg-white/80 border border-[#181818] text-[#181818]"
+                : isTransparentOverlay
+                ? "text-white/95 hover:text-white"
+                : "text-[#111111] hover:text-[#666666]"
             }`}
           >
             <svg
@@ -420,7 +466,11 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
             href="/wishlist"
             aria-label={`Wishlist (${wishlistCount} items)`}
             className={`p-2 relative transition-all ${
-              isKidsRoute ? "rounded-full hover:bg-white/80 border border-[#181818] text-[#181818]" : "text-[#111111] hover:text-[#666666]"
+              isKidsRoute
+                ? "rounded-full hover:bg-white/80 border border-[#181818] text-[#181818]"
+                : isTransparentOverlay
+                ? "text-white/95 hover:text-white"
+                : "text-[#111111] hover:text-[#666666]"
             }`}
           >
             <svg
@@ -456,6 +506,8 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
             className={`flex items-center gap-1.5 py-1 px-2.5 rounded-full transition-all cursor-pointer ${
               isKidsRoute
                 ? "bg-[#FEF08A] text-[#181818] border-2 border-[#181818] shadow-[2px_2px_0px_#181818] font-bold"
+                : isTransparentOverlay
+                ? "text-white/95 hover:text-white font-mono"
                 : "text-[#111111] hover:bg-black/5 font-mono"
             }`}
           >
@@ -497,7 +549,7 @@ export function Navbar({ isIntroActive = false, theme: themeProp }: NavbarProps)
           <div className="p-4 border-b border-[#D9D8D3] bg-[#EAE8E1] flex items-center justify-between">
             <div className="relative h-6 w-auto">
               <Image
-                src="/images/pablo-logo.png"
+                src="/images/pablo-logo.webp"
                 alt="PABLO"
                 width={566}
                 height={156}

@@ -14,7 +14,7 @@ export function FeaturedCollectionSection() {
       {/* Background High-Fashion Campaign Image — Full Width */}
       <div className="absolute inset-0">
         <Image
-          src="/images/categories/knitwear.jpg"
+          src="/images/categories/knitwear.webp"
           alt="PABLO Autumn / Winter 2026 Collection Campaign"
           fill
           priority

@@ -50,7 +50,7 @@ export default function AdminInventoryPage() {
     products.forEach((p) => {
       const threshold = p.lowStockThreshold ?? 5;
       const reserved = p.reservedStock ?? 0;
-      const thumbnail = p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.jpg";
+      const thumbnail = p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.webp";
 
       if (p.variants && p.variants.length > 0) {
         p.variants.forEach((v) => {

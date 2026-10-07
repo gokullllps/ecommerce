@@ -443,7 +443,7 @@ export function CollectionBuilderModal({ isOpen, onClose, collection }: Collecti
                           <div className="w-8 h-10 rounded bg-[#EAE8E1] overflow-hidden flex-shrink-0">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                              src={p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.jpg"}
+                              src={p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.webp"}
                               alt={p.name}
                               className="w-full h-full object-cover"
                             />
@@ -671,7 +671,7 @@ export function CollectionBuilderModal({ isOpen, onClose, collection }: Collecti
                       <div className="w-8 h-10 rounded bg-[#F5F4F0] overflow-hidden flex-shrink-0">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.jpg"}
+                          src={p.primaryImage || p.images?.[0]?.url || "/images/categories/knitwear.webp"}
                           alt={p.name}
                           className="w-full h-full object-cover"
                         />

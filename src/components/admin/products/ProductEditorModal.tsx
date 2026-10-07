@@ -70,13 +70,13 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
     images: [
       {
         id: "img-1",
-        url: "/images/categories/knitwear.jpg",
+        url: "/images/categories/knitwear.webp",
         alt: "Front look",
         isPrimary: true,
         viewType: "front",
       },
     ],
-    primaryImage: "/images/categories/knitwear.jpg",
+    primaryImage: "/images/categories/knitwear.webp",
     hoverImage: "",
     videoUrl: "",
     variants: [],
@@ -127,7 +127,7 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
           shortDescription: product.shortDescription || "",
           productType: product.productType || "Apparel",
           images: product.images && product.images.length > 0 ? product.images : [
-            { id: "img-0", url: product.primaryImage || "/images/categories/knitwear.jpg", alt: product.name, isPrimary: true }
+            { id: "img-0", url: product.primaryImage || "/images/categories/knitwear.webp", alt: product.name, isPrimary: true }
           ],
           primaryImage: product.primaryImage || (product.images?.[0]?.url || ""),
           hoverImage: product.hoverImage || "",
@@ -167,13 +167,13 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
           images: [
             {
               id: "img-init",
-              url: "/images/categories/knitwear.jpg",
+              url: "/images/categories/knitwear.webp",
               alt: "Product view",
               isPrimary: true,
               viewType: "front",
             },
           ],
-          primaryImage: "/images/categories/knitwear.jpg",
+          primaryImage: "/images/categories/knitwear.webp",
           hoverImage: "",
           videoUrl: "",
           variants: [
@@ -282,7 +282,7 @@ export function ProductEditorModal({ isOpen, onClose, product }: ProductEditorMo
         product?.id || `prod_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
 
       let currentImages = [...(formData.images || [])];
-      let currentPrimary = formData.primaryImage || currentImages[0]?.url || "/images/categories/knitwear.jpg";
+      let currentPrimary = formData.primaryImage || currentImages[0]?.url || "/images/categories/knitwear.webp";
       let currentHover = formData.hoverImage || "";
 
       // 1. Upload any pending File objects to server

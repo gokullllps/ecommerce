@@ -4,6 +4,8 @@ import Link from "next/link";
 import PageWrapper from "@/components/layout/PageWrapper";
 import type { Metadata } from "next";
 
+import { AboutHero } from "@/components/sections/AboutHero";
+
 export const metadata: Metadata = {
   title: "About the Maison — PABLO",
   description: "Maison PABLO: Architectural silhouettes, sartorial discipline, and Italian textile excellence.",
@@ -11,26 +13,19 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageWrapper navbarProps={{ isStaticPage: true }}>
-      <main className="flex-1 page-container-reading py-12 sm:py-16 lg:py-20 space-y-16 sm:space-y-20 relative z-10">
-        {/* Editorial Introduction */}
-        <section className="text-center space-y-4 max-w-2xl mx-auto">
-          <span className="text-[11px] uppercase tracking-[0.28em] text-[#666666]">
-            THE PHILOSOPHY
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#111111] font-normal leading-tight">
-            Maison PABLO
-          </h1>
-          <p className="font-serif italic text-lg sm:text-xl text-[#444444] leading-relaxed pt-2">
-            &ldquo;We design for permanence. In an era of fleeting velocity, true luxury is the quiet authority of architectural silhouette and exquisite touch.&rdquo;
-          </p>
-        </section>
+    <PageWrapper navbarProps={{ isHeroOverlay: true }}>
+      <AboutHero />
+
+      <main
+        id="story"
+        className="flex-1 page-container-reading py-16 sm:py-20 lg:py-24 space-y-16 sm:space-y-20 relative z-10 scroll-mt-14 sm:scroll-mt-16"
+      >
 
         {/* Campaign Imagery Row */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="relative aspect-[3/4] bg-[#DFDDD6] overflow-hidden">
             <Image
-              src="/images/categories/outerwear.png"
+              src="/images/categories/outerwear.webp"
               alt="Maison PABLO Atelier Craftsmanship"
               fill
               className="object-cover"

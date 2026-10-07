@@ -37,10 +37,10 @@ async function cleanImage(filename) {
 
 async function run() {
   const files = [
-    'women-cat-tops.jpg',
-    'women-cat-bottoms.jpg',
-    'women-cat-footwear.jpg',
-    'women-cat-accessories.jpg',
+    'women-cat-tops.webp',
+    'women-cat-bottoms.webp',
+    'women-cat-footwear.webp',
+    'women-cat-accessories.webp',
   ];
   for (const f of files) {
     await cleanImage(f);

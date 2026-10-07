@@ -34,10 +34,10 @@ async function run() {
   console.log('Valid horizontal cards:', validCards);
 
   const cardFiles = [
-    'women-category-tops.jpg',
-    'women-category-bottoms.jpg',
-    'women-category-footwear.jpg',
-    'women-category-accessories.jpg',
+    'women-category-tops.webp',
+    'women-category-bottoms.webp',
+    'women-category-footwear.webp',
+    'women-category-accessories.webp',
   ];
 
   for (let i = 0; i < Math.min(validCards.length, 4); i++) {
@@ -94,8 +94,8 @@ async function run() {
     .jpeg({ quality: 96 })
     .toBuffer();
 
-  fs.writeFileSync(path.join(outDir, 'women-collection-intro.jpg'), introCropped);
-  console.log('Saved pristine women-collection-intro.jpg');
+  fs.writeFileSync(path.join(outDir, 'women-collection-intro.webp'), introCropped);
+  console.log('Saved pristine women-collection-intro.webp');
 }
 
 run().catch(console.error);
