@@ -4,6 +4,10 @@ import Link from "next/link";
 import React, { useMemo } from "react";
 import { ProductCarousel } from "@/components/catalogue/ProductCarousel";
 import { MEN_PRODUCTS } from "@/data/menCatalogue";
+import { EditorialHeading } from "@/components/ui/EditorialHeading";
+
+
+import { Reveal } from "@/components/animation/Reveal";
 
 export function NewArrivalsSection() {
   const newArrivals = useMemo(() => {
@@ -20,17 +24,16 @@ export function NewArrivalsSection() {
     >
       <div className="page-container">
         {/* ─── SECTION HEADER (Title Left, View All & Arrows Right) ─── */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 pb-4 border-b border-[#D9D8D3]">
+        <Reveal direction="up" distance={22} className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 pb-4 border-b border-[#D9D8D3]">
           <div>
             <span className="block text-[10px] sm:text-xs uppercase tracking-[0.28em] text-[#666666] font-medium mb-2">
               THE LATEST FROM PABLO
             </span>
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.2em] text-[#111111]"
-              style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
-            >
-              NEW ARRIVALS
-            </h2>
+            <EditorialHeading
+              text="NEW ARRIVALS"
+              as="h2"
+              className="h-7 sm:h-8 md:h-9 lg:h-10 text-[#111111]"
+            />
           </div>
 
           <div className="mt-4 sm:mt-0 sm:pr-24">
@@ -47,7 +50,7 @@ export function NewArrivalsSection() {
               </span>
             </Link>
           </div>
-        </div>
+        </Reveal>
 
         {/* ─── 4-ACROSS HORIZONTAL CAROUSEL ─── */}
         <ProductCarousel products={newArrivals} ariaLabel="New Arrivals Carousel" />

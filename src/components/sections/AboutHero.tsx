@@ -4,6 +4,45 @@ import React from "react";
 import Image from "next/image";
 
 export function AboutHero() {
+  const containerRef = React.useRef<HTMLElement>(null);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(false);
+
+  React.useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setPrefersReducedMotion(true);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (prefersReducedMotion || typeof window === "undefined") return;
+
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        if (containerRef.current) {
+          const rect = containerRef.current.getBoundingClientRect();
+          const height = containerRef.current.offsetHeight || window.innerHeight;
+          const p = Math.min(Math.max(-rect.top / height, 0), 1);
+          setScrollProgress(p);
+        }
+        rafId = null;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [prefersReducedMotion]);
+
   const handleScrollToStory = () => {
     const el = document.getElementById("story");
     if (el) {
@@ -13,13 +52,18 @@ export function AboutHero() {
 
   return (
     <section
+      ref={containerRef}
       id="about-hero"
       aria-label="Maison PABLO Atelier Showcase"
       className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden flex flex-col justify-center items-center select-none bg-[#11100E] text-[#111111]"
     >
       {/* ─── FULL-BLEED ATELIER BACKGROUND (Primary Uploaded Asset) ─── */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-cover bg-center bg-no-repeat select-none"
+        className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-cover bg-center bg-no-repeat select-none pablo-page-resolve"
+        style={{
+          transform: prefersReducedMotion ? "none" : `translate3d(0, ${scrollProgress * -20}px, 0)`,
+          willChange: prefersReducedMotion ? "auto" : "transform",
+        }}
         aria-hidden="true"
       >
         <Image
@@ -73,7 +117,8 @@ export function AboutHero() {
           <h1
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-normal text-white tracking-[0.02em] sm:tracking-[0.03em] leading-none select-none drop-shadow-md my-1 sm:my-2"
             style={{
-              fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontKerning: "normal",
             }}
           >
             Maison PABLO
@@ -83,7 +128,8 @@ export function AboutHero() {
           <p
             className="font-serif italic text-[13.5px] sm:text-base md:text-[17px] lg:text-lg text-white/90 max-w-xl sm:max-w-2xl leading-relaxed sm:leading-relaxed font-light mt-4 sm:mt-5 drop-shadow-sm tracking-wide select-none"
             style={{
-              fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontKerning: "normal",
             }}
           >
             &ldquo;We design for permanence. In an era of fleeting velocity, true luxury is the quiet authority of architectural silhouette and exquisite touch.&rdquo;
@@ -93,22 +139,11 @@ export function AboutHero() {
           <button
             type="button"
             onClick={handleScrollToStory}
-            className="
-              group inline-flex items-center gap-3 mt-8 sm:mt-10
-              px-8 sm:px-10 py-3.5 sm:py-4
-              bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818]
-              border border-white/25 hover:border-white
-              backdrop-blur-sm
-              text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium
-              transition-all duration-300 ease-out
-              shadow-lg hover:shadow-xl
-              cursor-pointer select-none
-              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-            "
+            className="group pablo-btn-luxury inline-flex items-center gap-3 mt-8 sm:mt-10 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818] border border-white/25 hover:border-white backdrop-blur-sm text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium shadow-lg hover:shadow-xl cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <span>DISCOVER OUR STORY</span>
             <span
-              className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1 text-xs"
+              className="btn-arrow inline-block text-xs"
               aria-hidden="true"
             >
               →

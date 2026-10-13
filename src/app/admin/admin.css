@@ -39,7 +39,7 @@
 
   /* typography */
   --a-font-body: "Inter", -apple-system, sans-serif;
-  --a-font-serif: "Cormorant Garamond", Georgia, serif;
+  --a-font-serif: "Beverly", var(--font-editorial), serif;
 }
 
 /* ─────────────────────────────────────────────────────────────────

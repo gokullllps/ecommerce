@@ -34,7 +34,7 @@ export default function MenCategorySection({
         <span className="block text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.28em] text-[#666666] font-medium mb-1.5">
           COLLECTION
         </span>
-        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal uppercase tracking-[0.2em] text-[#111111]">
+        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal uppercase tracking-[0.03em] sm:tracking-[0.04em] text-[#111111]">
           CATEGORIES
         </h2>
         <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 sm:mt-3 opacity-30" />
@@ -84,7 +84,7 @@ export default function MenCategorySection({
 
               {/* Bottom Content: Category Name + EXPLORE / VIEWING → */}
               <div className="absolute bottom-0 inset-x-0 p-2.5 sm:p-3.5 z-10 flex flex-col items-start justify-end">
-                <span className="block font-sans text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.16em] uppercase text-white leading-tight">
+                <span className="block font-editorial text-sm sm:text-base md:text-lg font-normal tracking-[0.06em] uppercase text-white leading-tight">
                   {card.label}
                 </span>
                 <span className="inline-flex items-center gap-1 text-[8px] sm:text-[9px] font-sans tracking-[0.2em] uppercase text-white/80 mt-1 group-hover:text-white transition-colors">

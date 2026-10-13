@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -9,10 +10,24 @@ import SearchModal from "@/components/shop/SearchModal";
 import QuickShopModal from "@/components/shop/QuickShopModal";
 import { RouteScrollReset } from "@/components/layout/RouteScrollReset";
 
+// Official Beverly Luxury Editorial Serif Font by Pen Culture
+const beverly = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Beverly.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-editorial",
+  display: "swap",
+});
+
+// Preserved for the giant Hero "PABLO" wordmark only (Requirement #2)
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  variable: "--font-display",
+  variable: "--font-hero-pablo",
   display: "swap",
 });
 
@@ -37,7 +52,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${cormorantGaramond.variable} ${inter.variable} bg-[#EAE8E1]`}
+      className={`${beverly.variable} ${cormorantGaramond.variable} ${inter.variable} bg-[#EAE8E1]`}
       style={{ backgroundColor: "#EAE8E1" }}
     >
       <body

@@ -8,9 +8,11 @@ export interface CategoryHeroProps {
 }
 
 export default function CategoryHero({ gender }: CategoryHeroProps) {
+  const containerRef = React.useRef<HTMLElement>(null);
   // Staged luxury entrance animation matching Sale/Men hero:
   const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (
@@ -37,6 +39,33 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
     };
   }, []);
 
+  // Subtle GPU-accelerated hero scroll tracking
+  useEffect(() => {
+    if (prefersReducedMotion || typeof window === "undefined") return;
+
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        if (containerRef.current) {
+          const rect = containerRef.current.getBoundingClientRect();
+          const height = containerRef.current.offsetHeight || window.innerHeight;
+          const p = Math.min(Math.max(-rect.top / height, 0), 1);
+          setScrollProgress(p);
+        }
+        rafId = null;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [prefersReducedMotion]);
+
   const isMen = gender === "men";
 
   const handleScrollToCatalogue = (e: React.MouseEvent) => {
@@ -52,6 +81,7 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
 
   return (
     <section
+      ref={containerRef}
       id="women-hero"
       aria-label={isMen ? "PABLO Men's Editorial" : "PABLO Women's Editorial"}
       className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden select-none bg-[#11100E] text-[#111111]"
@@ -63,16 +93,18 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
     >
       {/* ─── FULL-BLEED EDITORIAL BACKGROUND LAYER ─── */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0"
+        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0 pablo-page-resolve"
         style={{
           opacity: phase >= 1 || prefersReducedMotion ? 1 : 0,
-          transform:
-            phase >= 1 || prefersReducedMotion
-              ? "scale(1)"
-              : "scale(1.04)",
+          transform: prefersReducedMotion
+            ? "none"
+            : phase >= 1
+            ? `translate3d(0, ${scrollProgress * -20}px, 0) scale(1)`
+            : "scale(1.04)",
           transition: prefersReducedMotion
             ? "none"
             : "opacity 1000ms ease-out, transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          willChange: prefersReducedMotion ? "auto" : "transform",
         }}
       >
         <Image
@@ -150,7 +182,7 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
         >
           <h1
             className="font-normal text-[#111111] uppercase tracking-[0.01em] leading-[0.88] select-none text-[38px] sm:text-[44px]"
-            style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+            style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
           >
             RAW FORM.<br />
             MODERN<br />
@@ -228,15 +260,7 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
           <a
             href="#catalogue"
             onClick={handleScrollToCatalogue}
-            className="
-              group flex items-center justify-center gap-2.5
-              w-full py-3.5 min-h-[46px]
-              bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818]
-              border border-white/25 active:border-white
-              backdrop-blur-sm
-              text-xs font-sans tracking-[0.24em] uppercase font-medium
-              transition-all duration-300 ease-out shadow-lg cursor-pointer select-none text-center
-            "
+            className="group flex items-center justify-center gap-2.5 w-full py-3.5 min-h-[46px] bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818] border border-white/25 active:border-white backdrop-blur-sm text-xs font-sans tracking-[0.24em] uppercase font-medium transition-all duration-300 ease-out shadow-lg cursor-pointer select-none text-center"
           >
             <span>EXPLORE WOMEN&apos;S COLLECTION</span>
             <span
@@ -263,7 +287,8 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
               <h1
                 className="font-normal text-[#111111] uppercase tracking-[0.02em] leading-[0.92] mb-4 sm:mb-6"
                 style={{
-                  fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                  fontFamily: "'Beverly', var(--font-editorial), serif",
+                  fontKerning: "normal",
                   fontSize: "clamp(3.2rem, 8vw, 7.5rem)",
                   fontWeight: 400,
                 }}
@@ -285,14 +310,15 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
                 className="relative flex items-end justify-center lg:justify-start w-full"
                 style={{
                   opacity: phase >= 2 || prefersReducedMotion ? 1 : 0,
-                  transform:
-                    phase >= 2 || prefersReducedMotion
-                      ? "translate3d(0, 0, 0)"
-                      : "translate3d(-30px, 0, 0)",
+                  transform: prefersReducedMotion
+                    ? "none"
+                    : phase >= 2
+                    ? `translate3d(0, ${scrollProgress * -35}px, 0)`
+                    : "translate3d(-30px, 0, 0)",
                   transition: prefersReducedMotion
                     ? "none"
                     : "opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1)",
-                  willChange: "transform, opacity",
+                  willChange: prefersReducedMotion ? "auto" : "transform",
                 }}
               >
                 {/* Contact shadow beneath model's shoes */}
@@ -307,16 +333,20 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
                   height={1024}
                   priority
                   unoptimized
-                  className="
-                    object-contain object-bottom w-auto select-none drop-shadow-[0_16px_32px_rgba(0,0,0,0.45)]
-                    h-[60vh] sm:h-[70vh] md:h-[76vh] lg:h-[82vh] xl:h-[86vh] max-h-[850px]
-                  "
+                  className="object-contain object-bottom w-auto select-none drop-shadow-[0_16px_32px_rgba(0,0,0,0.45)] h-[60vh] sm:h-[70vh] md:h-[76vh] lg:h-[82vh] xl:h-[86vh] max-h-[850px]"
                 />
               </div>
             </div>
 
             {/* Right Content Column (6-7 cols on desktop) */}
-            <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center z-20 order-2 text-left lg:text-right items-start lg:items-end pt-4 lg:pt-0">
+            <div
+              className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center z-20 order-2 text-left lg:text-right items-start lg:items-end pt-4 lg:pt-0"
+              style={{
+                opacity: prefersReducedMotion ? 1 : Math.max(0, 1 - scrollProgress * 1.8),
+                transform: prefersReducedMotion ? "none" : `translate3d(0, ${scrollProgress * -15}px, 0)`,
+                willChange: prefersReducedMotion ? "auto" : "opacity, transform",
+              }}
+            >
               {/* Overline with clean divider */}
               <div
                 className="flex items-center gap-3 mb-4 justify-start lg:justify-end"
@@ -344,7 +374,8 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
               <h1
                 className="font-normal text-[#111111] uppercase tracking-[0.02em] leading-[0.92] mb-4 sm:mb-6"
                 style={{
-                  fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                  fontFamily: "'Beverly', var(--font-editorial), serif",
+                  fontKerning: "normal",
                   fontSize: "clamp(3.2rem, 8vw, 7.5rem)",
                   fontWeight: 400,
                   opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
@@ -393,22 +424,11 @@ export default function CategoryHero({ gender }: CategoryHeroProps) {
                 <a
                   href="#catalogue"
                   onClick={handleScrollToCatalogue}
-                  className="
-                    group inline-flex items-center justify-center gap-3
-                    px-8 sm:px-10 py-3.5 sm:py-4
-                    bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818]
-                    border border-white/25 hover:border-white
-                    backdrop-blur-sm
-                    text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium
-                    transition-all duration-300 ease-out
-                    shadow-lg hover:shadow-xl
-                    cursor-pointer select-none
-                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-                  "
+                  className="group pablo-btn-luxury inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818] border border-white/25 hover:border-white backdrop-blur-sm text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium shadow-lg hover:shadow-xl cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <span>EXPLORE WOMEN&apos;S COLLECTION</span>
                   <span
-                    className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-xs"
+                    className="btn-arrow inline-block text-xs"
                     aria-hidden="true"
                   >
                     →

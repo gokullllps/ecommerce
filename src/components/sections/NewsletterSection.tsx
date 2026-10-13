@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { Reveal } from "@/components/animation/Reveal";
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
@@ -21,14 +22,14 @@ export function NewsletterSection() {
       style={{ backgroundColor: "#EAE8E1", color: "#111111" }}
     >
       <div className="page-container flex flex-col items-center justify-center text-center">
-        <div className="w-full max-w-lg">
+        <Reveal direction="up" distance={20} className="w-full max-w-lg">
           <span className="block text-[10px] sm:text-xs uppercase tracking-[0.32em] text-[#666666] font-medium mb-2.5">
             Brand Relationship · Atelier PABLO
           </span>
 
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.2em] text-[#111111] mb-3 sm:mb-4"
-            style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+            className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.03em] sm:tracking-[0.04em] text-[#111111] mb-3 sm:mb-4"
+            style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
           >
             PRIVATE INVITATIONS
           </h2>
@@ -58,7 +59,7 @@ export function NewsletterSection() {
                 />
                 <button
                   type="submit"
-                  className="px-6 py-2 pablo-btn-dark text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-medium cursor-pointer shrink-0"
+                  className="px-6 py-2 pablo-btn-dark pablo-btn-luxury text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-medium cursor-pointer shrink-0"
                 >
                   REQUEST INVITATION
                 </button>
@@ -68,7 +69,7 @@ export function NewsletterSection() {
               </p>
             </form>
           )}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

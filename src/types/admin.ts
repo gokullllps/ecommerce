@@ -294,5 +294,7 @@ export interface AdminCollection {
   mode: CollectionMode;
   productIds: string[];
   rules?: CollectionRule[];
+  label?: string;
+  category?: string;
   updatedAt?: string;
 }

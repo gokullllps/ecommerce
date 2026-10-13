@@ -2,42 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { MEN_CATEGORIES_DATA } from "@/data/categories";
 
-const INITIAL_VISIBLE = 6;
-
 export function CategoriesSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const hiddenCount = MEN_CATEGORIES_DATA.length - INITIAL_VISIBLE;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
-  const handleCollapse = () => {
-    setIsExpanded(false);
-    // Scroll back so the user lands near the section heading
-    if (sectionRef.current) {
-      const offset = 80; // account for sticky navbar height
-      const top =
-        sectionRef.current.getBoundingClientRect().top +
-        window.scrollY -
-        offset;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  };
+  // Duplicate items for a mathematically seamless, infinite horizontal loop
+  const duplicatedCategories = [...MEN_CATEGORIES_DATA, ...MEN_CATEGORIES_DATA];
 
-  return (
-    <section
-      ref={sectionRef}
-      id="categories"
-      aria-label="PABLO Men's Categories"
-      className="w-full bg-[#EAE8E1] text-[#111111] py-12 sm:py-16 lg:py-20 select-none"
-      style={{ backgroundColor: "#EAE8E1", color: "#111111" }}
-    >
-      <div className="page-container">
-        {/* ─── 1. SECTION TITLE ─── */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-3">
+  // Static accessible layout if reduced motion is requested
+  if (prefersReducedMotion) {
+    return (
+      <section
+        id="categories"
+        aria-label="PABLO Categories Showcase"
+        className="relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
+      >
+        <div className="text-center shrink-0 px-4 mb-8 sm:mb-12">
+          <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-2.5">
             Maison Portfolio · 2026
           </span>
           <h2
@@ -46,153 +39,189 @@ export function CategoriesSection() {
           >
             CATEGORIES
           </h2>
-          <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-4 opacity-40" />
+          <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-3.5 opacity-40" />
         </div>
 
-        {/* ─── 2. EDITORIAL CATEGORY GRID ─── */}
-        {/*
-          All cards live in ONE flat grid.
-          Cards beyond INITIAL_VISIBLE are hidden with aria-hidden + CSS opacity/translate.
-          When expanded, they fade + slide in with a staggered delay per card.
-        */}
-        <div
-          id="categories-grid"
-          className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 sm:gap-x-6 lg:gap-x-8 gap-y-5 sm:gap-y-10"
-        >
-          {MEN_CATEGORIES_DATA.map((category, index) => {
-            const isHidden = index >= INITIAL_VISIBLE;
-            const staggerDelay = isExpanded ? (index - INITIAL_VISIBLE) * 60 : 0;
-
-            return (
+        <div className="page-container w-full max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+            {MEN_CATEGORIES_DATA.map((category) => (
               <div
                 key={category.id}
-                aria-hidden={isHidden && !isExpanded ? "true" : undefined}
-                className={`transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
-                  isHidden
-                    ? isExpanded
-                      ? "opacity-100 translate-y-0 pointer-events-auto"
-                      : "opacity-0 translate-y-6 pointer-events-none h-0 overflow-hidden !mt-0 !pt-0"
-                    : "opacity-100 translate-y-0 pointer-events-auto"
-                }`}
-                style={
-                  isHidden && isExpanded
-                    ? { transitionDelay: `${staggerDelay}ms` }
-                    : undefined
-                }
+                className="relative w-full aspect-[3/4.4] rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_20px_45px_rgba(0,0,0,0.20)] border border-black/10"
               >
-                <CategoryCard category={category} />
+                <Link
+                  href={category.href}
+                  aria-label={`Explore ${category.name} Collection`}
+                  className="group relative block w-full h-full"
+                >
+                  <Image
+                    src={category.imageSrc}
+                    alt={category.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/92 via-black/45 to-transparent pointer-events-none" />
+                  <div className="absolute top-4 right-4 z-20 pointer-events-none">
+                    <span className="text-[9px] uppercase tracking-[0.22em] text-white/50 font-medium font-sans">
+                      PABLO
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 z-20 pb-6 px-5 text-center flex flex-col items-center">
+                    <span className="text-[10px] font-sans font-medium uppercase tracking-[0.26em] text-white/70 block mb-1">
+                      COLLECTION
+                    </span>
+                    <h3
+                      className="text-2xl font-normal text-white tracking-[0.06em]"
+                      style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+                    >
+                      {category.name}
+                    </h3>
+                  </div>
+                </Link>
               </div>
-            );
-          })}
-        </div>
-
-        {/* ─── 3. VIEW MORE / VIEW LESS BUTTON ─── */}
-        {hiddenCount > 0 && (
-          <div className="flex justify-center mt-10 sm:mt-12">
-            {!isExpanded ? (
-              <button
-                type="button"
-                onClick={() => setIsExpanded(true)}
-                className="group inline-flex items-center gap-2.5 px-8 py-3 border border-[#111111] text-xs uppercase tracking-[0.24em] text-[#111111] hover:bg-[#111111] hover:text-[#EAE8E1] transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#111111]"
-                aria-expanded={false}
-                aria-controls="categories-grid"
-              >
-                <span>VIEW MORE</span>
-                <span
-                  className="text-[11px] transition-transform duration-300 group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleCollapse}
-                className="group inline-flex items-center gap-2.5 px-8 py-3 border border-[#111111] bg-[#111111] text-[#EAE8E1] hover:bg-transparent hover:text-[#111111] text-xs uppercase tracking-[0.24em] transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#111111]"
-                aria-expanded={true}
-                aria-controls="categories-grid"
-              >
-                <span>VIEW LESS</span>
-                <span
-                  className="text-[11px] transition-transform duration-300 group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                >
-                  ↑
-                </span>
-              </button>
-            )}
+            ))}
           </div>
-        )}
-      </div>
-    </section>
-  );
-}
-
-// ─── Sub-component: single category card (design unchanged) ──────────────────
-function CategoryCard({
-  category,
-}: {
-  category: (typeof MEN_CATEGORIES_DATA)[number];
-}) {
-  return (
-    <Link
-      href={category.href}
-      className="group block cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#111111] focus-visible:ring-offset-4 focus-visible:ring-offset-[#EAE8E1]"
-      aria-label={`Explore ${category.name} collection`}
-    >
-      {/* ─── LARGE FASHION IMAGE CONTAINER WITH HOVER DYNAMICS ─── */}
-      <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[#DDD9D0]">
-        {/* Editorial Catalogue Index Number (Top-Left) */}
-        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 pointer-events-none">
-          <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.24em] text-[#111111]/50 group-hover:text-[#111111] transition-colors duration-500 font-semibold bg-[#EAE8E1]/60 group-hover:bg-[#EAE8E1]/90 backdrop-blur-sm px-2 py-1 rounded-[2px]">
-            {category.indexNumber}
-          </span>
         </div>
+      </section>
+    );
+  }
 
-        {/* Fine Micro Hairline Framing on Hover */}
+  return (
+    <section
+      id="categories"
+      aria-label="PABLO Categories Showcase"
+      className="pablo-category-section relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
+      <style>{`
+        @keyframes pabloCategoryGlide {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        .pablo-category-track {
+          display: flex;
+          width: max-content;
+          will-change: transform;
+          animation: pabloCategoryGlide 48s linear infinite;
+        }
+        .pablo-category-section:hover .pablo-category-track,
+        .pablo-category-section:focus-within .pablo-category-track,
+        .pablo-category-track:hover,
+        .pablo-category-track:focus-within {
+          animation-play-state: paused !important;
+        }
+      `}</style>
+
+      {/* ─── 1. SECTION HEADER ─── */}
+      <div className="text-center shrink-0 px-4 mb-8 sm:mb-12">
+        <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-2.5">
+          Maison Portfolio · 2026
+        </span>
+        <h2
+          className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.22em] text-[#111111] inline-block"
+          style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+        >
+          CATEGORIES
+        </h2>
+        <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-3.5 opacity-40" />
+      </div>
+
+      {/* ─── 2. CONTINUOUS HORIZONTAL CINEMATIC LOOP CONTAINER ─── */}
+      <div className="relative w-full overflow-hidden py-4">
+        {/* Left Edge Luxury Vignette Fade */}
         <div
-          className="absolute inset-0 z-20 border border-[#111111]/0 group-hover:border-[#111111]/20 transition-colors duration-700 pointer-events-none"
+          className="absolute left-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-20"
           aria-hidden="true"
         />
 
-        {/* High-Resolution Fashion Photograph with Smooth Depth Zoom */}
-        <Image
-          src={category.imageSrc}
-          alt={category.imageAlt}
-          fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover object-center transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035] filter brightness-[0.99] group-hover:brightness-[1.02] contrast-[1.01] group-hover:contrast-[1.03]"
+        {/* Right Edge Luxury Vignette Fade */}
+        <div
+          className="absolute right-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-l from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-20"
+          aria-hidden="true"
         />
 
-        {/* Subtle Luxury Frosted Glass Pill (Rises Up On Hover) */}
-        <div className="absolute bottom-4 inset-x-0 z-20 flex justify-center pointer-events-none">
-          <div className="opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] bg-[#EAE8E1]/95 backdrop-blur-md border border-[#FFFFFF]/80 px-4 py-1.5 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center gap-2">
-            <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.24em] uppercase text-[#111111]">
-              DISCOVER
-            </span>
-            <span className="text-[9px] text-[#111111] transition-transform duration-300 group-hover:translate-x-0.5">
-              →
-            </span>
-          </div>
+        {/* Glide Track with Seamless Duplicated Items */}
+        <div
+          className="pablo-category-track flex items-center gap-6 sm:gap-7 md:gap-8 px-4"
+          style={{
+            animationPlayState: isPaused ? "paused" : "running",
+          }}
+        >
+          {duplicatedCategories.map((category, index) => (
+            <div
+              key={`${category.id}-${index}`}
+              className="shrink-0 w-[245px] sm:w-[280px] md:w-[320px] h-[365px] sm:h-[420px] md:h-[475px]"
+            >
+              <Link
+                href={category.href}
+                aria-label={`Explore ${category.name} Collection`}
+                className="group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_20px_45px_rgba(0,0,0,0.20)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.30)] border border-black/10 hover:border-black/30 transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none hover:scale-[1.015]"
+              >
+                {/* Category Photographic Asset */}
+                <Image
+                  src={category.imageSrc}
+                  alt={category.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 260px, 340px"
+                  priority={index < 4}
+                  className="object-cover object-center w-full h-full select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                />
+
+                {/* Top Subtle Vignette */}
+                <div
+                  className="absolute inset-x-0 top-0 h-24 pointer-events-none z-10 bg-gradient-to-b from-black/45 via-black/15 to-transparent"
+                  aria-hidden="true"
+                />
+
+                {/* Brand Watermark (Top-Right) */}
+                <div className="absolute top-4 right-4 z-20 pointer-events-none">
+                  <span className="text-[9px] uppercase tracking-[0.22em] text-white/50 font-medium font-sans">
+                    PABLO
+                  </span>
+                </div>
+
+                {/* Bottom Vignette for High Text Legibility */}
+                <div
+                  className="absolute inset-x-0 bottom-0 h-44 sm:h-52 pointer-events-none z-10 bg-gradient-to-t from-black/92 via-black/45 to-transparent"
+                  aria-hidden="true"
+                />
+
+                {/* Bottom Typography & Discover Pill */}
+                <div className="absolute inset-x-0 bottom-0 z-20 pb-6 sm:pb-8 px-5 sm:px-6 text-center flex flex-col items-center justify-end pointer-events-none">
+                  <span className="text-[10px] sm:text-[10.5px] font-sans font-medium uppercase tracking-[0.26em] text-white/70 block mb-1">
+                    COLLECTION
+                  </span>
+                  <h3
+                    className="text-2xl sm:text-3xl md:text-[2rem] font-normal text-white tracking-[0.06em] leading-tight mb-3 transition-transform duration-500 ease-out group-hover:-translate-y-0.5"
+                    style={{
+                      fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                    }}
+                  >
+                    {category.name}
+                  </h3>
+
+                  {/* Discover Pill */}
+                  <div className="transition-all duration-300 flex items-center gap-2 bg-[#EAE8E1] text-[#111111] px-4 py-1.5 rounded-full text-[9.5px] uppercase tracking-[0.22em] font-medium shadow-md opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
+                    <span>DISCOVER</span>
+                    <span className="text-[10px] transition-transform duration-300 group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* ─── CATEGORY NAME WITH ANIMATED CENTER HAIRLINE ─── */}
-      <div className="mt-4 sm:mt-5 text-center">
-        <span
-          className="inline-block relative text-xs sm:text-[13px] md:text-sm font-medium uppercase tracking-[0.2em] group-hover:tracking-[0.24em] text-[#111111] transition-all duration-500"
-          style={{ fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
-        >
-          {category.name}
-          {/* Expanding Center Underline */}
-          <span
-            className="block w-0 group-hover:w-full h-[1px] bg-[#111111] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mx-auto mt-1"
-            aria-hidden="true"
-          />
-        </span>
-      </div>
-    </Link>
+    </section>
   );
 }
 

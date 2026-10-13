@@ -21,6 +21,7 @@ const KNOWN_COLLECTIONS = [
   "sale",
   "new-in",
   "best-sellers",
+  "aw26",
 ];
 
 export async function generateStaticParams() {
@@ -29,7 +30,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CollectionPageProps): Promise<Metadata> {
   const { collection } = await params;
-  const title = collection.replace("-", " ").toUpperCase();
+  const title = collection === "aw26" ? "AUTUMN / WINTER 2026" : collection.replace("-", " ").toUpperCase();
   return {
     title: `${title} Collection — PABLO`,
     description: `Discover the ${title} collection from Maison PABLO. Modern luxury fashion and timeless design.`,
@@ -39,9 +40,12 @@ export async function generateMetadata({ params }: CollectionPageProps): Promise
 export default async function CollectionPage({ params }: CollectionPageProps) {
   const { collection } = await params;
 
-  const collectionProducts = ALL_PRODUCTS.filter((p) =>
-    p.collections?.includes(collection as any)
-  );
+  const collectionProducts = ALL_PRODUCTS.filter((p) => {
+    if (collection === "aw26") {
+      return p.collections?.includes("new-season" as any) || p.collections?.includes("editorial" as any);
+    }
+    return p.collections?.includes(collection as any);
+  });
 
   const formattedTitle = collection.replace("-", " ").toUpperCase();
 

@@ -98,17 +98,7 @@ export default function KidsCategorySection({
               <div
                 key={cat.id}
                 onClick={(e) => handleClick(e, cat.id)}
-                className={`
-                  group relative flex flex-col justify-between
-                  rounded-2xl border-2 border-[#181818] bg-white
-                  overflow-hidden cursor-pointer transition-all duration-200
-                  active:scale-[0.98]
-                  ${
-                    isSelected
-                      ? "shadow-[3px_3px_0px_#181818] ring-2 ring-[#FEF08A] bg-[#FEF08A]/10"
-                      : "shadow-[2px_2px_0px_#181818] hover:shadow-[3px_3px_0px_#181818]"
-                  }
-                `}
+                className={`group relative flex flex-col justify-between rounded-2xl border-2 border-[#181818] bg-white overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.98] ${isSelected ? "shadow-[3px_3px_0px_#181818] ring-2 ring-[#FEF08A] bg-[#FEF08A]/10" : "shadow-[2px_2px_0px_#181818] hover:shadow-[3px_3px_0px_#181818]"}`}
               >
                 {/* Image Container with Wishlist Icon */}
                 <div className="relative aspect-square w-full bg-[#EBF4FA] overflow-hidden">
@@ -154,17 +144,7 @@ export default function KidsCategorySection({
                   key={cat.id}
                   type="button"
                   onClick={(e) => handleClick(e, cat.id)}
-                  className={`
-                    px-3.5 py-1.5 shrink-0
-                    text-[10.5px] font-sans font-black tracking-wider uppercase
-                    rounded-full transition-all duration-150 cursor-pointer
-                    border-2 border-[#181818] select-none active:scale-95
-                    ${
-                      isActive
-                        ? "bg-[#FEF08A] text-[#181818] shadow-[2px_2px_0px_#181818]"
-                        : "bg-white text-[#181818] hover:bg-[#FEF08A]/40"
-                    }
-                  `}
+                  className={`px-3.5 py-1.5 shrink-0 text-[10.5px] font-sans font-black tracking-wider uppercase rounded-full transition-all duration-150 cursor-pointer border-2 border-[#181818] select-none active:scale-95 ${isActive ? "bg-[#FEF08A] text-[#181818] shadow-[2px_2px_0px_#181818]" : "bg-white text-[#181818] hover:bg-[#FEF08A]/40"}`}
                 >
                   {cat.label}
                 </button>
@@ -189,17 +169,7 @@ export default function KidsCategorySection({
               key={cat.id}
               type="button"
               onClick={(e) => handleClick(e, cat.id)}
-              className={`
-                px-4 sm:px-6 py-2.5 sm:py-3
-                text-xs sm:text-[13px] font-sans font-black tracking-wider uppercase
-                transition-all duration-200 cursor-pointer whitespace-nowrap
-                rounded-lg sm:rounded-xl select-none active:scale-95
-                ${
-                  isActive
-                    ? "bg-[#FEF08A] text-[#181818] border-2 border-[#181818] shadow-[2px_2px_0px_#181818] scale-[1.02]"
-                    : "text-[#181818] hover:bg-[#FEF08A]/40 border-2 border-transparent"
-                }
-              `}
+              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-[13px] font-sans font-black tracking-wider uppercase transition-all duration-200 cursor-pointer whitespace-nowrap rounded-lg sm:rounded-xl select-none active:scale-95 ${isActive ? "bg-[#FEF08A] text-[#181818] border-2 border-[#181818] shadow-[2px_2px_0px_#181818] scale-[1.02]" : "text-[#181818] hover:bg-[#FEF08A]/40 border-2 border-transparent"}`}
             >
               {cat.label}
             </button>

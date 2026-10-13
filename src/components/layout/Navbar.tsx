@@ -14,6 +14,7 @@ interface NavbarProps {
   isHeroOverlay?: boolean;
   isStaticPage?: boolean;
   theme?: "normal" | "kids";
+  isCardsActive?: boolean;
 }
 
 export function Navbar({

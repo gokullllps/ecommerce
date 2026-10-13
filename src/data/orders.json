@@ -1,5 +1,43 @@
 [
   {
+    "id": "ord_1791875773316",
+    "orderNumber": "PAB-2026-56224",
+    "customerName": "Gokul Prasath",
+    "customerEmail": "gokul@example.com",
+    "customerPhone": "+91 98765 43210",
+    "items": [
+      {
+        "productId": "pab-k-001",
+        "title": "Junior Cloud-Soft Cashmere Hoodie",
+        "sku": "PAB-KD-HD-01-SKY",
+        "image": "/images/kids/hoodie-sky-front.webp",
+        "color": "Sky Mist",
+        "size": "2Y",
+        "quantity": 2,
+        "unitPrice": 380,
+        "totalPrice": 760
+      }
+    ],
+    "subtotal": 760,
+    "discount": 0,
+    "tax": 91,
+    "shipping": 1500,
+    "total": 2351,
+    "currency": "INR",
+    "paymentStatus": "paid",
+    "fulfillmentStatus": "unfulfilled",
+    "status": "confirmed",
+    "createdAt": "2026-10-13T07:16:13.316Z",
+    "shippingAddress": {
+      "line1": "74 Luxury Boulevard, Suite 12B, Apt 4B",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "postalCode": "400001",
+      "country": "India"
+    },
+    "notes": "Demo acquisition via card · express delivery"
+  },
+  {
     "id": "ord_10895",
     "orderNumber": "PAB-8924",
     "customerName": "Kavita Sethi",

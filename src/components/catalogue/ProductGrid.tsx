@@ -19,7 +19,39 @@ export function ProductGrid({ products, onResetFilters, activeCategory = "all" }
   const { isKids: isThemeKids } = useSiteTheme();
   const isKids = isThemeKids || Boolean(pathname?.startsWith("/kids"));
 
-  if (products.length === 0) {
+  // Luxury category transition state (SAME PAGE, no page reload)
+  const [displayedProducts, setDisplayedProducts] = React.useState<Product[]>(products);
+  const [transitionState, setTransitionState] = React.useState<"idle" | "exit" | "enter">("idle");
+  const prevCategoryRef = React.useRef(activeCategory);
+
+  React.useEffect(() => {
+    if (isKids) {
+      setDisplayedProducts(products);
+      return;
+    }
+
+    if (prevCategoryRef.current !== activeCategory) {
+      prevCategoryRef.current = activeCategory;
+      setTransitionState("exit");
+
+      const exitTimer = setTimeout(() => {
+        setDisplayedProducts(products);
+        setTransitionState("enter");
+
+        const enterTimer = setTimeout(() => {
+          setTransitionState("idle");
+        }, 480);
+
+        return () => clearTimeout(enterTimer);
+      }, 250);
+
+      return () => clearTimeout(exitTimer);
+    } else {
+      setDisplayedProducts(products);
+    }
+  }, [products, activeCategory, isKids]);
+
+  if (displayedProducts.length === 0) {
     if (isKids) {
       return (
         <div className="w-full py-20 sm:py-28 flex flex-col items-center justify-center text-center select-none kids-reveal-scale">
@@ -55,7 +87,7 @@ export function ProductGrid({ products, onResetFilters, activeCategory = "all" }
         </p>
         <h3
           className="text-2xl sm:text-3xl font-normal uppercase text-[#111111] mb-4"
-          style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+          style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
         >
           No Pieces Match Your Current Selection
         </h3>
@@ -75,10 +107,18 @@ export function ProductGrid({ products, onResetFilters, activeCategory = "all" }
     );
   }
 
+  const transitionClass = isKids
+    ? "kids-grid-enter"
+    : transitionState === "exit"
+    ? "pablo-category-exit"
+    : transitionState === "enter"
+    ? "pablo-category-enter"
+    : "";
+
   return (
-    <div key={activeCategory} className={`w-full ${isKids ? "kids-grid-enter" : ""}`}>
+    <div key={isKids ? activeCategory : undefined} className={`w-full ${transitionClass}`}>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
-        {products.map((product, idx) => (
+        {displayedProducts.map((product, idx) => (
           <ProductCard
             key={`${activeCategory}-${product.id}`}
             product={product}

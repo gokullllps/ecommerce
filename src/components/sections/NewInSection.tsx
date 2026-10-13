@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState, useCallback, useRef, useSyncExternalStore } from "react";
+import { Reveal } from "@/components/animation/Reveal";
 
 function subscribeReducedMotion(callback: () => void) {
   if (typeof window === "undefined") return () => {};
@@ -177,14 +178,16 @@ export function NewInSection() {
       style={{ backgroundColor: "#EAE8E1", color: "#111111" }}
     >
       {/* ─── 1. SECTION TITLE (Exact Reference Alignment & Spacing) ─── */}
-      <div className="page-container text-center mb-5 sm:mb-7">
-        <h2
-          className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-[0.24em] text-[#111111] inline-block"
-          style={{ fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
-        >
-          NEW IN
-        </h2>
-      </div>
+      <Reveal direction="up" distance={20} duration={750}>
+        <div className="page-container text-center mb-5 sm:mb-7">
+          <h2
+            className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-[0.24em] text-[#111111] inline-block"
+            style={{ fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
+          >
+            NEW IN
+          </h2>
+        </div>
+      </Reveal>
 
       {/* ─── 2. FEATURED CAROUSEL (Letterbox Height, Full-Bleed Corners, Theme Neon Aura) ─── */}
       <div className="w-full relative">
@@ -394,12 +397,7 @@ export function NewInSection() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous Campaign"
-            className="
-              absolute left-3 sm:left-5 md:left-7 top-1/2 -translate-y-1/2 z-30
-              text-white opacity-85 hover:opacity-100 hover:scale-110 active:scale-95
-              transition-all duration-200 p-2 cursor-pointer
-              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-            "
+            className="absolute left-3 sm:left-5 md:left-7 top-1/2 -translate-y-1/2 z-30 text-white opacity-85 hover:opacity-100 hover:scale-110 active:scale-95 transition-all duration-200 p-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <svg
               width="24"
@@ -422,12 +420,7 @@ export function NewInSection() {
             type="button"
             onClick={handleNext}
             aria-label="Next Campaign"
-            className="
-              absolute right-3 sm:right-5 md:right-7 top-1/2 -translate-y-1/2 z-30
-              text-white opacity-85 hover:opacity-100 hover:scale-110 active:scale-95
-              transition-all duration-200 p-2 cursor-pointer
-              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-            "
+            className="absolute right-3 sm:right-5 md:right-7 top-1/2 -translate-y-1/2 z-30 text-white opacity-85 hover:opacity-100 hover:scale-110 active:scale-95 transition-all duration-200 p-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <svg
               width="24"

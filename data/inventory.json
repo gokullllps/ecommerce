@@ -1,5 +1,16 @@
 [
   {
+    "id": "inv_1791875773307_p2go",
+    "productId": "pab-k-001",
+    "productName": "Junior Cloud-Soft Cashmere Hoodie",
+    "previousQuantity": 24,
+    "newQuantity": 22,
+    "adjustment": -2,
+    "reason": "Demo Order Purchase by Gokul Prasath",
+    "adminName": "Demo Concierge",
+    "timestamp": "2026-10-13T07:16:13.307Z"
+  },
+  {
     "id": "inv_1790789152571_0x3p",
     "productId": "prod_cms_test_1790789152484",
     "productName": "Couture Cashmere Cape",

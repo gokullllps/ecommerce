@@ -4265,7 +4265,7 @@
         "inStock": false
       }
     ],
-    "stock": 24,
+    "stock": 22,
     "material": "100% Grade-A Mongolian Cashmere (2-ply 12gg)",
     "fit": "Relaxed Boxy Play Fit — room to layer and move freely",
     "careInstructions": "Hand wash cold inside out with mild organic wool wash. Dry flat on a clean towel.",
@@ -4283,7 +4283,8 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 99,
-    "createdAt": "2026-09-01T10:00:00Z"
+    "createdAt": "2026-09-01T10:00:00Z",
+    "updatedAt": "2026-10-13T07:16:13.300Z"
   },
   {
     "id": "pab-k-002",

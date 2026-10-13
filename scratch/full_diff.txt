@@ -1,0 +1,35 @@
+Created At: 2026-10-13T11:11:16+05:30
+Completed At: 2026-10-13T11:11:17+05:30
+
+				The command exited with code 0.
+				Output:
+				warning: in the working copy of 'src/components/sections/HeroSection.tsx', LF will be replaced by CRLF the next time Git touches it
+diff --git a/src/components/sections/HeroSection.tsx b/src/components/sections/HeroSection.tsx
+index 4cc35e8..7d6030c 100644
+--- a/src/components/sections/HeroSection.tsx
++++ b/src/components/sections/HeroSection.tsx
+@@ -5,11 +5,12 @@ import { useEffect, useRef, useState } from "react";
+ import { PromotionalTicker } from "@/components/ui/PromotionalTicker";
+ import { HeroSaleStamp } from "@/components/ui/HeroSaleStamp";
+ 
+-interface HeroSectionProps {
++export interface HeroSectionProps {
+   isIntroActive?: boolean;
++  onCardsVisibilityChange?: (active: boolean) => void;
+ }
+ 
+-export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
++export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: HeroSectionProps) {
+   const containerRef = useRef<HTMLElement>(null);
+ 
+   // If intro is not active, reveal hero elements immediately in Phase 3
+@@ -499,7 +500,7 @@ export function HeroSection({ isIntroActive = false }: HeroSectionProps) {
+         <div
+           className="
+             absolute inset-0 pointer-events-none z-20 flex items-end justify-center
+-            pb-3 sm:pb-4 lg:pb-5
++            pb-12 sm:pb-13 lg:pb-14
+           "
+         >
+           <div className="relative flex items-end justify-center -ml-[10vw] sm:-ml-[14vw] lg:-ml-[15vw]">
+

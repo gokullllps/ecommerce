@@ -6,6 +6,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MenHero from "@/components/sections/MenHero";
 import MenCategorySection from "@/components/catalogue/MenCategorySection";
+import { EditorialHeroCardScroll } from "@/components/sections/EditorialHeroCardScroll";
+import { MEN_EDITORIAL_CATEGORIES } from "@/data/categories";
 import MenCatalogueGrid from "./MenCatalogueGrid";
 import { Product } from "@/types/catalogue";
 import { DepartmentId } from "@/types/filters";
@@ -38,6 +40,7 @@ function MenPageTemplateInner({
 }: MenPageTemplateProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [isCardsActive, setIsCardsActive] = useState(false);
 
   // Active category state initialized from URL param, defaultCategory, or 'all'
   const [activeCategory, setActiveCategory] = useState<string>(() => {
@@ -121,28 +124,18 @@ function MenPageTemplateInner({
           minWidth: "100%",
         }}
       >
-        <Navbar isHeroOverlay={showHeroAndCategories} />
+        <Navbar isHeroOverlay={showHeroAndCategories} isCardsActive={isCardsActive} />
 
-        {/* Full-Width Men Hero — STAYS MOUNTED AND INTACT */}
+        {/* Full-Width Men Hero with Pinned Scroll-Triggered Category Card Animation */}
         {showHeroAndCategories && (
-          <div className="relative z-10 w-full">
-            <MenHero />
-          </div>
-        )}
-
-        {/* Dedicated Categories Section (Above Product Catalogue) */}
-        {showHeroAndCategories && (
-          <section
-            id="categories"
-            aria-label="Men's Categories"
-            className="page-container relative z-10 scroll-mt-14 sm:scroll-mt-16 pt-0 sm:pt-4 lg:pt-6"
-          >
-            <MenCategorySection
-              currentDepartment={currentDepartment}
-              activeCategory={activeCategory}
-              onSelectCategory={handleSelectCategory}
-            />
-          </section>
+          <EditorialHeroCardScroll
+            gender="men"
+            heroNode={<MenHero />}
+            cards={MEN_EDITORIAL_CATEGORIES}
+            activeCategory={activeCategory}
+            onSelectCategory={handleSelectCategory}
+            onCardsVisibilityChange={setIsCardsActive}
+          />
         )}
 
         {/* Main Catalogue Container */}

@@ -14,8 +14,9 @@ import { ProductGrid } from "./ProductGrid";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import KidsCategorySection from "@/components/sections/KidsCategorySection";
-import WomenCategorySection from "./WomenCategorySection";
+import WomenCategorySection, { WOMEN_CATEGORY_CARDS } from "./WomenCategorySection";
 import MenCategorySection from "./MenCategorySection";
+import { EditorialHeroCardScroll } from "@/components/sections/EditorialHeroCardScroll";
 import { DoodleStar } from "@/components/kids/KidsDoodles";
 import { HiddenStar } from "@/components/kids/games/HiddenStar";
 import { HiddenStarsProvider } from "@/components/kids/games/HiddenStarsContext";
@@ -143,6 +144,7 @@ function CatalogueContent({
   }, [isKids, kidsCategory]);
 
   const searchParams = useSearchParams();
+  const [isCardsActive, setIsCardsActive] = React.useState(false);
 
   // Active Women category state initialized from URL query param or default
   const [womenCategory, setWomenCategory] = React.useState<string>(() => {
@@ -440,12 +442,26 @@ function CatalogueContent({
         )}
 
         {/* Navbar */}
-        <Navbar isHeroOverlay={Boolean((isSalePage || gender === "women") && heroSlot)} />
+        <Navbar
+          isHeroOverlay={Boolean((isSalePage || gender === "women") && heroSlot)}
+          isCardsActive={isCardsActive}
+        />
 
-        {/* Full-Width Category Editorial Hero Slot */}
-        <div className="relative z-10 w-full">
-          {heroSlot}
-        </div>
+        {/* Full-Width Category Editorial Hero Slot with Scroll-Triggered Category Card Animation */}
+        {gender === "women" && heroSlot ? (
+          <EditorialHeroCardScroll
+            gender="women"
+            heroNode={heroSlot}
+            cards={WOMEN_CATEGORY_CARDS}
+            activeCategory={womenCategory}
+            onSelectCategory={handleSelectWomenCategory}
+            onCardsVisibilityChange={setIsCardsActive}
+          />
+        ) : (
+          <div className="relative z-10 w-full">
+            {heroSlot}
+          </div>
+        )}
 
         {/* Category Cards Bar (Styled like Image 2 with Kids Theme, containing all 6 contents) */}
         {isKids && (
@@ -457,8 +473,8 @@ function CatalogueContent({
           </div>
         )}
 
-        {/* Dedicated Women's Editorial Section (Above Product Catalogue) */}
-        {gender === "women" && (
+        {/* Dedicated Women's Editorial Section (Above Product Catalogue) — only when hero transition is not present */}
+        {gender === "women" && !heroSlot && (
           <section
             id="categories"
             aria-label="Women's Categories"

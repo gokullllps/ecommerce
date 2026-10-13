@@ -343,17 +343,7 @@ export default function KidsHero() {
               e.preventDefault();
               document.getElementById("kids-category-section")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="
-              group w-[88%] max-w-[320px] flex items-center justify-center gap-2
-              py-3.5 min-h-[46px] px-6
-              bg-[#FEF08A] text-[#181818] active:bg-[#FDE047]
-              border-2 border-[#181818] rounded-full
-              text-xs font-sans tracking-[0.14em] uppercase font-black
-              transition-all duration-200 ease-out
-              shadow-[3px_3px_0px_#181818] active:shadow-[1px_1px_0px_#181818]
-              active:translate-x-[2px] active:translate-y-[2px]
-              cursor-pointer select-none text-center
-            "
+            className="group w-[88%] max-w-[320px] flex items-center justify-center gap-2 py-3.5 min-h-[46px] px-6 bg-[#FEF08A] text-[#181818] active:bg-[#FDE047] border-2 border-[#181818] rounded-full text-xs font-sans tracking-[0.14em] uppercase font-black transition-all duration-200 ease-out shadow-[3px_3px_0px_#181818] active:shadow-[1px_1px_0px_#181818] active:translate-x-[2px] active:translate-y-[2px] cursor-pointer select-none text-center"
           >
             <span>EXPLORE KIDS&apos; WORLD</span>
             <span className="text-sm font-bold transition-transform group-hover:translate-x-1">&rarr;</span>
@@ -499,17 +489,7 @@ export default function KidsHero() {
                     e.preventDefault();
                     document.getElementById("kids-category-section")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="
-                    group inline-flex items-center justify-center gap-3
-                    px-8 sm:px-10 py-3.5 sm:py-4
-                    bg-[#FEF08A] text-[#181818] hover:bg-[#FDE047]
-                    border-2 border-[#181818] rounded-full
-                    text-xs sm:text-[13px] font-sans tracking-[0.16em] uppercase font-bold
-                    transition-all duration-200 ease-out
-                    shadow-[4px_4px_0px_#181818] hover:shadow-[2px_2px_0px_#181818]
-                    hover:translate-x-[2px] hover:translate-y-[2px]
-                    cursor-pointer select-none
-                  "
+                  className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#FEF08A] text-[#181818] hover:bg-[#FDE047] border-2 border-[#181818] rounded-full text-xs sm:text-[13px] font-sans tracking-[0.16em] uppercase font-bold transition-all duration-200 ease-out shadow-[4px_4px_0px_#181818] hover:shadow-[2px_2px_0px_#181818] hover:translate-x-[2px] hover:translate-y-[2px] cursor-pointer select-none"
                 >
                   <span>EXPLORE KIDS&apos; WORLD</span>
                   <span
@@ -623,10 +603,7 @@ export default function KidsHero() {
                   height={1168}
                   priority
                   unoptimized
-                  className="
-                    object-contain object-bottom w-auto select-none pointer-events-none drop-shadow-md
-                    h-[54vh] sm:h-[64vh] md:h-[72vh] lg:h-[78vh] xl:h-[82vh] max-h-[790px]
-                  "
+                  className="object-contain object-bottom w-auto select-none pointer-events-none drop-shadow-md h-[54vh] sm:h-[64vh] md:h-[72vh] lg:h-[78vh] xl:h-[82vh] max-h-[790px]"
                 />
               </div>
 

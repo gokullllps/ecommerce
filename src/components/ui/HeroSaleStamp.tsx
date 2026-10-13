@@ -14,12 +14,7 @@ export function HeroSaleStamp({ isVisible, className }: HeroSaleStampProps) {
       className={
         className
           ? `z-30 pointer-events-auto select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${className}`
-          : `
-            absolute top-5 sm:top-6 md:top-8 lg:top-10
-            right-[18vw] sm:right-[19vw] md:right-[20vw] lg:right-[21vw]
-            z-30 pointer-events-auto select-none
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-          `
+          : "absolute top-5 sm:top-6 md:top-8 lg:top-10 right-[18vw] sm:right-[19vw] md:right-[20vw] lg:right-[21vw] z-30 pointer-events-auto select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
       }
       style={{
         opacity: isVisible ? 0.85 : 0,
@@ -30,13 +25,7 @@ export function HeroSaleStamp({ isVisible, className }: HeroSaleStampProps) {
       <Link
         href="/sale"
         aria-label="Sale is live: Up to 40% off — Explore the PABLO sale collection"
-        className="
-          group block cursor-pointer
-          w-[96px] h-[96px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] lg:w-[128px] lg:h-[128px]
-          transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-          hover:opacity-100 hover:scale-[1.04] active:scale-[0.98]
-          focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#111111]
-        "
+        className="group block cursor-pointer w-[96px] h-[96px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] lg:w-[128px] lg:h-[128px] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-100 hover:scale-[1.04] active:scale-[0.98] focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#111111]"
       >
         {/* Continuous Smooth Slow Wheel Rotation Container - pauses on hover */}
         <div className="w-full h-full animate-wheel-spin group-hover:[animation-play-state:paused] hover:[animation-play-state:paused]">
@@ -151,8 +140,8 @@ export function HeroSaleStamp({ isVisible, className }: HeroSaleStampProps) {
                 textAnchor="middle"
                 fontSize="22"
                 fontWeight="500"
-                fontFamily="var(--font-display, 'Cormorant Garamond', serif)"
-                letterSpacing="0.22em"
+                fontFamily="'Beverly', var(--font-editorial), serif"
+                letterSpacing="0.08em"
                 fill="#EAE8E1"
               >
                 SALE

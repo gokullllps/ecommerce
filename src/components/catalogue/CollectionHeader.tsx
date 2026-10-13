@@ -38,7 +38,7 @@ export function CollectionHeader({
           </p>
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight uppercase text-[#111111] leading-[1.08]"
-            style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+            style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
           >
             {displayTitle}
           </h1>

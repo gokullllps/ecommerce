@@ -8,9 +8,11 @@ export interface MenHeroProps {
 }
 
 export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
+  const containerRef = React.useRef<HTMLElement>(null);
   // Staged luxury entrance animation system identical to SaleHero:
   const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (
@@ -37,6 +39,33 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
     };
   }, []);
 
+  // Subtle GPU-accelerated hero scroll tracking
+  useEffect(() => {
+    if (prefersReducedMotion || typeof window === "undefined") return;
+
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        if (containerRef.current) {
+          const rect = containerRef.current.getBoundingClientRect();
+          const height = containerRef.current.offsetHeight || window.innerHeight;
+          const p = Math.min(Math.max(-rect.top / height, 0), 1);
+          setScrollProgress(p);
+        }
+        rafId = null;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [prefersReducedMotion]);
+
   const handleScrollToCatalogue = (e: React.MouseEvent) => {
     if (onExploreClick) {
       onExploreClick(e);
@@ -54,6 +83,7 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
 
   return (
     <section
+      ref={containerRef}
       id="men-hero"
       aria-label="PABLO Men's Architectural Campaign"
       className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden select-none bg-[#11100E] text-[#111111]"
@@ -67,16 +97,18 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
           LAYER 1: CINEMATIC MONOCHROME LANDSCAPE BACKGROUND
           ══════════════════════════════════════════════════════════════════ */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden pablo-page-resolve"
         style={{
           opacity: phase >= 1 || prefersReducedMotion ? 1 : 0,
-          transform:
-            phase >= 1 || prefersReducedMotion
-              ? "scale(1)"
-              : "scale(1.04)",
+          transform: prefersReducedMotion
+            ? "none"
+            : phase >= 1
+            ? `translate3d(0, ${scrollProgress * -20}px, 0) scale(1)`
+            : "scale(1.04)",
           transition: prefersReducedMotion
             ? "none"
             : "opacity 1000ms ease-out, transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          willChange: prefersReducedMotion ? "auto" : "transform",
         }}
       >
         <Image
@@ -132,12 +164,12 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
           transform: prefersReducedMotion
             ? "none"
             : phase >= 2
-              ? "translate3d(0, 0, 0)"
+              ? `translate3d(0, ${scrollProgress * -35}px, 0)`
               : "translate3d(-24px, 16px, 0)",
           transition: prefersReducedMotion
             ? "none"
             : "opacity 900ms ease-out, transform 1100ms cubic-bezier(0.16, 1, 0.3, 1)",
-          willChange: "transform, opacity",
+          willChange: prefersReducedMotion ? "auto" : "transform",
         }}
       >
         {/* Contact shadow beneath model's shoes */}
@@ -168,7 +200,14 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
       {/* ══════════════════════════════════════════════════════════════════
           LAYER 4: EDITORIAL TYPOGRAPHY & CONTENT (Desktop >= md)
           ══════════════════════════════════════════════════════════════════ */}
-      <div className="hidden md:flex page-container relative z-30 w-full h-full min-h-[100svh] flex-col justify-center pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <div
+        className="hidden md:flex page-container relative z-30 w-full h-full min-h-[100svh] flex-col justify-center pt-20 sm:pt-24 pb-12 sm:pb-16"
+        style={{
+          opacity: prefersReducedMotion ? 1 : Math.max(0, 1 - scrollProgress * 1.8),
+          transform: prefersReducedMotion ? "none" : `translate3d(0, ${scrollProgress * -15}px, 0)`,
+          willChange: prefersReducedMotion ? "auto" : "opacity, transform",
+        }}
+      >
         <div className="max-w-md lg:max-w-lg xl:max-w-xl">
           {/* Overline with clean divider */}
           <div
@@ -197,7 +236,8 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
           <h1
             className="font-normal text-[#111111] uppercase tracking-[0.01em] leading-[0.88] select-none text-5xl lg:text-7xl xl:text-8xl mb-5"
             style={{
-              fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontKerning: "normal",
               opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
               transform:
                 phase >= 3 || prefersReducedMotion
@@ -263,22 +303,11 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
             <a
               href="#catalogue"
               onClick={handleScrollToCatalogue}
-              className="
-                group inline-flex items-center justify-center gap-3
-                px-8 sm:px-10 py-3.5 sm:py-4
-                bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818]
-                border border-white/25 hover:border-white
-                backdrop-blur-sm
-                text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium
-                transition-all duration-300 ease-out
-                shadow-lg hover:shadow-xl
-                cursor-pointer select-none
-                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-              "
+              className="group pablo-btn-luxury inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818] border border-white/25 hover:border-white backdrop-blur-sm text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium shadow-lg hover:shadow-xl cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <span>EXPLORE MEN&apos;S COLLECTION</span>
               <span
-                className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-xs"
+                className="btn-arrow inline-block text-xs"
                 aria-hidden="true"
               >
                 →
@@ -334,7 +363,8 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
           <h1
             className="font-normal text-[#111111] uppercase tracking-[0.01em] leading-[0.88] select-none text-[42px] sm:text-[48px] mb-2"
             style={{
-              fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontKerning: "normal",
               opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
               transform:
                 phase >= 3 || prefersReducedMotion
@@ -407,15 +437,7 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
           <a
             href="#catalogue"
             onClick={handleScrollToCatalogue}
-            className="
-              group flex items-center justify-center gap-2.5
-              w-full py-3.5 min-h-[46px]
-              bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818]
-              border border-white/25 active:border-white
-              backdrop-blur-sm
-              text-xs font-sans tracking-[0.24em] uppercase font-medium
-              transition-all duration-300 ease-out shadow-xl cursor-pointer text-center select-none
-            "
+            className="group flex items-center justify-center gap-2.5 w-full py-3.5 min-h-[46px] bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818] border border-white/25 active:border-white backdrop-blur-sm text-xs font-sans tracking-[0.24em] uppercase font-medium transition-all duration-300 ease-out shadow-xl cursor-pointer text-center select-none"
           >
             <span>EXPLORE MEN&apos;S COLLECTION</span>
             <span

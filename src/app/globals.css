@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* ===================================================
+   BEVERLY LUXURY EDITORIAL SERIF — PEN CULTURE
+   =================================================== */
+@font-face {
+  font-family: "Beverly";
+  src: url("/fonts/Beverly.otf") format("opentype"),
+       url("/fonts/Beverly.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-pablo-bg: #EAE8E1;
   --color-pablo-text: #111111;
@@ -9,18 +21,31 @@
   --color-pablo-border: #D9D8D3;
   --color-pablo-white: #FFFFFF;
 
-  --font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
-  --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
-  --font-pablo: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-editorial: "Beverly", var(--font-editorial), serif;
+  --font-display: "Beverly", var(--font-editorial), serif;
+  --font-serif: "Beverly", var(--font-editorial), serif;
+  --font-pablo: "Beverly", var(--font-editorial), serif;
+  --font-hero-pablo: var(--font-hero-pablo), "Cormorant Garamond", Georgia, serif;
   --font-body: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* PABLO OFFICIAL BRAND & DISPLAY TYPOGRAPHY UTILITIES */
+/* PABLO BEVERLY GLOBAL EDITORIAL & DISPLAY TYPOGRAPHY UTILITIES */
+.font-editorial,
 .font-pablo,
 .font-display,
 .font-serif {
-  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif !important;
+  font-family: "Beverly", var(--font-editorial), serif !important;
+  font-weight: normal;
+  font-style: normal;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* Hero "PABLO" Wordmark preservation (Requirement #2 - STRICT & ABSOLUTE) */
+.font-hero-pablo {
+  font-family: var(--font-hero-pablo), "Cormorant Garamond", Georgia, serif !important;
 }
 
 .font-sans,
@@ -28,9 +53,14 @@
   font-family: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Major Headings & Titles default to PABLO display typography */
+/* Major Headings & Titles default to Beverly luxury typography */
 h1, h2, h3, h4 {
-  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-family: "Beverly", var(--font-editorial), serif;
+  font-weight: normal;
+  font-style: normal;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "kern" 1;
 }
 
 :root {
@@ -346,29 +376,35 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 1. Display / Hero Headline */
 .type-display-hero {
-  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-family: "Beverly", var(--font-editorial), serif;
   font-size: clamp(2.5rem, 6.5vw + 0.5rem, 6.5rem);
   line-height: 1.02;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   font-weight: 400;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 /* 2. Large Editorial Heading */
 .type-display-lg {
-  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-family: "Beverly", var(--font-editorial), serif;
   font-size: clamp(2.125rem, 4.5vw + 0.5rem, 4.5rem);
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   font-weight: 400;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 /* 3. Section Heading */
 .type-heading-section {
-  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-family: "Beverly", var(--font-editorial), serif;
   font-size: clamp(1.75rem, 2.75vw + 0.5rem, 3rem);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.005em;
   font-weight: 400;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 /* 4. Subheading */
@@ -401,11 +437,13 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 7. Product Name */
 .type-product-name {
-  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-family: "Beverly", var(--font-editorial), serif;
   font-size: 1rem;
   line-height: 1.35;
   letter-spacing: 0.02em;
   font-weight: 400;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
 /* 8. Product Metadata (Price, Code, Category) */
@@ -1043,4 +1081,184 @@ body[data-theme="kids"]::-webkit-scrollbar {
   width: 0 !important;
   height: 0 !important;
 }
+
+/* ===================================================
+   PABLO LUXURY CINEMATIC ANIMATION SYSTEM (ROLEX & GUCCI INSPIRED)
+   =================================================== */
+
+:root {
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-reveal: 850ms;
+}
+
+/* 1. Page Load Soft Focus Resolve */
+@keyframes pabloPageResolve {
+  0% {
+    filter: blur(4px);
+    opacity: 0.85;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.pablo-page-resolve {
+  animation: pabloPageResolve 900ms var(--ease-luxury) forwards;
+  will-change: filter, opacity;
+}
+
+/* 1b. Subtle Navbar Entrance Animation */
+@keyframes pabloNavFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pablo-nav-logo {
+  animation: pabloNavFade 700ms var(--ease-luxury) 50ms both;
+}
+
+.pablo-nav-links {
+  animation: pabloNavFade 700ms var(--ease-luxury) 150ms both;
+}
+
+.pablo-nav-actions {
+  animation: pabloNavFade 700ms var(--ease-luxury) 250ms both;
+}
+
+/* 2. Cinematic Image Mask Reveal */
+@keyframes pabloMaskReveal {
+  0% {
+    clip-path: inset(8% 0% 8% 0%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+  }
+}
+
+@keyframes pabloImageSettle {
+  0% {
+    transform: scale(1.08) translate3d(0, 18px, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.pablo-mask-reveal {
+  animation: pabloMaskReveal 900ms var(--ease-luxury) forwards;
+  will-change: clip-path, opacity;
+}
+
+.pablo-image-settle {
+  animation: pabloImageSettle 1100ms var(--ease-luxury) forwards;
+  will-change: transform;
+}
+
+/* 3. Luxury Category Transition on Same Page */
+@keyframes pabloCategoryExit {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes pabloCategoryEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 15px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.pablo-category-exit {
+  animation: pabloCategoryExit 350ms var(--ease-luxury) forwards;
+}
+
+.pablo-category-enter {
+  animation: pabloCategoryEnter 480ms var(--ease-luxury) forwards;
+}
+
+/* 4. Luxury Button Micro-Interactions */
+.pablo-btn-luxury {
+  position: relative;
+  transition: background-color 400ms var(--ease-luxury),
+              border-color 400ms var(--ease-luxury),
+              color 400ms var(--ease-luxury);
+}
+
+.pablo-btn-luxury .btn-arrow {
+  display: inline-block;
+  transition: transform 450ms var(--ease-luxury);
+  will-change: transform;
+}
+
+.pablo-btn-luxury:hover .btn-arrow {
+  transform: translate3d(6px, 0, 0);
+}
+
+/* 5. Product Card Luxury Interactions */
+.pablo-product-image-container {
+  overflow: hidden;
+}
+
+.pablo-product-img-primary {
+  transition: transform 650ms var(--ease-luxury), opacity 500ms var(--ease-luxury);
+  will-change: transform, opacity;
+}
+
+.pablo-product-img-secondary {
+  transition: opacity 550ms var(--ease-luxury), transform 650ms var(--ease-luxury);
+  will-change: opacity, transform;
+}
+
+/* Smooth Product Grid Entrance Stagger */
+.pablo-grid-item-0 { animation-delay: 0ms; }
+.pablo-grid-item-1 { animation-delay: 60ms; }
+.pablo-grid-item-2 { animation-delay: 120ms; }
+.pablo-grid-item-3 { animation-delay: 180ms; }
+.pablo-grid-item-4 { animation-delay: 240ms; }
+.pablo-grid-item-5 { animation-delay: 300ms; }
+.pablo-grid-item-6 { animation-delay: 360ms; }
+.pablo-grid-item-7 { animation-delay: 420ms; }
+
+/* 6. Strict Reduced Motion Overrides */
+@media (prefers-reduced-motion: reduce) {
+  .pablo-page-resolve,
+  .pablo-nav-logo,
+  .pablo-nav-links,
+  .pablo-nav-actions,
+  .pablo-mask-reveal,
+  .pablo-image-settle,
+  .pablo-category-exit,
+  .pablo-category-enter {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+
+  .pablo-btn-luxury .btn-arrow,
+  .pablo-product-img-primary,
+  .pablo-product-img-secondary {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 

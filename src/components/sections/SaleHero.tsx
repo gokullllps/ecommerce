@@ -8,8 +8,10 @@ export interface SaleHeroProps {
 }
 
 export default function SaleHero({ onExploreClick }: SaleHeroProps) {
+  const containerRef = React.useRef<HTMLElement>(null);
   const [phase, setPhase] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (
@@ -36,6 +38,33 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
     };
   }, []);
 
+  // Subtle GPU-accelerated hero scroll tracking
+  useEffect(() => {
+    if (prefersReducedMotion || typeof window === "undefined") return;
+
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        if (containerRef.current) {
+          const rect = containerRef.current.getBoundingClientRect();
+          const height = containerRef.current.offsetHeight || window.innerHeight;
+          const p = Math.min(Math.max(-rect.top / height, 0), 1);
+          setScrollProgress(p);
+        }
+        rafId = null;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [prefersReducedMotion]);
+
   const handleScrollToCatalogue = (e: React.MouseEvent) => {
     if (onExploreClick) {
       onExploreClick(e);
@@ -50,6 +79,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
 
   return (
     <section
+      ref={containerRef}
       aria-label="PABLO Archival Sale Campaign"
       className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden select-none bg-[#11100E] text-[#EAE8E1]"
       style={{
@@ -62,16 +92,18 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           LAYER 1: CINEMATIC LANDSCAPE BACKGROUND
           ══════════════════════════════════════════════════════════════════ */}
       <div
-        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden pablo-page-resolve"
         style={{
           opacity: phase >= 1 || prefersReducedMotion ? 1 : 0,
-          transform:
-            phase >= 1 || prefersReducedMotion
-              ? "scale(1)"
-              : "scale(1.04)",
+          transform: prefersReducedMotion
+            ? "none"
+            : phase >= 1
+            ? `translate3d(0, ${scrollProgress * -20}px, 0) scale(1)`
+            : "scale(1.04)",
           transition: prefersReducedMotion
             ? "none"
             : "opacity 1000ms ease-out, transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)",
+          willChange: prefersReducedMotion ? "auto" : "transform",
         }}
       >
         <Image
@@ -138,12 +170,12 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           transform: prefersReducedMotion
             ? "none"
             : phase >= 2
-            ? "translate3d(0, 0, 0)"
+            ? `translate3d(0, ${scrollProgress * -35}px, 0)`
             : "translate3d(-24px, 16px, 0)",
           transition: prefersReducedMotion
             ? "none"
             : "opacity 900ms ease-out, transform 1100ms cubic-bezier(0.16, 1, 0.3, 1)",
-          willChange: "transform, opacity",
+          willChange: prefersReducedMotion ? "auto" : "transform",
         }}
       >
         {/* Contact shadow beneath model's coat & feet */}
@@ -177,10 +209,10 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
       <div
         className="hidden md:block absolute top-16 lg:top-20 right-6 lg:right-14 xl:right-24 z-30 pointer-events-none select-none"
         style={{
-          opacity: phase >= 5 || prefersReducedMotion ? 0.88 : 0,
+          opacity: prefersReducedMotion ? 0.88 : phase >= 5 ? Math.max(0, 0.88 - scrollProgress * 1.8) : 0,
           transform:
             phase >= 5 || prefersReducedMotion
-              ? "rotate(-9deg) scale(1)"
+              ? `rotate(-9deg) translate3d(0, ${scrollProgress * -15}px, 0) scale(1)`
               : "rotate(-18deg) scale(0.85)",
           transition: prefersReducedMotion
             ? "none"
@@ -214,7 +246,14 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
       {/* ══════════════════════════════════════════════════════════════════
           LAYER 5: EDITORIAL TYPOGRAPHY & CONTENT (DESKTOP >= md)
           ══════════════════════════════════════════════════════════════════ */}
-      <div className="hidden md:flex page-container relative z-30 w-full h-full min-h-[100svh] flex-col justify-center pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <div
+        className="hidden md:flex page-container relative z-30 w-full h-full min-h-[100svh] flex-col justify-center pt-20 sm:pt-24 pb-12 sm:pb-16"
+        style={{
+          opacity: prefersReducedMotion ? 1 : Math.max(0, 1 - scrollProgress * 1.8),
+          transform: prefersReducedMotion ? "none" : `translate3d(0, ${scrollProgress * -15}px, 0)`,
+          willChange: prefersReducedMotion ? "auto" : "opacity, transform",
+        }}
+      >
         {/* Main Editorial Block */}
         <div className="max-w-xl lg:max-w-2xl pt-4">
           {/* Overline with clean divider */}
@@ -244,7 +283,8 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           <h1
             className="font-normal text-[#EAE8E1] uppercase tracking-[0.02em] leading-[0.88] select-none text-5xl lg:text-7xl xl:text-8xl mb-5"
             style={{
-              fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontKerning: "normal",
               opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
               transform:
                 phase >= 3 || prefersReducedMotion
@@ -300,7 +340,8 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             <div
               className="text-4xl lg:text-6xl font-normal text-[#EAE8E1] tracking-tight leading-none"
               style={{
-                fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                fontFamily: "'Beverly', var(--font-editorial), serif",
+                fontKerning: "normal",
                 textShadow: "0 2px 16px rgba(0, 0, 0, 0.6)",
               }}
             >
@@ -325,22 +366,11 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             <a
               href="#catalogue"
               onClick={handleScrollToCatalogue}
-              className="
-                group inline-flex items-center justify-center gap-3
-                px-8 sm:px-10 py-3.5 sm:py-4
-                bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818]
-                border border-white/25 hover:border-white
-                backdrop-blur-sm
-                text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium
-                transition-all duration-300 ease-out
-                shadow-lg hover:shadow-xl
-                cursor-pointer select-none
-                focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-              "
+              className="group pablo-btn-luxury inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818] border border-white/25 hover:border-white backdrop-blur-sm text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium shadow-lg hover:shadow-xl cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              <span>EXPLORE ARCHIVAL SALE</span>
+              <span>EXPLORE ARCHIVAL PIECES</span>
               <span
-                className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-xs"
+                className="btn-arrow inline-block text-xs"
                 aria-hidden="true"
               >
                 →
@@ -406,7 +436,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             </span>
             <span
               className="text-[12px] font-normal italic text-[#EAE8E1] tracking-[0.1em] uppercase leading-tight my-0.5"
-              style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+              style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
             >
               SALE
             </span>
@@ -456,7 +486,8 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           <h1
             className="font-normal text-[#EAE8E1] uppercase tracking-[0.02em] leading-[0.88] select-none text-[40px] sm:text-[46px] mb-2.5"
             style={{
-              fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontKerning: "normal",
               textShadow: "0 2px 18px rgba(0, 0, 0, 0.9)",
               opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
               transform:
@@ -504,7 +535,8 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             <span
               className="text-3xl sm:text-4xl font-normal text-[#EAE8E1] tracking-tight"
               style={{
-                fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                fontFamily: "'Beverly', var(--font-editorial), serif",
+                fontKerning: "normal",
                 textShadow: "0 2px 14px rgba(0, 0, 0, 0.85)",
               }}
             >
@@ -519,15 +551,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           <a
             href="#catalogue"
             onClick={handleScrollToCatalogue}
-            className="
-              group flex items-center justify-center gap-2.5
-              w-full py-3.5 min-h-[46px]
-              bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818]
-              border border-white/25 active:border-white
-              backdrop-blur-sm
-              text-xs font-sans tracking-[0.24em] uppercase font-medium
-              transition-all duration-300 ease-out shadow-xl cursor-pointer text-center select-none
-            "
+            className="group flex items-center justify-center gap-2.5 w-full py-3.5 min-h-[46px] bg-[#181818]/90 active:bg-[#FFFFFF] text-[#FFFFFF] active:text-[#181818] border border-white/25 active:border-white backdrop-blur-sm text-xs font-sans tracking-[0.24em] uppercase font-medium transition-all duration-300 ease-out shadow-xl cursor-pointer text-center select-none"
           >
             <span>EXPLORE THE SALE</span>
             <span

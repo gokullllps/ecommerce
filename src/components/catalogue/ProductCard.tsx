@@ -68,10 +68,10 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
 
   const isWishlisted = isInWishlist(product.id);
 
-  // Stagger classes for grid reveal (capped at 8 for CSS stagger delays)
+  // Stagger classes for grid reveal (progressive stagger 0ms, 60ms, 120ms, 180ms)
   const staggerClass = isKids
     ? `kids-grid-enter kids-stagger-${Math.min(index + 1, 8)}`
-    : "";
+    : `pablo-grid-item-${index % 4}`;
 
   // Available variants / colors for swatches
   const hasVariants = Boolean(product.colorVariants && product.colorVariants.length > 0);
@@ -101,7 +101,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
       className={`group relative flex flex-col w-full h-full select-none min-w-0 ${staggerClass} ${
         isKids
           ? "bg-[#EBF4FA] rounded-2xl border-2 border-[#181818] shadow-[4px_4px_0px_#181818] hover:shadow-[7px_7px_0px_#181818] hover:-translate-y-1.5 overflow-hidden transition-all duration-300"
-          : "transition-all duration-300"
+          : "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
       }`}
       aria-label={product.name}
     >
@@ -109,7 +109,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
       <div
         ref={imageRef}
         className={`relative aspect-[3/4] w-full overflow-hidden ${
-          isKids ? "rounded-t-[14px]" : "pablo-dark-card border border-[#D9D8D3]/80"
+          isKids ? "rounded-t-[14px]" : "pablo-dark-card border border-[#D9D8D3]/80 pablo-product-image-container"
         }`}
       >
         <Link
@@ -117,11 +117,11 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           className="block relative w-full h-full cursor-pointer focus-visible:outline-2 focus-visible:outline-[#181818] active:scale-[0.98] transition-transform duration-200"
           aria-label={`View details for ${product.name}`}
         >
-          {/* Primary image — with slight zoom on hover and fade to secondary */}
+          {/* Primary image — with subtle 1.03 zoom on hover and editorial crossfade */}
           <div
-            className={`absolute inset-0 w-full h-full transition-all duration-300 ease-out group-hover:scale-[1.03] ${
+            className={`absolute inset-0 w-full h-full transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] ${
               secondaryImage !== primaryImage ? "group-hover:opacity-0" : ""
-            } ${isKids ? "kids-card-img" : ""}`}
+            } ${isKids ? "kids-card-img" : "pablo-product-img-primary"}`}
           >
             <Image
               src={imgSrc}
@@ -138,11 +138,11 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
             />
           </div>
 
-          {/* Secondary hover image — Myntra-style smooth crossfade of the SAME product */}
+          {/* Secondary hover image — editorial smooth crossfade of the SAME product */}
           {secondaryImage && secondaryImage !== primaryImage && (
             <div
-              className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out group-hover:scale-[1.03] ${
-                isKids ? "kids-card-img" : ""
+              className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] ${
+                isKids ? "kids-card-img" : "pablo-product-img-secondary"
               }`}
             >
               <Image
@@ -356,13 +356,13 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
                 e.stopPropagation();
                 handleAddToBag();
               }}
-              className="group/btn shrink-0 px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.16em] flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#181818] pablo-btn-dark text-white border border-[#222222] hover:border-white font-medium"
+              className="group/btn pablo-btn-luxury shrink-0 px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.16em] flex items-center gap-1.5 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#181818] pablo-btn-dark text-white border border-[#222222] hover:border-white font-medium"
               aria-label={`Add ${product.name} to bag`}
             >
               <span>{isJustAdded ? "ADDED" : "ADD"}</span>
               {!isJustAdded && <span className="hidden sm:inline"> TO BAG</span>}
               <span
-                className="inline-block transition-transform duration-200 group-hover/btn:translate-x-1"
+                className="btn-arrow inline-block transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/btn:translate-x-1.5"
                 aria-hidden="true"
               >
                 {isJustAdded ? "✓" : "→"}
