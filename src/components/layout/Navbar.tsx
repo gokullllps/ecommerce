@@ -21,6 +21,7 @@ export function Navbar({
   isIntroActive = false,
   isHeroOverlay = false,
   theme: themeProp,
+  isCardsActive = false,
 }: NavbarProps) {
   const pathname = usePathname();
   const { isKids: isSiteKids } = useSiteTheme();
@@ -35,17 +36,43 @@ export function Navbar({
 
   // Scroll state for luxury transparent-to-opaque navbar transition
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInsideHeroScroll, setIsInsideHeroScroll] = useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
+
+      if (isHeroOverlay) {
+        const heroEl =
+          document.getElementById("hero-scroll-container") ||
+          document.getElementById("men-hero-scroll-container") ||
+          document.getElementById("women-hero-scroll-container") ||
+          document.querySelector('[id$="-hero-scroll-container"]');
+        if (heroEl) {
+          // The hero scroll container pins content for (heroEl.offsetHeight - window.innerHeight)
+          const heroScrollLimit = heroEl.offsetTop + heroEl.offsetHeight - window.innerHeight;
+          // Only after scrolling past the hero page (leaving hero container and entering New In / Catalogue):
+          const hasPassedHero = scrollY >= Math.max(heroScrollLimit - 40, 300);
+
+          setIsScrolled(hasPassedHero);
+          // When scrolling down inside hero page (scrollY > 24), the navbar must NOT appear!
+          setIsInsideHeroScroll((scrollY > 24 && !hasPassedHero) || (isCardsActive && !hasPassedHero));
+          return;
+        }
+      }
+
       setIsScrolled(scrollY > 24);
+      setIsInsideHeroScroll(false);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [isHeroOverlay, isCardsActive]);
 
   // Regular pages: opaque when scrolled OR dropdown open OR mobile menu open
   const isOpaque = isScrolled || activeMenuId !== null || mobileMenuOpen;
@@ -214,8 +241,8 @@ export function Navbar({
             ? "border-b-0"
             : "border-b"
         } ${
-          isIntroActive
-            ? "opacity-0 pointer-events-none -translate-y-2"
+          isIntroActive || isInsideHeroScroll
+            ? "opacity-0 pointer-events-none -translate-y-full"
             : "opacity-100 pointer-events-auto translate-y-0"
         }`}
         style={{

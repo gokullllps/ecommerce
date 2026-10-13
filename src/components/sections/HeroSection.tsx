@@ -132,39 +132,39 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
     }
   }, [progress, onCardsVisibilityChange]);
 
-  // After the hero entrance completes (phase === 3), cycle between male and female
+  // After the hero entrance completes (phase === 3), cycle between female and male
   useEffect(() => {
     if (phase < 3 || prefersReducedMotion) return;
 
     let isMounted = true;
-    let femaleTimer: NodeJS.Timeout | null = null;
+    let maleTimer: NodeJS.Timeout | null = null;
     const initialHoldTimer = setTimeout(() => {
       if (!isMounted) return;
       setModelState("initial-exit");
 
-      femaleTimer = setTimeout(() => {
+      maleTimer = setTimeout(() => {
         if (!isMounted) return;
-        setModelState("female");
+        setModelState("male");
         setCycleKey((k) => k + 1);
 
         const loopInterval = setInterval(() => {
           if (!isMounted) return;
-          setModelState((current) => (current === "female" ? "male" : "female"));
+          setModelState((current) => (current === "male" ? "female" : "male"));
           setCycleKey((k) => k + 1);
         }, 3500);
 
         timerRef.current = loopInterval as any;
       }, 500);
 
-      timeoutsRef.current.push(femaleTimer);
-    }, 2200);
+      timeoutsRef.current.push(maleTimer);
+    }, 2400);
 
     timeoutsRef.current.push(initialHoldTimer);
 
     return () => {
       isMounted = false;
       clearTimeout(initialHoldTimer);
-      if (femaleTimer) clearTimeout(femaleTimer);
+      if (maleTimer) clearTimeout(maleTimer);
       if (timerRef.current) {
         clearInterval(timerRef.current as any);
         timerRef.current = null;
@@ -497,7 +497,7 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
 
           {/* DESKTOP FASHION MODEL SUBJECT (CYCLE) */}
           <div className="hidden md:flex absolute inset-0 pointer-events-none z-20 items-end justify-center pb-3 sm:pb-4 lg:pb-5">
-            <div className="relative flex items-end justify-center -ml-[10vw] sm:-ml-[14vw] lg:-ml-[15vw]">
+            <div className="relative flex items-end justify-center -ml-[12.5vw] sm:-ml-[16.5vw] lg:-ml-[17.5vw]">
               <div
                 className="absolute bottom-1 w-64 sm:w-72 lg:w-80 h-3 rounded-[100%] bg-[#111111]/30 blur-[4px] pointer-events-none z-0"
                 aria-hidden="true"
@@ -515,10 +515,10 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
                   }}
                 >
                   <Image
-                    src="/images/main-hero.png"
-                    alt="PABLO Editorial Fashion Campaign — Male Model"
-                    width={403}
-                    height={619}
+                    src="/images/woman-main-hero.png"
+                    alt="PABLO Editorial Fashion Campaign — Female Model"
+                    width={666}
+                    height={1024}
                     priority
                     unoptimized
                     className="object-contain object-bottom w-auto select-none h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]"
@@ -529,10 +529,10 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
               {modelState === "initial-exit" && (
                 <div className="relative z-10 flex items-end animate-model-initial-fadeout">
                   <Image
-                    src="/images/main-hero.png"
-                    alt="PABLO Editorial Fashion Campaign — Male Model"
-                    width={403}
-                    height={619}
+                    src="/images/woman-main-hero.png"
+                    alt="PABLO Editorial Fashion Campaign — Female Model"
+                    width={666}
+                    height={1024}
                     priority
                     unoptimized
                     className="object-contain object-bottom w-auto select-none h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]"
