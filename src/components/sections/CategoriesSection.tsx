@@ -2,12 +2,68 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { MEN_CATEGORIES_DATA } from "@/data/categories";
 
 export function CategoriesSection() {
-  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const progressRef = useRef(0);
+  const isPausedRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const lastXRef = useRef(0);
+  const hasDraggedRef = useRef(false);
+  const animFrameIdRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
+
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [dimensions, setDimensions] = useState({
+    cardWidth: 305,
+    cardHeight: 460,
+    cardSpacing: 275,
+    arcDrop: 28,
+    rotZ: 6.2,
+    rotY: 9.5,
+  });
+
+  // 24 cards pool (12 duplicated twice) for mathematically seamless, infinite looping
+  const duplicatedCategories = [...MEN_CATEGORIES_DATA, ...MEN_CATEGORIES_DATA];
+  const N = duplicatedCategories.length;
+
+  // Track responsive dimensions
+  const updateDimensions = useCallback(() => {
+    if (typeof window === "undefined") return;
+    const w = window.innerWidth;
+    if (w < 640) {
+      setDimensions({
+        cardWidth: 220,
+        cardHeight: 330,
+        cardSpacing: 185,
+        arcDrop: 18,
+        rotZ: 4.8,
+        rotY: 6.5,
+      });
+    } else if (w < 1024) {
+      setDimensions({
+        cardWidth: 260,
+        cardHeight: 390,
+        cardSpacing: 225,
+        arcDrop: 24,
+        rotZ: 5.6,
+        rotY: 8.0,
+      });
+    } else {
+      setDimensions({
+        cardWidth: 305,
+        cardHeight: 460,
+        cardSpacing: 275,
+        arcDrop: 28,
+        rotZ: 6.2,
+        rotY: 9.5,
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -15,13 +71,149 @@ export function CategoriesSection() {
     setPrefersReducedMotion(mq.matches);
     const onChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
     mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
-  // Duplicate items for a mathematically seamless, infinite horizontal loop
-  const duplicatedCategories = [...MEN_CATEGORIES_DATA, ...MEN_CATEGORIES_DATA];
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
 
-  // Static accessible layout if reduced motion is requested
+    return () => {
+      mq.removeEventListener("change", onChange);
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, [updateDimensions]);
+
+  // Direct DOM render function for silky 120fps continuous curved track animation
+  const renderCards = useCallback(
+    (currentP: number) => {
+      const { cardSpacing, arcDrop, rotZ, rotY } = dimensions;
+
+      for (let k = 0; k < N; k++) {
+        const el = cardRefs.current[k];
+        if (!el) continue;
+
+        // Relative offset u from center in range [-N/2, N/2)
+        let u = (k - currentP) % N;
+        if (u < -N / 2) u += N;
+        if (u > N / 2) u -= N;
+
+        const absU = Math.abs(u);
+
+        // Cull cards far outside view
+        if (absU > 4.4) {
+          el.style.opacity = "0";
+          el.style.pointerEvents = "none";
+          el.style.visibility = "hidden";
+          continue;
+        }
+
+        el.style.visibility = "visible";
+
+        // Curved 3D Arc Math matching the reference video (jitter.video Orbit)
+        const translateX = u * cardSpacing;
+        const translateY = Math.pow(absU, 1.45) * arcDrop;
+        const rotateZ = u * rotZ;
+        const rotateY = -u * rotY;
+        const scale = Math.max(0.68, 1 - absU * 0.08);
+        const zIndex = Math.round(50 - absU * 8);
+
+        // Subtle depth blur & smooth edge fadeout
+        const blur = absU > 1.3 ? Math.min(6, (absU - 1.3) * 1.6) : 0;
+        const opacity =
+          absU > 2.8 ? Math.max(0, Math.min(1, 1 - (absU - 2.8) * 0.75)) : 1;
+
+        el.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateZ(${rotateZ}deg) rotateY(${rotateY}deg) scale(${scale})`;
+        el.style.zIndex = zIndex.toString();
+        el.style.opacity = opacity.toString();
+        el.style.filter = blur > 0.1 ? `blur(${blur}px)` : "none";
+        el.style.pointerEvents = absU < 2.5 ? "auto" : "none";
+      }
+    },
+    [N, dimensions]
+  );
+
+  // Continuous animation loop
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    // Speed: 0.32 card steps per second (luxurious, calm ~3.1s per category glide)
+    const speed = 0.32;
+
+    const tick = (now: number) => {
+      if (lastTimeRef.current === null) {
+        lastTimeRef.current = now;
+      }
+      const deltaSec = (now - lastTimeRef.current) / 1000;
+      lastTimeRef.current = now;
+
+      if (!isPausedRef.current && !isDraggingRef.current) {
+        // Advance continuously
+        progressRef.current = (progressRef.current + speed * deltaSec) % N;
+        if (progressRef.current < 0) progressRef.current += N;
+      }
+
+      renderCards(progressRef.current);
+      animFrameIdRef.current = requestAnimationFrame(tick);
+    };
+
+    animFrameIdRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (animFrameIdRef.current !== null) {
+        cancelAnimationFrame(animFrameIdRef.current);
+        animFrameIdRef.current = null;
+      }
+      lastTimeRef.current = null;
+    };
+  }, [N, prefersReducedMotion, renderCards]);
+
+  // Interaction Handlers (Hover & Focus Pause / Resume)
+  const handleMouseEnter = () => {
+    isPausedRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    if (!isDraggingRef.current) {
+      isPausedRef.current = false;
+    }
+  };
+
+  const handleFocus = () => {
+    isPausedRef.current = true;
+  };
+
+  const handleBlur = () => {
+    isPausedRef.current = false;
+  };
+
+  // Touch & Pointer Drag Handlers (Smooth manual gliding)
+  const handlePointerDown = (e: React.PointerEvent) => {
+    isDraggingRef.current = true;
+    startXRef.current = e.clientX;
+    lastXRef.current = e.clientX;
+    hasDraggedRef.current = false;
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+    const deltaX = e.clientX - lastXRef.current;
+    lastXRef.current = e.clientX;
+
+    if (Math.abs(e.clientX - startXRef.current) > 5) {
+      hasDraggedRef.current = true;
+    }
+
+    // Move progress in proportion to drag
+    progressRef.current =
+      (progressRef.current - deltaX / dimensions.cardSpacing) % N;
+    if (progressRef.current < 0) progressRef.current += N;
+    renderCards(progressRef.current);
+  };
+
+  const handlePointerUp = () => {
+    isDraggingRef.current = false;
+    // Allow animation to resume if pointer is not over container
+  };
+
+  // Static fallback if prefers-reduced-motion is active
   if (prefersReducedMotion) {
     return (
       <section
@@ -91,37 +283,14 @@ export function CategoriesSection() {
     <section
       id="categories"
       aria-label="PABLO Categories Showcase"
-      className="pablo-category-section relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
+      className="relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     >
-      <style>{`
-        @keyframes pabloCategoryGlide {
-          0% {
-            transform: translate3d(0, 0, 0);
-          }
-          100% {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-        .pablo-category-track {
-          display: flex;
-          width: max-content;
-          will-change: transform;
-          animation: pabloCategoryGlide 48s linear infinite;
-        }
-        .pablo-category-section:hover .pablo-category-track,
-        .pablo-category-section:focus-within .pablo-category-track,
-        .pablo-category-track:hover,
-        .pablo-category-track:focus-within {
-          animation-play-state: paused !important;
-        }
-      `}</style>
-
       {/* ─── 1. SECTION HEADER ─── */}
-      <div className="text-center shrink-0 px-4 mb-8 sm:mb-12">
+      <div className="text-center shrink-0 px-4 mb-8 sm:mb-12 pointer-events-none">
         <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-2.5">
           Maison Portfolio · 2026
         </span>
@@ -134,44 +303,64 @@ export function CategoriesSection() {
         <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-3.5 opacity-40" />
       </div>
 
-      {/* ─── 2. CONTINUOUS HORIZONTAL CINEMATIC LOOP CONTAINER ─── */}
-      <div className="relative w-full overflow-hidden py-4">
+      {/* ─── 2. CINEMATIC 3D CURVED CAROUSEL STAGE ─── */}
+      <div
+        ref={containerRef}
+        className="relative w-full overflow-hidden flex items-center justify-center py-4 cursor-grab active:cursor-grabbing touch-pan-y"
+        style={{
+          height: `${dimensions.cardHeight + dimensions.arcDrop * 3.5 + 40}px`,
+          perspective: "1400px",
+          transformStyle: "preserve-3d",
+        }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+      >
         {/* Left Edge Luxury Vignette Fade */}
         <div
-          className="absolute left-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-20"
+          className="absolute left-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-30"
           aria-hidden="true"
         />
 
         {/* Right Edge Luxury Vignette Fade */}
         <div
-          className="absolute right-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-l from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-20"
+          className="absolute right-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-l from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-30"
           aria-hidden="true"
         />
 
-        {/* Glide Track with Seamless Duplicated Items */}
-        <div
-          className="pablo-category-track flex items-center gap-6 sm:gap-7 md:gap-8 px-4"
-          style={{
-            animationPlayState: isPaused ? "paused" : "running",
-          }}
-        >
+        {/* Center Origin Stage */}
+        <div className="relative w-full h-full flex items-start justify-center pt-2">
           {duplicatedCategories.map((category, index) => (
             <div
               key={`${category.id}-${index}`}
-              className="shrink-0 w-[245px] sm:w-[280px] md:w-[320px] h-[365px] sm:h-[420px] md:h-[475px]"
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              className="absolute will-change-transform transition-[filter] duration-200"
+              style={{
+                width: `${dimensions.cardWidth}px`,
+                height: `${dimensions.cardHeight}px`,
+                transformStyle: "preserve-3d",
+              }}
             >
               <Link
                 href={category.href}
                 aria-label={`Explore ${category.name} Collection`}
-                className="group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_20px_45px_rgba(0,0,0,0.20)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.30)] border border-black/10 hover:border-black/30 transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none hover:scale-[1.015]"
+                onClick={(e) => {
+                  if (hasDraggedRef.current) {
+                    e.preventDefault();
+                  }
+                }}
+                className="group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_22px_50px_rgba(0,0,0,0.22)] border border-black/10 hover:border-black/30 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none"
               >
                 {/* Category Photographic Asset */}
                 <Image
                   src={category.imageSrc}
                   alt={category.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 260px, 340px"
-                  priority={index < 4}
+                  sizes="(max-width: 768px) 70vw, 360px"
+                  priority={index < 3}
                   className="object-cover object-center w-full h-full select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                 />
 
