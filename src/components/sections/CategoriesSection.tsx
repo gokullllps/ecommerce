@@ -284,10 +284,6 @@ export function CategoriesSection() {
       id="categories"
       aria-label="PABLO Categories Showcase"
       className="relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
     >
       {/* ─── 1. SECTION HEADER ─── */}
       <div className="text-center shrink-0 px-4 mb-8 sm:mb-12 pointer-events-none">
@@ -343,6 +339,10 @@ export function CategoriesSection() {
                 height: `${dimensions.cardHeight}px`,
                 transformStyle: "preserve-3d",
               }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             >
               <Link
                 href={category.href}

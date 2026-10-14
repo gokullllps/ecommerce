@@ -132,39 +132,39 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
     }
   }, [progress, onCardsVisibilityChange]);
 
-  // After the hero entrance completes (phase === 3), cycle between female and male
+  // After the hero entrance completes (phase === 3), cycle between male and female
   useEffect(() => {
     if (phase < 3 || prefersReducedMotion) return;
 
     let isMounted = true;
-    let maleTimer: NodeJS.Timeout | null = null;
+    let femaleTimer: NodeJS.Timeout | null = null;
     const initialHoldTimer = setTimeout(() => {
       if (!isMounted) return;
       setModelState("initial-exit");
 
-      maleTimer = setTimeout(() => {
+      femaleTimer = setTimeout(() => {
         if (!isMounted) return;
-        setModelState("male");
+        setModelState("female");
         setCycleKey((k) => k + 1);
 
         const loopInterval = setInterval(() => {
           if (!isMounted) return;
-          setModelState((current) => (current === "male" ? "female" : "male"));
+          setModelState((current) => (current === "female" ? "male" : "female"));
           setCycleKey((k) => k + 1);
         }, 3500);
 
         timerRef.current = loopInterval as any;
       }, 500);
 
-      timeoutsRef.current.push(maleTimer);
-    }, 2400);
+      timeoutsRef.current.push(femaleTimer);
+    }, 2200);
 
     timeoutsRef.current.push(initialHoldTimer);
 
     return () => {
       isMounted = false;
       clearTimeout(initialHoldTimer);
-      if (maleTimer) clearTimeout(maleTimer);
+      if (femaleTimer) clearTimeout(femaleTimer);
       if (timerRef.current) {
         clearInterval(timerRef.current as any);
         timerRef.current = null;
@@ -345,9 +345,9 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-cover bg-center select-none" aria-hidden="true">
             <Image src="/images/pablo-hero-bg-editorial.jpg" alt="PABLO Luxury Fashion Campaign" fill priority sizes="100vw" className="object-cover object-center w-full h-full select-none" />
           </div>
-          <div className="hidden md:flex absolute inset-0 items-center justify-between px-8 md:px-16 pointer-events-none z-10 select-none">
-            <span className="font-normal text-[#111111] leading-none whitespace-nowrap" style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)", fontSize: "clamp(6.5rem, 23vw, 29rem)" }}>PA</span>
-            <span className="font-normal text-[#111111] leading-none whitespace-nowrap" style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)", fontSize: "clamp(6.5rem, 23vw, 29rem)" }}>BLO</span>
+          <div className="hidden md:flex absolute inset-0 bottom-7 sm:bottom-9 items-center justify-between px-8 md:px-16 pointer-events-none z-10 select-none">
+            <span className="font-hero-pablo font-normal text-[#111111] leading-none whitespace-nowrap" style={{ fontFamily: "var(--font-hero-pablo), 'Cormorant Garamond', Georgia, serif", fontSize: "clamp(6.5rem, 23vw, 29rem)", fontWeight: 400 }}>PA</span>
+            <span className="font-hero-pablo font-normal text-[#111111] leading-none whitespace-nowrap" style={{ fontFamily: "var(--font-hero-pablo), 'Cormorant Garamond', Georgia, serif", fontSize: "clamp(6.5rem, 23vw, 29rem)", fontWeight: 400 }}>BLO</span>
           </div>
           <div className="absolute inset-0 pointer-events-none z-20 flex items-end justify-center pb-3">
             <div className="relative flex items-end justify-center -ml-[10vw] sm:-ml-[14vw] lg:-ml-[15vw]">
@@ -461,13 +461,13 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
 
           {/* DESKTOP PABLO TYPOGRAPHY */}
           <div
-            className="hidden md:flex absolute inset-0 items-center justify-between pointer-events-none z-10 select-none overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16"
+            className="hidden md:flex absolute inset-0 bottom-7 sm:bottom-9 items-center justify-between pointer-events-none z-10 select-none overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16"
             aria-hidden="true"
           >
             <span
-              className="font-normal text-[#111111] leading-none whitespace-nowrap select-none tracking-[0.03em] sm:tracking-[0.05em] lg:tracking-[0.06em] transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="font-hero-pablo font-normal text-[#111111] leading-none whitespace-nowrap select-none tracking-[0.03em] sm:tracking-[0.05em] lg:tracking-[0.06em] transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{
-                fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                fontFamily: "var(--font-hero-pablo), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "clamp(6.5rem, 23vw, 29rem)",
                 fontWeight: 400,
                 opacity: phase >= 1 ? 1 : 0,
@@ -479,12 +479,12 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
 
             <span
             className="
-              font-normal text-[#111111] leading-none whitespace-nowrap select-none
+              font-hero-pablo font-normal text-[#111111] leading-none whitespace-nowrap select-none
               tracking-[0.03em] sm:tracking-[0.05em] lg:tracking-[0.06em]
               transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]
             "
               style={{
-                fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                fontFamily: "var(--font-hero-pablo), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "clamp(6.5rem, 23vw, 29rem)",
                 fontWeight: 400,
                 opacity: phase >= 1 ? 1 : 0,
@@ -497,7 +497,7 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
 
           {/* DESKTOP FASHION MODEL SUBJECT (CYCLE) */}
           <div className="hidden md:flex absolute inset-0 pointer-events-none z-20 items-end justify-center pb-3 sm:pb-4 lg:pb-5">
-            <div className="relative flex items-end justify-center -ml-[12.5vw] sm:-ml-[16.5vw] lg:-ml-[17.5vw]">
+            <div className="relative flex items-end justify-center -ml-[10vw] sm:-ml-[14vw] lg:-ml-[15vw]">
               <div
                 className="absolute bottom-1 w-64 sm:w-72 lg:w-80 h-3 rounded-[100%] bg-[#111111]/30 blur-[4px] pointer-events-none z-0"
                 aria-hidden="true"
@@ -515,10 +515,10 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
                   }}
                 >
                   <Image
-                    src="/images/woman-main-hero.png"
-                    alt="PABLO Editorial Fashion Campaign — Female Model"
-                    width={666}
-                    height={1024}
+                    src="/images/main-hero.png"
+                    alt="PABLO Editorial Fashion Campaign — Male Model"
+                    width={403}
+                    height={619}
                     priority
                     unoptimized
                     className="object-contain object-bottom w-auto select-none h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]"
@@ -529,10 +529,10 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
               {modelState === "initial-exit" && (
                 <div className="relative z-10 flex items-end animate-model-initial-fadeout">
                   <Image
-                    src="/images/woman-main-hero.png"
-                    alt="PABLO Editorial Fashion Campaign — Female Model"
-                    width={666}
-                    height={1024}
+                    src="/images/main-hero.png"
+                    alt="PABLO Editorial Fashion Campaign — Male Model"
+                    width={403}
+                    height={619}
                     priority
                     unoptimized
                     className="object-contain object-bottom w-auto select-none h-[66vh] sm:h-[72vh] md:h-[76vh] lg:h-[80vh] max-h-[840px]"
@@ -578,10 +578,11 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
           {/* MOBILE MODEL STAGE (< md) */}
           <div className="flex md:hidden absolute inset-0 items-center justify-center pointer-events-none z-20">
             <span
-              className="absolute font-normal text-[#111111] tracking-[0.06em] sm:tracking-[0.08em] leading-none whitespace-nowrap z-10 transition-all duration-800 ease-out"
+              className="font-hero-pablo absolute font-normal text-[#111111] tracking-[0.06em] sm:tracking-[0.08em] leading-none whitespace-nowrap z-10 transition-all duration-800 ease-out"
               style={{
-                fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                fontFamily: "var(--font-hero-pablo), 'Cormorant Garamond', Georgia, serif",
                 fontSize: "clamp(5.8rem, 27vw, 8rem)",
+                fontWeight: 400,
                 opacity: mobilePhase >= 2 || prefersReducedMotion ? 1 : 0,
                 transform: mobilePhase >= 2 || prefersReducedMotion ? "scale(1)" : "scale(0.97)",
               }}
@@ -713,7 +714,7 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
 
         {/* Desktop UI (>= md) */}
         <div
-          className="hidden md:flex absolute inset-0 pointer-events-none z-10 transition-opacity duration-300"
+          className="hidden md:flex absolute inset-0 bottom-7 sm:bottom-9 pointer-events-none z-10 transition-opacity duration-300"
           style={{
             opacity: heroUiFade,
             pointerEvents: heroUiFade > 0.4 ? "auto" : "none",
@@ -748,7 +749,7 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
               </div>
 
               <div
-                className="flex items-center gap-6 lg:gap-8 pointer-events-auto transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="flex items-center gap-5 sm:gap-6 pointer-events-auto transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{
                   opacity: phase >= 3 ? 1 : 0,
                   transform: phase >= 3 ? "translateY(0)" : "translateY(10px)",
@@ -759,10 +760,10 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
                   type="button"
                   id="hero-explore-btn"
                   onClick={handleScrollToCards}
-                  className="group inline-flex items-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818] border border-white/25 hover:border-white backdrop-blur-sm text-[11px] sm:text-[12px] uppercase tracking-[0.26em] font-sans font-medium transition-all duration-300 ease-out shadow-lg hover:shadow-xl cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="group inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 bg-[#181818]/90 hover:bg-[#FFFFFF] text-[#FFFFFF] hover:text-[#181818] border border-white/20 hover:border-white backdrop-blur-sm text-[11px] uppercase tracking-[0.22em] sm:tracking-[0.24em] font-sans font-medium transition-all duration-300 ease-out shadow-lg hover:shadow-xl cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <span>EXPLORE COLLECTION</span>
-                  <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1.5 text-xs" aria-hidden="true">→</span>
+                  <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1 text-xs" aria-hidden="true">→</span>
                 </button>
 
                 <button
@@ -776,7 +777,7 @@ export function HeroSection({ isIntroActive = false, onCardsVisibilityChange }: 
                       window.location.href = "/about";
                     }
                   }}
-                  className="group inline-flex items-center gap-2.5 py-2 text-[11px] sm:text-[12px] uppercase tracking-[0.22em] font-normal text-[#111111] hover:text-[#666666] transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111] cursor-pointer select-none"
+                  className="group inline-flex items-center gap-2 py-2 text-[10.5px] sm:text-[11px] uppercase tracking-[0.2em] font-normal text-[#111111] hover:text-[#666666] transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111] cursor-pointer select-none"
                 >
                   <span>View Campaign</span>
                   <span className="inline-flex items-center transition-transform duration-300 ease-out group-hover:translate-x-1" aria-hidden="true">
