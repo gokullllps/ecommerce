@@ -46,7 +46,7 @@ const BOTTOMS: OutfitPiece[] = [
     tag: "Italian Stretch Cotton",
     colorName: "Sand Stone",
     colorHex: "#E2E8F0",
-    imageUrl: "/images/categories/tailoring.jpg",
+    imageUrl: "/images/categories/trousers.webp",
   },
   {
     id: "bot-2",

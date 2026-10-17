@@ -17,15 +17,29 @@
     "price": 95000,
     "images": [
       {
-        "id": "img-persist-1",
         "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
-        "alt": "Front view",
-        "isPrimary": true,
-        "viewType": "front"
+        "alt": "Architectural Cashmere Trench — Full Front View",
+        "viewType": "front",
+        "isPrimary": true
+      },
+      {
+        "url": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-detail.webp",
+        "alt": "Architectural Cashmere Trench — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-styling.webp",
+        "alt": "Architectural Cashmere Trench — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-side.webp",
+        "alt": "Architectural Cashmere Trench — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "primaryImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
-    "hoverImage": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
+    "hoverImage": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-detail.webp",
     "colors": [
       {
         "name": "Standard",
@@ -54,7 +68,38 @@
     "isLimitedEdition": true,
     "popularityScore": 90,
     "createdAt": "2026-09-30T17:24:22.395Z",
-    "updatedAt": "2026-09-30T17:24:22.400Z"
+    "updatedAt": "2026-09-30T17:24:22.400Z",
+    "colorVariants": [
+      {
+        "name": "Standard",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/uploads/products/product_test-persistence-prod_1790789062355_qnecp5.webp",
+            "alt": "Architectural Cashmere Trench — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-detail.webp",
+            "alt": "Architectural Cashmere Trench — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-styling.webp",
+            "alt": "Architectural Cashmere Trench — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/product_test-persistence-prod_1790789062355_qnecp5-side.webp",
+            "alt": "Architectural Cashmere Trench — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "prod_1790766108500_cfe9",
@@ -75,22 +120,29 @@
     "salePrice": 1,
     "images": [
       {
-        "id": "img-1790766051137-0-s1et",
         "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
-        "alt": "",
-        "isPrimary": true,
-        "viewType": "front"
+        "alt": "joker — Full Front View",
+        "viewType": "front",
+        "isPrimary": true
       },
       {
-        "id": "img-1790766060429-0-cwvm",
-        "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108618_tk3hiq.webp",
-        "alt": "",
-        "isPrimary": false,
-        "viewType": "front"
+        "url": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-detail.webp",
+        "alt": "joker — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-styling.webp",
+        "alt": "joker — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-side.webp",
+        "alt": "joker — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "primaryImage": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
-    "hoverImage": "",
+    "hoverImage": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-detail.webp",
     "videoUrl": "",
     "colors": [
       {
@@ -146,7 +198,38 @@
     "seoTitle": "joker | PABLO Atelier",
     "seoDescription": "wzsexdctbhyunmksexdcrvtgbynujmk",
     "createdAt": "2026-09-30T11:01:48.638Z",
-    "updatedAt": "2026-09-30T11:51:02.760Z"
+    "updatedAt": "2026-09-30T11:51:02.760Z",
+    "colorVariants": [
+      {
+        "name": "Standard",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/uploads/products/product_prod_1790766108500_cfe9_1790766108546_ci9f9c.webp",
+            "alt": "joker — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-detail.webp",
+            "alt": "joker — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-styling.webp",
+            "alt": "joker — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/product_prod_1790766108500_cfe9_1790766108546_ci9f9c-side.webp",
+            "alt": "joker — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-001",
@@ -166,14 +249,25 @@
     "price": 1850,
     "images": [
       {
-        "url": "/images/categories/outerwear.webp",
-        "alt": "Double-Breasted Wool Overcoat in Noir",
+        "url": "/images/products/overcoat-noir.webp",
+        "alt": "Double-Breasted Wool Overcoat — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/knitwear.webp",
-        "alt": "Double-Breasted Wool Overcoat Back Detail",
-        "isPrimary": false
+        "url": "/images/products/overcoat-noir-detail.webp",
+        "alt": "Double-Breasted Wool Overcoat — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/overcoat-noir-styling.webp",
+        "alt": "Double-Breasted Wool Overcoat — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/overcoat-noir-side.webp",
+        "alt": "Double-Breasted Wool Overcoat — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -221,7 +315,69 @@
     "isBestSeller": true,
     "popularityScore": 98,
     "createdAt": "2026-08-15T10:00:00Z",
-    "updatedAt": "2026-09-30T17:25:50.422Z"
+    "updatedAt": "2026-09-30T17:25:50.422Z",
+    "primaryImage": "/images/products/overcoat-noir.webp",
+    "hoverImage": "/images/products/overcoat-charcoal.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/overcoat-noir.webp",
+            "alt": "Double-Breasted Wool Overcoat — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/overcoat-noir-detail.webp",
+            "alt": "Double-Breasted Wool Overcoat — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/overcoat-noir-styling.webp",
+            "alt": "Double-Breasted Wool Overcoat — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/overcoat-noir-side.webp",
+            "alt": "Double-Breasted Wool Overcoat — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Charcoal",
+        "value": "#2C2C2C",
+        "hex": "#2C2C2C",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/overcoat-charcoal.webp",
+            "alt": "Double-Breasted Wool Overcoat in Charcoal — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/overcoat-charcoal-detail.webp",
+            "alt": "Double-Breasted Wool Overcoat in Charcoal — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/overcoat-charcoal-styling.webp",
+            "alt": "Double-Breasted Wool Overcoat in Charcoal — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/overcoat-charcoal-side.webp",
+            "alt": "Double-Breasted Wool Overcoat in Charcoal — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-002",
@@ -241,14 +397,25 @@
     "salePrice": 1650,
     "images": [
       {
-        "url": "/images/categories/outerwear.webp",
-        "alt": "Double-Face Cashmere Bomber in Noir",
+        "url": "/images/products/bomber-noir.webp",
+        "alt": "Double-Face Cashmere Bomber Jacket — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Double-Face Cashmere Bomber Texture",
-        "isPrimary": false
+        "url": "/images/products/bomber-noir-detail.webp",
+        "alt": "Double-Face Cashmere Bomber Jacket — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/bomber-noir-styling.webp",
+        "alt": "Double-Face Cashmere Bomber Jacket — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/bomber-noir-side.webp",
+        "alt": "Double-Face Cashmere Bomber Jacket — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -295,7 +462,69 @@
     "isSale": true,
     "isBestSeller": false,
     "popularityScore": 92,
-    "createdAt": "2026-06-12T10:00:00Z"
+    "createdAt": "2026-06-12T10:00:00Z",
+    "primaryImage": "/images/products/bomber-noir.webp",
+    "hoverImage": "/images/products/bomber-slate.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/bomber-noir.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/bomber-noir-detail.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/bomber-noir-styling.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/bomber-noir-side.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Basalt",
+        "value": "#3A3A3A",
+        "hex": "#3A3A3A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/bomber-slate.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket in Basalt — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/bomber-slate-detail.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket in Basalt — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/bomber-slate-styling.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket in Basalt — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/bomber-slate-side.webp",
+            "alt": "Double-Face Cashmere Bomber Jacket in Basalt — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-003",
@@ -314,14 +543,25 @@
     "price": 680,
     "images": [
       {
-        "url": "/images/categories/trousers.webp",
-        "alt": "Architectural Relaxed Trousers in Noir",
+        "url": "/images/products/trousers-noir.webp",
+        "alt": "Architectural Relaxed Trousers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Architectural Relaxed Trousers Drape Detail",
-        "isPrimary": false
+        "url": "/images/products/trousers-noir-detail.webp",
+        "alt": "Architectural Relaxed Trousers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/trousers-noir-styling.webp",
+        "alt": "Architectural Relaxed Trousers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/trousers-noir-side.webp",
+        "alt": "Architectural Relaxed Trousers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -359,7 +599,7 @@
         "inStock": true
       }
     ],
-    "stock": 32,
+    "stock": 31,
     "material": "100% High-Twist Wool Worsted",
     "fit": "Relaxed Wide Leg",
     "careInstructions": "Dry clean only.",
@@ -372,7 +612,99 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 94,
-    "createdAt": "2026-08-20T10:00:00Z"
+    "createdAt": "2026-08-20T10:00:00Z",
+    "primaryImage": "/images/products/trousers-noir.webp",
+    "hoverImage": "/images/products/trousers-ivory.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-noir.webp",
+            "alt": "Architectural Relaxed Trousers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/trousers-noir-detail.webp",
+            "alt": "Architectural Relaxed Trousers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/trousers-noir-styling.webp",
+            "alt": "Architectural Relaxed Trousers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/trousers-noir-side.webp",
+            "alt": "Architectural Relaxed Trousers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Raw Ivory",
+        "value": "#EAE8E1",
+        "hex": "#EAE8E1",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-ivory.webp",
+            "alt": "Architectural Relaxed Trousers in Raw Ivory — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/trousers-ivory-detail.webp",
+            "alt": "Architectural Relaxed Trousers in Raw Ivory — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/trousers-ivory-styling.webp",
+            "alt": "Architectural Relaxed Trousers in Raw Ivory — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/trousers-ivory-side.webp",
+            "alt": "Architectural Relaxed Trousers in Raw Ivory — Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Espresso",
+        "value": "#261E1A",
+        "hex": "#261E1A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-noir-espresso.webp",
+            "alt": "Architectural Relaxed Trousers in Espresso — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/trousers-noir-espresso-detail.webp",
+            "alt": "Architectural Relaxed Trousers in Espresso — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/trousers-noir-espresso-styling.webp",
+            "alt": "Architectural Relaxed Trousers in Espresso — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/trousers-noir-espresso-side.webp",
+            "alt": "Architectural Relaxed Trousers in Espresso — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-10-16T09:28:14.999Z"
   },
   {
     "id": "pab-m-004",
@@ -391,13 +723,24 @@
     "images": [
       {
         "url": "/images/categories/trousers.webp",
-        "alt": "Pleated Flannel Trousers",
+        "alt": "Pleated Flannel Straight Trousers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Pleated Flannel Trousers Profile",
-        "isPrimary": false
+        "url": "/images/categories/trousers-detail.webp",
+        "alt": "Pleated Flannel Straight Trousers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/trousers-styling.webp",
+        "alt": "Pleated Flannel Straight Trousers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/trousers-side.webp",
+        "alt": "Pleated Flannel Straight Trousers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -442,7 +785,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 87,
-    "createdAt": "2026-07-08T10:00:00Z"
+    "createdAt": "2026-07-08T10:00:00Z",
+    "primaryImage": "/images/categories/trousers.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Flannel Grey",
+        "value": "#4A4D52",
+        "hex": "#4A4D52",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/trousers.webp",
+            "alt": "Pleated Flannel Straight Trousers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/trousers-detail.webp",
+            "alt": "Pleated Flannel Straight Trousers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/trousers-styling.webp",
+            "alt": "Pleated Flannel Straight Trousers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/trousers-side.webp",
+            "alt": "Pleated Flannel Straight Trousers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Pleated Flannel Straight Trousers in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Pleated Flannel Straight Trousers in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Pleated Flannel Straight Trousers in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Pleated Flannel Straight Trousers in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-005",
@@ -460,14 +865,25 @@
     "price": 480,
     "images": [
       {
-        "url": "/images/categories/denim.webp",
-        "alt": "14oz Japanese Selvedge Denim",
+        "url": "/images/products/jeans-indigo.webp",
+        "alt": "14oz Japanese Selvedge Straight Jeans — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "14oz Selvedge Hem Detail",
-        "isPrimary": false
+        "url": "/images/products/jeans-indigo-detail.webp",
+        "alt": "14oz Japanese Selvedge Straight Jeans — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/jeans-indigo-styling.webp",
+        "alt": "14oz Japanese Selvedge Straight Jeans — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/jeans-indigo-side.webp",
+        "alt": "14oz Japanese Selvedge Straight Jeans — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -518,7 +934,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 93,
-    "createdAt": "2026-05-18T10:00:00Z"
+    "createdAt": "2026-05-18T10:00:00Z",
+    "primaryImage": "/images/products/jeans-indigo.webp",
+    "hoverImage": "/images/products/jeans-washed-noir.webp",
+    "colorVariants": [
+      {
+        "name": "Raw Indigo",
+        "value": "#1A2438",
+        "hex": "#1A2438",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/jeans-indigo.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/jeans-indigo-detail.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/jeans-indigo-styling.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/jeans-indigo-side.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Washed Noir",
+        "value": "#2E2E2E",
+        "hex": "#2E2E2E",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/jeans-washed-noir.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans in Washed Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/jeans-washed-noir-detail.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans in Washed Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/jeans-washed-noir-styling.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans in Washed Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/jeans-washed-noir-side.webp",
+            "alt": "14oz Japanese Selvedge Straight Jeans in Washed Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-006",
@@ -537,13 +1015,24 @@
     "images": [
       {
         "url": "/images/categories/denim.webp",
-        "alt": "Sculptural Wide-Leg Jeans",
+        "alt": "Sculptural Wide-Leg Washed Jeans — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Sculptural Wide-Leg Profile",
-        "isPrimary": false
+        "url": "/images/categories/denim-detail.webp",
+        "alt": "Sculptural Wide-Leg Washed Jeans — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/denim-styling.webp",
+        "alt": "Sculptural Wide-Leg Washed Jeans — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/denim-side.webp",
+        "alt": "Sculptural Wide-Leg Washed Jeans — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -584,7 +1073,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 89,
-    "createdAt": "2026-08-14T10:00:00Z"
+    "createdAt": "2026-08-14T10:00:00Z",
+    "primaryImage": "/images/categories/denim.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Basalt Wash",
+        "value": "#3D3D3D",
+        "hex": "#3D3D3D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/denim.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/denim-detail.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/denim-styling.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/denim-side.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ecru",
+        "value": "#EBE7DF",
+        "hex": "#EBE7DF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans in Ecru — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans in Ecru — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans in Ecru — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Sculptural Wide-Leg Washed Jeans in Ecru — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-007",
@@ -603,14 +1154,25 @@
     "price": 240,
     "images": [
       {
-        "url": "/images/categories/t-shirts.webp",
-        "alt": "Heavyweight Supima Crewneck T-Shirt in Noir",
+        "url": "/images/products/tshirt-noir.webp",
+        "alt": "Heavyweight Supima Crewneck T-Shirt — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Heavyweight Supima Crewneck Neckline Detail",
-        "isPrimary": false
+        "url": "/images/products/tshirt-noir-detail.webp",
+        "alt": "Heavyweight Supima Crewneck T-Shirt — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/tshirt-noir-styling.webp",
+        "alt": "Heavyweight Supima Crewneck T-Shirt — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/tshirt-noir-side.webp",
+        "alt": "Heavyweight Supima Crewneck T-Shirt — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -662,7 +1224,98 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 99,
-    "createdAt": "2026-06-10T10:00:00Z"
+    "createdAt": "2026-06-10T10:00:00Z",
+    "primaryImage": "/images/products/tshirt-noir.webp",
+    "hoverImage": "/images/products/tshirt-white.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/tshirt-noir.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/tshirt-noir-detail.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/tshirt-noir-styling.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/tshirt-noir-side.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Chalk White",
+        "value": "#F7F6F2",
+        "hex": "#F7F6F2",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/tshirt-white.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Chalk White — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/tshirt-white-detail.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Chalk White — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/tshirt-white-styling.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Chalk White — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/tshirt-white-side.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Chalk White — Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Faded Basalt",
+        "value": "#3A3A3A",
+        "hex": "#3A3A3A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/tshirt-noir-faded-basalt.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Faded Basalt — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/tshirt-noir-faded-basalt-detail.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Faded Basalt — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/tshirt-noir-faded-basalt-styling.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Faded Basalt — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/tshirt-noir-faded-basalt-side.webp",
+            "alt": "Heavyweight Supima Crewneck T-Shirt in Faded Basalt — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-008",
@@ -681,13 +1334,24 @@
     "images": [
       {
         "url": "/images/categories/t-shirts.webp",
-        "alt": "Raw-Edge Boxy Heavy Cotton Tee",
+        "alt": "Raw-Edge Boxy Heavy Cotton Tee — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Raw Edge Detail",
-        "isPrimary": false
+        "url": "/images/categories/t-shirts-detail.webp",
+        "alt": "Raw-Edge Boxy Heavy Cotton Tee — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/t-shirts-styling.webp",
+        "alt": "Raw-Edge Boxy Heavy Cotton Tee — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/t-shirts-side.webp",
+        "alt": "Raw-Edge Boxy Heavy Cotton Tee — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -732,7 +1396,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 91,
-    "createdAt": "2026-08-25T10:00:00Z"
+    "createdAt": "2026-08-25T10:00:00Z",
+    "primaryImage": "/images/categories/t-shirts.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Vintage Chalk",
+        "value": "#EDECE8",
+        "hex": "#EDECE8",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/t-shirts.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/t-shirts-detail.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/t-shirts-styling.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/t-shirts-side.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-009",
@@ -751,14 +1477,25 @@
     "price": 490,
     "images": [
       {
-        "url": "/images/categories/shirts.webp",
-        "alt": "Concealed Placket Poplin Shirt in Pure White",
+        "url": "/images/products/shirt-white.webp",
+        "alt": "Concealed Placket Poplin Shirt — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Concealed Placket Collar Detail",
-        "isPrimary": false
+        "url": "/images/products/shirt-white-detail.webp",
+        "alt": "Concealed Placket Poplin Shirt — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/shirt-white-styling.webp",
+        "alt": "Concealed Placket Poplin Shirt — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/shirt-white-side.webp",
+        "alt": "Concealed Placket Poplin Shirt — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -809,7 +1546,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 95,
-    "createdAt": "2026-08-01T10:00:00Z"
+    "createdAt": "2026-08-01T10:00:00Z",
+    "primaryImage": "/images/products/shirt-white.webp",
+    "hoverImage": "/images/products/shirt-noir.webp",
+    "colorVariants": [
+      {
+        "name": "Pure White",
+        "value": "#FFFFFF",
+        "hex": "#FFFFFF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/shirt-white.webp",
+            "alt": "Concealed Placket Poplin Shirt — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/shirt-white-detail.webp",
+            "alt": "Concealed Placket Poplin Shirt — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/shirt-white-styling.webp",
+            "alt": "Concealed Placket Poplin Shirt — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/shirt-white-side.webp",
+            "alt": "Concealed Placket Poplin Shirt — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/shirt-noir.webp",
+            "alt": "Concealed Placket Poplin Shirt in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/shirt-noir-detail.webp",
+            "alt": "Concealed Placket Poplin Shirt in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/shirt-noir-styling.webp",
+            "alt": "Concealed Placket Poplin Shirt in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/shirt-noir-side.webp",
+            "alt": "Concealed Placket Poplin Shirt in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-010",
@@ -830,13 +1629,24 @@
     "images": [
       {
         "url": "/images/categories/shirts.webp",
-        "alt": "Heavy Silk Twill Overshirt",
+        "alt": "Heavy Silk Twill Overshirt — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Heavy Silk Texture",
-        "isPrimary": false
+        "url": "/images/categories/shirts-detail.webp",
+        "alt": "Heavy Silk Twill Overshirt — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/shirts-styling.webp",
+        "alt": "Heavy Silk Twill Overshirt — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/shirts-side.webp",
+        "alt": "Heavy Silk Twill Overshirt — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -878,7 +1688,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 88,
-    "createdAt": "2026-05-30T10:00:00Z"
+    "createdAt": "2026-05-30T10:00:00Z",
+    "primaryImage": "/images/categories/shirts.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Smoked Noir",
+        "value": "#1C1C1E",
+        "hex": "#1C1C1E",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shirts.webp",
+            "alt": "Heavy Silk Twill Overshirt — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shirts-detail.webp",
+            "alt": "Heavy Silk Twill Overshirt — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shirts-styling.webp",
+            "alt": "Heavy Silk Twill Overshirt — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shirts-side.webp",
+            "alt": "Heavy Silk Twill Overshirt — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Champagne Ivory",
+        "value": "#EFEBD9",
+        "hex": "#EFEBD9",
+        "inStock": false,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-011",
@@ -897,14 +1769,25 @@
     "price": 520,
     "images": [
       {
-        "url": "/images/categories/polos.webp",
-        "alt": "Milanese Milan Rib Knit Polo",
+        "url": "/images/products/polo-taupe.webp",
+        "alt": "Milanese Milan Rib Knit Polo — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Milano Rib Open Collar Detail",
-        "isPrimary": false
+        "url": "/images/products/polo-taupe-detail.webp",
+        "alt": "Milanese Milan Rib Knit Polo — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/polo-taupe-styling.webp",
+        "alt": "Milanese Milan Rib Knit Polo — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/polo-taupe-side.webp",
+        "alt": "Milanese Milan Rib Knit Polo — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -949,7 +1832,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 90,
-    "createdAt": "2026-07-28T10:00:00Z"
+    "createdAt": "2026-07-28T10:00:00Z",
+    "primaryImage": "/images/products/polo-taupe.webp",
+    "hoverImage": "/images/products/polo-noir.webp",
+    "colorVariants": [
+      {
+        "name": "Taupe",
+        "value": "#5E564F",
+        "hex": "#5E564F",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/polo-taupe.webp",
+            "alt": "Milanese Milan Rib Knit Polo — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/polo-taupe-detail.webp",
+            "alt": "Milanese Milan Rib Knit Polo — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/polo-taupe-styling.webp",
+            "alt": "Milanese Milan Rib Knit Polo — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/polo-taupe-side.webp",
+            "alt": "Milanese Milan Rib Knit Polo — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/polo-noir.webp",
+            "alt": "Milanese Milan Rib Knit Polo in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/polo-noir-detail.webp",
+            "alt": "Milanese Milan Rib Knit Polo in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/polo-noir-styling.webp",
+            "alt": "Milanese Milan Rib Knit Polo in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/polo-noir-side.webp",
+            "alt": "Milanese Milan Rib Knit Polo in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-012",
@@ -968,14 +1913,25 @@
     "price": 890,
     "images": [
       {
-        "url": "/images/categories/knitwear.webp",
-        "alt": "Seamless Cashmere Mockneck in Charcoal",
+        "url": "/images/products/knit-charcoal.webp",
+        "alt": "Seamless Cashmere Mockneck — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Seamless Cashmere Ribbed Neck Detail",
-        "isPrimary": false
+        "url": "/images/products/knit-charcoal-detail.webp",
+        "alt": "Seamless Cashmere Mockneck — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/knit-charcoal-styling.webp",
+        "alt": "Seamless Cashmere Mockneck — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/knit-charcoal-side.webp",
+        "alt": "Seamless Cashmere Mockneck — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1026,7 +1982,98 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 96,
-    "createdAt": "2026-08-25T10:00:00Z"
+    "createdAt": "2026-08-25T10:00:00Z",
+    "primaryImage": "/images/products/knit-charcoal.webp",
+    "hoverImage": "/images/products/knit-stone.webp",
+    "colorVariants": [
+      {
+        "name": "Charcoal",
+        "value": "#2B2B2B",
+        "hex": "#2B2B2B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/knit-charcoal.webp",
+            "alt": "Seamless Cashmere Mockneck — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/knit-charcoal-detail.webp",
+            "alt": "Seamless Cashmere Mockneck — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/knit-charcoal-styling.webp",
+            "alt": "Seamless Cashmere Mockneck — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/knit-charcoal-side.webp",
+            "alt": "Seamless Cashmere Mockneck — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Stone",
+        "value": "#8E8A82",
+        "hex": "#8E8A82",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/knit-stone.webp",
+            "alt": "Seamless Cashmere Mockneck in Stone — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/knit-stone-detail.webp",
+            "alt": "Seamless Cashmere Mockneck in Stone — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/knit-stone-styling.webp",
+            "alt": "Seamless Cashmere Mockneck in Stone — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/knit-stone-side.webp",
+            "alt": "Seamless Cashmere Mockneck in Stone — Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/knit-charcoal-noir.webp",
+            "alt": "Seamless Cashmere Mockneck in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/knit-charcoal-noir-detail.webp",
+            "alt": "Seamless Cashmere Mockneck in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/knit-charcoal-noir-styling.webp",
+            "alt": "Seamless Cashmere Mockneck in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/knit-charcoal-noir-side.webp",
+            "alt": "Seamless Cashmere Mockneck in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-013",
@@ -1044,14 +2091,25 @@
     "price": 380,
     "images": [
       {
-        "url": "/images/categories/sweatshirts.webp",
-        "alt": "500gsm Loopback Structured Hoodie",
+        "url": "/images/products/hoodie-noir.webp",
+        "alt": "500gsm Loopback Structured Hoodie — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Structured Double Hood Detail",
-        "isPrimary": false
+        "url": "/images/products/hoodie-noir-detail.webp",
+        "alt": "500gsm Loopback Structured Hoodie — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/hoodie-noir-styling.webp",
+        "alt": "500gsm Loopback Structured Hoodie — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/hoodie-noir-side.webp",
+        "alt": "500gsm Loopback Structured Hoodie — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1098,7 +2156,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 93,
-    "createdAt": "2026-07-12T10:00:00Z"
+    "createdAt": "2026-07-12T10:00:00Z",
+    "primaryImage": "/images/products/hoodie-noir.webp",
+    "hoverImage": "/images/products/hoodie-slate.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/hoodie-noir.webp",
+            "alt": "500gsm Loopback Structured Hoodie — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/hoodie-noir-detail.webp",
+            "alt": "500gsm Loopback Structured Hoodie — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/hoodie-noir-styling.webp",
+            "alt": "500gsm Loopback Structured Hoodie — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/hoodie-noir-side.webp",
+            "alt": "500gsm Loopback Structured Hoodie — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Washed Slate",
+        "value": "#383B3D",
+        "hex": "#383B3D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/hoodie-slate.webp",
+            "alt": "500gsm Loopback Structured Hoodie in Washed Slate — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/hoodie-slate-detail.webp",
+            "alt": "500gsm Loopback Structured Hoodie in Washed Slate — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/hoodie-slate-styling.webp",
+            "alt": "500gsm Loopback Structured Hoodie in Washed Slate — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/hoodie-slate-side.webp",
+            "alt": "500gsm Loopback Structured Hoodie in Washed Slate — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-014",
@@ -1118,13 +2238,24 @@
     "images": [
       {
         "url": "/images/categories/shorts.webp",
-        "alt": "Tailored Relaxed Linen Shorts",
+        "alt": "Tailored Relaxed Linen Shorts — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Linen Pleat Detail",
-        "isPrimary": false
+        "url": "/images/categories/shorts-detail.webp",
+        "alt": "Tailored Relaxed Linen Shorts — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/shorts-styling.webp",
+        "alt": "Tailored Relaxed Linen Shorts — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/shorts-side.webp",
+        "alt": "Tailored Relaxed Linen Shorts — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1166,7 +2297,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 84,
-    "createdAt": "2026-06-01T10:00:00Z"
+    "createdAt": "2026-06-01T10:00:00Z",
+    "primaryImage": "/images/categories/shorts.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Raw Sand",
+        "value": "#D6CDBF",
+        "hex": "#D6CDBF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shorts.webp",
+            "alt": "Tailored Relaxed Linen Shorts — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shorts-detail.webp",
+            "alt": "Tailored Relaxed Linen Shorts — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shorts-styling.webp",
+            "alt": "Tailored Relaxed Linen Shorts — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shorts-side.webp",
+            "alt": "Tailored Relaxed Linen Shorts — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Tailored Relaxed Linen Shorts in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Tailored Relaxed Linen Shorts in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Tailored Relaxed Linen Shorts in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Tailored Relaxed Linen Shorts in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-015",
@@ -1185,14 +2378,25 @@
     "price": 940,
     "images": [
       {
-        "url": "/images/categories/footwear.webp",
-        "alt": "Blake-Stitched Calfskin Penny Loafers in Glossed Noir",
+        "url": "/images/products/loafers-noir.webp",
+        "alt": "Blake-Stitched Calfskin Penny Loafers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Loafer Saddle and Sole Profile",
-        "isPrimary": false
+        "url": "/images/products/loafers-noir-detail.webp",
+        "alt": "Blake-Stitched Calfskin Penny Loafers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/loafers-noir-styling.webp",
+        "alt": "Blake-Stitched Calfskin Penny Loafers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/loafers-noir-side.webp",
+        "alt": "Blake-Stitched Calfskin Penny Loafers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1247,7 +2451,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 97,
-    "createdAt": "2026-08-10T10:00:00Z"
+    "createdAt": "2026-08-10T10:00:00Z",
+    "primaryImage": "/images/products/loafers-noir.webp",
+    "hoverImage": "/images/products/loafers-cognac.webp",
+    "colorVariants": [
+      {
+        "name": "Noir Glacé",
+        "value": "#0A0A0A",
+        "hex": "#0A0A0A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/loafers-noir.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/loafers-noir-detail.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/loafers-noir-styling.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/loafers-noir-side.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Deep Cognac",
+        "value": "#3D2314",
+        "hex": "#3D2314",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/loafers-cognac.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers in Deep Cognac — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/loafers-cognac-detail.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers in Deep Cognac — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/loafers-cognac-styling.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers in Deep Cognac — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/loafers-cognac-side.webp",
+            "alt": "Blake-Stitched Calfskin Penny Loafers in Deep Cognac — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-016",
@@ -1266,13 +2532,24 @@
     "images": [
       {
         "url": "/images/categories/footwear.webp",
-        "alt": "Monolithic Chelsea Boots",
+        "alt": "Monolithic Leather Chelsea Boots — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Boot Heel and Pull-Tab",
-        "isPrimary": false
+        "url": "/images/categories/footwear-detail.webp",
+        "alt": "Monolithic Leather Chelsea Boots — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/footwear-styling.webp",
+        "alt": "Monolithic Leather Chelsea Boots — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/footwear-side.webp",
+        "alt": "Monolithic Leather Chelsea Boots — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1313,7 +2590,40 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 89,
-    "createdAt": "2026-07-15T10:00:00Z"
+    "createdAt": "2026-07-15T10:00:00Z",
+    "primaryImage": "/images/categories/footwear.webp",
+    "hoverImage": "/images/categories/footwear-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/footwear.webp",
+            "alt": "Monolithic Leather Chelsea Boots — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/footwear-detail.webp",
+            "alt": "Monolithic Leather Chelsea Boots — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/footwear-styling.webp",
+            "alt": "Monolithic Leather Chelsea Boots — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/footwear-side.webp",
+            "alt": "Monolithic Leather Chelsea Boots — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-017",
@@ -1332,14 +2642,25 @@
     "price": 1450,
     "images": [
       {
-        "url": "/images/categories/bags.webp",
-        "alt": "Architectural Calfskin Briefcase in Noir",
+        "url": "/images/products/briefcase-noir.webp",
+        "alt": "Architectural Calfskin Briefcase — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Briefcase Handle and Lock Detail",
-        "isPrimary": false
+        "url": "/images/products/briefcase-noir-detail.webp",
+        "alt": "Architectural Calfskin Briefcase — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/briefcase-noir-styling.webp",
+        "alt": "Architectural Calfskin Briefcase — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/briefcase-noir-side.webp",
+        "alt": "Architectural Calfskin Briefcase — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1368,7 +2689,40 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 92,
-    "createdAt": "2026-08-28T10:00:00Z"
+    "createdAt": "2026-08-28T10:00:00Z",
+    "primaryImage": "/images/products/briefcase-noir.webp",
+    "hoverImage": "/images/products/briefcase-noir-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/briefcase-noir.webp",
+            "alt": "Architectural Calfskin Briefcase — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/briefcase-noir-detail.webp",
+            "alt": "Architectural Calfskin Briefcase — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/briefcase-noir-styling.webp",
+            "alt": "Architectural Calfskin Briefcase — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/briefcase-noir-side.webp",
+            "alt": "Architectural Calfskin Briefcase — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-018",
@@ -1387,13 +2741,24 @@
     "images": [
       {
         "url": "/images/categories/bags.webp",
-        "alt": "Minimalist Grain Leather Tote",
+        "alt": "Minimalist Grain Leather Day Tote — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Tote Handle Detail",
-        "isPrimary": false
+        "url": "/images/categories/bags-detail.webp",
+        "alt": "Minimalist Grain Leather Day Tote — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/bags-styling.webp",
+        "alt": "Minimalist Grain Leather Day Tote — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/bags-side.webp",
+        "alt": "Minimalist Grain Leather Day Tote — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1427,7 +2792,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 88,
-    "createdAt": "2026-07-02T10:00:00Z"
+    "createdAt": "2026-07-02T10:00:00Z",
+    "primaryImage": "/images/categories/bags.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/bags.webp",
+            "alt": "Minimalist Grain Leather Day Tote — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/bags-detail.webp",
+            "alt": "Minimalist Grain Leather Day Tote — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/bags-styling.webp",
+            "alt": "Minimalist Grain Leather Day Tote — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/bags-side.webp",
+            "alt": "Minimalist Grain Leather Day Tote — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Dark Umber",
+        "value": "#32251D",
+        "hex": "#32251D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Minimalist Grain Leather Day Tote in Dark Umber — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Minimalist Grain Leather Day Tote in Dark Umber — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Minimalist Grain Leather Day Tote in Dark Umber — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Minimalist Grain Leather Day Tote in Dark Umber — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-019",
@@ -1445,14 +2872,25 @@
     "price": 290,
     "images": [
       {
-        "url": "/images/categories/accessories.webp",
-        "alt": "Palladium Buckle Belt",
+        "url": "/images/products/utility-taupe.webp",
+        "alt": "Architectural Palladium Buckle Belt — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Buckle Finish Detail",
-        "isPrimary": false
+        "url": "/images/products/utility-taupe-detail.webp",
+        "alt": "Architectural Palladium Buckle Belt — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/products/utility-taupe-styling.webp",
+        "alt": "Architectural Palladium Buckle Belt — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/products/utility-taupe-side.webp",
+        "alt": "Architectural Palladium Buckle Belt — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1497,7 +2935,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 86,
-    "createdAt": "2026-06-20T10:00:00Z"
+    "createdAt": "2026-06-20T10:00:00Z",
+    "primaryImage": "/images/products/utility-taupe.webp",
+    "hoverImage": "/images/products/trousers-noir.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/utility-taupe.webp",
+            "alt": "Architectural Palladium Buckle Belt — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/utility-taupe-detail.webp",
+            "alt": "Architectural Palladium Buckle Belt — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/utility-taupe-styling.webp",
+            "alt": "Architectural Palladium Buckle Belt — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/utility-taupe-side.webp",
+            "alt": "Architectural Palladium Buckle Belt — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Cognac",
+        "value": "#422817",
+        "hex": "#422817",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/products/trousers-noir.webp",
+            "alt": "Architectural Palladium Buckle Belt in Cognac — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/products/trousers-noir-detail.webp",
+            "alt": "Architectural Palladium Buckle Belt in Cognac — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/products/trousers-noir-styling.webp",
+            "alt": "Architectural Palladium Buckle Belt in Cognac — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/products/trousers-noir-side.webp",
+            "alt": "Architectural Palladium Buckle Belt in Cognac — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-020",
@@ -1516,13 +3016,24 @@
     "images": [
       {
         "url": "/images/categories/accessories.webp",
-        "alt": "Sterling Silver Signet Ring",
+        "alt": "Sterling Silver Atelier Signet Ring — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Ring Profile and Engraving",
-        "isPrimary": false
+        "url": "/images/categories/accessories-detail.webp",
+        "alt": "Sterling Silver Atelier Signet Ring — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/accessories-styling.webp",
+        "alt": "Sterling Silver Atelier Signet Ring — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/accessories-side.webp",
+        "alt": "Sterling Silver Atelier Signet Ring — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1563,7 +3074,40 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 91,
-    "createdAt": "2026-08-18T10:00:00Z"
+    "createdAt": "2026-08-18T10:00:00Z",
+    "primaryImage": "/images/categories/accessories.webp",
+    "hoverImage": "/images/categories/accessories-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Silver 925",
+        "value": "#CCCCCC",
+        "hex": "#CCCCCC",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/accessories.webp",
+            "alt": "Sterling Silver Atelier Signet Ring — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/accessories-detail.webp",
+            "alt": "Sterling Silver Atelier Signet Ring — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/accessories-styling.webp",
+            "alt": "Sterling Silver Atelier Signet Ring — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/accessories-side.webp",
+            "alt": "Sterling Silver Atelier Signet Ring — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-021",
@@ -1583,13 +3127,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Sculptural Column Silk Maxi Dress in Noir",
+        "alt": "Sculptural Column Silk Maxi Dress — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/knitwear.webp",
-        "alt": "Column Dress Back Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Sculptural Column Silk Maxi Dress — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Sculptural Column Silk Maxi Dress — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Sculptural Column Silk Maxi Dress — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1636,7 +3191,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 97,
-    "createdAt": "2026-08-22T10:00:00Z"
+    "createdAt": "2026-08-22T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/categories/knitwear.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Sculptural Column Silk Maxi Dress — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Sculptural Column Silk Maxi Dress — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Sculptural Column Silk Maxi Dress — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Sculptural Column Silk Maxi Dress — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Raw Ivory",
+        "value": "#EAE8E1",
+        "hex": "#EAE8E1",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear.webp",
+            "alt": "Sculptural Column Silk Maxi Dress in Raw Ivory — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-detail.webp",
+            "alt": "Sculptural Column Silk Maxi Dress in Raw Ivory — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-styling.webp",
+            "alt": "Sculptural Column Silk Maxi Dress in Raw Ivory — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-side.webp",
+            "alt": "Sculptural Column Silk Maxi Dress in Raw Ivory — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-022",
@@ -1657,13 +3274,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Asymmetric Bias-Cut Slip Dress",
+        "alt": "Asymmetric Bias-Cut Slip Dress — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Slip Dress Hem Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Asymmetric Bias-Cut Slip Dress — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Asymmetric Bias-Cut Slip Dress — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Asymmetric Bias-Cut Slip Dress — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1705,7 +3333,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 91,
-    "createdAt": "2026-06-15T10:00:00Z"
+    "createdAt": "2026-06-15T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Midnight Noir",
+        "value": "#0E0E10",
+        "hex": "#0E0E10",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Basalt Grey",
+        "value": "#4B4B4B",
+        "hex": "#4B4B4B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress in Basalt Grey — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress in Basalt Grey — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress in Basalt Grey — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Asymmetric Bias-Cut Slip Dress in Basalt Grey — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-023",
@@ -1725,13 +3415,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Belted Cocoon Double-Face Coat",
+        "alt": "Belted Cocoon Double-Face Coat — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/knitwear.webp",
-        "alt": "Cocoon Coat Lapel Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Belted Cocoon Double-Face Coat — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Belted Cocoon Double-Face Coat — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Belted Cocoon Double-Face Coat — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1778,7 +3479,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 98,
-    "createdAt": "2026-08-28T10:00:00Z"
+    "createdAt": "2026-08-28T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/categories/knitwear.webp",
+    "colorVariants": [
+      {
+        "name": "Camel",
+        "value": "#9E7B54",
+        "hex": "#9E7B54",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Belted Cocoon Double-Face Coat — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Belted Cocoon Double-Face Coat — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Belted Cocoon Double-Face Coat — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Belted Cocoon Double-Face Coat — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear.webp",
+            "alt": "Belted Cocoon Double-Face Coat in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-detail.webp",
+            "alt": "Belted Cocoon Double-Face Coat in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-styling.webp",
+            "alt": "Belted Cocoon Double-Face Coat in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-side.webp",
+            "alt": "Belted Cocoon Double-Face Coat in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-024",
@@ -1797,13 +3560,24 @@
     "images": [
       {
         "url": "/images/categories/trousers.webp",
-        "alt": "High-Waisted Palazzo Trousers in Noir",
+        "alt": "High-Waisted Palazzo Wool Trousers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Palazzo Waistband Detail",
-        "isPrimary": false
+        "url": "/images/categories/trousers-detail.webp",
+        "alt": "High-Waisted Palazzo Wool Trousers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/trousers-styling.webp",
+        "alt": "High-Waisted Palazzo Wool Trousers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/trousers-side.webp",
+        "alt": "High-Waisted Palazzo Wool Trousers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1850,7 +3624,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 94,
-    "createdAt": "2026-07-20T10:00:00Z"
+    "createdAt": "2026-07-20T10:00:00Z",
+    "primaryImage": "/images/categories/trousers.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/trousers.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/trousers-detail.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/trousers-styling.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/trousers-side.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ecru",
+        "value": "#EAE7DF",
+        "hex": "#EAE7DF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers in Ecru — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers in Ecru — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers in Ecru — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "High-Waisted Palazzo Wool Trousers in Ecru — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-025",
@@ -1869,13 +3705,24 @@
     "images": [
       {
         "url": "/images/categories/shirts.webp",
-        "alt": "Draped Silk Georgette Top",
+        "alt": "Draped Asymmetric Silk Georgette Top — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Draped Top Shoulder Detail",
-        "isPrimary": false
+        "url": "/images/categories/shirts-detail.webp",
+        "alt": "Draped Asymmetric Silk Georgette Top — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/shirts-styling.webp",
+        "alt": "Draped Asymmetric Silk Georgette Top — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/shirts-side.webp",
+        "alt": "Draped Asymmetric Silk Georgette Top — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1917,7 +3764,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 89,
-    "createdAt": "2026-08-16T10:00:00Z"
+    "createdAt": "2026-08-16T10:00:00Z",
+    "primaryImage": "/images/categories/shirts.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shirts.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shirts-detail.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shirts-styling.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shirts-side.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Chalk",
+        "value": "#F3F1ED",
+        "hex": "#F3F1ED",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top in Chalk — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top in Chalk — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top in Chalk — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Draped Asymmetric Silk Georgette Top in Chalk — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-026",
@@ -1936,13 +3845,24 @@
     "images": [
       {
         "url": "/images/categories/knitwear.webp",
-        "alt": "Ribbed Cashmere Turtleneck",
+        "alt": "Oversized Ribbed Cashmere Turtleneck — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Turtleneck Collar and Cuff",
-        "isPrimary": false
+        "url": "/images/categories/knitwear-detail.webp",
+        "alt": "Oversized Ribbed Cashmere Turtleneck — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/knitwear-styling.webp",
+        "alt": "Oversized Ribbed Cashmere Turtleneck — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/knitwear-side.webp",
+        "alt": "Oversized Ribbed Cashmere Turtleneck — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -1989,7 +3909,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 95,
-    "createdAt": "2026-08-26T10:00:00Z"
+    "createdAt": "2026-08-26T10:00:00Z",
+    "primaryImage": "/images/categories/knitwear.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Ivory Melange",
+        "value": "#E8E4DA",
+        "hex": "#E8E4DA",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-detail.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-styling.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-side.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Anthracite",
+        "value": "#2E2E31",
+        "hex": "#2E2E31",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck in Anthracite — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck in Anthracite — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck in Anthracite — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Oversized Ribbed Cashmere Turtleneck in Anthracite — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-027",
@@ -2008,13 +3990,24 @@
     "images": [
       {
         "url": "/images/categories/denim.webp",
-        "alt": "High-Rise Selvedge Jeans",
+        "alt": "High-Rise Selvedge Wide-Leg Jeans — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Selvedge Hem and Pocket Detail",
-        "isPrimary": false
+        "url": "/images/categories/denim-detail.webp",
+        "alt": "High-Rise Selvedge Wide-Leg Jeans — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/denim-styling.webp",
+        "alt": "High-Rise Selvedge Wide-Leg Jeans — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/denim-side.webp",
+        "alt": "High-Rise Selvedge Wide-Leg Jeans — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2064,7 +4057,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 92,
-    "createdAt": "2026-07-10T10:00:00Z"
+    "createdAt": "2026-07-10T10:00:00Z",
+    "primaryImage": "/images/categories/denim.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Raw Indigo",
+        "value": "#162238",
+        "hex": "#162238",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/denim.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/denim-detail.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/denim-styling.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/denim-side.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Washed Carbon",
+        "value": "#353538",
+        "hex": "#353538",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-028",
@@ -2084,13 +4139,24 @@
     "images": [
       {
         "url": "/images/categories/footwear.webp",
-        "alt": "Pointed Leather Mule",
+        "alt": "Architectural Leather Pointed Mule — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Cylindrical Heel Profile",
-        "isPrimary": false
+        "url": "/images/categories/footwear-detail.webp",
+        "alt": "Architectural Leather Pointed Mule — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/footwear-styling.webp",
+        "alt": "Architectural Leather Pointed Mule — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/footwear-side.webp",
+        "alt": "Architectural Leather Pointed Mule — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2140,7 +4206,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 93,
-    "createdAt": "2026-08-20T10:00:00Z"
+    "createdAt": "2026-08-20T10:00:00Z",
+    "primaryImage": "/images/categories/footwear.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Noir Glacé",
+        "value": "#080808",
+        "hex": "#080808",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/footwear.webp",
+            "alt": "Architectural Leather Pointed Mule — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/footwear-detail.webp",
+            "alt": "Architectural Leather Pointed Mule — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/footwear-styling.webp",
+            "alt": "Architectural Leather Pointed Mule — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/footwear-side.webp",
+            "alt": "Architectural Leather Pointed Mule — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Alabaster",
+        "value": "#F2EFE8",
+        "hex": "#F2EFE8",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Architectural Leather Pointed Mule in Alabaster — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Architectural Leather Pointed Mule in Alabaster — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Architectural Leather Pointed Mule in Alabaster — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Architectural Leather Pointed Mule in Alabaster — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-029",
@@ -2160,13 +4288,24 @@
     "images": [
       {
         "url": "/images/categories/bags.webp",
-        "alt": "Structured Calfskin Crossbody",
+        "alt": "Structured Calfskin Crossbody Minaudière — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Bag Lock and Strap Detail",
-        "isPrimary": false
+        "url": "/images/categories/bags-detail.webp",
+        "alt": "Structured Calfskin Crossbody Minaudière — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/bags-styling.webp",
+        "alt": "Structured Calfskin Crossbody Minaudière — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/bags-side.webp",
+        "alt": "Structured Calfskin Crossbody Minaudière — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2200,7 +4339,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 96,
-    "createdAt": "2026-08-25T10:00:00Z"
+    "createdAt": "2026-08-25T10:00:00Z",
+    "primaryImage": "/images/categories/bags.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/bags.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/bags-detail.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/bags-styling.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/bags-side.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Burgundy",
+        "value": "#451B21",
+        "hex": "#451B21",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière in Burgundy — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière in Burgundy — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière in Burgundy — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Structured Calfskin Crossbody Minaudière in Burgundy — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-030",
@@ -2219,13 +4420,24 @@
     "images": [
       {
         "url": "/images/categories/accessories.webp",
-        "alt": "Palladium Ear Cuff",
+        "alt": "Sculptural Palladium Ear Cuff & Hoop — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Ear Cuff Form and Finish",
-        "isPrimary": false
+        "url": "/images/categories/accessories-detail.webp",
+        "alt": "Sculptural Palladium Ear Cuff & Hoop — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/accessories-styling.webp",
+        "alt": "Sculptural Palladium Ear Cuff & Hoop — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/accessories-side.webp",
+        "alt": "Sculptural Palladium Ear Cuff & Hoop — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2254,7 +4466,40 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 88,
-    "createdAt": "2026-07-18T10:00:00Z"
+    "createdAt": "2026-07-18T10:00:00Z",
+    "primaryImage": "/images/categories/accessories.webp",
+    "hoverImage": "/images/categories/accessories-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Palladium",
+        "value": "#D4D4D6",
+        "hex": "#D4D4D6",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/accessories.webp",
+            "alt": "Sculptural Palladium Ear Cuff & Hoop — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/accessories-detail.webp",
+            "alt": "Sculptural Palladium Ear Cuff & Hoop — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/accessories-styling.webp",
+            "alt": "Sculptural Palladium Ear Cuff & Hoop — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/accessories-side.webp",
+            "alt": "Sculptural Palladium Ear Cuff & Hoop — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-041",
@@ -2273,13 +4518,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Storm Flap Trench Coat",
+        "alt": "Double-Layer Storm Flap Trench Coat — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Trench Storm Flap Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Double-Layer Storm Flap Trench Coat — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Double-Layer Storm Flap Trench Coat — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Double-Layer Storm Flap Trench Coat — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2325,7 +4581,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 93,
-    "createdAt": "2026-08-24T10:00:00Z"
+    "createdAt": "2026-08-24T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Basalt Black",
+        "value": "#1C1C1D",
+        "hex": "#1C1C1D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Dry Olive",
+        "value": "#464A3E",
+        "hex": "#464A3E",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat in Dry Olive — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat in Dry Olive — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat in Dry Olive — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Double-Layer Storm Flap Trench Coat in Dry Olive — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-042",
@@ -2344,13 +4662,24 @@
     "images": [
       {
         "url": "/images/categories/trousers.webp",
-        "alt": "Tactical Cargo Trousers",
+        "alt": "Concealed Pocket Tactical Cargo Trousers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Flush Magnetic Pocket Detail",
-        "isPrimary": false
+        "url": "/images/categories/trousers-detail.webp",
+        "alt": "Concealed Pocket Tactical Cargo Trousers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/trousers-styling.webp",
+        "alt": "Concealed Pocket Tactical Cargo Trousers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/trousers-side.webp",
+        "alt": "Concealed Pocket Tactical Cargo Trousers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2396,7 +4725,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 91,
-    "createdAt": "2026-08-11T10:00:00Z"
+    "createdAt": "2026-08-11T10:00:00Z",
+    "primaryImage": "/images/categories/trousers.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Volcanic Taupe",
+        "value": "#4A453F",
+        "hex": "#4A453F",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/trousers.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/trousers-detail.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/trousers-styling.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/trousers-side.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Concealed Pocket Tactical Cargo Trousers in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-043",
@@ -2416,13 +4807,24 @@
     "images": [
       {
         "url": "/images/categories/knitwear.webp",
-        "alt": "Heavy Waffle Cardigan",
+        "alt": "Heavy Waffle Wool Cardigan — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Waffle Texture and Horn Buttons",
-        "isPrimary": false
+        "url": "/images/categories/knitwear-detail.webp",
+        "alt": "Heavy Waffle Wool Cardigan — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/knitwear-styling.webp",
+        "alt": "Heavy Waffle Wool Cardigan — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/knitwear-side.webp",
+        "alt": "Heavy Waffle Wool Cardigan — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2468,7 +4870,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 86,
-    "createdAt": "2026-06-08T10:00:00Z"
+    "createdAt": "2026-06-08T10:00:00Z",
+    "primaryImage": "/images/categories/knitwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Oatmeal",
+        "value": "#D9D2C5",
+        "hex": "#D9D2C5",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear.webp",
+            "alt": "Heavy Waffle Wool Cardigan — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-detail.webp",
+            "alt": "Heavy Waffle Wool Cardigan — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-styling.webp",
+            "alt": "Heavy Waffle Wool Cardigan — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-side.webp",
+            "alt": "Heavy Waffle Wool Cardigan — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Heavy Waffle Wool Cardigan in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Heavy Waffle Wool Cardigan in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Heavy Waffle Wool Cardigan in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Heavy Waffle Wool Cardigan in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-044",
@@ -2488,13 +4952,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Hourglass Architectural Blazer",
+        "alt": "Hourglass Architectural Wool Blazer — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Hourglass Waist and Lapel Profile",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Hourglass Architectural Wool Blazer — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Hourglass Architectural Wool Blazer — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Hourglass Architectural Wool Blazer — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2536,7 +5011,40 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 97,
-    "createdAt": "2026-08-27T10:00:00Z"
+    "createdAt": "2026-08-27T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/categories/outerwear-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Hourglass Architectural Wool Blazer — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Hourglass Architectural Wool Blazer — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Hourglass Architectural Wool Blazer — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Hourglass Architectural Wool Blazer — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-045",
@@ -2557,13 +5065,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Accordion Pleated Midi Dress",
+        "alt": "Sunburst Accordion Pleated Midi Dress — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Sunburst Pleat Motion",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Sunburst Accordion Pleated Midi Dress — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Sunburst Accordion Pleated Midi Dress — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Sunburst Accordion Pleated Midi Dress — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2605,7 +5124,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 89,
-    "createdAt": "2026-06-18T10:00:00Z"
+    "createdAt": "2026-06-18T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Raw Basalt",
+        "value": "#29292B",
+        "hex": "#29292B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ivory",
+        "value": "#EBE8DF",
+        "hex": "#EBE8DF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-046",
@@ -2624,13 +5205,24 @@
     "images": [
       {
         "url": "/images/categories/bags.webp",
-        "alt": "Oversized Leather Tote",
+        "alt": "Architectural Oversized Leather Tote — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Tote Handle Arch Detail",
-        "isPrimary": false
+        "url": "/images/categories/bags-detail.webp",
+        "alt": "Architectural Oversized Leather Tote — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/bags-styling.webp",
+        "alt": "Architectural Oversized Leather Tote — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/bags-side.webp",
+        "alt": "Architectural Oversized Leather Tote — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2665,7 +5257,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 95,
-    "createdAt": "2026-08-23T10:00:00Z"
+    "createdAt": "2026-08-23T10:00:00Z",
+    "primaryImage": "/images/categories/bags.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/bags.webp",
+            "alt": "Architectural Oversized Leather Tote — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/bags-detail.webp",
+            "alt": "Architectural Oversized Leather Tote — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/bags-styling.webp",
+            "alt": "Architectural Oversized Leather Tote — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/bags-side.webp",
+            "alt": "Architectural Oversized Leather Tote — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Cognac",
+        "value": "#432A1B",
+        "hex": "#432A1B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Architectural Oversized Leather Tote in Cognac — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Architectural Oversized Leather Tote in Cognac — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Architectural Oversized Leather Tote in Cognac — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Architectural Oversized Leather Tote in Cognac — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-047",
@@ -2684,13 +5338,24 @@
     "images": [
       {
         "url": "/images/categories/footwear.webp",
-        "alt": "Patent Slingback Pumps",
+        "alt": "Square-Toe Patent Slingback Pumps — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Slingback Heel and Square Toe",
-        "isPrimary": false
+        "url": "/images/categories/footwear-detail.webp",
+        "alt": "Square-Toe Patent Slingback Pumps — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/footwear-styling.webp",
+        "alt": "Square-Toe Patent Slingback Pumps — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/footwear-side.webp",
+        "alt": "Square-Toe Patent Slingback Pumps — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2740,7 +5405,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 91,
-    "createdAt": "2026-07-25T10:00:00Z"
+    "createdAt": "2026-07-25T10:00:00Z",
+    "primaryImage": "/images/categories/footwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Mirror Noir",
+        "value": "#0A0A0A",
+        "hex": "#0A0A0A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/footwear.webp",
+            "alt": "Square-Toe Patent Slingback Pumps — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/footwear-detail.webp",
+            "alt": "Square-Toe Patent Slingback Pumps — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/footwear-styling.webp",
+            "alt": "Square-Toe Patent Slingback Pumps — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/footwear-side.webp",
+            "alt": "Square-Toe Patent Slingback Pumps — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Oxblood",
+        "value": "#3A171B",
+        "hex": "#3A171B",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Square-Toe Patent Slingback Pumps in Oxblood — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Square-Toe Patent Slingback Pumps in Oxblood — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Square-Toe Patent Slingback Pumps in Oxblood — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Square-Toe Patent Slingback Pumps in Oxblood — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-048",
@@ -2759,13 +5486,24 @@
     "images": [
       {
         "url": "/images/categories/accessories.webp",
-        "alt": "Silk Twill Carre Scarf",
+        "alt": "Hand-Rolled 90cm Silk Twill Carre — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Hand-Rolled Edge Detail",
-        "isPrimary": false
+        "url": "/images/categories/accessories-detail.webp",
+        "alt": "Hand-Rolled 90cm Silk Twill Carre — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/accessories-styling.webp",
+        "alt": "Hand-Rolled 90cm Silk Twill Carre — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/accessories-side.webp",
+        "alt": "Hand-Rolled 90cm Silk Twill Carre — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2794,7 +5532,40 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 90,
-    "createdAt": "2026-08-19T10:00:00Z"
+    "createdAt": "2026-08-19T10:00:00Z",
+    "primaryImage": "/images/categories/accessories.webp",
+    "hoverImage": "/images/categories/accessories-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Monochrome Print",
+        "value": "#222222",
+        "hex": "#222222",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/accessories.webp",
+            "alt": "Hand-Rolled 90cm Silk Twill Carre — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/accessories-detail.webp",
+            "alt": "Hand-Rolled 90cm Silk Twill Carre — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/accessories-styling.webp",
+            "alt": "Hand-Rolled 90cm Silk Twill Carre — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/accessories-side.webp",
+            "alt": "Hand-Rolled 90cm Silk Twill Carre — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-051",
@@ -2813,13 +5584,24 @@
     "images": [
       {
         "url": "/images/categories/shirts.webp",
-        "alt": "Band-Collar Raw Linen Shirt",
+        "alt": "Band-Collar Raw Linen Shirt — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Linen Band Collar Detail",
-        "isPrimary": false
+        "url": "/images/categories/shirts-detail.webp",
+        "alt": "Band-Collar Raw Linen Shirt — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/shirts-styling.webp",
+        "alt": "Band-Collar Raw Linen Shirt — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/shirts-side.webp",
+        "alt": "Band-Collar Raw Linen Shirt — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2865,7 +5647,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 89,
-    "createdAt": "2026-07-04T10:00:00Z"
+    "createdAt": "2026-07-04T10:00:00Z",
+    "primaryImage": "/images/categories/shirts.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Natural Ecru",
+        "value": "#E6DFD3",
+        "hex": "#E6DFD3",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shirts.webp",
+            "alt": "Band-Collar Raw Linen Shirt — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shirts-detail.webp",
+            "alt": "Band-Collar Raw Linen Shirt — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shirts-styling.webp",
+            "alt": "Band-Collar Raw Linen Shirt — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shirts-side.webp",
+            "alt": "Band-Collar Raw Linen Shirt — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Washed Noir",
+        "value": "#222222",
+        "hex": "#222222",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Band-Collar Raw Linen Shirt in Washed Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Band-Collar Raw Linen Shirt in Washed Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Band-Collar Raw Linen Shirt in Washed Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Band-Collar Raw Linen Shirt in Washed Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-052",
@@ -2884,13 +5728,24 @@
     "images": [
       {
         "url": "/images/categories/shirts.webp",
-        "alt": "Ribbed Silk Tank Top",
+        "alt": "Ribbed Mulberry Silk Tank Top — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Silk Rib Texture and Neckline",
-        "isPrimary": false
+        "url": "/images/categories/shirts-detail.webp",
+        "alt": "Ribbed Mulberry Silk Tank Top — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/shirts-styling.webp",
+        "alt": "Ribbed Mulberry Silk Tank Top — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/shirts-side.webp",
+        "alt": "Ribbed Mulberry Silk Tank Top — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -2942,7 +5797,98 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 94,
-    "createdAt": "2026-07-16T10:00:00Z"
+    "createdAt": "2026-07-16T10:00:00Z",
+    "primaryImage": "/images/categories/shirts.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Chalk",
+        "value": "#F3F1EC",
+        "hex": "#F3F1EC",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shirts.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shirts-detail.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shirts-styling.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shirts-side.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Basalt",
+        "value": "#3A3A3D",
+        "hex": "#3A3A3D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shirts-basalt.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Basalt — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shirts-basalt-detail.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Basalt — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shirts-basalt-styling.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Basalt — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shirts-basalt-side.webp",
+            "alt": "Ribbed Mulberry Silk Tank Top in Basalt — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-053",
@@ -2961,13 +5907,24 @@
     "images": [
       {
         "url": "/images/categories/footwear.webp",
-        "alt": "Cordovan Chunky Derby Shoes",
+        "alt": "Cordovan Leather Chunky Derby Shoes — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Derby Sole Welt and Eyelets",
-        "isPrimary": false
+        "url": "/images/categories/footwear-detail.webp",
+        "alt": "Cordovan Leather Chunky Derby Shoes — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/footwear-styling.webp",
+        "alt": "Cordovan Leather Chunky Derby Shoes — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/footwear-side.webp",
+        "alt": "Cordovan Leather Chunky Derby Shoes — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3013,7 +5970,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 95,
-    "createdAt": "2026-08-28T10:00:00Z"
+    "createdAt": "2026-08-28T10:00:00Z",
+    "primaryImage": "/images/categories/footwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Dark Burgundy",
+        "value": "#2B1418",
+        "hex": "#2B1418",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/footwear.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/footwear-detail.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/footwear-styling.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/footwear-side.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Cordovan Leather Chunky Derby Shoes in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-054",
@@ -3032,13 +6051,24 @@
     "images": [
       {
         "url": "/images/categories/knitwear.webp",
-        "alt": "Fine-Gauge Cashmere Cardigan",
+        "alt": "Fine-Gauge Cashmere Knit Cardigan — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Cashmere Button and Placket",
-        "isPrimary": false
+        "url": "/images/categories/knitwear-detail.webp",
+        "alt": "Fine-Gauge Cashmere Knit Cardigan — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/knitwear-styling.webp",
+        "alt": "Fine-Gauge Cashmere Knit Cardigan — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/knitwear-side.webp",
+        "alt": "Fine-Gauge Cashmere Knit Cardigan — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3084,7 +6114,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 92,
-    "createdAt": "2026-08-21T10:00:00Z"
+    "createdAt": "2026-08-21T10:00:00Z",
+    "primaryImage": "/images/categories/knitwear.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-detail.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-styling.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-side.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Warm Camel",
+        "value": "#9E7A53",
+        "hex": "#9E7A53",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan in Warm Camel — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan in Warm Camel — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan in Warm Camel — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Fine-Gauge Cashmere Knit Cardigan in Warm Camel — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-055",
@@ -3103,13 +6195,24 @@
     "images": [
       {
         "url": "/images/categories/accessories.webp",
-        "alt": "Deerskin Dress Gloves",
+        "alt": "Cashmere-Lined Deerskin Dress Gloves — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Glove Stitching Detail",
-        "isPrimary": false
+        "url": "/images/categories/accessories-detail.webp",
+        "alt": "Cashmere-Lined Deerskin Dress Gloves — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/accessories-styling.webp",
+        "alt": "Cashmere-Lined Deerskin Dress Gloves — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/accessories-side.webp",
+        "alt": "Cashmere-Lined Deerskin Dress Gloves — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3151,7 +6254,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 86,
-    "createdAt": "2026-07-28T10:00:00Z"
+    "createdAt": "2026-07-28T10:00:00Z",
+    "primaryImage": "/images/categories/accessories.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/accessories.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/accessories-detail.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/accessories-styling.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/accessories-side.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Dark Havana",
+        "value": "#352219",
+        "hex": "#352219",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves in Dark Havana — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves in Dark Havana — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves in Dark Havana — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Cashmere-Lined Deerskin Dress Gloves in Dark Havana — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-056",
@@ -3170,13 +6335,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Wool Wrap Midi Dress",
+        "alt": "Architectural Virgin Wool Wrap Midi Dress — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Wrap Closure and Lapel",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Architectural Virgin Wool Wrap Midi Dress — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Architectural Virgin Wool Wrap Midi Dress — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Architectural Virgin Wool Wrap Midi Dress — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3213,7 +6389,40 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 93,
-    "createdAt": "2026-08-25T10:00:00Z"
+    "createdAt": "2026-08-25T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/categories/outerwear-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Architectural Virgin Wool Wrap Midi Dress — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Architectural Virgin Wool Wrap Midi Dress — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Architectural Virgin Wool Wrap Midi Dress — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Architectural Virgin Wool Wrap Midi Dress — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-057",
@@ -3233,13 +6442,24 @@
     "images": [
       {
         "url": "/images/categories/polos.webp",
-        "alt": "Striped Open Collar Polo",
+        "alt": "Silk-Cotton Striped Open Collar Polo — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Stripe Jacquard Detail",
-        "isPrimary": false
+        "url": "/images/categories/polos-detail.webp",
+        "alt": "Silk-Cotton Striped Open Collar Polo — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/polos-styling.webp",
+        "alt": "Silk-Cotton Striped Open Collar Polo — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/polos-side.webp",
+        "alt": "Silk-Cotton Striped Open Collar Polo — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3280,7 +6500,40 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 87,
-    "createdAt": "2026-06-14T10:00:00Z"
+    "createdAt": "2026-06-14T10:00:00Z",
+    "primaryImage": "/images/categories/polos.webp",
+    "hoverImage": "/images/categories/polos-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Noir & Chalk",
+        "value": "#1F1F1F",
+        "hex": "#1F1F1F",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/polos.webp",
+            "alt": "Silk-Cotton Striped Open Collar Polo — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/polos-detail.webp",
+            "alt": "Silk-Cotton Striped Open Collar Polo — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/polos-styling.webp",
+            "alt": "Silk-Cotton Striped Open Collar Polo — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/polos-side.webp",
+            "alt": "Silk-Cotton Striped Open Collar Polo — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-058",
@@ -3299,13 +6552,24 @@
     "images": [
       {
         "url": "/images/categories/bags.webp",
-        "alt": "Curved Hobo Bag",
+        "alt": "Sculpted Curved Hobo Bag — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Hobo Crescent Curve",
-        "isPrimary": false
+        "url": "/images/categories/bags-detail.webp",
+        "alt": "Sculpted Curved Hobo Bag — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/bags-styling.webp",
+        "alt": "Sculpted Curved Hobo Bag — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/bags-side.webp",
+        "alt": "Sculpted Curved Hobo Bag — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3340,7 +6604,69 @@
     "isSale": false,
     "isBestSeller": true,
     "popularityScore": 96,
-    "createdAt": "2026-08-27T10:00:00Z"
+    "createdAt": "2026-08-27T10:00:00Z",
+    "primaryImage": "/images/categories/bags.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/bags.webp",
+            "alt": "Sculpted Curved Hobo Bag — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/bags-detail.webp",
+            "alt": "Sculpted Curved Hobo Bag — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/bags-styling.webp",
+            "alt": "Sculpted Curved Hobo Bag — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/bags-side.webp",
+            "alt": "Sculpted Curved Hobo Bag — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ivory",
+        "value": "#EDE8DF",
+        "hex": "#EDE8DF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Sculpted Curved Hobo Bag in Ivory — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Sculpted Curved Hobo Bag in Ivory — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Sculpted Curved Hobo Bag in Ivory — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Sculpted Curved Hobo Bag in Ivory — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-060",
@@ -3359,13 +6685,24 @@
     "images": [
       {
         "url": "/images/categories/accessories.webp",
-        "alt": "Bold Acetate Sunglasses",
+        "alt": "Architectural Bold Acetate Sunglasses — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Sunglasses Temple and Hinge",
-        "isPrimary": false
+        "url": "/images/categories/accessories-detail.webp",
+        "alt": "Architectural Bold Acetate Sunglasses — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/accessories-styling.webp",
+        "alt": "Architectural Bold Acetate Sunglasses — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/accessories-side.webp",
+        "alt": "Architectural Bold Acetate Sunglasses — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3399,7 +6736,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 94,
-    "createdAt": "2026-08-26T10:00:00Z"
+    "createdAt": "2026-08-26T10:00:00Z",
+    "primaryImage": "/images/categories/accessories.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Polished Noir",
+        "value": "#080808",
+        "hex": "#080808",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/accessories.webp",
+            "alt": "Architectural Bold Acetate Sunglasses — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/accessories-detail.webp",
+            "alt": "Architectural Bold Acetate Sunglasses — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/accessories-styling.webp",
+            "alt": "Architectural Bold Acetate Sunglasses — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/accessories-side.webp",
+            "alt": "Architectural Bold Acetate Sunglasses — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Dark Tortoise",
+        "value": "#2E1C12",
+        "hex": "#2E1C12",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Architectural Bold Acetate Sunglasses in Dark Tortoise — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Architectural Bold Acetate Sunglasses in Dark Tortoise — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Architectural Bold Acetate Sunglasses in Dark Tortoise — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Architectural Bold Acetate Sunglasses in Dark Tortoise — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-061",
@@ -3419,13 +6818,24 @@
     "images": [
       {
         "url": "/images/categories/accessories.webp",
-        "alt": "Bifold Calfskin Card Wallet",
+        "alt": "Bifold Calfskin Atelier Card Wallet — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Wallet Interior Card Slots",
-        "isPrimary": false
+        "url": "/images/categories/accessories-detail.webp",
+        "alt": "Bifold Calfskin Atelier Card Wallet — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/accessories-styling.webp",
+        "alt": "Bifold Calfskin Atelier Card Wallet — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/accessories-side.webp",
+        "alt": "Bifold Calfskin Atelier Card Wallet — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3460,7 +6870,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 89,
-    "createdAt": "2026-06-10T10:00:00Z"
+    "createdAt": "2026-06-10T10:00:00Z",
+    "primaryImage": "/images/categories/accessories.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/accessories.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/accessories-detail.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/accessories-styling.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/accessories-side.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Espresso",
+        "value": "#2A1F1A",
+        "hex": "#2A1F1A",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet in Espresso — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet in Espresso — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet in Espresso — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Bifold Calfskin Atelier Card Wallet in Espresso — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-062",
@@ -3480,13 +6952,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Architectural Cutout Back Gown",
+        "alt": "Architectural Cutout Back Crepe Gown — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Diamond Cutout Back Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Architectural Cutout Back Crepe Gown — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Architectural Cutout Back Crepe Gown — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Architectural Cutout Back Crepe Gown — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3523,7 +7006,40 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 99,
-    "createdAt": "2026-08-30T10:00:00Z"
+    "createdAt": "2026-08-30T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/categories/outerwear-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Architectural Cutout Back Crepe Gown — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Architectural Cutout Back Crepe Gown — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Architectural Cutout Back Crepe Gown — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Architectural Cutout Back Crepe Gown — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-063",
@@ -3543,13 +7059,24 @@
     "images": [
       {
         "url": "/images/categories/shirts.webp",
-        "alt": "Silk Resort Shirt",
+        "alt": "Camp-Collar Printed Silk Resort Shirt — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Camp Collar Print Close-Up",
-        "isPrimary": false
+        "url": "/images/categories/shirts-detail.webp",
+        "alt": "Camp-Collar Printed Silk Resort Shirt — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/shirts-styling.webp",
+        "alt": "Camp-Collar Printed Silk Resort Shirt — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/shirts-side.webp",
+        "alt": "Camp-Collar Printed Silk Resort Shirt — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3591,7 +7118,40 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 88,
-    "createdAt": "2026-06-22T10:00:00Z"
+    "createdAt": "2026-06-22T10:00:00Z",
+    "primaryImage": "/images/categories/shirts.webp",
+    "hoverImage": "/images/categories/shirts-detail.webp",
+    "colorVariants": [
+      {
+        "name": "Basalt Marble",
+        "value": "#2B2B2D",
+        "hex": "#2B2B2D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/shirts.webp",
+            "alt": "Camp-Collar Printed Silk Resort Shirt — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/shirts-detail.webp",
+            "alt": "Camp-Collar Printed Silk Resort Shirt — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/shirts-styling.webp",
+            "alt": "Camp-Collar Printed Silk Resort Shirt — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/shirts-side.webp",
+            "alt": "Camp-Collar Printed Silk Resort Shirt — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-w-064",
@@ -3612,13 +7172,24 @@
     "images": [
       {
         "url": "/images/categories/trousers.webp",
-        "alt": "Wide-Leg Silk Crepe Trousers",
+        "alt": "Wide-Leg Fluid Silk Crepe Trousers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion.webp",
-        "alt": "Silk Trousers Drape and Break",
-        "isPrimary": false
+        "url": "/images/categories/trousers-detail.webp",
+        "alt": "Wide-Leg Fluid Silk Crepe Trousers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/trousers-styling.webp",
+        "alt": "Wide-Leg Fluid Silk Crepe Trousers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/trousers-side.webp",
+        "alt": "Wide-Leg Fluid Silk Crepe Trousers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3661,7 +7232,69 @@
     "isNewArrival": false,
     "isSale": true,
     "popularityScore": 92,
-    "createdAt": "2026-06-30T10:00:00Z"
+    "createdAt": "2026-06-30T10:00:00Z",
+    "primaryImage": "/images/categories/trousers.webp",
+    "hoverImage": "/images/hero-fashion.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/trousers.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/trousers-detail.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/trousers-styling.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/trousers-side.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ivory",
+        "value": "#EAE7DF",
+        "hex": "#EAE7DF",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-detail.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-styling.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-side.webp",
+            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-030",
@@ -3682,13 +7315,24 @@
     "images": [
       {
         "url": "/images/hero-fashion-source.webp",
-        "alt": "Minimalist Calfskin Low-Top Sneakers",
+        "alt": "Minimalist Calfskin Low-Top Sneakers — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/outerwear.webp",
-        "alt": "Minimalist Calfskin Sneakers Profile",
-        "isPrimary": false
+        "url": "/images/categories/hero-fashion-source-detail.webp",
+        "alt": "Minimalist Calfskin Low-Top Sneakers — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/hero-fashion-source-styling.webp",
+        "alt": "Minimalist Calfskin Low-Top Sneakers — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/hero-fashion-source-side.webp",
+        "alt": "Minimalist Calfskin Low-Top Sneakers — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3738,7 +7382,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 94,
-    "createdAt": "2026-08-20T10:00:00Z"
+    "createdAt": "2026-08-20T10:00:00Z",
+    "primaryImage": "/images/hero-fashion-source.webp",
+    "hoverImage": "/images/categories/outerwear.webp",
+    "colorVariants": [
+      {
+        "name": "Chalk White",
+        "value": "#F3F1EC",
+        "hex": "#F3F1EC",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Minimalist Calfskin Low-Top Sneakers in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-031",
@@ -3758,13 +7464,24 @@
     "images": [
       {
         "url": "/images/hero-fashion-source.webp",
-        "alt": "Architectural Suede Atelier Slides in Sand",
+        "alt": "Architectural Suede Atelier Slides — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/outerwear.webp",
-        "alt": "Architectural Suede Slides Detail",
-        "isPrimary": false
+        "url": "/images/categories/hero-fashion-source-detail.webp",
+        "alt": "Architectural Suede Atelier Slides — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/hero-fashion-source-styling.webp",
+        "alt": "Architectural Suede Atelier Slides — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/hero-fashion-source-side.webp",
+        "alt": "Architectural Suede Atelier Slides — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3810,7 +7527,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 89,
-    "createdAt": "2026-08-22T10:00:00Z"
+    "createdAt": "2026-08-22T10:00:00Z",
+    "primaryImage": "/images/hero-fashion-source.webp",
+    "hoverImage": "/images/categories/outerwear.webp",
+    "colorVariants": [
+      {
+        "name": "Sandstone",
+        "value": "#B8A898",
+        "hex": "#B8A898",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Architectural Suede Atelier Slides — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Architectural Suede Atelier Slides — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Architectural Suede Atelier Slides — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Architectural Suede Atelier Slides — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Noir",
+        "value": "#181818",
+        "hex": "#181818",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Architectural Suede Atelier Slides in Noir — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Architectural Suede Atelier Slides in Noir — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Architectural Suede Atelier Slides in Noir — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Architectural Suede Atelier Slides in Noir — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-032",
@@ -3830,13 +7609,24 @@
     "images": [
       {
         "url": "/images/hero-fashion-source.webp",
-        "alt": "Strapped Leather Atelier Sandals",
+        "alt": "Strapped Leather Atelier Sandals — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/categories/outerwear.webp",
-        "alt": "Strapped Leather Sandals Angle",
-        "isPrimary": false
+        "url": "/images/categories/hero-fashion-source-detail.webp",
+        "alt": "Strapped Leather Atelier Sandals — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/hero-fashion-source-styling.webp",
+        "alt": "Strapped Leather Atelier Sandals — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/hero-fashion-source-side.webp",
+        "alt": "Strapped Leather Atelier Sandals — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3882,7 +7672,69 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 85,
-    "createdAt": "2026-07-28T10:00:00Z"
+    "createdAt": "2026-07-28T10:00:00Z",
+    "primaryImage": "/images/hero-fashion-source.webp",
+    "hoverImage": "/images/categories/outerwear.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Strapped Leather Atelier Sandals — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Strapped Leather Atelier Sandals — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Strapped Leather Atelier Sandals — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Strapped Leather Atelier Sandals — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Chestnut",
+        "value": "#4A3222",
+        "hex": "#4A3222",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Strapped Leather Atelier Sandals in Chestnut — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Strapped Leather Atelier Sandals in Chestnut — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Strapped Leather Atelier Sandals in Chestnut — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Strapped Leather Atelier Sandals in Chestnut — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-033",
@@ -3902,13 +7754,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Heavy Wool Gabardine Atelier Cap",
+        "alt": "Heavy Wool Gabardine Atelier Cap — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Wool Gabardine Cap Hardware Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Heavy Wool Gabardine Atelier Cap — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Heavy Wool Gabardine Atelier Cap — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Heavy Wool Gabardine Atelier Cap — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -3942,7 +7805,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 92,
-    "createdAt": "2026-08-25T10:00:00Z"
+    "createdAt": "2026-08-25T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ardoise Grey",
+        "value": "#4A4D52",
+        "hex": "#4A4D52",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap in Ardoise Grey — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap in Ardoise Grey — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap in Ardoise Grey — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Heavy Wool Gabardine Atelier Cap in Ardoise Grey — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-034",
@@ -3962,13 +7887,24 @@
     "images": [
       {
         "url": "/images/categories/outerwear.webp",
-        "alt": "Matte Titanium Sculptural Sunglasses",
+        "alt": "Matte Titanium Sculptural Sunglasses — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Titanium Sunglasses Lens Detail",
-        "isPrimary": false
+        "url": "/images/categories/outerwear-detail.webp",
+        "alt": "Matte Titanium Sculptural Sunglasses — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/outerwear-styling.webp",
+        "alt": "Matte Titanium Sculptural Sunglasses — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/outerwear-side.webp",
+        "alt": "Matte Titanium Sculptural Sunglasses — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -4002,7 +7938,69 @@
     "isNewArrival": true,
     "isSale": false,
     "popularityScore": 97,
-    "createdAt": "2026-08-30T10:00:00Z"
+    "createdAt": "2026-08-30T10:00:00Z",
+    "primaryImage": "/images/categories/outerwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Matte Gunmetal",
+        "value": "#3A3B3D",
+        "hex": "#3A3B3D",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/outerwear.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/outerwear-detail.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/outerwear-styling.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/outerwear-side.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Brushed Platinum",
+        "value": "#8A8D91",
+        "hex": "#8A8D91",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses in Brushed Platinum — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses in Brushed Platinum — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses in Brushed Platinum — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Matte Titanium Sculptural Sunglasses in Brushed Platinum — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-m-035",
@@ -4021,13 +8019,24 @@
     "images": [
       {
         "url": "/images/categories/knitwear.webp",
-        "alt": "Mercerized Egyptian Cotton Ribbed Socks",
+        "alt": "Mercerized Egyptian Cotton Ribbed Socks — Full Front View",
+        "viewType": "front",
         "isPrimary": true
       },
       {
-        "url": "/images/hero-fashion-source.webp",
-        "alt": "Ribbed Socks Texture Detail",
-        "isPrimary": false
+        "url": "/images/categories/knitwear-detail.webp",
+        "alt": "Mercerized Egyptian Cotton Ribbed Socks — Tailoring & Fabric Detail",
+        "viewType": "detail"
+      },
+      {
+        "url": "/images/categories/knitwear-styling.webp",
+        "alt": "Mercerized Egyptian Cotton Ribbed Socks — Editorial Silhouette",
+        "viewType": "styling"
+      },
+      {
+        "url": "/images/categories/knitwear-side.webp",
+        "alt": "Mercerized Egyptian Cotton Ribbed Socks — Architectural Profile",
+        "viewType": "side"
       }
     ],
     "colors": [
@@ -4070,7 +8079,98 @@
     "isNewArrival": false,
     "isSale": false,
     "popularityScore": 88,
-    "createdAt": "2026-08-01T10:00:00Z"
+    "createdAt": "2026-08-01T10:00:00Z",
+    "primaryImage": "/images/categories/knitwear.webp",
+    "hoverImage": "/images/hero-fashion-source.webp",
+    "colorVariants": [
+      {
+        "name": "Noir",
+        "value": "#111111",
+        "hex": "#111111",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks — Full Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-detail.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks — Tailoring & Fabric Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-styling.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks — Editorial Silhouette",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-side.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks — Architectural Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Ivory Ecru",
+        "value": "#ECE8E1",
+        "hex": "#ECE8E1",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/hero-fashion-source.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Ivory Ecru — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-detail.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Ivory Ecru — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-styling.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Ivory Ecru — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/hero-fashion-source-side.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Ivory Ecru — Profile",
+            "viewType": "side"
+          }
+        ]
+      },
+      {
+        "name": "Espresso",
+        "value": "#2C1E18",
+        "hex": "#2C1E18",
+        "inStock": true,
+        "images": [
+          {
+            "url": "/images/categories/knitwear-espresso.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Espresso — Front View",
+            "viewType": "front",
+            "isPrimary": true
+          },
+          {
+            "url": "/images/categories/knitwear-espresso-detail.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Espresso — Detail",
+            "viewType": "detail"
+          },
+          {
+            "url": "/images/categories/knitwear-espresso-styling.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Espresso — Styling",
+            "viewType": "styling"
+          },
+          {
+            "url": "/images/categories/knitwear-espresso-side.webp",
+            "alt": "Mercerized Egyptian Cotton Ribbed Socks in Espresso — Profile",
+            "viewType": "side"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "pab-k-001",

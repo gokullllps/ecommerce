@@ -61,8 +61,8 @@
   },
   {
     "id": "med_01",
-    "filename": "hero-desktop.jpg",
-    "url": "/images/hero-desktop.jpg",
+    "filename": "homepage-hero.jpg",
+    "url": "/images/homepage-hero.jpg",
     "sizeBytes": 1420000,
     "mimeType": "image/jpeg",
     "folder": "heroes",
@@ -79,8 +79,8 @@
   },
   {
     "id": "med_02",
-    "filename": "hero-desktop-2.jpg",
-    "url": "/images/hero-desktop-2.jpg",
+    "filename": "about-hero-bg.jpg",
+    "url": "/images/about-hero-bg.jpg",
     "sizeBytes": 1350000,
     "mimeType": "image/jpeg",
     "folder": "heroes",

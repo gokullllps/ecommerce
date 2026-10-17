@@ -266,8 +266,8 @@ export default function SearchModal() {
                       }`}
                     >
                       <Image
-                        src={product.images[0].url}
-                        alt={product.images[0].alt}
+                        src={product.primaryImage || product.images?.[0]?.url || "/images/pablo-hero-cutout.webp"}
+                        alt={product.images?.[0]?.alt || product.name}
                         fill
                         sizes="(max-width: 768px) 50vw, 25vw"
                         className={`object-cover ${

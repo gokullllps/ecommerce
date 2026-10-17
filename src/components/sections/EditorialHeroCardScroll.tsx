@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
+import { scrollToCategorySection } from "@/lib/scrollUtils";
 
 export interface EditorialCategoryItem {
   id: string;
@@ -166,14 +167,13 @@ export function EditorialHeroCardScroll({
 
   const handleCardClick = (e: React.MouseEvent, catId: string) => {
     e.preventDefault();
+    e.stopPropagation();
     if (onSelectCategory) {
       const nextCategory = activeCategory === catId ? "all" : catId;
       onSelectCategory(nextCategory);
     }
-    const catalogueEl = document.getElementById("catalogue");
-    if (catalogueEl) {
-      catalogueEl.scrollIntoView({ behavior: "smooth" });
-    }
+    const norm = catId.toLowerCase().trim();
+    scrollToCategorySection(norm);
   };
 
   const handleDotClick = (targetIndex: number) => {
@@ -205,15 +205,17 @@ export function EditorialHeroCardScroll({
             </h2>
             <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 opacity-30" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full">
             {cards.map((card) => {
               const isSelected = activeCategory === card.category;
               return (
-                <a
+                <button
                   key={card.id}
-                  href={`/${gender}?category=${card.category}`}
+                  type="button"
                   onClick={(e) => handleCardClick(e, card.category)}
-                  className={`group relative block aspect-[0.78/1] overflow-hidden rounded-[20px] bg-[#181818] border transition-all duration-300 ${
+                  data-no-transition="true"
+                  aria-label={`Explore ${card.label || card.title || card.category}`}
+                  className={`shiny-card group relative block aspect-[0.78/1] overflow-hidden rounded-[20px] bg-[#181818] border transition-all duration-500 ease-out hover:-translate-y-[4px] text-left p-0 cursor-pointer select-none w-full ${
                     isSelected
                       ? "border-[#181818] ring-2 ring-[#111111] ring-offset-2 ring-offset-[#EAE8E1]"
                       : "border-[#181818]/15 hover:border-[#181818]"
@@ -222,11 +224,19 @@ export function EditorialHeroCardScroll({
                   <img
                     src={card.image}
                     alt={card.alt}
-                    className="w-full h-full object-cover block"
+                    className="w-full h-full object-cover block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                     style={{ objectPosition: card.objectPosition || "center center" }}
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 flex flex-col items-start justify-end">
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none z-10" />
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
+                    }}
+                    aria-hidden="true"
+                  />
+                  <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-20 flex flex-col items-start justify-end pointer-events-none">
                     <span className="block font-editorial text-base sm:text-lg font-normal tracking-[0.06em] uppercase text-white leading-tight">
                       {card.label || card.title || card.category}
                     </span>
@@ -234,7 +244,7 @@ export function EditorialHeroCardScroll({
                       {isSelected ? "VIEWING" : "EXPLORE"} →
                     </span>
                   </div>
-                </a>
+                </button>
               );
             })}
           </div>
@@ -249,15 +259,13 @@ export function EditorialHeroCardScroll({
       ref={outerRef}
       id={`${gender}-hero-scroll-container`}
       className="relative w-full"
-      style={{ height: "230vh" }}
+      style={{ height: "165vh" }}
     >
       {/*
-       * STICKY VIEWPORT: Pinned at 100svh across the 230vh scroll range.
+       * STICKY VIEWPORT: Pinned at 100svh across the 165vh scroll range.
        * Contains:
        *   1. Hero Visual Layer (Original Background + Animated Model + Editorial Typography)
-       *      Gradually blurs from 0px to 16px based on scroll. Everything remains intact.
-       *   2. iOS Card Stack Overlay: Category Cards stacked with 3D depth, scale, and blur
-       *      Dissolves & transitions sequentially based on continuous scroll progress.
+       *   2. iOS Card Stack Overlay: Category Cards stacked with 3D depth, scale, and smooth opacity
        */}
       <section
         id={`${gender}-hero-sticky`}
@@ -266,33 +274,31 @@ export function EditorialHeroCardScroll({
         style={{ height: "100svh", minHeight: "100svh", backgroundColor: "#11100E" }}
       >
         {/* ══════════════════════════════════════════════════════════════════
-            LAYER 1: HERO VISUAL SCENE (ORIGINAL HERO + PROGRESSIVE BLUR)
-            Z-INDEX: 0 — Blurs smoothly from 0px to 16px as user scrolls.
+            LAYER 1: HERO VISUAL SCENE (ORIGINAL HERO + PROGRESSIVE DIM)
+            Z-INDEX: 0 — Transitions smoothly as user scrolls.
         ═══════════════════════════════════════════════════════════════════ */}
         <div
           className="absolute inset-0 w-full h-full select-none overflow-hidden"
           style={{
-            filter: blurAmount > 0 ? `blur(${blurAmount}px)` : "none",
-            transform: blurAmount > 0 ? "scale(1.03)" : "none",
+            transform: blurProgress > 0 ? "scale(1.02)" : "none",
             pointerEvents: progress <= 0.05 ? "auto" : "none",
-            willChange: blurProgress > 0 && blurProgress < 1 ? "filter, transform" : "auto",
           }}
         >
           {heroNode}
 
-          {/* Subtle Darkening Overlay as Blur Advances */}
+          {/* Subtle Darkening Overlay as Scroll Advances */}
           <div
             className="absolute inset-0 pointer-events-none transition-opacity duration-200"
             style={{
-              backgroundColor: "rgba(17, 16, 14, 0.52)",
-              opacity: Math.min(1, blurProgress * 1.3),
+              backgroundColor: "rgba(17, 16, 14, 0.58)",
+              opacity: Math.min(1, blurProgress * 1.35),
             }}
             aria-hidden="true"
           />
         </div>
 
         {/* ══════════════════════════════════════════════════════════════════
-            LAYER 2: CINEMATIC iOS CARD STACK OVERLAY (Inspired by Reference Video)
+            LAYER 2: CINEMATIC iOS CARD STACK OVERLAY
             Z-INDEX: 30 — Emerges directly on top of the pinned blurred hero.
         ═══════════════════════════════════════════════════════════════════ */}
         <div
@@ -306,21 +312,21 @@ export function EditorialHeroCardScroll({
             willChange: "opacity, transform",
           }}
         >
-          {/* Header Tag */}
-          <div className="text-center mb-4 sm:mb-6 pointer-events-none">
-            <span className="block text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.36em] text-white/75 font-medium mb-1">
+          {/* Compact Header Tag */}
+          <div className="text-center mb-2 sm:mb-2.5 pointer-events-none">
+            <span className="block text-[9.5px] sm:text-[10px] font-sans uppercase tracking-[0.34em] text-white/75 font-medium mb-0.5">
               CAMPAIGN COLLECTION
             </span>
             <h2
-              className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.04em] text-white leading-tight"
+              className="font-serif text-2xl sm:text-3xl md:text-[2rem] font-normal uppercase tracking-[0.04em] text-white leading-tight"
               style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
             >
               CATEGORIES
             </h2>
           </div>
 
-          {/* The iOS Card Stack Deck */}
-          <div className="relative w-[86vw] sm:w-[380px] md:w-[420px] lg:w-[450px] aspect-[4/4.9] max-h-[580px] flex items-center justify-center">
+          {/* Compact iOS Card Stack Deck */}
+          <div className="relative w-[84vw] sm:w-[340px] md:w-[380px] lg:w-[400px] aspect-[4/4.8] max-h-[480px] sm:max-h-[510px] flex items-center justify-center">
             {cards.map((card, index) => {
               // Compute exact relative position to current discrete stage progress
               const rel = index - stageFloat;
@@ -329,31 +335,27 @@ export function EditorialHeroCardScroll({
               let scale = 1;
               let translateY = 0;
               let opacity = 1;
-              let blur = 0;
               let zIndex = 30;
 
               if (rel <= -0.01) {
                 // EXITED / DISSOLVING CARD (Transitioning up and away in front)
                 const exitProgress = Math.min(1, Math.abs(rel));
-                scale = 1.0 + exitProgress * 0.08;
-                translateY = -exitProgress * 45;
+                scale = 1.0 + exitProgress * 0.06;
+                translateY = -exitProgress * 40;
                 opacity = Math.max(0, 1.0 - exitProgress * 1.5);
-                blur = exitProgress * 12;
                 zIndex = 50 + index;
               } else if (rel < 0.99) {
                 // ACTIVE FOREGROUND CARD (Blending into full active state)
-                scale = 1.0 - rel * 0.08;
-                translateY = -rel * 28;
+                scale = 1.0 - rel * 0.07;
+                translateY = -rel * 24;
                 opacity = 1.0 - rel * 0.15;
-                blur = rel * 2.5;
                 zIndex = 40;
               } else {
                 // STACKED CARDS BEHIND (Peeking out at top with perspective depth)
                 const clampedBehind = Math.min(3, rel);
-                scale = Math.max(0.76, 1.0 - clampedBehind * 0.075);
-                translateY = -clampedBehind * 26;
+                scale = Math.max(0.78, 1.0 - clampedBehind * 0.07);
+                translateY = -clampedBehind * 22;
                 opacity = Math.max(0, 0.45 - (clampedBehind - 1) * 0.2);
-                blur = clampedBehind * 2.8;
                 zIndex = 30 - Math.round(clampedBehind * 5);
               }
 
@@ -367,17 +369,17 @@ export function EditorialHeroCardScroll({
                   style={{
                     transform: `translate3d(0, ${translateY}px, 0) scale(${scale})`,
                     opacity: Math.max(0, opacity),
-                    filter: blur > 0 ? `blur(${blur}px)` : "none",
                     zIndex,
                     pointerEvents: Math.abs(rel) < 0.45 ? "auto" : "none",
-                    willChange: "transform, opacity, filter",
+                    willChange: "transform, opacity",
                   }}
                 >
-                  <a
-                    href={`/${gender}?category=${card.category}`}
+                  <button
+                    type="button"
                     onClick={(e) => handleCardClick(e, card.category)}
+                    data-no-transition="true"
                     aria-label={`Explore ${cardTitle}`}
-                    className={`group relative block w-full h-full rounded-[26px] sm:rounded-[32px] md:rounded-[36px] overflow-hidden bg-[#181818] shadow-[0_24px_60px_-12px_rgba(0,0,0,0.85)] border transition-all duration-300 cursor-pointer select-none ${
+                    className={`shiny-card group relative block w-full h-full text-left p-0 rounded-[22px] sm:rounded-[26px] md:rounded-[30px] overflow-hidden bg-[#181818] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.85)] border transition-all duration-500 ease-out hover:-translate-y-[4px] cursor-pointer select-none ${
                       isSelected
                         ? "border-white ring-2 ring-white ring-offset-2 ring-offset-black/60"
                         : "border-white/20 group-hover:border-white/40"
@@ -387,16 +389,16 @@ export function EditorialHeroCardScroll({
                     <img
                       src={card.image}
                       alt={card.alt}
-                      className="w-full h-full object-cover block select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                      className="w-full h-full object-cover block select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                       style={{
                         objectPosition: card.objectPosition || "center center",
                       }}
-                      loading="eager"
+                      loading={index <= 1 ? "eager" : "lazy"}
                     />
 
                     {/* Top Subtle Shadow */}
                     <div
-                      className="absolute inset-x-0 top-0 h-24 pointer-events-none z-10"
+                      className="absolute inset-x-0 top-0 h-20 pointer-events-none z-10"
                       style={{
                         background:
                           "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%)",
@@ -406,7 +408,7 @@ export function EditorialHeroCardScroll({
 
                     {/* Bottom Deep Vignette */}
                     <div
-                      className="absolute inset-x-0 bottom-0 h-48 pointer-events-none z-10"
+                      className="absolute inset-x-0 bottom-0 h-44 pointer-events-none z-10"
                       style={{
                         background:
                           "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 55%, transparent 100%)",
@@ -414,15 +416,25 @@ export function EditorialHeroCardScroll({
                       aria-hidden="true"
                     />
 
+                    {/* Ambient vignette: Slightly increase bottom gradient opacity on hover */}
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-44 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
+                      }}
+                      aria-hidden="true"
+                    />
+
                     {/* Bottom Card Content: Title + Explore Pill Button */}
-                    <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7 z-20 flex flex-col items-start justify-end pointer-events-none">
-                      <span className="block font-editorial text-2xl sm:text-3xl lg:text-[2.2rem] font-normal tracking-[0.04em] uppercase text-white leading-tight mb-3 transition-transform duration-300 group-hover:-translate-y-0.5">
+                    <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-20 flex flex-col items-start justify-end pointer-events-none">
+                      <span className="block font-editorial text-2xl sm:text-[1.75rem] lg:text-[2rem] font-normal tracking-[0.04em] uppercase text-white leading-tight mb-2.5 transition-transform duration-300 group-hover:-translate-y-0.5">
                         {cardTitle}
                       </span>
 
-                      {/* Explore Pill Button (inspired by reference video) */}
+                      {/* Explore Pill Button */}
                       <div className="pointer-events-auto">
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 text-[11px] font-sans tracking-[0.22em] uppercase font-medium transition-all duration-300 ease-out shadow-lg">
+                        <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 text-[10px] font-sans tracking-[0.2em] uppercase font-medium transition-all duration-300 ease-out shadow-lg">
                           <span>{isSelected ? "VIEWING" : "EXPLORE"}</span>
                           <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                             →
@@ -430,14 +442,14 @@ export function EditorialHeroCardScroll({
                         </span>
                       </div>
                     </div>
-                  </a>
+                  </button>
                 </div>
               );
             })}
           </div>
 
-          {/* Stack Pagination Indicator Dots */}
-          <div className="mt-5 sm:mt-6 flex items-center justify-center gap-2.5 z-40">
+          {/* Compact Stack Pagination Indicator Dots */}
+          <div className="mt-2.5 sm:mt-3 flex items-center justify-center gap-1.5 z-40">
             {cards.map((card, idx) => {
               const isActive = idx === currentActiveIndex;
               const rawTitle = card.label || card.title || (card as { name?: string }).name || card.category || "";

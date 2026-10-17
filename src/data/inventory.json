@@ -1,5 +1,16 @@
 [
   {
+    "id": "inv_1792142895009_h811",
+    "productId": "pab-m-003",
+    "productName": "Architectural Relaxed Trousers",
+    "previousQuantity": 32,
+    "newQuantity": 31,
+    "adjustment": -1,
+    "reason": "Demo Order Purchase by Gokul Prasath",
+    "adminName": "Demo Concierge",
+    "timestamp": "2026-10-16T09:28:15.009Z"
+  },
+  {
     "id": "inv_1791875773307_p2go",
     "productId": "pab-k-001",
     "productName": "Junior Cloud-Soft Cashmere Hoodie",

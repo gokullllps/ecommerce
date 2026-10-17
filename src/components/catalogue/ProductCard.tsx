@@ -46,13 +46,13 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
   const primaryImage =
     activeVariant?.images?.[0]?.url ||
     product.primaryImage ||
-    product.images?.[0]?.url ||
+    (typeof product.images?.[0] === "string" ? product.images[0] : product.images?.[0]?.url) ||
     "/images/pablo-hero-cutout.webp";
 
   const secondaryImage =
     product.hoverImage ||
     activeVariant?.images?.[1]?.url ||
-    product.images?.[1]?.url ||
+    (typeof product.images?.[1] === "string" ? product.images[1] : product.images?.[1]?.url) ||
     primaryImage;
 
   const [imgSrc, setImgSrc] = useState(primaryImage);
@@ -114,6 +114,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
       >
         <Link
           href={`/product/${product.slug}`}
+          data-no-transition="true"
           className="block relative w-full h-full cursor-pointer focus-visible:outline-2 focus-visible:outline-[#181818] active:scale-[0.98] transition-transform duration-200"
           aria-label={`View details for ${product.name}`}
         >
@@ -201,6 +202,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           <div className="flex sm:hidden flex-col justify-between flex-1 space-y-1">
             <Link
               href={`/product/${product.slug}`}
+              data-no-transition="true"
               className="block text-xs font-sans font-black tracking-tight text-[#181818] line-clamp-2 leading-tight"
             >
               {product.name}
@@ -246,6 +248,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           {/* Product Name */}
           <Link
             href={`/product/${product.slug}`}
+            data-no-transition="true"
             className={`block text-sm sm:text-[15px] ${
               isKids
                 ? "font-sans font-bold tracking-tight text-[#181818]"

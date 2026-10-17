@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { scrollToCategorySection } from "@/lib/scrollUtils";
 
 export interface WomenCategorySectionProps {
   currentDepartment?: string;
@@ -21,9 +22,17 @@ export const WOMEN_CATEGORY_CARDS = [
     id: "bottoms",
     title: "BOTTOMS",
     label: "BOTTOMS",
-    category: "trousers",
+    category: "bottoms",
     image: "/images/categories/women-category-bottoms.webp",
     alt: "Women's Wide-Leg & Tailored Bottoms",
+  },
+  {
+    id: "outerwear",
+    title: "OUTERWEAR",
+    label: "OUTERWEAR",
+    category: "outerwear",
+    image: "/images/categories/outerwear.webp",
+    alt: "Women's Sculptural Outerwear and Coats",
   },
   {
     id: "footwear",
@@ -51,14 +60,13 @@ export default function WomenCategorySection({
 }: WomenCategorySectionProps) {
   const handleClick = (e: React.MouseEvent, catId: string) => {
     e.preventDefault();
+    e.stopPropagation();
     if (onSelectCategory) {
       const nextCategory = activeCategory === catId ? "all" : catId;
       onSelectCategory(nextCategory);
     }
-    const catalogueEl = document.getElementById("catalogue");
-    if (catalogueEl) {
-      catalogueEl.scrollIntoView({ behavior: "smooth" });
-    }
+    const norm = catId.toLowerCase().trim();
+    scrollToCategorySection(norm);
   };
 
   return (
@@ -74,16 +82,18 @@ export default function WomenCategorySection({
         <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 sm:mt-3 opacity-30" />
       </div>
 
-      {/* ─── CATEGORY DISCOVERY CARDS (2x2 on Mobile, 4x1 on Desktop) ─── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4 mb-5 sm:mb-7">
+      {/* ─── CATEGORY DISCOVERY CARDS ─── */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-4 mb-5 sm:mb-7">
         {WOMEN_CATEGORY_CARDS.map((card) => {
           const isSelected = activeCategory === card.category;
           return (
-            <a
+            <button
               key={card.id}
-              href={`/women?category=${card.category}`}
+              type="button"
               onClick={(e) => handleClick(e, card.category)}
-              className={`group relative block aspect-[0.78/1] overflow-hidden bg-[#181818] border transition-all duration-300 cursor-pointer select-none ${
+              data-no-transition="true"
+              aria-label={`Explore ${card.label}`}
+              className={`shiny-card group relative block aspect-[0.78/1] overflow-hidden bg-[#181818] border transition-all duration-300 cursor-pointer select-none text-left p-0 w-full ${
                 isSelected
                   ? "border-[#181818] ring-2 ring-[#111111] ring-offset-2 ring-offset-[#EAE8E1]"
                   : "border-[#181818]/15 hover:border-[#181818]"
@@ -93,7 +103,7 @@ export default function WomenCategorySection({
               <img
                 src={card.image}
                 alt={card.alt}
-                className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="w-full h-full object-cover block transition-all duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] group-hover:contrast-[1.05]"
                 style={{
                   objectPosition: "center center",
                   filter: "none",
@@ -112,7 +122,13 @@ export default function WomenCategorySection({
 
               {/* Subtle bottom gradient only behind text for legibility without darkening subject */}
               <div
-                className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"
+                className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none z-10"
+                aria-hidden="true"
+              />
+
+              {/* Hover enhanced bottom gradient to elevate text readability */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-[850ms] ease-out"
                 aria-hidden="true"
               />
 
@@ -126,7 +142,7 @@ export default function WomenCategorySection({
                   <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </span>
               </div>
-            </a>
+            </button>
           );
         })}
       </div>

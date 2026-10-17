@@ -111,7 +111,10 @@ function MenCatalogueGridInner({
 
       {/* Active Category Header when a specific category is active */}
       {activeCategory && activeCategory !== "all" ? (
-        <div className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4">
+        <div
+          id={`category-heading-${activeCategory}`}
+          className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4 scroll-mt-24 sm:scroll-mt-28"
+        >
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111] uppercase">
             {activeCategory.replace("-", " ")}
           </h1>
@@ -120,7 +123,7 @@ function MenCatalogueGridInner({
           </p>
         </div>
       ) : title ? (
-        <div className="text-center max-w-3xl mx-auto pt-2 pb-2 mb-4">
+        <div id="category-heading" className="text-center max-w-3xl mx-auto pt-2 pb-2 mb-4 scroll-mt-24 sm:scroll-mt-28">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111]">
             {title}
           </h1>

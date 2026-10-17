@@ -1,5 +1,14 @@
 [
   {
+    "id": "log_1792142895031_7ehm",
+    "adminName": "Demo Customer",
+    "adminEmail": "admin@pablo-luxury.com",
+    "action": "ORDER_CREATED",
+    "resource": "Order #PAB-2026-61669",
+    "details": "Created demo order for Gokul Prasath (1 items, total ₹2,262)",
+    "timestamp": "2026-10-16T09:28:15.031Z"
+  },
+  {
     "id": "log_1791875773332_e3w8",
     "adminName": "Demo Customer",
     "adminEmail": "admin@pablo-luxury.com",

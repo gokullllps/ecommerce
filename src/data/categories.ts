@@ -156,6 +156,15 @@ export const MEN_EDITORIAL_CATEGORIES: MenEditorialCategory[] = [
     objectPosition: "center center",
   },
   {
+    id: "outerwear",
+    label: "OUTERWEAR",
+    route: "/men?category=outerwear",
+    category: "outerwear",
+    image: "/images/categories/outerwear.webp",
+    alt: "Men's Luxury Outerwear and Tailored Overcoats",
+    objectPosition: "center center",
+  },
+  {
     id: "footwear",
     label: "FOOTWEAR",
     route: "/men?category=footwear",

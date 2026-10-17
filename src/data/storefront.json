@@ -21,8 +21,8 @@
       "description": "Unstructured tailoring sculpted from bespoke bi-color solaros and double-faced zibeline cashmere.",
       "ctaText": "EXPLORE THE COLLECTION",
       "ctaLink": "/collections/aw26",
-      "desktopImage": "/images/hero-desktop.jpg",
-      "mobileImage": "/images/hero-mobile.jpg",
+      "desktopImage": "/images/homepage-hero.jpg",
+      "mobileImage": "/images/homepage-hero.png",
       "alignment": "left",
       "isActive": true,
       "order": 1
@@ -34,7 +34,7 @@
       "description": "Hand-finished trench coats and shearling field blousons made to withstand generations.",
       "ctaText": "DISCOVER OUTERWEAR",
       "ctaLink": "/men/outerwear",
-      "desktopImage": "/images/hero-desktop-2.jpg",
+      "desktopImage": "/images/about-hero-bg.jpg",
       "alignment": "center",
       "isActive": true,
       "order": 2

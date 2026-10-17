@@ -6,9 +6,11 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import { MEN_CATEGORIES_DATA } from "@/data/categories";
 
 export function CategoriesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const progressRef = useRef(0);
+  const targetProgressRef = useRef<number | null>(null);
   const isPausedRef = useRef(false);
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
@@ -16,22 +18,27 @@ export function CategoriesSection() {
   const hasDraggedRef = useRef(false);
   const animFrameIdRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
+  const isVisibleRef = useRef(false);
 
+  const [hasEntered, setHasEntered] = useState(false);
+  const [activeDot, setActiveDot] = useState(0);
+  const lastDotRef = useRef(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [dimensions, setDimensions] = useState({
-    cardWidth: 305,
+    cardWidth: 310,
     cardHeight: 460,
-    cardSpacing: 275,
-    arcDrop: 28,
-    rotZ: 6.2,
-    rotY: 9.5,
+    cardSpacing: 280,
+    arcDrop: 24,
+    rotZ: 5.4,
+    rotY: 8.2,
   });
 
   // 24 cards pool (12 duplicated twice) for mathematically seamless, infinite looping
   const duplicatedCategories = [...MEN_CATEGORIES_DATA, ...MEN_CATEGORIES_DATA];
   const N = duplicatedCategories.length;
+  const numUnique = MEN_CATEGORIES_DATA.length;
 
-  // Track responsive dimensions
+  // Track responsive dimensions (restoring substantial, visually grand editorial scale)
   const updateDimensions = useCallback(() => {
     if (typeof window === "undefined") return;
     const w = window.innerWidth;
@@ -40,27 +47,27 @@ export function CategoriesSection() {
         cardWidth: 220,
         cardHeight: 330,
         cardSpacing: 185,
-        arcDrop: 18,
-        rotZ: 4.8,
-        rotY: 6.5,
+        arcDrop: 14,
+        rotZ: 3.8,
+        rotY: 5.6,
       });
     } else if (w < 1024) {
       setDimensions({
         cardWidth: 260,
         cardHeight: 390,
-        cardSpacing: 225,
-        arcDrop: 24,
-        rotZ: 5.6,
-        rotY: 8.0,
+        cardSpacing: 230,
+        arcDrop: 18,
+        rotZ: 4.6,
+        rotY: 7.0,
       });
     } else {
       setDimensions({
-        cardWidth: 305,
+        cardWidth: 310,
         cardHeight: 460,
-        cardSpacing: 275,
-        arcDrop: 28,
-        rotZ: 6.2,
-        rotY: 9.5,
+        cardSpacing: 280,
+        arcDrop: 24,
+        rotZ: 5.4,
+        rotY: 8.2,
       });
     }
   }, []);
@@ -81,7 +88,7 @@ export function CategoriesSection() {
     };
   }, [updateDimensions]);
 
-  // Direct DOM render function for silky 120fps continuous curved track animation
+  // Direct GPU DOM render function: purely transform, opacity, and zIndex for 120fps smoothness
   const renderCards = useCallback(
     (currentP: number) => {
       const { cardSpacing, arcDrop, rotZ, rotY } = dimensions;
@@ -97,8 +104,8 @@ export function CategoriesSection() {
 
         const absU = Math.abs(u);
 
-        // Cull cards far outside view
-        if (absU > 4.4) {
+        // Cull cards outside view bounds
+        if (absU > 3.8) {
           el.style.opacity = "0";
           el.style.pointerEvents = "none";
           el.style.visibility = "hidden";
@@ -107,53 +114,97 @@ export function CategoriesSection() {
 
         el.style.visibility = "visible";
 
-        // Curved 3D Arc Math matching the reference video (jitter.video Orbit)
+        // Curved 3D Arc Math
         const translateX = u * cardSpacing;
         const translateY = Math.pow(absU, 1.45) * arcDrop;
         const rotateZ = u * rotZ;
         const rotateY = -u * rotY;
-        const scale = Math.max(0.68, 1 - absU * 0.08);
+        const scale = Math.max(0.70, 1 - absU * 0.075);
         const zIndex = Math.round(50 - absU * 8);
 
-        // Subtle depth blur & smooth edge fadeout
-        const blur = absU > 1.3 ? Math.min(6, (absU - 1.3) * 1.6) : 0;
         const opacity =
-          absU > 2.8 ? Math.max(0, Math.min(1, 1 - (absU - 2.8) * 0.75)) : 1;
+          absU > 2.6 ? Math.max(0, Math.min(1, 1 - (absU - 2.6) * 0.85)) : 1;
 
         el.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateZ(${rotateZ}deg) rotateY(${rotateY}deg) scale(${scale})`;
         el.style.zIndex = zIndex.toString();
         el.style.opacity = opacity.toString();
-        el.style.filter = blur > 0.1 ? `blur(${blur}px)` : "none";
-        el.style.pointerEvents = absU < 2.5 ? "auto" : "none";
+        el.style.pointerEvents = absU < 2.0 ? "auto" : "none";
+      }
+
+      // Sync active dot without re-render thrashing
+      const currentDot = ((Math.round(currentP) % numUnique) + numUnique) % numUnique;
+      if (currentDot !== lastDotRef.current) {
+        lastDotRef.current = currentDot;
+        setActiveDot(currentDot);
       }
     },
-    [N, dimensions]
+    [N, numUnique, dimensions]
   );
 
-  // Continuous animation loop
+  // IntersectionObserver: Trigger smooth entrance once visible and run rAF only when in view
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      isVisibleRef.current = true;
+      setHasEntered(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          setHasEntered(true);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Continuous animation loop (with silky smooth spring/decay interpolation for dot clicks)
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Speed: 0.32 card steps per second (luxurious, calm ~3.1s per category glide)
-    const speed = 0.32;
+    // Speed: 0.28 card steps per second (calm, luxurious glide)
+    const speed = 0.28;
 
     const tick = (now: number) => {
       if (lastTimeRef.current === null) {
         lastTimeRef.current = now;
       }
-      const deltaSec = (now - lastTimeRef.current) / 1000;
+      const deltaSec = Math.min((now - lastTimeRef.current) / 1000, 0.1);
       lastTimeRef.current = now;
 
-      if (!isPausedRef.current && !isDraggingRef.current) {
-        // Advance continuously
+      // Handle smooth animated glide when user clicks a dot
+      if (targetProgressRef.current !== null) {
+        const diff = targetProgressRef.current - progressRef.current;
+        if (Math.abs(diff) < 0.005) {
+          progressRef.current = ((targetProgressRef.current % N) + N) % N;
+          targetProgressRef.current = null;
+          isPausedRef.current = false;
+        } else {
+          // Smooth exponential ease-out glide
+          const step = diff * Math.min(1, deltaSec * 7.5);
+          progressRef.current = progressRef.current + step;
+        }
+        renderCards(progressRef.current);
+      } else if (isVisibleRef.current && !isPausedRef.current && !isDraggingRef.current) {
         progressRef.current = (progressRef.current + speed * deltaSec) % N;
         if (progressRef.current < 0) progressRef.current += N;
+        renderCards(progressRef.current);
       }
 
-      renderCards(progressRef.current);
       animFrameIdRef.current = requestAnimationFrame(tick);
     };
 
+    // Initial render
+    renderCards(progressRef.current);
     animFrameIdRef.current = requestAnimationFrame(tick);
 
     return () => {
@@ -167,11 +218,13 @@ export function CategoriesSection() {
 
   // Interaction Handlers (Hover & Focus Pause / Resume)
   const handleMouseEnter = () => {
-    isPausedRef.current = true;
+    if (targetProgressRef.current === null) {
+      isPausedRef.current = true;
+    }
   };
 
   const handleMouseLeave = () => {
-    if (!isDraggingRef.current) {
+    if (!isDraggingRef.current && targetProgressRef.current === null) {
       isPausedRef.current = false;
     }
   };
@@ -184,8 +237,9 @@ export function CategoriesSection() {
     isPausedRef.current = false;
   };
 
-  // Touch & Pointer Drag Handlers (Smooth manual gliding)
+  // Touch & Pointer Drag Handlers
   const handlePointerDown = (e: React.PointerEvent) => {
+    targetProgressRef.current = null;
     isDraggingRef.current = true;
     startXRef.current = e.clientX;
     lastXRef.current = e.clientX;
@@ -201,7 +255,6 @@ export function CategoriesSection() {
       hasDraggedRef.current = true;
     }
 
-    // Move progress in proportion to drag
     progressRef.current =
       (progressRef.current - deltaX / dimensions.cardSpacing) % N;
     if (progressRef.current < 0) progressRef.current += N;
@@ -210,19 +263,29 @@ export function CategoriesSection() {
 
   const handlePointerUp = () => {
     isDraggingRef.current = false;
-    // Allow animation to resume if pointer is not over container
+  };
+
+  // Smooth next/previous dot glide navigation
+  const handleDotClick = (targetIndex: number) => {
+    const curP = progressRef.current;
+    const currentBase = Math.floor(curP / numUnique) * numUnique;
+    let targetP = currentBase + targetIndex;
+    if (targetP - curP > numUnique / 2) targetP -= numUnique;
+    if (targetP - curP < -numUnique / 2) targetP += numUnique;
+    targetProgressRef.current = targetP;
   };
 
   // Static fallback if prefers-reduced-motion is active
   if (prefersReducedMotion) {
     return (
       <section
+        ref={sectionRef}
         id="categories"
         aria-label="PABLO Categories Showcase"
-        className="relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
+        className="relative w-full py-12 sm:py-16 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
       >
-        <div className="text-center shrink-0 px-4 mb-8 sm:mb-12">
-          <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-2.5">
+        <div className="text-center shrink-0 px-4 mb-6 sm:mb-8">
+          <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-1.5">
             Maison Portfolio · 2026
           </span>
           <h2
@@ -231,7 +294,7 @@ export function CategoriesSection() {
           >
             CATEGORIES
           </h2>
-          <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-3.5 opacity-40" />
+          <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 opacity-40" />
         </div>
 
         <div className="page-container w-full max-w-7xl mx-auto px-4">
@@ -244,16 +307,24 @@ export function CategoriesSection() {
                 <Link
                   href={category.href}
                   aria-label={`Explore ${category.name} Collection`}
-                  className="group relative block w-full h-full"
+                  className="shiny-card group relative block w-full h-full transition-all duration-500 ease-out hover:-translate-y-[4px]"
                 >
                   <Image
                     src={category.imageSrc}
                     alt={category.imageAlt}
                     fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 310px"
+                    className="object-cover object-center w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/92 via-black/45 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/92 via-black/45 to-transparent pointer-events-none z-10" />
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-44 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
+                    }}
+                    aria-hidden="true"
+                  />
                   <div className="absolute top-4 right-4 z-20 pointer-events-none">
                     <span className="text-[9px] uppercase tracking-[0.22em] text-white/50 font-medium font-sans">
                       PABLO
@@ -281,30 +352,31 @@ export function CategoriesSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="categories"
       aria-label="PABLO Categories Showcase"
-      className="relative w-full py-16 sm:py-24 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
+      className="relative w-full pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
     >
-      {/* ─── 1. SECTION HEADER ─── */}
-      <div className="text-center shrink-0 px-4 mb-8 sm:mb-12 pointer-events-none">
-        <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-2.5">
+      {/* ─── 1. ELEGANT SECTION HEADER ─── */}
+      <div className="text-center shrink-0 px-4 mb-5 sm:mb-7 pointer-events-none">
+        <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-1.5">
           Maison Portfolio · 2026
         </span>
         <h2
-          className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.22em] text-[#111111] inline-block"
+          className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.22em] text-[#111111] inline-block leading-tight"
           style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
         >
           CATEGORIES
         </h2>
-        <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-3.5 opacity-40" />
+        <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 opacity-40" />
       </div>
 
       {/* ─── 2. CINEMATIC 3D CURVED CAROUSEL STAGE ─── */}
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden flex items-center justify-center py-4 cursor-grab active:cursor-grabbing touch-pan-y"
+        className="relative w-full overflow-hidden flex items-center justify-center py-2 cursor-grab active:cursor-grabbing touch-pan-y"
         style={{
-          height: `${dimensions.cardHeight + dimensions.arcDrop * 3.5 + 40}px`,
+          height: `${dimensions.cardHeight + dimensions.arcDrop * 1.8 + 24}px`,
           perspective: "1400px",
           transformStyle: "preserve-3d",
         }}
@@ -315,29 +387,44 @@ export function CategoriesSection() {
       >
         {/* Left Edge Luxury Vignette Fade */}
         <div
-          className="absolute left-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-r from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-30"
+          className="absolute left-0 inset-y-0 w-16 sm:w-28 md:w-40 bg-gradient-to-r from-[#EAE8E1] via-[#EAE8E1]/85 to-transparent pointer-events-none z-30"
           aria-hidden="true"
         />
 
         {/* Right Edge Luxury Vignette Fade */}
         <div
-          className="absolute right-0 inset-y-0 w-16 sm:w-28 md:w-36 bg-gradient-to-l from-[#EAE8E1] via-[#EAE8E1]/80 to-transparent pointer-events-none z-30"
+          className="absolute right-0 inset-y-0 w-16 sm:w-28 md:w-40 bg-gradient-to-l from-[#EAE8E1] via-[#EAE8E1]/85 to-transparent pointer-events-none z-30"
           aria-hidden="true"
         />
 
-        {/* Center Origin Stage */}
-        <div className="relative w-full h-full flex items-start justify-center pt-2">
+        {/* Center Origin Stage: Smooth, cinematic upward glide on entrance (700-900ms cubic-bezier) */}
+        <div
+          className="relative w-full h-full flex items-start justify-center pt-2"
+          style={{
+            opacity: prefersReducedMotion ? 1 : hasEntered ? 1 : 0,
+            transform: prefersReducedMotion
+              ? "none"
+              : hasEntered
+              ? "translate3d(0, 0px, 0) scale(1.0)"
+              : "translate3d(0, 32px, 0) scale(0.97)",
+            transition: prefersReducedMotion
+              ? "none"
+              : "opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 850ms cubic-bezier(0.22, 1, 0.36, 1)",
+            willChange: prefersReducedMotion || hasEntered ? "auto" : "opacity, transform",
+          }}
+        >
           {duplicatedCategories.map((category, index) => (
             <div
               key={`${category.id}-${index}`}
               ref={(el) => {
                 cardRefs.current[index] = el;
               }}
-              className="absolute will-change-transform transition-[filter] duration-200"
+              className="absolute will-change-transform"
               style={{
                 width: `${dimensions.cardWidth}px`,
                 height: `${dimensions.cardHeight}px`,
                 transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -352,16 +439,17 @@ export function CategoriesSection() {
                     e.preventDefault();
                   }
                 }}
-                className="group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_22px_50px_rgba(0,0,0,0.22)] border border-black/10 hover:border-black/30 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none"
+                className="shiny-card group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_20px_45px_rgba(0,0,0,0.22)] border border-black/10 hover:border-black/30 transition-all duration-500 ease-out hover:-translate-y-[4px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none"
               >
                 {/* Category Photographic Asset */}
                 <Image
                   src={category.imageSrc}
                   alt={category.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 70vw, 360px"
-                  priority={index < 3}
-                  className="object-cover object-center w-full h-full select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                  sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 310px"
+                  priority={index < 2}
+                  loading={index < 4 ? "eager" : "lazy"}
+                  className="object-cover object-center w-full h-full select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                 />
 
                 {/* Top Subtle Vignette */}
@@ -383,8 +471,18 @@ export function CategoriesSection() {
                   aria-hidden="true"
                 />
 
+                {/* Ambient vignette: Slightly increase bottom gradient opacity on hover */}
+                <div
+                  className="absolute inset-x-0 bottom-0 h-44 sm:h-52 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
+                  }}
+                  aria-hidden="true"
+                />
+
                 {/* Bottom Typography & Discover Pill */}
-                <div className="absolute inset-x-0 bottom-0 z-20 pb-6 sm:pb-8 px-5 sm:px-6 text-center flex flex-col items-center justify-end pointer-events-none">
+                <div className="absolute inset-x-0 bottom-0 z-20 pb-6 sm:pb-7 px-5 sm:px-6 text-center flex flex-col items-center justify-end pointer-events-none">
                   <span className="text-[10px] sm:text-[10.5px] font-sans font-medium uppercase tracking-[0.26em] text-white/70 block mb-1">
                     COLLECTION
                   </span>
@@ -409,6 +507,29 @@ export function CategoriesSection() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* ─── 3. ELEGANT CAROUSEL PAGINATION DOTS ─── */}
+      <div
+        className="flex items-center justify-center gap-2 mt-4 sm:mt-5 pointer-events-auto"
+        aria-label="Category Carousel Navigation"
+      >
+        {MEN_CATEGORIES_DATA.map((cat, idx) => {
+          const isActive = activeDot === idx;
+          return (
+            <button
+              key={`dot-${cat.id}`}
+              type="button"
+              onClick={() => handleDotClick(idx)}
+              aria-label={`Go to ${cat.name}`}
+              className={`h-1.5 rounded-full transition-all duration-400 ease-out focus:outline-none cursor-pointer ${
+                isActive
+                  ? "w-7 sm:w-8 bg-[#111111]"
+                  : "w-1.5 bg-[#111111]/25 hover:bg-[#111111]/55"
+              }`}
+            />
+          );
+        })}
       </div>
     </section>
   );

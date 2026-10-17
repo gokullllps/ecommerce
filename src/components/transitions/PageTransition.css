@@ -1,0 +1,200 @@
+/* ==========================================================================
+   PABLO LUXURY EDITORIAL PAGE TRANSITION
+   Collapsing Horizontal-Strip Effect ported from reference code.
+   ========================================================================== */
+
+:root {
+  --pablo-transition-exit-duration: 950ms;
+  --pablo-transition-enter-duration: 950ms;
+  --pablo-current-bg: #EAE8E1;
+  --pablo-dest-bg: #EAE8E1;
+}
+
+/* ─── Backdrop: PABLO Dark Surface revealed as page collapses ─── */
+.pablo-transition-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #181818;
+  z-index: 99980;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.pablo-transition-backdrop.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ─── Stage Container: Normal flow when idle, fixed during transition ─── */
+.pablo-transition-stage {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: transparent;
+}
+
+.pablo-transition-content {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ─── Exit Phase: Current page compresses vertically into thin horizontal strip,
+       contracts horizontally to 20% width, and fades out ─── */
+.pablo-transition-stage.is-collapsing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 99990;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  background-color: var(--pablo-current-bg, #EAE8E1);
+  animation: pabloStripCollapse var(--pablo-transition-exit-duration) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.15), 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.pablo-transition-stage.is-collapsing .pablo-transition-content {
+  animation: pabloContentFadeOut 120ms ease-out forwards;
+}
+
+@keyframes pabloStripCollapse {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.2, 0.002);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+  }
+}
+
+@keyframes pabloContentFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ─── Midpoint Phase: Invisible collapsed strip while route is swapping ─── */
+.pablo-transition-stage.is-midpoint {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 99990;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  transform: scale(0.2, 0.002);
+  opacity: 0;
+  background-color: var(--pablo-dest-bg, #EAE8E1);
+}
+
+.pablo-transition-stage.is-midpoint .pablo-transition-content {
+  opacity: 0;
+}
+
+/* ─── Enter Phase: Destination page appears as 20% strip, expands horizontally
+       to full width, and expands vertically to full height ─── */
+.pablo-transition-stage.is-expanding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 99990;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  background-color: var(--pablo-dest-bg, #EAE8E1);
+  animation: pabloStripExpand var(--pablo-transition-enter-duration) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.15), 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.pablo-transition-stage.is-expanding .pablo-transition-content {
+  opacity: 0;
+  animation: pabloContentFadeIn 320ms ease-out forwards;
+  animation-delay: calc(var(--pablo-transition-enter-duration) * 0.68);
+}
+
+@keyframes pabloStripExpand {
+  0% {
+    transform: scale(0.2, 0.002);
+    opacity: 0;
+  }
+  10% {
+    transform: scale(0.2, 0.002);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1, 0.002);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes pabloContentFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ─── Reduced Motion Support ─── */
+@media (prefers-reduced-motion: reduce) {
+  .pablo-transition-stage.is-collapsing,
+  .pablo-transition-stage.is-expanding,
+  .pablo-transition-stage.is-midpoint {
+    position: static !important;
+    transform: none !important;
+    animation: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+
+  .pablo-transition-backdrop {
+    display: none !important;
+  }
+
+  .pablo-transition-stage.is-collapsing .pablo-transition-content {
+    animation: pabloReducedFadeOut 150ms ease forwards !important;
+  }
+
+  .pablo-transition-stage.is-expanding .pablo-transition-content {
+    animation: pabloReducedFadeIn 200ms ease forwards !important;
+    animation-delay: 0s !important;
+  }
+}
+
+@keyframes pabloReducedFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pabloReducedFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

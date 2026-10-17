@@ -161,7 +161,7 @@ export default function CartDrawer() {
               <div key={item.id} className="py-4 flex gap-4">
                 {/* Product image */}
                 <div className={T.imgWrap}>
-                  <Image src={item.image} alt={item.name} fill sizes="80px" className="object-cover" />
+                  <Image src={item.image || "/images/pablo-hero-cutout.webp"} alt={item.name} fill sizes="80px" className="object-cover" />
                 </div>
 
                 {/* Details */}

@@ -8,6 +8,7 @@ import MenHero from "@/components/sections/MenHero";
 import MenCategorySection from "@/components/catalogue/MenCategorySection";
 import { EditorialHeroCardScroll } from "@/components/sections/EditorialHeroCardScroll";
 import { MEN_EDITORIAL_CATEGORIES } from "@/data/categories";
+import { scrollToCategorySection } from "@/lib/scrollUtils";
 import MenCatalogueGrid from "./MenCatalogueGrid";
 import { Product } from "@/types/catalogue";
 import { DepartmentId } from "@/types/filters";
@@ -90,11 +91,8 @@ function MenPageTemplateInner({
       const newUrl = qs ? `${pathname}?${qs}` : pathname;
       window.history.pushState({ category: norm }, "", newUrl);
 
-      // Smoothly scroll down to the catalogue section
-      const catalogueEl = document.getElementById("catalogue");
-      if (catalogueEl) {
-        catalogueEl.scrollIntoView({ behavior: "smooth" });
-      }
+      // Smoothly scroll down to the category section
+      scrollToCategorySection(norm);
     },
     [pathname]
   );
@@ -142,8 +140,15 @@ function MenPageTemplateInner({
         <main
           id="catalogue"
           data-gender="men"
-          className="page-container relative z-10 flex-1 scroll-mt-14 sm:scroll-mt-16 pt-0 sm:pt-2 lg:pt-4 pb-16 lg:pb-20"
+          className="page-container relative z-10 flex-1 scroll-mt-24 sm:scroll-mt-28 pt-0 sm:pt-2 lg:pt-4 pb-16 lg:pb-20"
         >
+          {/* Stable category destination anchors */}
+          <div id="category-shirts" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-trousers" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-outerwear" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-footwear" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-accessories" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+
           {/* Product Grid and Controls with Active Category Filtering */}
           <MenCatalogueGrid
             products={products}

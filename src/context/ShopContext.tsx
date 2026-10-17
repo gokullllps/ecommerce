@@ -91,8 +91,9 @@ export function ShopProvider({ children }: { children: ReactNode }) {
     const variantImage =
       imageOverride ||
       matchingVariant?.images?.[0]?.url ||
+      product.primaryImage ||
       product.images?.[0]?.url ||
-      "";
+      "/images/pablo-hero-cutout.webp";
     const variantHex =
       matchingVariant?.hex ||
       matchingVariant?.value ||

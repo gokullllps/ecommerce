@@ -547,7 +547,7 @@ export default function CheckoutPage() {
                   {cart.map((item) => (
                     <div key={item.id} className="py-3 flex gap-3 text-xs">
                       <div className="relative w-14 h-18 bg-[#DFDDD6] overflow-hidden shrink-0">
-                        <Image src={item.image} alt={item.name} fill className="object-cover" />
+                        <Image src={item.image || "/images/pablo-hero-cutout.webp"} alt={item.name} fill className="object-cover" />
                       </div>
                       <div className="flex-1 flex flex-col justify-between">
                         <div>

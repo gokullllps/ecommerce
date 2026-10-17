@@ -28,7 +28,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
+  reactCompiler: false,
   experimental: {
     serverActions: {
       bodySizeLimit: "15mb",

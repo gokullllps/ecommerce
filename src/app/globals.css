@@ -64,6 +64,7 @@ h1, h2, h3, h4 {
 }
 
 :root {
+  --navbar-height: 89px;
   --bg-primary: #EAE8E1;
   --text-primary: #111111;
   --surface-dark: #181818;
@@ -105,6 +106,70 @@ h1, h2, h3, h4 {
   --container-max-width: 1600px;
   --container-narrow-max-width: 1024px;
   --container-reading-max-width: 1140px;
+}
+ 
+@media (max-width: 767px) {
+  :root {
+    --navbar-height: 65px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --navbar-height: 81px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --navbar-height: 89px;
+  }
+}
+
+/* ===================================================
+   PABLO PDP VIEWPORT FITTING & RESPONSIVE GALLERY SYSTEM
+   =================================================== */
+.pdp-hero-grid {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+@media (min-width: 1024px) {
+  .pdp-hero-grid {
+    height: calc(100dvh - var(--navbar-height, 89px) - 40px);
+    max-height: calc(100dvh - var(--navbar-height, 89px) - 40px);
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .pdp-hero-grid[data-kids="true"] {
+    height: calc(100dvh - var(--navbar-height, 89px) - 80px);
+    max-height: calc(100dvh - var(--navbar-height, 89px) - 80px);
+  }
+}
+
+.pdp-gallery-container {
+  height: calc(100dvh - var(--navbar-height, 65px) - 40px);
+  max-height: calc(100dvh - var(--navbar-height, 65px) - 40px);
+  min-height: 0;
+}
+
+@media (min-width: 1024px) {
+  .pdp-gallery-container {
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+  }
+}
+
+.pdp-details-container {
+  min-height: 0;
+}
+
+@media (min-width: 1024px) {
+  .pdp-details-container {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+  }
 }
 
 /* ===================================================
@@ -532,6 +597,71 @@ body[data-theme="kids"]::-webkit-scrollbar,
   }
   .animate-pablo-ticker > [aria-hidden="true"] {
     display: none !important;
+  }
+}
+
+/* ===================================================
+   PRODUCT GALLERY 2-SECOND PROGRESS ANIMATION
+   =================================================== */
+@keyframes pabloGalleryProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ===================================================
+   PRODUCT GALLERY ARROW WATER-FILL HOVER ANIMATION
+   =================================================== */
+.pablo-gallery-arrow {
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: #111111;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  contain: paint;
+  transition: color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pablo-gallery-arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  border-radius: 9999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pablo-gallery-arrow:hover::before {
+  transform: scaleX(1);
+}
+
+.pablo-gallery-arrow:hover {
+  color: #FFFFFF;
+}
+
+.pablo-gallery-arrow svg {
+  position: relative;
+  z-index: 2;
+  transition: stroke 500ms cubic-bezier(0.22, 1, 0.36, 1), color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pablo-gallery-arrow,
+  .pablo-gallery-arrow::before,
+  .pablo-gallery-arrow svg {
+    transition: none !important;
   }
 }
 @keyframes pablo-wheel-rotate {
@@ -1258,6 +1388,45 @@ body[data-theme="kids"]::-webkit-scrollbar {
   .pablo-product-img-secondary {
     transition: none !important;
     transform: none !important;
+  }
+}
+
+/* ─── ShinyCard: Diagonal Light-Sweep Effect (Men, Women, Kids Editorial Cards) ─── */
+.shiny-card {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  contain: paint;
+}
+
+.shiny-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: none;
+  z-index: 15;
+  will-change: left;
+}
+
+.shiny-card:hover::after {
+  left: 140%;
+  transition: left 0.85s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiny-card::after {
+    display: none !important;
   }
 }
 

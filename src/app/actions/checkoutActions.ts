@@ -117,9 +117,11 @@ export async function serverCreateDemoOrder(input: DemoOrderInput): Promise<Demo
       subtotal += totalPrice;
 
       const primaryImg =
-        typeof product.images?.[0] === "string"
+        product.primaryImage ||
+        (typeof product.images?.[0] === "string"
           ? product.images[0]
-          : (product.images?.[0] as any)?.url || "/images/placeholder.jpg";
+          : (product.images?.[0] as any)?.url) ||
+        "/images/pablo-hero-cutout.webp";
 
       orderItems.push({
         productId: product.id,

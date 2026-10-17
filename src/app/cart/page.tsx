@@ -149,7 +149,7 @@ export default function CartPage() {
                     }`}
                   >
                     <Image
-                      src={item.image}
+                      src={item.image || "/images/pablo-hero-cutout.webp"}
                       alt={item.name}
                       fill
                       sizes="112px"

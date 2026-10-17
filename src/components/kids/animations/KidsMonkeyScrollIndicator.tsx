@@ -35,6 +35,28 @@ export function KidsMonkeyScrollIndicator() {
 
   // Hydration safety mount check
   const [mounted, setMounted] = useState<boolean>(false);
+  const [isPastHero, setIsPastHero] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleCheckHero = () => {
+      const hero = document.getElementById("kids-hero") || document.getElementById("hero-scroll-container");
+      if (!hero) {
+        setIsPastHero(true);
+        return;
+      }
+      const scrollY = window.scrollY || window.pageYOffset;
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      setIsPastHero(scrollY >= heroBottom - 100);
+    };
+
+    handleCheckHero();
+    window.addEventListener("scroll", handleCheckHero, { passive: true });
+    window.addEventListener("resize", handleCheckHero, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleCheckHero);
+      window.removeEventListener("resize", handleCheckHero);
+    };
+  }, []);
 
   // DOM Refs
   const trackRef = useRef<HTMLDivElement>(null);
@@ -271,7 +293,9 @@ export function KidsMonkeyScrollIndicator() {
   return (
     <aside
       aria-label="Kids interactive jungle scrolling path"
-      className="fixed z-40 select-none pointer-events-none right-0 w-3.5 sm:w-8 md:w-9 sm:right-1 md:right-1.5 top-[60px] sm:top-[72px] h-[calc(100dvh-75px)] sm:h-[calc(100vh-96px)] overflow-hidden sm:overflow-visible opacity-60 sm:opacity-100"
+      className={`fixed z-40 select-none right-0 w-3.5 sm:w-8 md:w-9 sm:right-1 md:right-1.5 top-[60px] sm:top-[72px] h-[calc(100dvh-75px)] sm:h-[calc(100vh-96px)] overflow-hidden sm:overflow-visible transition-opacity duration-300 ${
+        isPastHero ? "opacity-60 sm:opacity-100 pointer-events-none" : "opacity-0 pointer-events-none"
+      }`}
       style={{
         touchAction: "none",
       }}
@@ -279,8 +303,10 @@ export function KidsMonkeyScrollIndicator() {
       {/* ── THE ORGANIC JUNGLE VINE TRACK ── */}
       <div
         ref={trackRef}
-        onPointerDown={handleTrackPointerDown}
-        className="group/track relative w-full h-full flex justify-center cursor-pointer pointer-events-auto"
+        onPointerDown={isPastHero ? handleTrackPointerDown : undefined}
+        className={`group/track relative w-full h-full flex justify-center ${
+          isPastHero ? "cursor-pointer pointer-events-auto" : "pointer-events-none"
+        }`}
         title="Kids Jungle Path — Drag monkey to explore"
       >
         {/* Top Jungle Canopy Sprout with Twin Leaves & Curled Tendril */}

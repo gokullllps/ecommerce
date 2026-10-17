@@ -121,7 +121,7 @@ export function CollectionCard({
     >
       <Link
         href={getHref()}
-        className="group relative block w-full overflow-hidden bg-[#181818] text-[#FFFFFF] rounded-[20px] sm:rounded-[22px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none"
+        className="shiny-card group relative block w-full overflow-hidden bg-[#181818] text-[#FFFFFF] rounded-[20px] sm:rounded-[22px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none"
         style={{
           aspectRatio: "3 / 4",
           minHeight: "440px",
@@ -136,7 +136,7 @@ export function CollectionCard({
             alt={`${categoryName} — PABLO Editorial Collection`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-center w-full h-full transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+            className="object-cover object-center w-full h-full transition-all duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] group-hover:contrast-[1.05]"
             style={{
               transform: prefersReducedMotion
                 ? "none"

@@ -1,0 +1,5 @@
+2026/10/16-13:48:22.553 6364 Creating DB D:\ecommerce\scratch\edge-profile-test2\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/10/16-13:48:22.558 6364 Reusing MANIFEST D:\ecommerce\scratch\edge-profile-test2\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/10/16-13:48:22.775 9948 Level-0 table #5: started
+2026/10/16-13:48:22.778 9948 Level-0 table #5: 683273 bytes OK
+2026/10/16-13:48:22.780 9948 Delete type=0 #3

@@ -9,6 +9,7 @@ import CartDrawer from "@/components/shop/CartDrawer";
 import SearchModal from "@/components/shop/SearchModal";
 import QuickShopModal from "@/components/shop/QuickShopModal";
 import { RouteScrollReset } from "@/components/layout/RouteScrollReset";
+import { PageTransition } from "@/components/transitions/PageTransition";
 
 // Official Beverly Luxury Editorial Serif Font by Pen Culture
 const beverly = localFont({
@@ -70,7 +71,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ShopProvider>
             <RouteScrollReset />
-            {children}
+            <PageTransition>{children}</PageTransition>
             <CartDrawer />
             <SearchModal />
             <QuickShopModal />

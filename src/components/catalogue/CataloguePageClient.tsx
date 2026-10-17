@@ -17,6 +17,7 @@ import KidsCategorySection from "@/components/sections/KidsCategorySection";
 import WomenCategorySection, { WOMEN_CATEGORY_CARDS } from "./WomenCategorySection";
 import MenCategorySection from "./MenCategorySection";
 import { EditorialHeroCardScroll } from "@/components/sections/EditorialHeroCardScroll";
+import { scrollToCategorySection } from "@/lib/scrollUtils";
 import { DoodleStar } from "@/components/kids/KidsDoodles";
 import { HiddenStar } from "@/components/kids/games/HiddenStar";
 import { HiddenStarsProvider } from "@/components/kids/games/HiddenStarsContext";
@@ -208,10 +209,8 @@ function CatalogueContent({
       const newUrl = qs ? `${pathname}?${qs}` : pathname;
       window.history.pushState({ category: norm }, "", newUrl);
 
-      const el = document.getElementById("catalogue");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
+      // Smoothly scroll down to the category section
+      scrollToCategorySection(norm);
     },
     [pathname]
   );
@@ -231,10 +230,8 @@ function CatalogueContent({
       const newUrl = qs ? `${pathname}?${qs}` : pathname;
       window.history.pushState({ category: norm }, "", newUrl);
 
-      const el = document.getElementById("catalogue");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
+      // Smoothly scroll down to the category section
+      scrollToCategorySection(norm);
     },
     [pathname]
   );
@@ -443,7 +440,7 @@ function CatalogueContent({
 
         {/* Navbar */}
         <Navbar
-          isHeroOverlay={Boolean((isSalePage || gender === "women") && heroSlot)}
+          isHeroOverlay={Boolean((isSalePage || gender === "women" || gender === "kids") && heroSlot)}
           isCardsActive={isCardsActive}
         />
 
@@ -492,7 +489,7 @@ function CatalogueContent({
         <main
           id="catalogue"
           data-gender={isKids ? "kids" : gender}
-          className={`page-container relative z-10 flex-1 scroll-mt-14 sm:scroll-mt-16 ${
+          className={`page-container relative z-10 flex-1 scroll-mt-24 sm:scroll-mt-28 ${
             isKids
               ? "pt-6 sm:pt-8 pb-16 bg-transparent"
               : gender === "women" || gender === "men"
@@ -501,10 +498,21 @@ function CatalogueContent({
           }`}
           style={isKids ? { backgroundColor: "transparent" } : undefined}
         >
+          {/* Stable category destination anchors */}
+          <div id="category-tops" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-bottoms" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-trousers" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-outerwear" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-footwear" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-accessories" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
+          <div id="category-shirts" className="scroll-mt-24 sm:scroll-mt-28" aria-hidden="true" />
 
           {/* Active Category Header for Women / Men */}
           {gender === "women" && womenCategory !== "all" && (
-            <div className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4">
+            <div
+              id={`category-heading-${womenCategory}`}
+              className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4 scroll-mt-24 sm:scroll-mt-28"
+            >
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111] uppercase">
                 {womenCategory.replace("-", " ")}
               </h2>
@@ -515,7 +523,10 @@ function CatalogueContent({
           )}
 
           {gender === "men" && menCategory !== "all" && (
-            <div className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4">
+            <div
+              id={`category-heading-${menCategory}`}
+              className="text-center max-w-3xl mx-auto pt-2 pb-3 mb-4 scroll-mt-24 sm:scroll-mt-28"
+            >
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#111111] uppercase">
                 {menCategory.replace("-", " ")}
               </h2>

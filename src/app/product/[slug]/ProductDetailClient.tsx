@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -34,7 +34,16 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
           const match = parsed.products.find(
             (p: Product) => p.id === initialProduct.id || p.slug === initialProduct.slug
           );
-          if (match) setProduct(match);
+          if (match) {
+            // Ensure product images are reconciled with canonical data if stale or missing
+            if (!match.images || match.images.length === 0 || !match.primaryImage) {
+              match.images = initialProduct.images;
+              match.primaryImage = initialProduct.primaryImage;
+              match.hoverImage = initialProduct.hoverImage;
+              match.colorVariants = initialProduct.colorVariants;
+            }
+            setProduct(match);
+          }
         }
       }
     } catch {}
@@ -58,29 +67,236 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
     }
   }, [isKids, setOverrideTheme]);
 
-  // Initial color determination
-  const initialColor =
-    product.colorVariants?.[0]?.name ||
-    product.colors?.[0]?.name ||
-    "Standard";
 
-  const [selectedColor, setSelectedColor] = useState<string>(initialColor);
+  // Unified color variants list combining product.colorVariants and product.colors
+  const variantList = React.useMemo(() => {
+    const cvList = product.colorVariants || [];
+    const cList = product.colors || [];
+
+    if (cvList.length === 0 && cList.length === 0) {
+      return [
+        {
+          name: "Standard",
+          hex: "#111111",
+          inStock: product.stock > 0 && product.isAvailable !== false,
+          images: product.images && product.images.length > 0
+            ? product.images
+            : [{ url: product.primaryImage || "/images/pablo-hero-cutout.webp", alt: product.name }],
+        },
+      ];
+    }
+
+    if (cvList.length > 0) {
+      return cvList.map((cv) => {
+        const matchingColor = cList.find((c) => c.name.toLowerCase() === cv.name.toLowerCase());
+        const hex = cv.hex || cv.value || matchingColor?.hex || "#111111";
+        const inStock = cv.inStock !== false && (matchingColor ? matchingColor.inStock !== false : true);
+        const images = (cv.images && cv.images.length > 0)
+          ? cv.images
+          : (product.images && product.images.length > 0
+              ? product.images
+              : [{ url: product.primaryImage || "/images/pablo-hero-cutout.webp", alt: `${product.name} — ${cv.name}` }]);
+
+        return {
+          name: cv.name,
+          hex,
+          inStock,
+          images,
+        };
+      });
+    }
+
+    return cList.map((c) => {
+      const inStock = c.inStock !== false;
+      const images = (c.images && c.images.length > 0)
+        ? c.images
+        : (c.imageOverride
+            ? [{ url: c.imageOverride, alt: `${product.name} — ${c.name}` }]
+            : (product.images && product.images.length > 0
+                ? product.images
+                : [{ url: product.primaryImage || "/images/pablo-hero-cutout.webp", alt: `${product.name} — ${c.name}` }]));
+
+      return {
+        name: c.name,
+        hex: c.hex || "#111111",
+        inStock,
+        images,
+      };
+    });
+  }, [product]);
+
+  // Initial color: choose first IN-STOCK variant if possible
+  const [selectedColor, setSelectedColor] = useState<string>(() => {
+    const firstInStock = variantList.find((v) => v.inStock);
+    return firstInStock ? firstInStock.name : (variantList[0]?.name || "Standard");
+  });
+
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  // Coordinated physical card stack animation state
+  const [animState, setAnimState] = useState<{
+    direction: "next" | "prev";
+    fromIdx: number;
+    toIdx: number;
+  } | null>(null);
+  const isAnimatingRef = useRef(false);
+  const animTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const justWrappedIdxRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (animTimerRef.current) clearTimeout(animTimerRef.current);
+    };
+  }, []);
 
   // Active color variant
-  const activeVariant = product.colorVariants?.find(
-    (v) => v.name.toLowerCase() === selectedColor.toLowerCase()
-  ) || product.colorVariants?.[0];
+  const activeVariant = React.useMemo(() => {
+    return variantList.find((v) => v.name.toLowerCase() === selectedColor.toLowerCase()) || variantList[0];
+  }, [variantList, selectedColor]);
+
+  // Check if variant has price override
+  const variantPriceOverride = React.useMemo(() => {
+    if (product.variants && product.variants.length > 0) {
+      const match = product.variants.find(
+        (v) => v.colorName.toLowerCase() === selectedColor.toLowerCase() && v.priceOverride
+      );
+      if (match?.priceOverride) return match.priceOverride;
+    }
+    return null;
+  }, [product.variants, selectedColor]);
+
+  const currentPrice = variantPriceOverride || product.salePrice || product.price;
+
+  // Variant available sizes
+  const availableSizes = React.useMemo(() => {
+    if (product.variants && product.variants.length > 0) {
+      const matchingVariants = product.variants.filter(
+        (v) => v.colorName.toLowerCase() === selectedColor.toLowerCase()
+      );
+      if (matchingVariants.length > 0) {
+        return matchingVariants
+          .filter((v) => v.isAvailable !== false && v.stock > 0)
+          .map((v) => v.sizeName);
+      }
+    }
+    return (product.sizes || [])
+      .filter((s: any) => s.inStock !== false && s.available !== false)
+      .map((s: any) => s.name || s.size);
+  }, [product.variants, product.sizes, selectedColor]);
+
+  // Variant stock count & in-stock status
+  const isVariantInStock = activeVariant ? activeVariant.inStock : true;
+  const variantStockCount = React.useMemo(() => {
+    if (product.variants && product.variants.length > 0) {
+      const matchingVariants = product.variants.filter(
+        (v) => v.colorName.toLowerCase() === selectedColor.toLowerCase()
+      );
+      if (matchingVariants.length > 0) {
+        return matchingVariants.reduce((sum, v) => sum + (v.stock || 0), 0);
+      }
+    }
+    return isVariantInStock ? (product.stock ?? 10) : 0;
+  }, [product.variants, product.stock, selectedColor, isVariantInStock]);
 
   // Resolve active gallery images from color variant (or fallback to product.images / primaryImage)
-  const images = (activeVariant?.images && activeVariant.images.length > 0)
+  const rawImages = (activeVariant?.images && activeVariant.images.length > 0)
     ? activeVariant.images
     : (product.images && product.images.length > 0
         ? product.images
         : (product.primaryImage ? [{ url: product.primaryImage, alt: product.name }] : [{ url: "/images/pablo-hero-cutout.webp", alt: product.name }]));
 
-  // When color changes, reset image index to 0
+  const parsedImages = rawImages
+    .map((img: any) => {
+      const url = typeof img === "string" ? img : img?.url;
+      return url ? { url, alt: (typeof img === "object" && img?.alt) ? img.alt : product.name } : null;
+    })
+    .filter(Boolean) as { url: string; alt: string }[];
+
+  const images = parsedImages.length > 0
+    ? parsedImages
+    : [{ url: product.primaryImage || "/images/pablo-hero-cutout.webp", alt: product.name }];
+
+  // Throttled navigation to prevent rapid click jitter
+  // Coordinated physical card stack transition trigger
+  const triggerStackTransition = useCallback(
+    (targetIdx: number, direction: "next" | "prev") => {
+      if (isAnimatingRef.current) return;
+      if (targetIdx === activeImageIdx) return;
+      if (images.length <= 1 || prefersReducedMotion) {
+        setActiveImageIdx(targetIdx);
+        return;
+      }
+
+      isAnimatingRef.current = true;
+      setAnimState({
+        direction,
+        fromIdx: activeImageIdx,
+        toIdx: targetIdx,
+      });
+
+      if (animTimerRef.current) clearTimeout(animTimerRef.current);
+      animTimerRef.current = setTimeout(() => {
+        justWrappedIdxRef.current = activeImageIdx;
+        setActiveImageIdx(targetIdx);
+        setAnimState(null);
+        isAnimatingRef.current = false;
+        setTimeout(() => {
+          justWrappedIdxRef.current = null;
+        }, 50);
+      }, 680);
+    },
+    [activeImageIdx, images.length, prefersReducedMotion]
+  );
+
+  const handlePrevImage = useCallback(() => {
+    if (images.length <= 1 || isAnimatingRef.current) return;
+    const prevIdx = activeImageIdx > 0 ? activeImageIdx - 1 : images.length - 1;
+    triggerStackTransition(prevIdx, "prev");
+  }, [activeImageIdx, images.length, triggerStackTransition]);
+
+  const handleNextImage = useCallback(() => {
+    if (images.length <= 1 || isAnimatingRef.current) return;
+    const nextIdx = activeImageIdx < images.length - 1 ? activeImageIdx + 1 : 0;
+    triggerStackTransition(nextIdx, "next");
+  }, [activeImageIdx, images.length, triggerStackTransition]);
+
+  const handleNav = useCallback(
+    (newIdx: number) => {
+      if (newIdx === activeImageIdx || isAnimatingRef.current) return;
+      const direction: "next" | "prev" = newIdx > activeImageIdx ? "next" : "prev";
+      triggerStackTransition(newIdx, direction);
+    },
+    [activeImageIdx, triggerStackTransition]
+  );
+
+  // When color changes, reset image index to 0 and reset animation state
   const handleColorChange = (newColor: string) => {
+    const target = variantList.find((v) => v.name.toLowerCase() === newColor.toLowerCase());
+    if (target && !target.inStock) return;
+    if (animTimerRef.current) clearTimeout(animTimerRef.current);
+    setAnimState(null);
+    isAnimatingRef.current = false;
+    justWrappedIdxRef.current = null;
     setSelectedColor(newColor);
     setActiveImageIdx(0);
   };
@@ -92,22 +308,345 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
     return firstAvailable ? ((firstAvailable as any).name || (firstAvailable as any).size) : (product.sizes?.[0]?.name || "4Y");
   });
 
+  // Keep selectedSize valid when variant changes
+  useEffect(() => {
+    if (availableSizes.length > 0 && !availableSizes.includes(selectedSize)) {
+      setSelectedSize(availableSizes[0]);
+    }
+  }, [availableSizes, selectedSize]);
+
+  // Card geometry tokens
+  const peekOffset = isMobile ? 18 : 28;
+  const ease = "cubic-bezier(0.22, 1, 0.36, 1)";
+  const standardTransition = prefersReducedMotion
+    ? "none"
+    : `transform 680ms ${ease}, opacity 600ms ${ease}`;
+
+  // Computes the exact transform, scale, opacity, and z-index for each card in the deck
+  const getCardStyle = useCallback(
+    (idx: number) => {
+      const baseStyle: React.CSSProperties = {
+        position: "absolute",
+        left: isMobile ? "48%" : "47%",
+        top: "50%",
+        width: isMobile ? "92%" : "min(92%, 620px)",
+        height: isMobile ? "96%" : "95%",
+      };
+
+      const total = images.length;
+      if (total <= 1) {
+        return {
+          style: {
+            ...baseStyle,
+            transform: "translate3d(-50%, -50%, 0) scale(1)",
+            opacity: 1,
+            zIndex: 30,
+            visibility: "visible" as const,
+            pointerEvents: "auto" as const,
+          },
+          isFront: true,
+          isBehind1: false,
+        };
+      }
+
+      // If IDLE (no animation in progress)
+      if (!animState) {
+        const diff = (idx - activeImageIdx + total) % total;
+        const didJustWrap = justWrappedIdxRef.current === idx;
+
+        if (diff === 0) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: "translate3d(-50%, -50%, 0) scale(1)",
+              opacity: 1,
+              zIndex: 30,
+              visibility: "visible" as const,
+              pointerEvents: "auto" as const,
+              transition: didJustWrap ? "none" : standardTransition,
+            },
+            isFront: true,
+            isBehind1: false,
+          };
+        }
+
+        if (diff === 1) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: `translate3d(calc(-50% + ${peekOffset}px), -50%, 0) scale(${isMobile ? 0.95 : 0.94})`,
+              opacity: 1,
+              zIndex: 20,
+              visibility: "visible" as const,
+              pointerEvents: "auto" as const,
+              transition: didJustWrap ? "none" : standardTransition,
+            },
+            isFront: false,
+            isBehind1: true,
+          };
+        }
+
+        if (diff === 2 && total > 2) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 1.85)}px), -50%, 0) scale(${isMobile ? 0.90 : 0.88})`,
+              opacity: 1,
+              zIndex: 10,
+              visibility: "visible" as const,
+              pointerEvents: "none" as const,
+              transition: didJustWrap ? "none" : standardTransition,
+            },
+            isFront: false,
+            isBehind1: false,
+          };
+        }
+
+        // Previous card resting offscreen left ready to enter if "prev" is clicked
+        if (diff === total - 1) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: "translate3d(calc(-50% - 108%), -50%, 0) scale(0.94)",
+              opacity: 0,
+              zIndex: 1,
+              visibility: "hidden" as const,
+              pointerEvents: "none" as const,
+              transition: "none",
+            },
+            isFront: false,
+            isBehind1: false,
+          };
+        }
+
+        // Any deeper cards in stack
+        return {
+          style: {
+            ...baseStyle,
+            transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 2.4)}px), -50%, 0) scale(${isMobile ? 0.86 : 0.82})`,
+            opacity: 0,
+            zIndex: 5,
+            visibility: "hidden" as const,
+            pointerEvents: "none" as const,
+            transition: "none",
+          },
+          isFront: false,
+          isBehind1: false,
+        };
+      }
+
+      // ANIMATING STATE
+      const { direction, fromIdx, toIdx } = animState;
+
+      if (direction === "next") {
+        // Outgoing front card: smoothly slides out of stack to the left
+        if (idx === fromIdx) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: "translate3d(calc(-50% - 108%), -50%, 0) scale(0.94)",
+              opacity: 0,
+              zIndex: 35,
+              visibility: "visible" as const,
+              pointerEvents: "none" as const,
+              transition: prefersReducedMotion
+                ? "none"
+                : `transform 680ms ${ease}, opacity 520ms ${ease}`,
+            },
+            isFront: false,
+            isBehind1: false,
+          };
+        }
+
+        // Incoming front card: advances from rank 1 into front position
+        if (idx === toIdx) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: "translate3d(-50%, -50%, 0) scale(1)",
+              opacity: 1,
+              zIndex: 30,
+              visibility: "visible" as const,
+              pointerEvents: "auto" as const,
+              transition: standardTransition,
+            },
+            isFront: true,
+            isBehind1: false,
+          };
+        }
+
+        // Behind card advancing from rank 2 into rank 1 (peek 1)
+        if (idx === (toIdx + 1) % total) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: `translate3d(calc(-50% + ${peekOffset}px), -50%, 0) scale(${isMobile ? 0.95 : 0.94})`,
+              opacity: 1,
+              zIndex: 20,
+              visibility: "visible" as const,
+              pointerEvents: "auto" as const,
+              transition: standardTransition,
+            },
+            isFront: false,
+            isBehind1: true,
+          };
+        }
+
+        // Deeper card advancing from offstage into rank 2 (peek 2)
+        if (idx === (toIdx + 2) % total && total > 2) {
+          return {
+            style: {
+              ...baseStyle,
+              transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 1.85)}px), -50%, 0) scale(${isMobile ? 0.90 : 0.88})`,
+              opacity: 1,
+              zIndex: 10,
+              visibility: "visible" as const,
+              pointerEvents: "none" as const,
+              transition: standardTransition,
+            },
+            isFront: false,
+            isBehind1: false,
+          };
+        }
+
+        return {
+          style: {
+            ...baseStyle,
+            transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 2.4)}px), -50%, 0) scale(${isMobile ? 0.86 : 0.82})`,
+            opacity: 0,
+            zIndex: 5,
+            visibility: "hidden" as const,
+            pointerEvents: "none" as const,
+            transition: "none",
+          },
+          isFront: false,
+          isBehind1: false,
+        };
+      }
+
+      // direction === "prev"
+      // Incoming card advances from offscreen left into front position
+      if (idx === toIdx) {
+        return {
+          style: {
+            ...baseStyle,
+            transform: "translate3d(-50%, -50%, 0) scale(1)",
+            opacity: 1,
+            zIndex: 35,
+            visibility: "visible" as const,
+            pointerEvents: "auto" as const,
+            transition: standardTransition,
+          },
+          isFront: true,
+          isBehind1: false,
+        };
+      }
+
+      // Outgoing front card slips back into rank 1 in the stack
+      if (idx === fromIdx) {
+        return {
+          style: {
+            ...baseStyle,
+            transform: `translate3d(calc(-50% + ${peekOffset}px), -50%, 0) scale(${isMobile ? 0.95 : 0.94})`,
+            opacity: 1,
+            zIndex: 25,
+            visibility: "visible" as const,
+            pointerEvents: "auto" as const,
+            transition: standardTransition,
+          },
+          isFront: false,
+          isBehind1: true,
+        };
+      }
+
+      // Card that was at rank 1 slips back to rank 2
+      if (idx === (fromIdx + 1) % total && total > 2) {
+        return {
+          style: {
+            ...baseStyle,
+            transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 1.85)}px), -50%, 0) scale(${isMobile ? 0.90 : 0.88})`,
+            opacity: 1,
+            zIndex: 15,
+            visibility: "visible" as const,
+            pointerEvents: "none" as const,
+            transition: standardTransition,
+          },
+          isFront: false,
+          isBehind1: false,
+        };
+      }
+
+      // Card that was at rank 2 slips deeper/fades
+      if (idx === (fromIdx + 2) % total && total > 3) {
+        return {
+          style: {
+            ...baseStyle,
+            transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 2.4)}px), -50%, 0) scale(${isMobile ? 0.86 : 0.82})`,
+            opacity: 0,
+            zIndex: 10,
+            visibility: "visible" as const,
+            pointerEvents: "none" as const,
+            transition: standardTransition,
+          },
+          isFront: false,
+          isBehind1: false,
+        };
+      }
+
+      // Default hidden
+      return {
+        style: {
+          ...baseStyle,
+          transform: `translate3d(calc(-50% + ${Math.round(peekOffset * 2.4)}px), -50%, 0) scale(${isMobile ? 0.86 : 0.82})`,
+          opacity: 0,
+          zIndex: 5,
+          visibility: "hidden" as const,
+          pointerEvents: "none" as const,
+          transition: "none",
+        },
+        isFront: false,
+        isBehind1: false,
+      };
+    },
+    [images.length, activeImageIdx, animState, isMobile, peekOffset, standardTransition, prefersReducedMotion]
+  );
+
   const [quantity, setQuantity] = useState<number>(1);
   const [activeAccordion, setActiveAccordion] = useState<string | null>("details");
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const [addedNotification, setAddedNotification] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [isGalleryHovered, setIsGalleryHovered] = useState(false);
+
+  // Automatic card transition every 2 seconds (paused on hover, cleaned up on unmount)
+  useEffect(() => {
+    if (images.length <= 1 || isGalleryHovered) return;
+
+    const interval = setInterval(() => {
+      if (!isAnimatingRef.current) {
+        const nextIdx = activeImageIdx < images.length - 1 ? activeImageIdx + 1 : 0;
+        triggerStackTransition(nextIdx, "next");
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [activeImageIdx, images.length, isGalleryHovered, triggerStackTransition]);
 
   const isWishlisted = isInWishlist(product.id);
 
-  // Prev / Next Image Navigation
-  const handlePrevImage = () => {
-    setActiveImageIdx((prev) => (prev > 0 ? prev - 1 : images.length - 1));
-  };
-
-  const handleNextImage = () => {
-    setActiveImageIdx((prev) => (prev < images.length - 1 ? prev + 1 : 0));
-  };
+  // Keyboard navigation for gallery
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
+      if (e.key === "ArrowLeft") {
+        handlePrevImage();
+      } else if (e.key === "ArrowRight") {
+        handleNextImage();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handlePrevImage, handleNextImage]);
 
   // Touch Swipe Handlers for Mobile
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -129,6 +668,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
   };
 
   const handleAddToBag = () => {
+    if (!isVariantInStock || variantStockCount === 0) return;
     const currentVariantImage = images[activeImageIdx]?.url || images[0]?.url;
     addToCart(product, selectedSize, selectedColor, quantity, currentVariantImage);
     setAddedNotification(true);
@@ -136,6 +676,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
   };
 
   const handleBuyNow = () => {
+    if (!isVariantInStock || variantStockCount === 0) return;
     const currentVariantImage = images[activeImageIdx]?.url || images[0]?.url;
     addToCart(product, selectedSize, selectedColor, quantity, currentVariantImage);
     router.push("/checkout");
@@ -144,15 +685,6 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
   const toggleAccordion = (section: string) => {
     setActiveAccordion(activeAccordion === section ? null : section);
   };
-
-  // Available colors/variants list
-  const variantList = product.colorVariants && product.colorVariants.length > 0
-    ? product.colorVariants
-    : product.colors.map((c) => ({
-        name: c.name,
-        hex: c.hex,
-        images: product.images,
-      }));
 
   // Filter out current product from related items
   const cleanRelated = relatedProducts
@@ -164,11 +696,12 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
       {/* Main Content */}
       <main
         data-gender={isKids ? "kids" : undefined}
-        className="flex-1 page-container py-8 sm:py-10 lg:py-12 relative z-10"
+        className="flex-1 page-container py-5 relative z-10 w-full min-w-0"
+        style={{ minHeight: 0 }}
       >
         {/* Kids Breadcrumbs / Collection Backlink */}
         {isKids && (
-          <nav aria-label="Kids navigation breadcrumbs" className="flex items-center gap-2 mb-6 select-none flex-wrap">
+          <nav aria-label="Kids navigation breadcrumbs" className="flex items-center gap-2 mb-4 select-none flex-wrap">
             <Link
               href="/kids"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-xs font-sans font-bold text-[#181818] hover:bg-[#FEF08A] transition-all cursor-pointer"
@@ -189,63 +722,77 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
         )}
 
         {/* Product Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
+        <div
+          data-kids={isKids ? "true" : undefined}
+          className="pdp-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch"
+          style={{ minHeight: 0 }}
+        >
           {/* Gallery: 7 Columns */}
-          <div className="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4">
-            {/* Thumbnails (Desktop column, Mobile horizontal row) */}
-            {images.length > 1 && (
-              <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-y-auto max-h-[720px] scrollbar-none flex-shrink-0 py-1">
-                {images.map((img, idx) => {
-                  const isCurrent = activeImageIdx === idx;
-                  return (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setActiveImageIdx(idx)}
-                      aria-label={`View photo ${idx + 1}`}
-                      className={`relative w-16 md:w-20 aspect-[3/4] flex-shrink-0 overflow-hidden transition-all cursor-pointer ${
-                        isKids
-                          ? isCurrent
-                            ? "rounded-xl border-2 border-[#181818] shadow-[3px_3px_0px_#181818] scale-95 ring-2 ring-[#FEF08A]"
-                            : "rounded-xl border-2 border-[#181818]/30 opacity-75 hover:opacity-100 hover:border-[#181818]"
-                          : isCurrent
-                          ? "border-[#111111] scale-95 ring-1 ring-[#111111] bg-[#DFDDD6]"
-                          : "border-transparent opacity-70 hover:opacity-100 bg-[#DFDDD6]"
-                      }`}
-                    >
-                      <Image
-                        src={img.url}
-                        alt={img.alt || `${product.name} view ${idx + 1}`}
-                        fill
-                        sizes="80px"
-                        className="object-cover"
-                      />
-                    </button>
-                  );
-                })}
-              </div>
-            )}
+          <div
+            className="lg:col-span-7 pdp-gallery-container flex items-stretch min-w-0 w-full"
+            style={{ minHeight: 0 }}
+          >
 
-            {/* Main Featured Image with Prev/Next Controls & Touch Swipe */}
+            {/* Main Featured Image Display with Reference Overlapping Card Stack */}
             <div
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className={`relative flex-1 min-w-0 aspect-[3/4] overflow-hidden group select-none ${
+              onMouseEnter={() => setIsGalleryHovered(true)}
+              onMouseLeave={() => setIsGalleryHovered(false)}
+              className={`relative flex-1 min-w-0 w-full h-[460px] sm:h-[540px] md:h-[600px] lg:h-full max-h-full min-h-[380px] overflow-hidden group select-none flex items-center justify-center ${
                 isKids
-                  ? "rounded-2xl border-2 border-[#181818] shadow-[5px_5px_0px_#181818] bg-white"
-                  : "bg-[#DFDDD6]"
+                  ? "rounded-2xl border-2 border-[#181818] shadow-[5px_5px_0px_#181818] bg-[#F1F5F9]"
+                  : "rounded-sm bg-[#EAE8E1]"
               }`}
+              style={{ minHeight: 0 }}
             >
-              <Image
-                src={images[activeImageIdx]?.url || images[0].url}
-                alt={images[activeImageIdx]?.alt || product.name}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className={`object-cover transition-transform duration-500 ${
-                  isKids ? "kids-card-img" : "group-hover:scale-105"
-                }`}
-              />
+              {/* Connected Physical Card Stack */}
+              {images.map((img, idx) => {
+                const card = getCardStyle(idx);
+                const hasError = imageErrors[img.url];
+                const imageSrc = hasError
+                  ? (product.primaryImage || "/images/pablo-hero-cutout.webp")
+                  : img.url;
+
+                return (
+                  <div
+                    key={`${img.url}-${idx}`}
+                    onClick={() => {
+                      if (card.isBehind1 && !isAnimatingRef.current) {
+                        handleNextImage();
+                      }
+                    }}
+                    className={`flex items-center justify-center overflow-hidden will-change-transform select-none shadow-none ${
+                      isKids
+                        ? "rounded-2xl bg-white border-2 border-[#181818]"
+                        : "rounded-xl sm:rounded-2xl bg-[#1E2323] border border-[#2D3333]"
+                    } ${card.isBehind1 ? "cursor-pointer hover:border-white/20" : ""}`}
+                    style={card.style}
+                    aria-hidden={!card.isFront}
+                  >
+                    <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-[#1E2323] shadow-none">
+                      <Image
+                        src={imageSrc}
+                        alt={img.alt || `${product.name} view ${idx + 1}`}
+                        fill
+                        priority={idx === activeImageIdx}
+                        loading={idx === activeImageIdx ? undefined : (idx < 2 ? "eager" : "lazy")}
+                        sizes="(max-width: 640px) 95vw, (max-width: 1024px) 70vw, 55vw"
+                        onError={() => {
+                          setImageErrors((prev) => ({ ...prev, [img.url]: true }));
+                        }}
+                        className="object-cover w-full h-full select-none"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center center",
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
 
               {/* Prev / Next Navigation Arrows */}
               {images.length > 1 && (
@@ -253,11 +800,12 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                   <button
                     type="button"
                     onClick={handlePrevImage}
+                    disabled={isAnimatingRef.current}
                     aria-label="Previous image"
-                    className={`absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center transition-all cursor-pointer ${
+                    className={`absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-40 w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center cursor-pointer ${
                       isKids
-                        ? "rounded-full bg-white/95 border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-[#181818] hover:bg-[#FEF08A] active:scale-95"
-                        : "rounded-full bg-white/80 hover:bg-white text-[#111] shadow-md hover:scale-105"
+                        ? "rounded-full bg-white/95 border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-[#181818] hover:bg-[#FEF08A] active:scale-95 transition-all"
+                        : "pablo-gallery-arrow active:scale-95"
                     }`}
                   >
                     <svg className="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -267,11 +815,12 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                   <button
                     type="button"
                     onClick={handleNextImage}
+                    disabled={isAnimatingRef.current}
                     aria-label="Next image"
-                    className={`absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center transition-all cursor-pointer ${
+                    className={`absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-40 w-9 sm:w-10 h-9 sm:h-10 flex items-center justify-center cursor-pointer ${
                       isKids
-                        ? "rounded-full bg-white/95 border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-[#181818] hover:bg-[#FEF08A] active:scale-95"
-                        : "rounded-full bg-white/80 hover:bg-white text-[#111] shadow-md hover:scale-105"
+                        ? "rounded-full bg-white/95 border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-[#181818] hover:bg-[#FEF08A] active:scale-95 transition-all"
+                        : "pablo-gallery-arrow active:scale-95"
                     }`}
                   >
                     <svg className="w-4 h-4 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -281,29 +830,52 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 </>
               )}
 
-              {/* Pagination Dots at bottom of image (Screen 4 Reference) */}
+              {/* Editorial Gallery Page Indicator */}
               {images.length > 1 && (
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 pointer-events-none">
-                  {images.map((_, i) => (
-                    <span
-                      key={i}
-                      className={`h-1.5 rounded-full transition-all ${
-                        activeImageIdx === i
-                          ? isKids
-                            ? "w-4 bg-[#181818]"
-                            : "w-4 bg-[#111111]"
-                          : isKids
-                          ? "w-1.5 bg-[#181818]/30"
-                          : "w-1.5 bg-[#111111]/30"
-                      }`}
-                    />
-                  ))}
+                <div
+                  className={`absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 z-40 flex items-center gap-1.5 px-3 py-2 rounded-full select-none transition-all ${
+                    isKids
+                      ? "bg-white/95 border-2 border-[#181818] shadow-[2px_2px_0px_#181818] text-[#181818]"
+                      : "bg-black/60 backdrop-blur-md border border-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
+                  }`}
+                  role="tablist"
+                  aria-label={`Image gallery, slide ${activeImageIdx + 1} of ${images.length}`}
+                >
+                  {images.map((_, idx) => {
+                    const isActive = idx === activeImageIdx;
+                    return (
+                      <button
+                        key={`page-dot-${idx}`}
+                        type="button"
+                        role="tab"
+                        aria-selected={isActive}
+                        aria-label={`Go to slide ${idx + 1}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleNav(idx);
+                        }}
+                        className="p-1 -m-0.5 flex items-center justify-center cursor-pointer focus:outline-none"
+                      >
+                        <span
+                          className={`block h-1.5 rounded-full transition-all duration-300 ease-out ${
+                            isActive
+                              ? isKids
+                                ? "w-4 bg-[#181818]"
+                                : "w-5 bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)]"
+                              : isKids
+                              ? "w-1.5 bg-[#181818]/30 hover:bg-[#181818]/60"
+                              : "w-1.5 bg-white/35 hover:bg-white/70"
+                          }`}
+                        />
+                      </button>
+                    );
+                  })}
                 </div>
               )}
 
               {/* Wishlist floating button */}
               {isKids ? (
-                <div className="absolute top-4 right-4 z-20">
+                <div className="absolute top-4 right-4 z-40">
                   <KidsWishlistButton
                     isWishlisted={isWishlisted}
                     onToggle={() => toggleWishlist(product)}
@@ -315,7 +887,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                   type="button"
                   onClick={() => toggleWishlist(product)}
                   aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
-                  className="absolute top-4 right-4 p-3 bg-white/80 hover:bg-white rounded-full shadow-md transition-transform hover:scale-110 cursor-pointer"
+                  className="absolute top-4 right-4 z-40 p-3 bg-white/85 hover:bg-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-transform hover:scale-110 cursor-pointer"
                 >
                   <svg
                     className="w-5 h-5"
@@ -332,7 +904,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
               {/* Tag pill */}
               {product.isSale && (
                 <div
-                  className={`absolute bottom-4 left-4 uppercase tracking-[0.2em] font-medium px-3 py-1 ${
+                  className={`absolute bottom-4 left-4 z-30 uppercase tracking-[0.2em] font-medium px-3 py-1 ${
                     isKids
                       ? "rounded-full border-2 border-[#181818] bg-[#FECDD3] text-[#181818] font-bold text-[10.5px] shadow-[2px_2px_0px_#181818]"
                       : "pablo-dark-badge text-white text-[10px] border border-white/20"
@@ -345,7 +917,10 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
           </div>
 
           {/* Product Info: 5 Columns */}
-          <div className="lg:col-span-5 flex flex-col justify-between select-none">
+          <div
+            className="lg:col-span-5 pdp-details-container flex flex-col select-none min-w-0 pr-1 md:pr-3 scrollbar-none"
+            style={{ minHeight: 0 }}
+          >
             <div>
               {/* Category & Collection */}
               <div
@@ -391,14 +966,14 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                         : "text-xl sm:text-2xl font-medium text-[#111111]"
                     }
                   >
-                    {formatPrice(product.salePrice || product.price)}
+                    {formatPrice(currentPrice)}
                   </span>
-                  {(product.originalPrice || product.salePrice) && (
+                  {(product.originalPrice || (product.salePrice && currentPrice < (product.originalPrice || product.price))) && (
                     <span className="text-base text-[#999999] line-through font-light">
                       {formatPrice(product.originalPrice || product.price)}
                     </span>
                   )}
-                  {product.originalPrice && product.originalPrice > product.price && (
+                  {product.originalPrice && product.originalPrice > currentPrice && (
                     <span
                       className={`text-xs uppercase tracking-wider px-2 py-0.5 ${
                         isKids
@@ -406,7 +981,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                           : "text-red-700 bg-red-100/60"
                       }`}
                     >
-                      Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                      Save {Math.round(((product.originalPrice - currentPrice) / product.originalPrice) * 100)}%
                     </span>
                   )}
                 </div>
@@ -421,37 +996,74 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 )}
               </div>
 
-              {/* Color Selection (Switches active variant and gallery photography!) */}
+              {/* Color Selection (Switches active variant, images, and availability!) */}
               {variantList.length > 0 && (
                 <div className={`py-5 ${isKids ? "border-b-2 border-[#181818]" : "border-b border-[#D9D8D3]"}`}>
-                  <div className="flex justify-between items-center mb-3">
-                    <span className={`text-xs uppercase tracking-wider ${isKids ? "font-bold text-[#181818]" : "text-[#666666]"}`}>
-                      Colour: <strong className={isKids ? "text-[#181818] font-black" : "text-[#111111]"}>{selectedColor}</strong>
-                    </span>
-                    <span className="text-[11px] text-[#666666]">
-                      {variantList.length} {variantList.length === 1 ? "Option" : "Options"}
+                  <div className="flex justify-between items-baseline mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-[11px] uppercase tracking-[0.24em] ${isKids ? "font-bold text-[#181818]" : "text-[#666666]"}`}>
+                        Colour
+                      </span>
+                      <span className="text-xs text-[#999999]" aria-hidden="true">—</span>
+                      <span className="text-xs uppercase tracking-[0.14em] font-medium text-[#111111]">
+                        {selectedColor}
+                      </span>
+                    </div>
+                    <span className="text-[10.5px] uppercase tracking-[0.18em] text-[#888888]">
+                      {variantList.length} {variantList.length === 1 ? "Shade" : "Shades"}
                     </span>
                   </div>
-                  <div className="flex items-center space-x-3">
+
+                  <div className="flex items-center gap-2.5 flex-wrap py-1">
                     {variantList.map((c) => {
                       const isSelected = selectedColor.toLowerCase() === c.name.toLowerCase();
+                      const isAvailable = c.inStock;
                       return (
                         <button
                           key={c.name}
                           type="button"
-                          onClick={() => handleColorChange(c.name)}
-                          className={`w-8 h-8 rounded-full border transition-all cursor-pointer ${
-                            isSelected
+                          disabled={!isAvailable}
+                          onClick={() => isAvailable && handleColorChange(c.name)}
+                          aria-label={`Select colour ${c.name}${!isAvailable ? " (Out of Stock)" : ""}`}
+                          aria-pressed={isSelected}
+                          className={`group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full transition-all duration-200 cursor-pointer ${
+                            !isAvailable
+                              ? "opacity-35 cursor-not-allowed border border-[#D9D8D3] bg-transparent"
+                              : isSelected
                               ? isKids
-                                ? "ring-2 ring-[#181818] ring-offset-2 ring-offset-[#EBF4FA] border-2 border-[#181818] scale-110"
-                                : "ring-2 ring-[#111111] ring-offset-2 ring-offset-[#EAE8E1] scale-105"
-                              : isKids
-                              ? "border-2 border-[#181818]/50 hover:scale-110"
-                              : "border-black/20 hover:scale-105"
+                                ? "border-2 border-[#181818] bg-[#FEF08A] text-[#181818] shadow-[2px_2px_0px_#181818]"
+                                : "border-[#111111] bg-white text-[#111111] shadow-xs"
+                              : "border border-[#D9D8D3] bg-white/40 hover:bg-white text-[#666666] hover:text-[#111111] hover:border-[#111111]"
                           }`}
-                          style={{ backgroundColor: c.hex || (c as any).value }}
-                          title={c.name}
-                        />
+                          title={`${c.name}${!isAvailable ? " — Out of Stock" : ""}`}
+                        >
+                          {/* Tactile Color Swatch Circle */}
+                          <span
+                            className="w-3.5 h-3.5 rounded-full border border-black/15 shrink-0 block relative transition-transform duration-200 group-hover:scale-110"
+                            style={{ backgroundColor: c.hex }}
+                          >
+                            {!isAvailable && (
+                              <span className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden rounded-full">
+                                <span className="w-[140%] h-[1.5px] bg-[#999999] rotate-45 transform" />
+                              </span>
+                            )}
+                          </span>
+
+                          {/* Shade Name */}
+                          <span
+                            className={`text-[11px] font-sans uppercase tracking-[0.16em] ${
+                              isSelected ? "font-semibold text-[#111111]" : "font-medium"
+                            }`}
+                          >
+                            {c.name}
+                          </span>
+
+                          {!isAvailable && (
+                            <span className="text-[9.5px] uppercase tracking-wider text-[#999999] font-normal">
+                              Sold Out
+                            </span>
+                          )}
+                        </button>
                       );
                     })}
                   </div>
@@ -476,7 +1088,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
                   {product.sizes.map((s: any) => {
                     const sizeLabel = s.name || s.size;
-                    const isAvailable = s.inStock !== false && s.available !== false;
+                    const isAvailable = isVariantInStock && availableSizes.includes(sizeLabel) && s.inStock !== false && s.available !== false;
                     return (
                       <button
                         key={sizeLabel}
@@ -504,6 +1116,26 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 </div>
               </div>
 
+              {/* Stock Availability Indicator */}
+              <div className={`py-3 flex items-center gap-2 ${isKids ? "border-b-2 border-[#181818]" : "border-b border-[#D9D8D3]"}`}>
+                <span
+                  className={`inline-block w-2 h-2 rounded-full ${
+                    !isVariantInStock || variantStockCount === 0
+                      ? "bg-red-500"
+                      : variantStockCount <= 5
+                      ? "bg-amber-500 animate-pulse"
+                      : "bg-emerald-600"
+                  }`}
+                />
+                <span className="text-[11px] uppercase tracking-wider text-[#666666] font-medium font-sans">
+                  {!isVariantInStock || variantStockCount === 0
+                    ? "Out of Stock"
+                    : variantStockCount <= 5
+                    ? `Only ${variantStockCount} remaining — Order soon`
+                    : "In Stock · Ready to dispatch"}
+                </span>
+              </div>
+
               {/* Quantity Stepper */}
               <div className={`py-5 flex items-center justify-between ${isKids ? "border-b-2 border-[#181818]" : "border-b border-[#D9D8D3]"}`}>
                 <span className={`text-xs uppercase tracking-wider ${isKids ? "font-bold text-[#181818]" : "text-[#666666]"}`}>Quantity</span>
@@ -516,9 +1148,12 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 >
                   <button
                     type="button"
+                    disabled={!isVariantInStock || variantStockCount === 0}
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className={`w-9 h-9 flex items-center justify-center text-sm transition-colors cursor-pointer ${
-                      isKids ? "text-[#181818] font-bold hover:bg-[#FEF08A]" : "text-[#666666] hover:bg-[#EAE8E1]"
+                      !isVariantInStock || variantStockCount === 0
+                        ? "text-[#999] opacity-40 cursor-not-allowed"
+                        : isKids ? "text-[#181818] font-bold hover:bg-[#FEF08A]" : "text-[#666666] hover:bg-[#EAE8E1]"
                     }`}
                   >
                     -
@@ -528,9 +1163,12 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                   </span>
                   <button
                     type="button"
+                    disabled={!isVariantInStock || variantStockCount === 0}
                     onClick={() => setQuantity(quantity + 1)}
                     className={`w-9 h-9 flex items-center justify-center text-sm transition-colors cursor-pointer ${
-                      isKids ? "text-[#181818] font-bold hover:bg-[#FEF08A]" : "text-[#666666] hover:bg-[#EAE8E1]"
+                      !isVariantInStock || variantStockCount === 0
+                        ? "text-[#999] opacity-40 cursor-not-allowed"
+                        : isKids ? "text-[#181818] font-bold hover:bg-[#FEF08A]" : "text-[#666666] hover:bg-[#EAE8E1]"
                     }`}
                   >
                     +
@@ -542,9 +1180,12 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
               <div className="py-5 space-y-2.5">
                 <button
                   type="button"
+                  disabled={!isVariantInStock || variantStockCount === 0}
                   onClick={handleAddToBag}
                   className={`w-full py-3.5 uppercase tracking-[0.16em] transition-all cursor-pointer active:scale-[0.98] ${
-                    isKids
+                    !isVariantInStock || variantStockCount === 0
+                      ? "opacity-40 cursor-not-allowed bg-stone-300 text-stone-600 border-stone-300"
+                      : isKids
                       ? "rounded-full border-2 border-[#181818] bg-[#FEF08A] hover:bg-[#FDE047] text-[#181818] font-sans font-black text-xs shadow-[3px_3px_0px_#181818] flex items-center justify-center gap-2"
                       : "pablo-btn-dark text-[#EAE8E1] text-xs font-sans font-medium border border-[#222222] hover:border-white shadow-xs"
                   }`}
@@ -556,13 +1197,16 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                       <path d="M16 10a4 4 0 0 1-8 0" />
                     </svg>
                   )}
-                  <span>ADD TO BAG</span>
+                  <span>{!isVariantInStock || variantStockCount === 0 ? "OUT OF STOCK" : "ADD TO BAG"}</span>
                 </button>
                 <button
                   type="button"
+                  disabled={!isVariantInStock || variantStockCount === 0}
                   onClick={handleBuyNow}
                   className={`w-full py-3.5 uppercase tracking-[0.16em] transition-all cursor-pointer active:scale-[0.98] ${
-                    isKids
+                    !isVariantInStock || variantStockCount === 0
+                      ? "opacity-40 cursor-not-allowed border-stone-300 text-stone-500"
+                      : isKids
                       ? "rounded-full border-2 border-[#181818] bg-white hover:bg-black hover:text-white text-[#181818] font-sans font-black text-xs shadow-[2px_2px_0px_#181818]"
                       : "border border-[#181818] text-[#181818] hover:bg-black hover:text-white text-xs font-sans font-medium"
                   }`}

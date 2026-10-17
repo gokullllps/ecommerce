@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useCallback, useRef, useSyncExternalStore } from "react";
+import React, { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
 import { Reveal } from "@/components/animation/Reveal";
 
 function subscribeReducedMotion(callback: () => void) {
@@ -34,13 +34,8 @@ interface CampaignSlide {
   imageAlt: string;
   theme: {
     eyebrowColor: string;
-    textShadowEyebrow: string;
-    textShadowTitle: string;
     tagColor: string;
-    textShadowTag: string;
     highlightColor: string;
-    textShadowHighlight: string;
-    radialGlow: string;
     dotColor: string;
   };
 }
@@ -60,16 +55,9 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
     imageAlt: "PABLO Wakanda Vibranium Claw Luxury Tee Edition",
     theme: {
       eyebrowColor: "#D8B4FE",
-      textShadowEyebrow: "0 0 10px rgba(192, 132, 252, 0.7), 0 0 20px rgba(168, 85, 247, 0.4)",
-      textShadowTitle:
-        "0 0 24px rgba(168, 85, 247, 0.85), 0 0 50px rgba(147, 51, 234, 0.5), 0 0 12px rgba(233, 213, 255, 0.95)",
       tagColor: "#C084FC",
-      textShadowTag: "0 0 14px rgba(192, 132, 252, 0.85), 0 0 28px rgba(168, 85, 247, 0.5)",
       highlightColor: "#C084FC",
-      textShadowHighlight: "0 0 12px rgba(192, 132, 252, 0.95), 0 0 24px rgba(168, 85, 247, 0.65)",
-      radialGlow:
-        "radial-gradient(ellipse at 40% 50%, rgba(168, 85, 247, 0.28) 0%, rgba(126, 34, 206, 0.1) 48%, transparent 72%)",
-      dotColor: "#A855F7",
+      dotColor: "#C084FC",
     },
   },
   {
@@ -86,16 +74,9 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
     imageAlt: "PABLO Stark Arc Reactor Luxury Tee Edition",
     theme: {
       eyebrowColor: "#FDE68A",
-      textShadowEyebrow: "0 0 10px rgba(251, 191, 36, 0.7), 0 0 20px rgba(245, 158, 11, 0.4)",
-      textShadowTitle:
-        "0 0 24px rgba(239, 68, 68, 0.85), 0 0 50px rgba(220, 38, 38, 0.5), 0 0 12px rgba(254, 202, 202, 0.95)",
       tagColor: "#F59E0B",
-      textShadowTag: "0 0 14px rgba(245, 158, 11, 0.85), 0 0 28px rgba(239, 68, 68, 0.5)",
       highlightColor: "#EF4444",
-      textShadowHighlight: "0 0 12px rgba(239, 68, 68, 0.95), 0 0 24px rgba(245, 158, 11, 0.65)",
-      radialGlow:
-        "radial-gradient(ellipse at 40% 50%, rgba(239, 68, 68, 0.26) 0%, rgba(245, 158, 11, 0.12) 48%, transparent 72%)",
-      dotColor: "#EF4444",
+      dotColor: "#F59E0B",
     },
   },
   {
@@ -112,15 +93,8 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
     imageAlt: "PABLO Spider Emblem Web-Slinger Luxury Tee Edition",
     theme: {
       eyebrowColor: "#BAE6FD",
-      textShadowEyebrow: "0 0 10px rgba(56, 189, 248, 0.7), 0 0 20px rgba(14, 165, 233, 0.4)",
-      textShadowTitle:
-        "0 0 24px rgba(56, 189, 248, 0.85), 0 0 50px rgba(2, 132, 199, 0.5), 0 0 12px rgba(224, 242, 254, 0.95)",
       tagColor: "#F87171",
-      textShadowTag: "0 0 14px rgba(248, 113, 113, 0.85), 0 0 28px rgba(239, 68, 68, 0.5)",
       highlightColor: "#38BDF8",
-      textShadowHighlight: "0 0 12px rgba(56, 189, 248, 0.95), 0 0 24px rgba(14, 165, 233, 0.65)",
-      radialGlow:
-        "radial-gradient(ellipse at 40% 50%, rgba(56, 189, 248, 0.26) 0%, rgba(239, 68, 68, 0.1) 48%, transparent 72%)",
       dotColor: "#38BDF8",
     },
   },
@@ -128,6 +102,7 @@ const CAMPAIGN_SLIDES: CampaignSlide[] = [
 
 export function NewInSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const isReducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
@@ -146,6 +121,15 @@ export function NewInSection() {
   const handleSelectSlide = useCallback((index: number) => {
     setCurrentIndex(index);
   }, []);
+
+  // Autoplay: 6.5s interval, pauses ONLY when pointer is over carousel content
+  useEffect(() => {
+    if (isHovered || isReducedMotion) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 6500);
+    return () => clearInterval(interval);
+  }, [isHovered, isReducedMotion, handleNext]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") {
@@ -177,7 +161,7 @@ export function NewInSection() {
       className="w-full bg-[#EAE8E1] text-[#111111] pt-8 pb-10 sm:pt-12 sm:pb-14 select-none scroll-mt-14 sm:scroll-mt-16"
       style={{ backgroundColor: "#EAE8E1", color: "#111111" }}
     >
-      {/* ─── 1. SECTION TITLE (Exact Reference Alignment & Spacing) ─── */}
+      {/* ─── 1. SECTION TITLE ─── */}
       <Reveal direction="up" distance={20} duration={750}>
         <div className="page-container text-center mb-5 sm:mb-7">
           <h2
@@ -189,7 +173,7 @@ export function NewInSection() {
         </div>
       </Reveal>
 
-      {/* ─── 2. FEATURED CAROUSEL (Letterbox Height, Full-Bleed Corners, Theme Neon Aura) ─── */}
+      {/* ─── 2. CINEMATIC EDITORIAL CAROUSEL (Clean #050505, Zero Neon Glow) ─── */}
       <div className="w-full relative">
         <div
           role="region"
@@ -199,10 +183,12 @@ export function NewInSection() {
           onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative w-full bg-[#050505] overflow-hidden h-[380px] md:h-[350px] lg:h-[370px] focus:outline-none"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="relative w-full bg-[#050505] overflow-hidden h-[440px] sm:h-[400px] md:h-[420px] lg:h-[440px] focus:outline-none border-y border-[#141414]"
           style={{ backgroundColor: "#050505" }}
         >
-          {/* Slides Track with Ultra-Smooth Hardware Accelerated Motion */}
+          {/* Slides Track */}
           <div
             className="flex h-full w-full"
             style={{
@@ -224,18 +210,13 @@ export function NewInSection() {
                   className="relative w-full h-full shrink-0 flex-none bg-[#050505] overflow-hidden flex items-center"
                   style={{ backgroundColor: "#050505" }}
                 >
-                  {/* ─── DESKTOP SLIDE LAYOUT (>= md) — 100% UNTOUCHED ─── */}
-                  <div className="hidden md:flex w-full h-full relative items-center">
-                    {/* LEFT: MODEL WEARING MARVEL LUXURY TEE */}
-                    <div className="absolute left-0 top-0 bottom-0 w-[40%] flex items-center justify-center pointer-events-none z-10 overflow-hidden">
-                      <div
-                        className="absolute inset-0 pointer-events-none opacity-90 transition-opacity duration-700"
-                        style={{ background: slide.theme.radialGlow }}
-                        aria-hidden="true"
-                      />
+                  {/* ─── DESKTOP SLIDE LAYOUT (>= md) ─── */}
+                  <div className="hidden md:flex w-full h-full relative items-center justify-between px-10 lg:px-20 max-w-7xl mx-auto">
+                    {/* LEFT: MODEL WEARING MARVEL LUXURY TEE (Preserved Exactly, Zero Glow) */}
+                    <div className="w-1/2 h-full flex items-end justify-center relative overflow-hidden pointer-events-none z-10">
                       <div
                         className={`relative w-full h-full flex items-end justify-center transition-all duration-700 ease-out ${
-                          isActive ? "scale-100 opacity-100" : "scale-[0.97] opacity-80"
+                          isActive ? "scale-100 opacity-100" : "scale-[0.98] opacity-70"
                         }`}
                       >
                         <Image
@@ -245,85 +226,76 @@ export function NewInSection() {
                           height={600}
                           priority={index === 0}
                           unoptimized
-                          className="object-contain object-bottom w-auto h-full max-h-[365px] select-none filter contrast-105"
+                          className="object-contain object-bottom w-auto h-full max-h-[385px] lg:max-h-[415px] select-none"
                         />
                       </div>
                     </div>
 
-                    {/* RIGHT: EDITORIAL TYPOGRAPHY */}
-                    <div className="relative z-10 w-full flex justify-end items-center pr-16 lg:pr-36 pl-[40%]">
+                    {/* RIGHT: EDITORIAL CONTENT (Luxury Fashion Editorial, Clean Contrast) */}
+                    <div className="w-1/2 h-full flex flex-col justify-center pl-8 lg:pl-16 z-10">
                       <div
-                        className={`w-full max-w-xl text-center flex flex-col items-center select-none transition-all duration-700 ease-out ${
-                          isActive ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"
+                        className={`max-w-md transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                          isActive
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-3 opacity-0 pointer-events-none"
                         }`}
                       >
+                        {/* Eyebrow */}
                         <p
-                          className="text-xs md:text-sm font-semibold uppercase tracking-[0.28em] transition-colors duration-500"
-                          style={{
-                            color: slide.theme.eyebrowColor,
-                            textShadow: slide.theme.textShadowEyebrow,
-                          }}
+                          className="text-xs lg:text-[13px] font-medium uppercase tracking-[0.26em] transition-colors duration-500 mb-2 sm:mb-2.5"
+                          style={{ color: slide.theme.eyebrowColor }}
                         >
                           {slide.eyebrow}
                         </p>
 
+                        {/* Title */}
                         <h3
-                          className="text-4xl md:text-5xl lg:text-[56px] font-black tracking-[0.16em] uppercase text-white leading-tight mt-1 sm:mt-1.5"
-                          style={{
-                            fontFamily: "var(--font-body, 'Inter', sans-serif)",
-                            textShadow: slide.theme.textShadowTitle,
-                          }}
+                          className="font-serif text-4xl lg:text-5xl xl:text-[54px] font-normal tracking-[0.12em] uppercase text-white leading-tight"
                         >
                           {slide.title}
                         </h3>
 
+                        {/* Tag */}
                         <p
-                          className="text-sm md:text-base font-extrabold uppercase tracking-[0.24em] mt-0.5 sm:mt-1 transition-colors duration-500"
-                          style={{
-                            color: slide.theme.tagColor,
-                            textShadow: slide.theme.textShadowTag,
-                          }}
+                          className="text-xs lg:text-sm font-medium uppercase tracking-[0.24em] mt-1.5 transition-colors duration-500"
+                          style={{ color: slide.theme.tagColor }}
                         >
                           {slide.tag}
                         </p>
 
-                        <div className="h-3.5 md:h-4" aria-hidden="true" />
+                        {/* Minimal Divider */}
+                        <div className="w-10 h-[1px] bg-white/15 my-4 sm:my-5" aria-hidden="true" />
 
-                        <p className="text-xs md:text-sm font-bold uppercase tracking-[0.26em] text-white">
-                          {slide.subtitle}
-                        </p>
-
-                        <p className="text-xs md:text-sm font-bold uppercase tracking-[0.26em] text-white mt-0.5">
-                          {slide.actionPrefix}{" "}
-                          <span
-                            className="font-black transition-colors duration-500"
-                            style={{
-                              color: slide.theme.highlightColor,
-                              textShadow: slide.theme.textShadowHighlight,
-                            }}
-                          >
-                            {slide.actionHighlight}
-                          </span>
-                        </p>
+                        {/* Subtitle & Action */}
+                        <div className="space-y-1">
+                          <p className="text-xs lg:text-sm font-light uppercase tracking-[0.24em] text-[#CCCCCC]">
+                            {slide.subtitle}
+                          </p>
+                          <p className="text-xs lg:text-sm font-normal uppercase tracking-[0.24em] text-white">
+                            {slide.actionPrefix}{" "}
+                            <span
+                              className="font-semibold transition-colors duration-500"
+                              style={{ color: slide.theme.highlightColor }}
+                            >
+                              {slide.actionHighlight}
+                            </span>
+                          </p>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="absolute bottom-3.5 left-8 z-20 pointer-events-none">
-                      <span className="text-[9px] uppercase tracking-[0.2em] text-[#888888] font-normal">
+                    {/* Edition Tag Bottom Left */}
+                    <div className="absolute bottom-4 left-10 lg:left-20 z-20 pointer-events-none">
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-[#777777] font-mono">
                         {slide.editionTag}
                       </span>
                     </div>
                   </div>
 
-                  {/* ─── DEDICATED PURPOSE-BUILT MOBILE SLIDE LAYOUT (< md) ─── */}
-                  <div className="flex md:hidden flex-col items-center justify-between w-full h-full p-4 relative z-10 select-none">
-                    {/* Top: Glowing Hero Model Feature */}
-                    <div className="relative w-full h-[180px] flex items-center justify-center overflow-hidden">
-                      <div
-                        className="absolute inset-0 pointer-events-none opacity-85"
-                        style={{ background: slide.theme.radialGlow }}
-                        aria-hidden="true"
-                      />
+                  {/* ─── DEDICATED MOBILE SLIDE LAYOUT (< md) ─── */}
+                  <div className="flex md:hidden flex-col items-center justify-between w-full h-full p-5 relative z-10 select-none">
+                    {/* Model Feature (Clean, Zero Glow) */}
+                    <div className="relative w-full h-[190px] flex items-center justify-center overflow-hidden">
                       <div
                         className={`relative h-full w-auto transition-transform duration-500 ${
                           isActive ? "scale-100 opacity-100" : "scale-95 opacity-70"
@@ -336,55 +308,44 @@ export function NewInSection() {
                           height={400}
                           priority={index === 0}
                           unoptimized
-                          className="h-full w-auto object-contain filter contrast-105"
+                          className="h-full w-auto object-contain object-bottom"
                         />
                       </div>
                     </div>
 
-                    {/* Center: Compact Title & Editorial Details */}
-                    <div className="w-full text-center flex flex-col items-center px-2">
+                    {/* Title & Editorial Details */}
+                    <div className="w-full text-center flex flex-col items-center px-4">
                       <span
-                        className="text-[9px] font-semibold uppercase tracking-[0.26em]"
-                        style={{
-                          color: slide.theme.eyebrowColor,
-                          textShadow: slide.theme.textShadowEyebrow,
-                        }}
+                        className="text-[10px] font-medium uppercase tracking-[0.24em]"
+                        style={{ color: slide.theme.eyebrowColor }}
                       >
                         {slide.eyebrow}
                       </span>
                       <h3
-                        className="text-2xl font-black tracking-[0.16em] uppercase text-white mt-0.5"
-                        style={{
-                          fontFamily: "var(--font-body, 'Inter', sans-serif)",
-                          textShadow: slide.theme.textShadowTitle,
-                        }}
+                        className="font-serif text-2xl sm:text-3xl font-normal tracking-[0.14em] uppercase text-white mt-1 leading-tight"
                       >
                         {slide.title}
                       </h3>
                       <span
-                        className="text-[11px] font-extrabold uppercase tracking-[0.22em]"
-                        style={{
-                          color: slide.theme.tagColor,
-                          textShadow: slide.theme.textShadowTag,
-                        }}
+                        className="text-xs font-medium uppercase tracking-[0.22em] mt-0.5"
+                        style={{ color: slide.theme.tagColor }}
                       >
                         {slide.tag}
                       </span>
 
-                      {/* Tappable Mobile Action Pill */}
-                      <div className="mt-3">
-                        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-bold tracking-[0.2em] uppercase">
-                          <span>{slide.subtitle}</span>
+                      {/* Action Pill Without Glow */}
+                      <div className="mt-3.5">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-white text-[10px] font-medium tracking-[0.2em] uppercase">
+                          <span className="text-[#BBBBBB]">{slide.subtitle}</span>
                           <span style={{ color: slide.theme.highlightColor }}>{slide.actionHighlight}</span>
-                          <span>→</span>
                         </span>
                       </div>
                     </div>
 
-                    {/* Bottom Tag */}
-                    <div className="w-full flex justify-between items-center text-[8px] uppercase tracking-[0.18em] text-[#888888] pt-1">
+                    {/* Bottom Edition Tag & Swipe Hint */}
+                    <div className="w-full flex justify-between items-center text-[9px] uppercase tracking-[0.18em] text-[#777777] pt-1 px-1">
                       <span>{slide.editionTag}</span>
-                      <span className="text-[#666]">SWIPE TO EXPLORE</span>
+                      <span className="text-[#555555]">SWIPE TO EXPLORE</span>
                     </div>
                   </div>
                 </div>
@@ -392,54 +353,52 @@ export function NewInSection() {
             })}
           </div>
 
-          {/* ─── 3. LEFT NAVIGATION CHEVRON (Clean White) ─── */}
+          {/* ─── 3. PREVIOUS CHEVRON ─── */}
           <button
             type="button"
             onClick={handlePrev}
             aria-label="Previous Campaign"
-            className="absolute left-3 sm:left-5 md:left-7 top-1/2 -translate-y-1/2 z-30 text-white opacity-85 hover:opacity-100 hover:scale-110 active:scale-95 transition-all duration-200 p-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full flex items-center justify-center text-white/75 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
           >
             <svg
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
-              className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
             >
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
 
-          {/* ─── 4. RIGHT NAVIGATION CHEVRON (Clean White) ─── */}
+          {/* ─── 4. NEXT CHEVRON ─── */}
           <button
             type="button"
             onClick={handleNext}
             aria-label="Next Campaign"
-            className="absolute right-3 sm:right-5 md:right-7 top-1/2 -translate-y-1/2 z-30 text-white opacity-85 hover:opacity-100 hover:scale-110 active:scale-95 transition-all duration-200 p-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full flex items-center justify-center text-white/75 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-white"
           >
             <svg
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
-              className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
             >
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
 
-          {/* ─── 5. SLICK THEME PAGINATION INDICATORS (Centered At Bottom of Card) ─── */}
-          <div className="absolute bottom-2.5 right-6 sm:bottom-3 sm:right-8 md:bottom-3.5 md:right-10 z-30 flex items-center gap-2">
+          {/* ─── 5. SLIDE INDICATORS (Clean Minimalist Lines, Zero Glow) ─── */}
+          <div className="absolute bottom-3 right-6 sm:bottom-4 sm:right-10 md:right-12 z-30 flex items-center gap-2">
             {CAMPAIGN_SLIDES.map((slide, index) => {
               const isActive = index === currentIndex;
               return (
@@ -452,16 +411,15 @@ export function NewInSection() {
                   className="h-6 flex items-center justify-center p-1 group cursor-pointer focus-visible:outline-none"
                 >
                   <span
-                    className={`block h-1 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    className={`block h-1 rounded-full transition-all duration-300 ease-out ${
                       isActive
-                        ? "w-7 opacity-100 shadow-[0_0_8px_currentColor]"
-                        : "w-2 bg-white/35 group-hover:bg-white/60 opacity-60"
+                        ? "w-7 opacity-100"
+                        : "w-2 bg-white/25 group-hover:bg-white/50 opacity-60"
                     }`}
                     style={
                       isActive
                         ? {
                             backgroundColor: slide.theme.dotColor,
-                            color: slide.theme.dotColor,
                           }
                         : undefined
                     }
