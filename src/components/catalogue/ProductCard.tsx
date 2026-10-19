@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import { Product } from "@/types/catalogue";
 import { formatPrice } from "@/lib/catalogueUtils";
 import { useShop } from "@/context/ShopContext";
@@ -20,51 +20,104 @@ interface ProductCardProps {
 export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductCardProps) {
   const { toggleWishlist, isInWishlist, addToCart } = useShop();
   const [isJustAdded, setIsJustAdded] = useState(false);
+  const [isPhotoHovered, setIsPhotoHovered] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
   const { isKids: isSiteKids } = useSiteTheme();
 
   // Use explicit prop if passed (page context), otherwise fall back to theme context or product gender
   const isKids = isKidsProp ?? (isSiteKids || product.gender === "kids");
 
+  // Variant resolution: merge colorVariants with any imageOverride in colors
+  const variants = useMemo(() => {
+    if (product.colorVariants && product.colorVariants.length > 0) {
+      return product.colorVariants.map((v) => {
+        const matchingColor = product.colors?.find(
+          (c) => c.name.toLowerCase() === v.name.toLowerCase()
+        );
+        const url = matchingColor?.imageOverride || v.images?.[0]?.url;
+        return {
+          ...v,
+          hex: v.hex || v.value || matchingColor?.hex,
+          value: v.value || v.hex || matchingColor?.hex,
+          images: url
+            ? [{ ...(v.images?.[0] || {}), url, isPrimary: true }, ...(v.images?.slice(1) || [])]
+            : v.images,
+        };
+      });
+    }
+    return (
+      product.colors?.map((c) => ({
+        name: c.name,
+        hex: c.hex,
+        value: c.hex,
+        inStock: c.inStock !== false,
+        images: c.imageOverride
+          ? [{ url: c.imageOverride, alt: `${product.name} in ${c.name}`, isPrimary: true }]
+          : product.images,
+      })) || []
+    );
+  }, [product]);
+
   // Variant state management
-  const defaultColor =
-    product.colorVariants?.[0]?.name ||
-    product.colors?.[0]?.name ||
-    "";
+  const defaultColor = variants[0]?.name || product.colors?.[0]?.name || "";
   const [selectedColor, setSelectedColor] = useState<string>(defaultColor);
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
 
-  // Active color resolution (hovered swatch previews immediately; otherwise selected)
-  const activeColorName = hoveredColor || selectedColor;
+  const selectedVariantIndex = variants.findIndex(
+    (v) => v.name.toLowerCase() === selectedColor.toLowerCase()
+  );
+  const safeSelectedIndex = selectedVariantIndex >= 0 ? selectedVariantIndex : 0;
+  const selectedVariant = variants[safeSelectedIndex];
 
-  // Active color variant object
-  const activeVariant = product.colorVariants?.find(
-    (v) => v.name.toLowerCase() === activeColorName.toLowerCase()
-  ) || product.colorVariants?.[0];
+  // Alternate variant for photo hover when no specific swatch is hovered
+  const alternateVariant = variants.length > 1
+    ? variants.find((v, idx) => idx !== safeSelectedIndex && v.inStock !== false) ||
+      variants[(safeSelectedIndex + 1) % variants.length]
+    : null;
 
-  // Active images for Myntra-style hover (same product, same color variant)
-  const primaryImage =
-    activeVariant?.images?.[0]?.url ||
+  const selectedVariantImg =
+    selectedVariant?.images?.[0]?.url ||
     product.primaryImage ||
     (typeof product.images?.[0] === "string" ? product.images[0] : product.images?.[0]?.url) ||
     "/images/pablo-hero-cutout.webp";
 
-  const secondaryImage =
+  const altVariantImg = alternateVariant?.images?.[0]?.url || (typeof alternateVariant?.images?.[0] === "string" ? alternateVariant.images[0] : null);
+  const hasDistinctAltImage = Boolean(altVariantImg && altVariantImg !== selectedVariantImg);
+
+  // Active color name:
+  // - If hovering a swatch -> that hovered color
+  // - Else if hovering photo directly and distinct alternate image exists -> alternate variant name
+  // - Else -> selected color
+  const activeColorName = hoveredColor || (isPhotoHovered && hasDistinctAltImage && alternateVariant ? alternateVariant.name : selectedColor);
+
+  const activeVariant = variants.find(
+    (v) => v.name.toLowerCase() === activeColorName.toLowerCase()
+  ) || selectedVariant;
+
+  const targetImage = activeVariant?.images?.[0]?.url || selectedVariantImg;
+
+  // Secondary angle image for single-variant products
+  const secondaryAngleImage =
     product.hoverImage ||
-    activeVariant?.images?.[1]?.url ||
-    (typeof product.images?.[1] === "string" ? product.images[1] : product.images?.[1]?.url) ||
-    primaryImage;
+    product.images?.[1]?.url ||
+    (typeof product.images?.[1] === "string" ? product.images[1] : null);
 
-  const [imgSrc, setImgSrc] = useState(primaryImage);
-  const [secImgSrc, setSecImgSrc] = useState(secondaryImage);
-
+  // Preload all variant images to ensure instant, buttery transitions
   useEffect(() => {
-    setImgSrc(primaryImage);
-  }, [primaryImage]);
-
-  useEffect(() => {
-    setSecImgSrc(secondaryImage);
-  }, [secondaryImage]);
+    if (typeof window !== "undefined") {
+      variants.forEach((v) => {
+        const u = v.images?.[0]?.url;
+        if (u) {
+          const img = new window.Image();
+          img.src = u;
+        }
+      });
+      if (secondaryAngleImage) {
+        const img = new window.Image();
+        img.src = secondaryAngleImage;
+      }
+    }
+  }, [variants, secondaryAngleImage]);
 
   const isWishlisted = isInWishlist(product.id);
 
@@ -73,15 +126,8 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
     ? `kids-grid-enter kids-stagger-${Math.min(index + 1, 8)}`
     : `pablo-grid-item-${index % 4}`;
 
-  // Available variants / colors for swatches
-  const hasVariants = Boolean(product.colorVariants && product.colorVariants.length > 0);
-  const swatches = hasVariants
-    ? product.colorVariants!
-    : product.colors?.map((c) => ({
-        name: c.name,
-        hex: c.hex,
-        images: product.images,
-      })) || [];
+  // Swatches for UI display
+  const swatches = variants;
 
   // Handle Add to Bag with active variant info
   const handleAddToBag = () => {
@@ -90,11 +136,14 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
       product.sizes?.[0]?.name ||
       "4Y";
     const colorToSave = selectedColor || defaultColor || "Standard";
-    const variantImageToSave = activeVariant?.images?.[0]?.url || primaryImage;
+    const variantImageToSave = activeVariant?.images?.[0]?.url || selectedVariantImg;
     addToCart(product, availableSize, colorToSave, 1, variantImageToSave);
     setIsJustAdded(true);
     setTimeout(() => setIsJustAdded(false), 1400);
   };
+
+  // Previewed color label during hover
+  const previewedColorName = hoveredColor || (isPhotoHovered && hasDistinctAltImage && alternateVariant ? alternateVariant.name : selectedColor);
 
   return (
     <article
@@ -108,6 +157,8 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
       {/* ─── 1. PRODUCT IMAGE CONTAINER ─── */}
       <div
         ref={imageRef}
+        onMouseEnter={() => setIsPhotoHovered(true)}
+        onMouseLeave={() => setIsPhotoHovered(false)}
         className={`relative aspect-[3/4] w-full overflow-hidden ${
           isKids ? "rounded-t-[14px]" : "pablo-dark-card border border-[#D9D8D3]/80 pablo-product-image-container"
         }`}
@@ -118,47 +169,63 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           className="block relative w-full h-full cursor-pointer focus-visible:outline-2 focus-visible:outline-[#181818] active:scale-[0.98] transition-transform duration-200"
           aria-label={`View details for ${product.name}`}
         >
-          {/* Primary image — with subtle 1.03 zoom on hover and editorial crossfade */}
-          <div
-            className={`absolute inset-0 w-full h-full transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] ${
-              secondaryImage !== primaryImage ? "group-hover:opacity-0" : ""
-            } ${isKids ? "kids-card-img" : "pablo-product-img-primary"}`}
-          >
-            <Image
-              src={imgSrc}
-              alt={product.name}
-              fill
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              className="object-cover w-full h-full"
-              priority={index < 4}
-              onError={() => {
-                if (imgSrc !== "/images/pablo-hero-cutout.webp") {
-                  setImgSrc("/images/pablo-hero-cutout.webp");
-                }
-              }}
-            />
-          </div>
-
-          {/* Secondary hover image — editorial smooth crossfade of the SAME product */}
-          {secondaryImage && secondaryImage !== primaryImage && (
-            <div
-              className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] ${
-                isKids ? "kids-card-img" : "pablo-product-img-secondary"
-              }`}
-            >
-              <Image
-                src={secImgSrc}
-                alt={`${product.name} alternate view`}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover w-full h-full"
-                onError={() => {
-                  if (secImgSrc !== imgSrc) {
-                    setSecImgSrc(imgSrc);
-                  }
-                }}
-              />
-            </div>
+          {/* Multi-variant rendering: each color variant rendered as an absolute layer for instant, glitch-free crossfade */}
+          {variants.length > 1 ? (
+            variants.map((v, i) => {
+              const vUrl = v.images?.[0]?.url || selectedVariantImg;
+              const isVisible = v.name.toLowerCase() === activeColorName.toLowerCase();
+              return (
+                <div
+                  key={v.name || i}
+                  className={`absolute inset-0 w-full h-full transition-opacity duration-300 ease-out ${
+                    isVisible ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                  } ${isKids ? "kids-card-img" : "pablo-product-img-primary"}`}
+                >
+                  <Image
+                    src={vUrl}
+                    alt={`${product.name} in ${v.name}`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover w-full h-full"
+                    priority={index < 4 && i === 0}
+                  />
+                </div>
+              );
+            })
+          ) : (
+            <>
+              {/* Single-variant primary image */}
+              <div
+                className={`absolute inset-0 w-full h-full transition-opacity duration-300 ease-out ${
+                  isPhotoHovered && secondaryAngleImage ? "opacity-0" : "opacity-100"
+                } ${isKids ? "kids-card-img" : "pablo-product-img-primary"}`}
+              >
+                <Image
+                  src={selectedVariantImg}
+                  alt={product.name}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover w-full h-full"
+                  priority={index < 4}
+                />
+              </div>
+              {/* Secondary angle image on hover */}
+              {secondaryAngleImage && (
+                <div
+                  className={`absolute inset-0 w-full h-full transition-opacity duration-300 ease-out pointer-events-none ${
+                    isPhotoHovered ? "opacity-100" : "opacity-0"
+                  } ${isKids ? "kids-card-img" : "pablo-product-img-secondary"}`}
+                >
+                  <Image
+                    src={secondaryAngleImage}
+                    alt={`${product.name} alternate angle`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              )}
+            </>
           )}
         </Link>
 
@@ -197,7 +264,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           isKids ? "px-2.5 kids-card-info" : "px-1"
         }`}
       >
-        {/* MOBILE KIDS COMPACT INFO (sm:hidden) — Exactly matches Screen 3 reference */}
+        {/* MOBILE KIDS COMPACT INFO (sm:hidden) */}
         {isKids && (
           <div className="flex sm:hidden flex-col justify-between flex-1 space-y-1">
             <Link
@@ -218,12 +285,14 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
             {swatches.length > 0 && (
               <div className="flex items-center gap-1 pt-0.5">
                 {swatches.slice(0, 4).map((variant) => {
-                  const isCurrent = activeColorName.toLowerCase() === variant.name.toLowerCase();
+                  const isCurrent = (hoveredColor ? hoveredColor.toLowerCase() === variant.name.toLowerCase() : selectedColor.toLowerCase() === variant.name.toLowerCase());
                   return (
                     <button
                       key={variant.name}
                       type="button"
                       aria-label={`Select ${variant.name}`}
+                      onMouseEnter={() => setHoveredColor(variant.name)}
+                      onMouseLeave={() => setHoveredColor(null)}
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
@@ -243,7 +312,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           </div>
         )}
 
-        {/* DESKTOP & NON-KIDS INFO (hidden sm:block for Kids, always block for non-kids) */}
+        {/* DESKTOP & NON-KIDS INFO */}
         <div className={`space-y-1 min-w-0 ${isKids ? "hidden sm:block" : "block"}`}>
           {/* Product Name */}
           <Link
@@ -268,7 +337,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
             <div className="flex items-center gap-1.5 pt-1">
               <div className="flex items-center gap-1">
                 {swatches.map((variant) => {
-                  const isCurrent = activeColorName.toLowerCase() === variant.name.toLowerCase();
+                  const isCurrent = (hoveredColor ? hoveredColor.toLowerCase() === variant.name.toLowerCase() : selectedColor.toLowerCase() === variant.name.toLowerCase());
                   return (
                     <button
                       key={variant.name}
@@ -282,13 +351,13 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
                         e.stopPropagation();
                         setSelectedColor(variant.name);
                       }}
-                      className={`w-3.5 h-3.5 rounded-full transition-all duration-200 focus:outline-none ${
+                      className={`w-3.5 h-3.5 rounded-full transition-all duration-200 focus:outline-none cursor-pointer ${
                         isKids
                           ? isCurrent
                             ? "scale-125 ring-2 ring-[#181818] ring-offset-1 border border-[#181818]"
                             : "border border-[#181818]/40 hover:scale-115"
                           : isCurrent
-                          ? "ring-1 ring-[#111111] ring-offset-1 border border-[#111111]"
+                          ? "ring-1 ring-[#111111] ring-offset-1 border border-[#111111] scale-105"
                           : "border border-[#999999]/60 hover:scale-110"
                       }`}
                       style={{ backgroundColor: variant.hex || (variant as any).value }}
@@ -298,14 +367,14 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
               </div>
 
               {/* Active Color Name preview */}
-              <span className="text-[10px] text-[#666666] font-medium tracking-tight truncate ml-0.5">
-                {activeColorName}
+              <span className="text-[10px] text-[#666666] font-medium tracking-tight truncate ml-0.5 transition-colors duration-200">
+                {previewedColorName}
               </span>
             </div>
           )}
         </div>
 
-        {/* ─── 3. PRICE + ADD TO BAG (DESKTOP & NON-KIDS) ─── */}
+        {/* ─── 3. PRICE + ADD TO BAG ─── */}
         <div
           className={`items-center justify-between pt-2 mt-auto gap-2 min-w-0 w-full ${
             isKids
@@ -338,7 +407,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           {isKids ? (
             <KidsCartFly
               imageRef={imageRef}
-              imageSrc={primaryImage}
+              imageSrc={targetImage}
               onAdd={handleAddToBag}
               isKids
               className="group/btn shrink-0 px-3 py-1.5 sm:px-3.5 sm:py-2 text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.16em] flex items-center gap-1.5 transition-all duration-200 cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#181818] rounded-full border-2 border-[#181818] bg-[#FEF08A] hover:bg-[#FDE047] text-[#181818] font-bold shadow-[2px_2px_0px_#181818] hover:shadow-[1px_1px_0px_#181818] hover:translate-x-[1px] hover:translate-y-[1px] active:scale-95"

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useMemo } from "react";
 import { ProductCarousel } from "@/components/catalogue/ProductCarousel";
-import { MEN_PRODUCTS } from "@/data/menCatalogue";
+import { getNewArrivals } from "@/data/products";
 import { EditorialHeading } from "@/components/ui/EditorialHeading";
 
 
@@ -11,8 +11,7 @@ import { Reveal } from "@/components/animation/Reveal";
 
 export function NewArrivalsSection() {
   const newArrivals = useMemo(() => {
-    // Curate up to 8 new arrivals for horizontal carousel
-    return MEN_PRODUCTS.filter((p) => p.isNewArrival).slice(0, 8);
+    return getNewArrivals(8);
   }, []);
 
   return (

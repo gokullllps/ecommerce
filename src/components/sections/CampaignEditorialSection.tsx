@@ -23,7 +23,7 @@ export function CampaignEditorialSection() {
             <Parallax speed={0.03} maxOffset={18} direction="up" className="w-full h-full">
               <ImageReveal className="w-full h-full" duration={1000}>
                 <Image
-                  src="/images/categories/outerwear.webp"
+                  src="/images/banners/editorial-atelier-reduction.webp"
                   alt="PABLO Atelier Sartorial Silhouette"
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"

@@ -25,7 +25,7 @@ export default function AboutPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="relative aspect-[3/4] bg-[#DFDDD6] overflow-hidden">
             <Image
-              src="/images/categories/outerwear.webp"
+              src="/images/banners/about-atelier-craft.webp"
               alt="Maison PABLO Atelier Craftsmanship"
               fill
               className="object-cover"

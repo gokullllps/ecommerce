@@ -31,7 +31,7 @@ export const WOMEN_CATEGORY_CARDS = [
     title: "OUTERWEAR",
     label: "OUTERWEAR",
     category: "outerwear",
-    image: "/images/categories/outerwear.webp",
+    image: "/images/categories/women-cat-outerwear-editorial.webp",
     alt: "Women's Sculptural Outerwear and Coats",
   },
   {

@@ -220,8 +220,8 @@ export function Navbar({
   const isKidsOpaque = isOpaque;
 
   const actionColorClass = isTransparentOverlay
-    ? "text-white/95 hover:text-white"
-    : "text-[#111111] hover:text-[#666666]";
+    ? "text-white/95"
+    : "text-[#111111]";
 
   return (
     <>
@@ -378,27 +378,24 @@ export function Navbar({
                 aria-expanded={activePopover === "search"}
                 aria-haspopup="dialog"
                 aria-label="Search silhouettes and collections"
-                className={`group/icon relative inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full transition-all duration-200 ease-out hover:ring-1 hover:ring-current/25 hover:bg-current/[0.05] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current
+                className={`pablo-nav-waterfill ${isTransparentOverlay ? "pablo-nav-waterfill-hero" : ""} group/icon relative inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current
                   ${activePopover === "search" ? "ring-1 ring-current/30 bg-current/[0.08]" : ""}
-                  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-[1.5px] after:bg-current after:rounded-full after:transition-all after:duration-200 after:ease-out
-                  ${activePopover === "search" ? "after:w-3.5 opacity-100" : "after:w-0 group-hover/icon:after:w-3.5 opacity-85 hover:opacity-100"}
                   ${actionColorClass}`}
               >
-                <span className="transition-transform duration-200 ease-out group-hover/icon:scale-[1.08] flex items-center justify-center">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
-                </span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="relative z-10"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
               </button>
 
               {/* Account icon */}
@@ -408,27 +405,24 @@ export function Navbar({
                 aria-expanded={activePopover === "account"}
                 aria-haspopup="dialog"
                 aria-label="Client account portal"
-                className={`group/icon relative hidden sm:inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full transition-all duration-200 ease-out hover:ring-1 hover:ring-current/25 hover:bg-current/[0.05] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current
+                className={`pablo-nav-waterfill ${isTransparentOverlay ? "pablo-nav-waterfill-hero" : ""} group/icon relative hidden sm:inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current
                   ${activePopover === "account" ? "ring-1 ring-current/30 bg-current/[0.08]" : ""}
-                  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-[1.5px] after:bg-current after:rounded-full after:transition-all after:duration-200 after:ease-out
-                  ${activePopover === "account" ? "after:w-3.5 opacity-100" : "after:w-0 group-hover/icon:after:w-3.5 opacity-85 hover:opacity-100"}
                   ${actionColorClass}`}
               >
-                <span className="transition-transform duration-200 ease-out group-hover/icon:scale-[1.08] flex items-center justify-center">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                </span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="relative z-10"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
               </button>
 
               {/* Wishlist icon */}
@@ -438,28 +432,25 @@ export function Navbar({
                 aria-expanded={activePopover === "wishlist"}
                 aria-haspopup="dialog"
                 aria-label={`Wishlist (${wishlistCount} items)`}
-                className={`group/icon relative hidden sm:inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full transition-all duration-200 ease-out hover:ring-1 hover:ring-current/25 hover:bg-current/[0.05] active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current
+                className={`pablo-nav-waterfill ${isTransparentOverlay ? "pablo-nav-waterfill-hero" : ""} group/icon relative hidden sm:inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current
                   ${activePopover === "wishlist" ? "ring-1 ring-current/30 bg-current/[0.08]" : ""}
-                  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-[1.5px] after:bg-current after:rounded-full after:transition-all after:duration-200 after:ease-out
-                  ${activePopover === "wishlist" ? "after:w-3.5 opacity-100" : "after:w-0 group-hover/icon:after:w-3.5 opacity-85 hover:opacity-100"}
                   ${actionColorClass}`}
               >
-                <span className="transition-transform duration-200 ease-out group-hover/icon:scale-[1.08] flex items-center justify-center">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                  </svg>
-                </span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="relative z-10"
+                >
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 font-mono text-[8.5px] leading-none px-1 py-0.5 min-w-[13px] text-center bg-[#111111] text-white rounded-full border border-white/20">
+                  <span className="absolute top-0 right-0 font-mono text-[8.5px] leading-none px-1 py-0.5 min-w-[13px] text-center bg-[#111111] text-white rounded-full border border-white/20 z-20 pointer-events-none">
                     {wishlistCount}
                   </span>
                 )}
@@ -472,30 +463,27 @@ export function Navbar({
                 aria-expanded={activePopover === "cart"}
                 aria-haspopup="dialog"
                 aria-label={`Shopping Bag (${cartCount} items)`}
-                className={`group/icon relative inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full transition-all duration-200 ease-out hover:ring-1 hover:ring-current/25 hover:bg-current/[0.05] active:scale-95 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current cursor-pointer
+                className={`pablo-nav-waterfill ${isTransparentOverlay ? "pablo-nav-waterfill-hero" : ""} group/icon relative inline-flex items-center justify-center w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full active:scale-95 motion-reduce:hover:scale-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-current cursor-pointer
                   ${activePopover === "cart" ? "ring-1 ring-current/30 bg-current/[0.08]" : ""}
-                  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-[1.5px] after:bg-current after:rounded-full after:transition-all after:duration-200 after:ease-out
-                  ${activePopover === "cart" ? "after:w-3.5 opacity-100" : "after:w-0 group-hover/icon:after:w-3.5 opacity-85 hover:opacity-100"}
                   ${actionColorClass}`}
               >
-                <span className="transition-transform duration-200 ease-out group-hover/icon:scale-[1.08] flex items-center justify-center">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                  </svg>
-                </span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="relative z-10"
+                >
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                  <path d="M3 6h18" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
                 {cartCount > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 font-mono text-[8.5px] leading-none px-1 py-0.5 min-w-[13px] text-center bg-[#111111] text-white rounded-full border border-white/20">
+                  <span className="absolute top-0 right-0 font-mono text-[8.5px] leading-none px-1 py-0.5 min-w-[13px] text-center bg-[#111111] text-white rounded-full border border-white/20 z-20 pointer-events-none">
                     {cartCount}
                   </span>
                 )}

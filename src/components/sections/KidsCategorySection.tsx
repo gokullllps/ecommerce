@@ -24,25 +24,25 @@ export const MOBILE_2X2_CATEGORIES = [
   {
     id: "boys",
     name: "BOYS",
-    image: "/images/kids/hoodie-sky-front.webp",
+    image: "/images/kids/category-boys.webp",
     alt: "PABLO Kids Boys Collection",
   },
   {
     id: "girls",
     name: "GIRLS",
-    image: "/images/kids/cable-knit-ivory-front.webp",
+    image: "/images/kids/category-girls.webp",
     alt: "PABLO Kids Girls Collection",
   },
   {
     id: "baby",
     name: "BABY & TODDLER",
-    image: "/images/kids/hoodie-cream-front.webp",
+    image: "/images/kids/category-baby.webp",
     alt: "PABLO Kids Baby & Toddler Collection",
   },
   {
     id: "accessories",
     name: "ACCESSORIES",
-    image: "/images/categories/bags.webp",
+    image: "/images/kids/category-accessories.webp",
     alt: "PABLO Kids Accessories Collection",
   },
 ];

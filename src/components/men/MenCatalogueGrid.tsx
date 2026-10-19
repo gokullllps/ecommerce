@@ -49,13 +49,31 @@ function MenCatalogueGridInner({
 
   React.useEffect(() => {
     try {
-      const stored = localStorage.getItem("pablo_admin_store_v1");
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("pablo_admin_store_v1");
+      }
+      const stored = localStorage.getItem("pablo_admin_store_v2");
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed.products && Array.isArray(parsed.products) && parsed.products.length > 0) {
-          const active = parsed.products.filter(
-            (p: Product) => p.status !== "draft" && p.status !== "archived" && p.isAvailable !== false
-          );
+          const canonicalMap = new Map(products.map((p) => [p.id, p]));
+          const active = parsed.products
+            .filter(
+              (p: Product) => p.status !== "draft" && p.status !== "archived" && p.isAvailable !== false
+            )
+            .map((p: Product) => {
+              const canon = canonicalMap.get(p.id);
+              if (canon) {
+                return {
+                  ...p,
+                  primaryImage: canon.primaryImage,
+                  hoverImage: canon.hoverImage,
+                  images: canon.images,
+                  colorVariants: canon.colorVariants,
+                };
+              }
+              return p;
+            });
           setLiveProducts(active.filter((p: Product) => (p.gender || "men") === "men"));
         }
       }

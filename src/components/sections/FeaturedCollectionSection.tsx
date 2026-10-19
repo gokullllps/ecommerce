@@ -17,7 +17,7 @@ export function FeaturedCollectionSection() {
       {/* Background High-Fashion Campaign Image — Full Width with Subtle Parallax */}
       <Parallax speed={0.03} maxOffset={20} className="absolute inset-0 w-full h-[120%] -top-[10%]">
         <Image
-          src="/images/categories/knitwear.webp"
+          src="/images/banners/featured-cashmere-suite.webp"
           alt="PABLO Autumn / Winter 2026 Collection Campaign"
           fill
           priority

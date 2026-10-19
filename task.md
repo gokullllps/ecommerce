@@ -3,7 +3,7 @@
 ## A. Homepage
 - [x] Announcement bar / promotional message *(Implemented in `src/components/ui/PromotionalTicker.tsx` with luxury diamond dividers, marquee, and pause-on-hover)*
 - [x] Header with logo, navigation, search, account and cart *(Implemented in `src/components/layout/Navbar.tsx` with popovers and mega-menu)*
-- [x] Hero banner with campaign imagery and CTA *(Implemented in `src/components/sections/HeroSection.tsx` with editorial transitions)*
+- [x] Hero banner with campaign imagery and CTA *(Implemented in `src/components/sections/HeroSection.tsx` with editorial transitio                                             ns)*
 - [x] Featured collections / categories *(Implemented in `src/components/sections/CategoriesSection.tsx` and `src/components/sections/FeaturedCollectionSection.tsx`)*
 - [x] New arrivals and bestsellers *(Implemented in `src/components/sections/NewArrivalsSection.tsx`, `src/components/sections/BestsellersSection.tsx`, and `src/components/sections/NewInSection.tsx`)*
 - [x] Editorial / brand story section *(Implemented in `src/components/sections/CampaignEditorialSection.tsx`)*

@@ -27,7 +27,10 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("pablo_admin_store_v1");
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("pablo_admin_store_v1");
+      }
+      const stored = localStorage.getItem("pablo_admin_store_v2");
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed.products && Array.isArray(parsed.products)) {
@@ -35,8 +38,8 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
             (p: Product) => p.id === initialProduct.id || p.slug === initialProduct.slug
           );
           if (match) {
-            // Ensure product images are reconciled with canonical data if stale or missing
-            if (!match.images || match.images.length === 0 || !match.primaryImage) {
+            // Strictly reconcile product images with canonical data
+            if (initialProduct.images && initialProduct.images.length > 0) {
               match.images = initialProduct.images;
               match.primaryImage = initialProduct.primaryImage;
               match.hoverImage = initialProduct.hoverImage;

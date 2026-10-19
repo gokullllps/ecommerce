@@ -19,7 +19,7 @@ const TOPS: OutfitPiece[] = [
     tag: "100% Organic Supima",
     colorName: "Ivory / Marine",
     colorHex: "#F8FAFC",
-    imageUrl: "/images/categories/t-shirts.webp",
+    imageUrl: "/images/kids/hoodie-sky-front.webp",
   },
   {
     id: "top-2",
@@ -27,7 +27,7 @@ const TOPS: OutfitPiece[] = [
     tag: "Double-Faced Cashmere",
     colorName: "Butter Yellow",
     colorHex: "#FEF08A",
-    imageUrl: "/images/categories/knitwear.webp",
+    imageUrl: "/images/kids/cable-knit-ivory-front.webp",
   },
   {
     id: "top-3",
@@ -35,7 +35,7 @@ const TOPS: OutfitPiece[] = [
     tag: "Virgin Wool Blend",
     colorName: "Chambray Sky",
     colorHex: "#BAE6FD",
-    imageUrl: "/images/categories/outerwear.webp",
+    imageUrl: "/images/kids/poplin-shirt-white-front.webp",
   },
 ];
 
@@ -46,7 +46,7 @@ const BOTTOMS: OutfitPiece[] = [
     tag: "Italian Stretch Cotton",
     colorName: "Sand Stone",
     colorHex: "#E2E8F0",
-    imageUrl: "/images/categories/trousers.webp",
+    imageUrl: "/images/products/petit-architectural-relaxed-chinos-front.webp",
   },
   {
     id: "bot-2",
@@ -54,7 +54,7 @@ const BOTTOMS: OutfitPiece[] = [
     tag: "Japanese Denim",
     colorName: "Indigo Light",
     colorHex: "#93C5FD",
-    imageUrl: "/images/categories/outerwear.webp",
+    imageUrl: "/images/products/petit-japanese-selvedge-denim-jeans-front.webp",
   },
   {
     id: "bot-3",
@@ -62,7 +62,7 @@ const BOTTOMS: OutfitPiece[] = [
     tag: "Soft Ribbed Cotton",
     colorName: "Honey Khaki",
     colorHex: "#FDE68A",
-    imageUrl: "/images/categories/knitwear.webp",
+    imageUrl: "/images/products/junior-wool-blend-utility-cargo-trousers-front.webp",
   },
 ];
 
@@ -73,7 +73,7 @@ const SHOES: OutfitPiece[] = [
     tag: "Italian Calf Leather",
     colorName: "Chalk White",
     colorHex: "#FFFFFF",
-    imageUrl: "/images/categories/footwear.webp",
+    imageUrl: "/images/products/minimalist-calfskin-low-top-sneakers-front.webp",
   },
   {
     id: "sh-2",
@@ -81,7 +81,7 @@ const SHOES: OutfitPiece[] = [
     tag: "Velvet Calfskin",
     colorName: "Espresso Brown",
     colorHex: "#78350F",
-    imageUrl: "/images/categories/footwear.webp",
+    imageUrl: "/images/products/miniature-calfskin-penny-loafers-front.webp",
   },
   {
     id: "sh-3",
@@ -89,7 +89,7 @@ const SHOES: OutfitPiece[] = [
     tag: "Water-Resistant Nubuck",
     colorName: "Jet Black",
     colorHex: "#181818",
-    imageUrl: "/images/categories/footwear.webp",
+    imageUrl: "/images/products/monolithic-leather-chelsea-boots-front.webp",
   },
 ];
 

@@ -82,8 +82,8 @@ import {
 } from "@/app/actions/adminActions";
 import { can } from "@/lib/permissions";
 
-const STORAGE_KEY = "pablo_admin_store_v1";
-const MIGRATION_KEY = "pablo_json_migrated_v1";
+const STORAGE_KEY = "pablo_admin_store_v2";
+const MIGRATION_KEY = "pablo_json_migrated_v2";
 
 export interface DashboardMetrics {
   totalRevenue: number;
@@ -248,6 +248,10 @@ export function AdminDataProvider({ children }: { children: React.ReactNode }) {
 
         if (isMounted && canonical) {
           if (typeof window !== "undefined") {
+            // Clean up stale v1 cache
+            localStorage.removeItem("pablo_admin_store_v1");
+            localStorage.removeItem("pablo_json_migrated_v1");
+
             const stored = localStorage.getItem(STORAGE_KEY);
             const isMigrated = localStorage.getItem(MIGRATION_KEY);
 
