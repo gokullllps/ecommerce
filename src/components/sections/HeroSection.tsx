@@ -176,7 +176,7 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
         >
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none" aria-hidden="true">
             <Image
-              src="/images/main-hero.png"
+              src="/images/main-hero.webp"
               alt="PABLO Luxury Fashion Campaign"
               fill
               priority
@@ -196,34 +196,35 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
         </section>
 
         <section id="editorial-collections" className="w-full py-12 sm:py-16 bg-[#EAE8E1] text-[#111111]">
-          <div className="w-full flex items-center justify-center px-2 sm:px-4">
-            <div className="flex justify-center items-center gap-2.5 sm:gap-3 md:gap-3.5">
+          <div className="w-full flex items-center justify-center">
+            <div className="flex items-center gap-3.5 sm:gap-4 md:gap-5 max-w-full overflow-x-auto md:overflow-visible no-scrollbar pb-2 px-6 sm:px-4 sm:justify-center snap-x snap-mandatory">
               {EDITORIAL_CARDS.map((card) => (
-                <Link
-                  key={card.id}
-                  href={card.href}
-                  className="group relative block h-[76vh] sm:h-[80vh] md:h-[83vh] max-h-[780px] aspect-[3/5] rounded-[18px] sm:rounded-[22px] md:rounded-[24px] overflow-hidden bg-[#181818] shadow-2xl"
-                >
-                  <Image
-                    src={card.image}
-                    alt={`PABLO ${card.category}`}
-                    fill
-                    sizes="(max-width: 768px) 80vw, 450px"
-                    className="object-cover object-center w-full h-full"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 px-5 text-center flex flex-col items-center">
-                    <span className="text-[10.5px] uppercase tracking-[0.28em] text-white/80 block mb-1.5 font-medium">
-                      {card.subtitle}
-                    </span>
-                    <h3
-                      className="text-2xl sm:text-3xl md:text-4xl font-normal text-white"
-                      style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
-                    >
-                      {card.category}
-                    </h3>
-                  </div>
-                </Link>
+                <div key={card.id} className="shrink-0 snap-center">
+                  <Link
+                    href={card.href}
+                    className="group relative block h-[62vh] sm:h-[78vh] md:h-[82vh] max-h-[760px] aspect-[3/5] w-[70vw] sm:w-auto max-w-[280px] sm:max-w-none rounded-[20px] sm:rounded-[22px] md:rounded-[24px] overflow-hidden bg-[#181818] shadow-2xl"
+                  >
+                    <Image
+                      src={card.image}
+                      alt={`PABLO ${card.category}`}
+                      fill
+                      sizes="(max-width: 768px) 80vw, 450px"
+                      className="object-cover object-center w-full h-full"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 px-5 text-center flex flex-col items-center">
+                      <span className="text-[10.5px] uppercase tracking-[0.28em] text-white/80 block mb-1.5 font-medium">
+                        {card.subtitle}
+                      </span>
+                      <h3
+                        className="text-2xl sm:text-3xl md:text-4xl font-normal text-white tracking-[0.03em]"
+                        style={{ fontFamily: "'Orborn', sans-serif" }}
+                      >
+                        {card.category}
+                      </h3>
+                    </div>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -274,7 +275,7 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
         >
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
             <Image
-              src="/images/main-hero.png"
+              src="/images/main-hero.webp"
               alt="PABLO Luxury Fashion Campaign"
               fill
               priority
@@ -299,17 +300,17 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
         <div
           id="editorial-collections"
           aria-label="PABLO Featured Editorial Collections"
-          className="absolute inset-0 z-20 flex items-center justify-center px-2 sm:px-4"
+          className="absolute inset-0 z-20 flex items-center justify-center px-0 sm:px-4"
           style={{
             pointerEvents: progress >= 0.18 ? "auto" : "none",
           }}
         >
           <div className="w-full flex items-center justify-center">
-            <div className="flex justify-center items-center gap-2.5 sm:gap-3 md:gap-3.5 max-w-full overflow-x-auto md:overflow-visible no-scrollbar pb-2">
+            <div className="flex items-center gap-3.5 sm:gap-4 md:gap-5 max-w-full overflow-x-auto md:overflow-visible no-scrollbar pb-2 px-6 sm:px-4 sm:justify-center snap-x snap-mandatory">
               {EDITORIAL_CARDS.map((card, index) => (
                 <div
                   key={card.id}
-                  className="shrink-0"
+                  className="shrink-0 snap-center"
                   style={{
                     transform: `translate3d(0, ${cardStates[index].translateY}, 0) scale(${cardStates[index].scale})`,
                     opacity: cardStates[index].opacity,
@@ -319,7 +320,7 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
                   <Link
                     href={card.href}
                     aria-label={`Explore ${card.category} Collection`}
-                    className="shiny-card group relative block h-[76vh] sm:h-[80vh] md:h-[83vh] max-h-[780px] aspect-[3/5] max-w-[calc((100vw-48px)/3)] md:max-w-none rounded-[18px] sm:rounded-[22px] md:rounded-[24px] overflow-hidden bg-[#181818] shadow-2xl transition-all duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white cursor-pointer select-none"
+                    className="shiny-card group relative block h-[62vh] sm:h-[78vh] md:h-[82vh] max-h-[760px] aspect-[3/5] w-[70vw] sm:w-auto max-w-[280px] sm:max-w-none rounded-[20px] sm:rounded-[22px] md:rounded-[24px] overflow-hidden bg-[#181818] shadow-2xl transition-all duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white cursor-pointer select-none"
                     style={{
                       pointerEvents: cardStates[index].opacity > 0.4 ? "auto" : "none",
                     }}
@@ -370,9 +371,9 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
                         {card.subtitle}
                       </span>
                       <h3
-                        className="text-2xl sm:text-3xl md:text-[2.6rem] lg:text-[2.85rem] font-normal text-white tracking-[0.02em] leading-tight transition-transform duration-500 ease-out group-hover:-translate-y-0.5"
+                        className="text-2xl sm:text-3xl md:text-[2.6rem] lg:text-[2.85rem] font-normal text-white tracking-[0.03em] leading-tight transition-transform duration-500 ease-out group-hover:-translate-y-0.5"
                         style={{
-                          fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                          fontFamily: "'Orborn', sans-serif",
                         }}
                       >
                         {card.category}

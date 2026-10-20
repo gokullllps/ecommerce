@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-/* ===================================================
-   BEVERLY LUXURY EDITORIAL SERIF — PEN CULTURE
-   =================================================== */
 @font-face {
-  font-family: "Beverly";
-  src: url("/fonts/Beverly.otf") format("opentype"),
-       url("/fonts/Beverly.ttf") format("truetype");
-  font-weight: 100 900;
+  font-family: "Orborn";
+  src: url("/fonts/Orborn.otf") format("opentype"),
+       url("/fonts/Orborn.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -21,46 +18,55 @@
   --color-pablo-border: #D9D8D3;
   --color-pablo-white: #FFFFFF;
 
-  --font-editorial: "Beverly", var(--font-editorial), serif;
-  --font-display: "Beverly", var(--font-editorial), serif;
-  --font-serif: "Beverly", var(--font-editorial), serif;
-  --font-pablo: "Beverly", var(--font-editorial), serif;
-  --font-hero-pablo: var(--font-hero-pablo), "Cormorant Garamond", Georgia, serif;
-  --font-body: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-orborn: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-audiowide: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-editorial: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pablo: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hero-pablo: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* PABLO BEVERLY GLOBAL EDITORIAL & DISPLAY TYPOGRAPHY UTILITIES */
+/* PABLO OFFICIAL ORBORN GEOMETRIC DISPLAY TYPOGRAPHY UTILITIES */
+.font-orborn,
+.font-audiowide,
 .font-editorial,
 .font-pablo,
 .font-display,
 .font-serif {
-  font-family: "Beverly", var(--font-editorial), serif !important;
-  font-weight: normal;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 400;
   font-style: normal;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
   font-feature-settings: "liga" 1, "kern" 1;
 }
 
-/* Hero "PABLO" Wordmark preservation (Requirement #2 - STRICT & ABSOLUTE) */
+/* Hero "PABLO" Wordmark preservation (Requirement #5 - STRICT & ABSOLUTE) */
 .font-hero-pablo {
-  font-family: var(--font-hero-pablo), "Cormorant Garamond", Georgia, serif !important;
+  font-family: var(--font-hero-pablo, "Cormorant Garamond"), Georgia, serif !important;
 }
 
 .font-sans,
 .font-body {
-  font-family: var(--font-body), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Major Headings & Titles default to Beverly luxury typography */
+/* Major Headings & Titles default to Orborn geometric display typography */
 h1, h2, h3, h4 {
-  font-family: "Beverly", var(--font-editorial), serif;
-  font-weight: normal;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 400;
   font-style: normal;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+html,
+body {
+  overflow-x: clip;
+  max-width: 100vw;
 }
 
 :root {
@@ -72,6 +78,17 @@ h1, h2, h3, h4 {
   --text-muted: #999999;
   --border-divider: #D9D8D3;
   --surface-white: #FFFFFF;
+
+  /* PABLO OFFICIAL LUXURY TYPOGRAPHY SYSTEM (ORBORN GEOMETRIC DISPLAY) */
+  --font-orborn: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-audiowide: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-editorial: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pablo: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-hero-pablo: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* PABLO OFFICIAL DARK TONAL GRADIENT SYSTEM
      Restrained exclusively to: #050505 | #0A0A0A | #111111 | #181818 */
@@ -441,10 +458,11 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 1. Display / Hero Headline */
 .type-display-hero {
-  font-family: "Beverly", var(--font-editorial), serif;
-  font-size: clamp(2.5rem, 6.5vw + 0.5rem, 6.5rem);
-  line-height: 1.02;
-  letter-spacing: -0.015em;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2.25rem, 5.5vw + 0.5rem, 5.5rem);
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   font-weight: 400;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -452,10 +470,11 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 2. Large Editorial Heading */
 .type-display-lg {
-  font-family: "Beverly", var(--font-editorial), serif;
-  font-size: clamp(2.125rem, 4.5vw + 0.5rem, 4.5rem);
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.875rem, 4vw + 0.5rem, 3.85rem);
+  line-height: 1.12;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
   font-weight: 400;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -463,10 +482,11 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 3. Section Heading */
 .type-heading-section {
-  font-family: "Beverly", var(--font-editorial), serif;
-  font-size: clamp(1.75rem, 2.75vw + 0.5rem, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.005em;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.75rem);
+  line-height: 1.18;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   font-weight: 400;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -475,9 +495,9 @@ body[data-theme="kids"]::-webkit-scrollbar,
 /* 4. Subheading */
 .type-subheading {
   font-family: var(--font-body), "Inter", sans-serif;
-  font-size: clamp(1.0625rem, 0.75vw + 0.875rem, 1.25rem);
+  font-size: clamp(0.9375rem, 0.65vw + 0.75rem, 1.125rem);
   line-height: 1.45;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
   font-weight: 300;
   color: var(--text-secondary);
 }
@@ -485,7 +505,7 @@ body[data-theme="kids"]::-webkit-scrollbar,
 /* 5. Standard Body Copy */
 .type-body {
   font-family: var(--font-body), "Inter", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   line-height: 1.65;
   letter-spacing: normal;
   font-weight: 300;
@@ -494,7 +514,7 @@ body[data-theme="kids"]::-webkit-scrollbar,
 /* 6. Small Body / Supporting Information */
 .type-body-sm {
   font-family: var(--font-body), "Inter", sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   line-height: 1.6;
   letter-spacing: normal;
   font-weight: 300;
@@ -502,10 +522,10 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 7. Product Name */
 .type-product-name {
-  font-family: "Beverly", var(--font-editorial), serif;
-  font-size: 1rem;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.875rem;
   line-height: 1.35;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   font-weight: 400;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -513,32 +533,32 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 8. Product Metadata (Price, Code, Category) */
 .type-product-meta {
-  font-family: var(--font-body), "Inter", sans-serif;
-  font-size: 0.8125rem;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.75rem;
   line-height: 1.4;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.06em;
   font-weight: 400;
   color: var(--text-secondary);
 }
 
 /* 9. Navigation Link */
 .type-nav {
-  font-family: var(--font-body), "Inter", sans-serif;
-  font-size: 0.8125rem;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.75rem;
   line-height: 1;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 400;
 }
 
 /* 10. Button Label */
 .type-button {
-  font-family: var(--font-body), "Inter", sans-serif;
-  font-size: 0.75rem;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.6875rem;
   line-height: 1;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* 11. Caption / Timestamp */
@@ -553,12 +573,12 @@ body[data-theme="kids"]::-webkit-scrollbar,
 
 /* 12. Overline / Eyebrow Text */
 .type-overline {
-  font-family: var(--font-body), "Inter", sans-serif;
+  font-family: "Orborn", -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 0.6875rem;
   line-height: 1;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-secondary);
 }
 

@@ -179,7 +179,7 @@ export function CollectionCard({
             <h3
               className="text-2xl sm:text-3xl lg:text-[2rem] font-normal uppercase tracking-[0.04em] text-[#FFFFFF] leading-[1.12] transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1"
               style={{
-                fontFamily: "var(--font-editorial, 'Cormorant Garamond', serif)",
+                fontFamily: "'Orborn', sans-serif",
               }}
             >
               {categoryName}

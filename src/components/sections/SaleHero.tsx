@@ -283,7 +283,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           <h1
             className="font-normal text-[#EAE8E1] uppercase tracking-[0.02em] leading-[0.88] select-none text-5xl lg:text-7xl xl:text-8xl mb-5"
             style={{
-              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontFamily: "'Orborn', sans-serif",
               fontKerning: "normal",
               opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
               transform:
@@ -340,7 +340,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             <div
               className="text-4xl lg:text-6xl font-normal text-[#EAE8E1] tracking-tight leading-none"
               style={{
-                fontFamily: "'Beverly', var(--font-editorial), serif",
+                fontFamily: "'Orborn', sans-serif",
                 fontKerning: "normal",
                 textShadow: "0 2px 16px rgba(0, 0, 0, 0.6)",
               }}
@@ -436,7 +436,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             </span>
             <span
               className="text-[12px] font-normal italic text-[#EAE8E1] tracking-[0.1em] uppercase leading-tight my-0.5"
-              style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
+              style={{ fontFamily: "'Orborn', sans-serif", fontKerning: "normal" }}
             >
               SALE
             </span>
@@ -486,7 +486,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
           <h1
             className="font-normal text-[#EAE8E1] uppercase tracking-[0.02em] leading-[0.88] select-none text-[40px] sm:text-[46px] mb-2.5"
             style={{
-              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontFamily: "'Orborn', sans-serif",
               fontKerning: "normal",
               textShadow: "0 2px 18px rgba(0, 0, 0, 0.9)",
               opacity: phase >= 3 || prefersReducedMotion ? 1 : 0,
@@ -535,7 +535,7 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             <span
               className="text-3xl sm:text-4xl font-normal text-[#EAE8E1] tracking-tight"
               style={{
-                fontFamily: "'Beverly', var(--font-editorial), serif",
+                fontFamily: "'Orborn', sans-serif",
                 fontKerning: "normal",
                 textShadow: "0 2px 14px rgba(0, 0, 0, 0.85)",
               }}

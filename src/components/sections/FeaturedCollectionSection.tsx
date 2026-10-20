@@ -43,7 +43,7 @@ export function FeaturedCollectionSection() {
           <Reveal direction="up" distance={25} delay={200}>
             <h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.03em] sm:tracking-[0.04em] leading-[1.1] mb-4 sm:mb-6"
-              style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
+              style={{ fontFamily: "'Orborn', sans-serif", fontKerning: "normal" }}
             >
               THE AUTUMN /<br />
               WINTER EDIT

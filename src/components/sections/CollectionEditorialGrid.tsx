@@ -47,7 +47,7 @@ export function CollectionEditorialGrid({
               <h2
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.04em] text-[#111111] leading-none"
                 style={{
-                  fontFamily: "var(--font-editorial, 'Cormorant Garamond', serif)",
+                  fontFamily: "'Orborn', sans-serif",
                   fontKerning: "normal",
                 }}
               >

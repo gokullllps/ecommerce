@@ -44,8 +44,8 @@ export function AutomaticStartupSequence() {
   const heroRef = useRef<HTMLDivElement>(null);
 
   const [isRevealed, setIsRevealed] = useState(false);
+  const [isSliding, setIsSliding] = useState(false);
   const [hasFinishedAnimation, setHasFinishedAnimation] = useState(false);
-  const didAutoScrollRef = useRef(false);
 
   // Read intro completion state from browser session storage via React recommended external store pattern
   const isIntroCompleted = useSyncExternalStore(
@@ -55,7 +55,6 @@ export function AutomaticStartupSequence() {
   );
 
   const showIntro = !isIntroCompleted && !hasFinishedAnimation;
-  const prevShowIntroRef = useRef(showIntro);
 
   // Lightweight initial rendering guard state: keeps screen covered by intro background before intro state resolves
   const [isIntroStateResolved, setIsIntroStateResolved] = useState(false);
@@ -154,7 +153,7 @@ export function AutomaticStartupSequence() {
       window.scrollTo(0, 0);
     }
 
-    // Lock user scroll during the automatic opening sequence so the cinematic glide is uninterrupted
+    // Lock user scroll during the opening sequence so the transition is uninterrupted
     const preventScroll = (e: Event) => {
       e.preventDefault();
     };
@@ -190,100 +189,41 @@ export function AutomaticStartupSequence() {
       setIsRevealed(true);
     }, 50);
 
-    let animFrameId: number | null = null;
-
-    // Step 2: After brisk reveal (400ms) + brief hold (250ms) = 650ms, initiate automatic physical scroll
-    const autoScrollTimer = setTimeout(() => {
-      if (!heroRef.current) {
-        unlockScroll();
-        try {
-          sessionStorage.setItem(INTRO_COMPLETED_KEY, "true");
-        } catch {}
-        setHasFinishedAnimation(true);
-        window.dispatchEvent(new Event("pablo-intro-update"));
-        return;
-      }
-
-      const startY = window.scrollY;
-      const navbarEl = heroRef.current.previousElementSibling as HTMLElement | null;
-      const navbarHeight = navbarEl ? navbarEl.offsetHeight : 64;
-      const targetY = Math.max(0, heroRef.current.offsetTop - navbarHeight);
-      const distance = targetY - startY;
-      if (distance <= 0) {
-        unlockScroll();
-        try {
-          sessionStorage.setItem(INTRO_COMPLETED_KEY, "true");
-        } catch {}
-        setHasFinishedAnimation(true);
-        window.dispatchEvent(new Event("pablo-intro-update"));
-        return;
-      }
-
-      const duration = 1050; // Crisp ~1.0s cinematic glide through black section into hero
-      let startTime: number | null = null;
-
-      const step = (timestamp: number) => {
-        if (startTime === null) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-
-        // Luxury easeInOutCubic: gentle departure -> smooth glide through black -> gentle arrival at hero
-        const ease =
-          progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-        window.scrollTo(0, startY + distance * ease);
-
-        if (progress < 1) {
-          animFrameId = requestAnimationFrame(step);
-        } else {
-          // Arrived at hero:
-          didAutoScrollRef.current = true;
-          unlockScroll();
-          try {
-            sessionStorage.setItem(INTRO_COMPLETED_KEY, "true");
-          } catch {}
-          setHasFinishedAnimation(true);
-          window.dispatchEvent(new Event("pablo-intro-update"));
-        }
-      };
-
-      animFrameId = requestAnimationFrame(step);
+    // Step 2: After brisk reveal (400ms) + brief hold (250ms) = 650ms,
+    // initiate smooth, slow, cinematic upward slide of the connected white & black layers (2.5s duration)
+    const slideTimer = setTimeout(() => {
+      setIsSliding(true);
     }, 650);
 
-    // Safety fallback timer: guarantee intro completes after sequence duration
-    const safetyTimer = setTimeout(() => {
-      didAutoScrollRef.current = true;
+    // Step 3: Transition finishes at 650ms + 2500ms = 3150ms:
+    // intro unmounts cleanly, scroll unlocks, and homepage is fully interactive
+    const completeTimer = setTimeout(() => {
       unlockScroll();
       try {
         sessionStorage.setItem(INTRO_COMPLETED_KEY, "true");
       } catch {}
       setHasFinishedAnimation(true);
       window.dispatchEvent(new Event("pablo-intro-update"));
-    }, 2000);
+    }, 3150);
+
+    // Safety fallback timer: guarantee intro completes after sequence duration
+    const safetyTimer = setTimeout(() => {
+      unlockScroll();
+      try {
+        sessionStorage.setItem(INTRO_COMPLETED_KEY, "true");
+      } catch {}
+      setHasFinishedAnimation(true);
+      window.dispatchEvent(new Event("pablo-intro-update"));
+    }, 3800);
 
     return () => {
       clearTimeout(revealTimer);
-      clearTimeout(autoScrollTimer);
+      clearTimeout(slideTimer);
+      clearTimeout(completeTimer);
       clearTimeout(safetyTimer);
-      if (animFrameId !== null) cancelAnimationFrame(animFrameId);
       unlockScroll();
     };
   }, [showIntro, isIntroCompleted]);
-
-  // Synchronously reset scroll position to 0 ONLY when the opening auto-scroll actually completed,
-  // so the hero section seamlessly becomes the top-most section at scrollY = 0 with zero jump.
-  useEffect(() => {
-    if (didAutoScrollRef.current && prevShowIntroRef.current && !showIntro) {
-      window.scrollTo({
-        top: 0,
-        behavior: "instant",
-      });
-      didAutoScrollRef.current = false;
-    }
-    prevShowIntroRef.current = showIntro;
-  }, [showIntro]);
 
   return (
     /*
@@ -357,17 +297,28 @@ export function AutomaticStartupSequence() {
           ONE-TIME INTRO ENTRY SEQUENCE:
           Rendered on initial page load in a clean browser session.
           Contains Section 1 (Startup) and Section 2 (Black Transition).
-          Once automatic scrolling completes and reaches Section 3 (Hero),
-          both intro sections are completely UNMOUNTED from the DOM.
+          Both layers move UPWARD TOGETHER as one connected transition.
+          Once the transition completes, the intro is unmounted from the DOM.
         */}
         {showIntro && (
-          <>
+          <div
+            id="pablo-intro-container"
+            aria-hidden={isSliding}
+            className="fixed inset-x-0 top-0 z-[9990] w-full pointer-events-none select-none flex flex-col"
+            style={{
+              transform: isSliding ? "translate3d(0, -100%, 0)" : "translate3d(0, 0, 0)",
+              transition: isSliding
+                ? "transform 2500ms cubic-bezier(0.76, 0, 0.24, 1)"
+                : "none",
+              willChange: "transform",
+            }}
+          >
             {/* 1. PABLO STARTUP SCREEN (100vh, #EAE8E1) */}
             <section
               ref={startupRef}
               id="pablo-startup-sequence"
               aria-label="PABLO Brand Startup"
-              className="h-screen w-full flex items-center justify-center bg-[#EAE8E1] select-none relative"
+              className="h-screen sm:h-[100svh] w-full shrink-0 flex items-center justify-center bg-[#EAE8E1] select-none relative"
               style={{ backgroundColor: "#EAE8E1" }}
             >
               <div className="flex flex-col items-center justify-center -translate-y-[1.5vh] px-6">
@@ -385,19 +336,19 @@ export function AutomaticStartupSequence() {
               </div>
             </section>
 
-            {/* 2. BLACK TRANSITION SECTION (100vh, #181818) */}
+            {/* 2. BLACK TRANSITION SECTION (#181818) */}
             <section
               ref={blackRef}
               id="pablo-black-transition"
               aria-hidden="true"
-              className="h-screen w-full bg-[#181818] select-none relative flex items-center justify-center"
+              className="h-20 sm:h-24 w-full shrink-0 bg-[#181818] select-none relative flex items-center justify-center"
               style={{ backgroundColor: "#181818" }}
             />
-          </>
+          </div>
         )}
 
         {/* ONE STABLE STICKY HEADER CONTAINER (Navbar + MegaMenu) */}
-        <Navbar isIntroActive={showIntro} isHeroOverlay={true} />
+        <Navbar isIntroActive={showIntro && !isSliding} isHeroOverlay={true} />
 
         {/* 3. HERO SECTION */}
         <div ref={heroRef} className="w-full relative">

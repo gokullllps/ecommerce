@@ -318,8 +318,8 @@ export function EditorialHeroCardScroll({
               CAMPAIGN COLLECTION
             </span>
             <h2
-              className="font-serif text-2xl sm:text-3xl md:text-[2rem] font-normal uppercase tracking-[0.04em] text-white leading-tight"
-              style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+              className="font-serif text-2xl sm:text-3xl md:text-[2rem] font-normal uppercase tracking-[0.06em] text-white leading-tight"
+              style={{ fontFamily: "'Orborn', sans-serif" }}
             >
               CATEGORIES
             </h2>

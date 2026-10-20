@@ -477,7 +477,7 @@ export const INITIAL_HERO_SLIDES: StorefrontHeroSlide[] = [
     ctaText: "EXPLORE THE COLLECTION",
     ctaLink: "/collections/aw26",
     desktopImage: "/images/homepage-hero.jpg",
-    mobileImage: "/images/homepage-hero.png",
+    mobileImage: "/images/homepage-hero.webp",
     alignment: "left",
     isActive: true,
     order: 1,

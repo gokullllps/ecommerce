@@ -962,7 +962,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 className={
                   isKids
                     ? "font-sans font-black text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#181818]"
-                    : "font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#111111]"
+                    : "font-orborn text-2xl sm:text-3xl lg:text-4xl font-normal uppercase tracking-[0.04em] text-[#111111]"
                 }
               >
                 {product.name}
@@ -984,7 +984,7 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                     className={
                       isKids
                         ? "text-2xl sm:text-3xl font-sans font-black text-[#181818]"
-                        : "text-xl sm:text-2xl font-medium text-[#111111]"
+                        : "text-lg sm:text-xl font-orborn font-normal tracking-[0.06em] text-[#111111]"
                     }
                   >
                     {formatPrice(currentPrice)}
@@ -1106,12 +1106,14 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
               <div className={`py-5 ${isKids ? "border-b-2 border-[#181818]" : "border-b border-[#D9D8D3]"}`}>
                 <div className="flex justify-between items-center mb-3">
                   <span className={`text-xs uppercase tracking-wider ${isKids ? "font-bold text-[#181818]" : "text-[#666666]"}`}>
-                    Select Size: <strong className="text-[#181818] font-black">{selectedSize}</strong>
+                    Select Size: <strong className={isKids ? "text-[#181818] font-black" : "text-[#111111] font-medium"}>{selectedSize}</strong>
                   </span>
                   <button
                     type="button"
                     onClick={() => setSizeGuideOpen(true)}
-                    className="text-xs uppercase tracking-wider text-[#111111] font-bold underline underline-offset-4 hover:text-[#666666] cursor-pointer"
+                    className={`text-xs uppercase underline underline-offset-4 hover:text-[#666666] cursor-pointer ${
+                      isKids ? "tracking-wider text-[#181818] font-bold" : "tracking-[0.14em] text-[#111111] font-medium"
+                    }`}
                   >
                     Size Guide
                   </button>
@@ -1287,7 +1289,9 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 <div className={isKids ? "rounded-xl border-2 border-[#181818] bg-white p-3.5 shadow-[2px_2px_0px_#181818]" : "py-4"}>
                   <button
                     onClick={() => toggleAccordion("details")}
-                    className="w-full flex justify-between items-center text-xs uppercase tracking-wider text-[#111111] font-bold cursor-pointer"
+                    className={`w-full flex justify-between items-center text-xs uppercase cursor-pointer ${
+                      isKids ? "tracking-wider text-[#181818] font-bold" : "tracking-[0.16em] text-[#111111] font-medium"
+                    }`}
                   >
                     <span>Description & Details</span>
                     <span>{activeAccordion === "details" ? "—" : "+"}</span>
@@ -1308,7 +1312,9 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 <div className={isKids ? "rounded-xl border-2 border-[#181818] bg-white p-3.5 shadow-[2px_2px_0px_#181818]" : "py-4"}>
                   <button
                     onClick={() => toggleAccordion("care")}
-                    className="w-full flex justify-between items-center text-xs uppercase tracking-wider text-[#111111] font-bold cursor-pointer"
+                    className={`w-full flex justify-between items-center text-xs uppercase cursor-pointer ${
+                      isKids ? "tracking-wider text-[#181818] font-bold" : "tracking-[0.16em] text-[#111111] font-medium"
+                    }`}
                   >
                     <span>Care & Maintenance</span>
                     <span>{activeAccordion === "care" ? "—" : "+"}</span>
@@ -1325,7 +1331,9 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                 <div className={isKids ? "rounded-xl border-2 border-[#181818] bg-white p-3.5 shadow-[2px_2px_0px_#181818]" : "py-4"}>
                   <button
                     onClick={() => toggleAccordion("shipping")}
-                    className="w-full flex justify-between items-center text-xs uppercase tracking-wider text-[#111111] font-bold cursor-pointer"
+                    className={`w-full flex justify-between items-center text-xs uppercase cursor-pointer ${
+                      isKids ? "tracking-wider text-[#181818] font-bold" : "tracking-[0.16em] text-[#111111] font-medium"
+                    }`}
                   >
                     <span>Delivery & Returns</span>
                     <span>{activeAccordion === "shipping" ? "—" : "+"}</span>

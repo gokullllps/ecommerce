@@ -117,7 +117,7 @@ export function AboutHero() {
           <h1
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-normal text-white tracking-[0.02em] sm:tracking-[0.03em] leading-none select-none drop-shadow-md my-1 sm:my-2"
             style={{
-              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontFamily: "'Orborn', sans-serif",
               fontKerning: "normal",
             }}
           >
@@ -128,7 +128,7 @@ export function AboutHero() {
           <p
             className="font-serif italic text-[13.5px] sm:text-base md:text-[17px] lg:text-lg text-white/90 max-w-xl sm:max-w-2xl leading-relaxed sm:leading-relaxed font-light mt-4 sm:mt-5 drop-shadow-sm tracking-wide select-none"
             style={{
-              fontFamily: "'Beverly', var(--font-editorial), serif",
+              fontFamily: "'Orborn', sans-serif",
               fontKerning: "normal",
             }}
           >

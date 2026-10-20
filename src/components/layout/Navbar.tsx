@@ -343,7 +343,7 @@ export function Navbar({
                   <Link
                     key={item.id}
                     href={item.href}
-                    className={`group relative inline-flex items-center py-1 text-[11px] xl:text-[11.5px] font-medium tracking-[0.10em] uppercase select-none cursor-pointer
+                    className={`group relative inline-flex items-center py-1 text-[11px] xl:text-[11.5px] font-orborn font-normal tracking-[0.14em] uppercase select-none cursor-pointer
                       transition-transform duration-200 ease-out hover:-translate-y-[2px] motion-reduce:hover:translate-y-0
                       after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:h-[1px] after:bg-current
                       after:transition-all after:duration-200 after:ease-out motion-reduce:after:transition-none
@@ -754,7 +754,7 @@ export function Navbar({
                           <span className="text-[9.5px] uppercase tracking-[0.2em] text-[#666666] block">
                             Personal Curation
                           </span>
-                          <h3 className="font-serif text-sm text-[#111111]">
+                          <h3 className="font-orborn text-sm text-[#111111]">
                             Your Wishlist
                           </h3>
                         </div>
@@ -803,7 +803,7 @@ export function Navbar({
                                     />
                                   </div>
                                   <div className="flex-1 min-w-0">
-                                    <span className="block text-xs font-serif text-[#111111] truncate group-hover/wish:underline">
+                                    <span className="block text-xs font-orborn text-[#111111] truncate group-hover/wish:underline">
                                       {item.product.name}
                                     </span>
                                     <span className="block text-[11px] font-mono text-[#444444]">
@@ -1058,7 +1058,7 @@ export function Navbar({
                   <Link
                     href={item.href}
                     onClick={handleCloseMenu}
-                    className="group inline-flex items-center text-xl sm:text-2xl md:text-[26px] font-normal tracking-[0.04em] text-[#111111] hover:text-[#666666] hover:translate-x-1.5 transition-all duration-200 py-1"
+                    className="group inline-flex items-center text-lg sm:text-xl md:text-[22px] font-orborn font-normal tracking-[0.08em] uppercase text-[#111111] hover:text-[#666666] hover:translate-x-1.5 transition-all duration-200 py-1"
                   >
                     <span>{item.label}</span>
                   </Link>

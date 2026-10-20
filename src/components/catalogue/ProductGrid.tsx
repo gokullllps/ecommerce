@@ -87,7 +87,7 @@ export function ProductGrid({ products, onResetFilters, activeCategory = "all" }
         </p>
         <h3
           className="text-2xl sm:text-3xl font-normal uppercase text-[#111111] mb-4"
-          style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
+          style={{ fontFamily: "'Orborn', sans-serif", fontKerning: "normal" }}
         >
           No Pieces Match Your Current Selection
         </h3>

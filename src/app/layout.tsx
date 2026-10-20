@@ -11,16 +11,16 @@ import QuickShopModal from "@/components/shop/QuickShopModal";
 import { RouteScrollReset } from "@/components/layout/RouteScrollReset";
 import { PageTransition } from "@/components/transitions/PageTransition";
 
-// Official Beverly Luxury Editorial Serif Font by Pen Culture
-const beverly = localFont({
+// Official Orborn Geometric Display Font by Nikola Nikolov
+const orborn = localFont({
   src: [
     {
-      path: "../../public/fonts/Beverly.otf",
+      path: "../../public/fonts/Orborn.otf",
       weight: "400",
       style: "normal",
     },
   ],
-  variable: "--font-editorial",
+  variable: "--font-orborn",
   display: "swap",
 });
 
@@ -53,7 +53,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${beverly.variable} ${cormorantGaramond.variable} ${inter.variable} bg-[#EAE8E1]`}
+      className={`${orborn.variable} ${cormorantGaramond.variable} ${inter.variable} bg-[#EAE8E1]`}
       style={{ backgroundColor: "#EAE8E1" }}
     >
       <body

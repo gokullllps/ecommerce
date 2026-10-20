@@ -418,10 +418,10 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           <Link
             href={`/product/${product.slug}`}
             data-no-transition="true"
-            className={`block text-sm sm:text-[15px] ${
+            className={`block text-xs sm:text-[13px] ${
               isKids
                 ? "font-sans font-bold tracking-tight text-[#181818]"
-                : "font-pablo font-normal tracking-[0.03em] text-[#111111]"
+                : "font-orborn font-normal tracking-[0.04em] uppercase text-[#111111]"
             } hover:text-black transition-colors duration-200 truncate`}
           >
             {product.name}

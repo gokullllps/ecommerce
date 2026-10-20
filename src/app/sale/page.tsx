@@ -18,7 +18,7 @@ export default function SalePage() {
           className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-[#181818]"
         >
           <Image
-            src="/images/sale-hero-damask-sofa.png"
+            src="/images/sale-hero-damask-sofa.webp"
             alt="PABLO Sale Campaign — Vintage Recline on a Damask Sofa"
             fill
             priority

@@ -163,13 +163,17 @@ export function NewInSection() {
     >
       {/* ─── 1. SECTION TITLE ─── */}
       <Reveal direction="up" distance={20} duration={750}>
-        <div className="page-container text-center mb-5 sm:mb-7">
+        <div className="page-container text-center mb-6 sm:mb-8 pointer-events-none">
+          <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-1.5">
+            Maison Capsule · 2026
+          </span>
           <h2
-            className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-[0.24em] text-[#111111] inline-block"
-            style={{ fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
+            className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.22em] text-[#111111] inline-block leading-tight"
+            style={{ fontFamily: "'Orborn', sans-serif" }}
           >
             NEW IN
           </h2>
+          <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 opacity-40" />
         </div>
       </Reveal>
 

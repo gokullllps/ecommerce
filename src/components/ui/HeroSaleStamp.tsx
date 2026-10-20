@@ -140,7 +140,7 @@ export function HeroSaleStamp({ isVisible, className }: HeroSaleStampProps) {
                 textAnchor="middle"
                 fontSize="22"
                 fontWeight="500"
-                fontFamily="'Beverly', var(--font-editorial), serif"
+                fontFamily="'Orborn', sans-serif"
                 letterSpacing="0.08em"
                 fill="#EAE8E1"
               >

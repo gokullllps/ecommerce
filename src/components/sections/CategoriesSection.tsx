@@ -8,6 +8,8 @@ import { MEN_CATEGORIES_DATA } from "@/data/categories";
 export function CategoriesSection() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+  const [isTouchPaused, setIsTouchPaused] = useState(false);
+  const touchPauseTimerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   // Responsive Rummy Card Dimensions
   const [dimensions, setDimensions] = useState({
@@ -23,7 +25,17 @@ export function CategoriesSection() {
   const updateDimensions = useCallback(() => {
     if (typeof window === "undefined") return;
     const w = window.innerWidth;
-    if (w < 640) {
+    if (w < 380) {
+      setDimensions({
+        cardWidth: 185,
+        cardHeight: 285,
+        cardSpacing: 132,
+        arcDrop: 22,
+        maxRot: 2.0,
+        containerHeight: 385,
+        durationSec: 19,
+      });
+    } else if (w < 640) {
       setDimensions({
         cardWidth: 210,
         cardHeight: 320,
@@ -86,7 +98,7 @@ export function CategoriesSection() {
           </span>
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.22em] text-[#111111] inline-block"
-            style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+            style={{ fontFamily: "'Orborn', sans-serif" }}
           >
             CATEGORIES
           </h2>
@@ -124,7 +136,7 @@ export function CategoriesSection() {
                     </span>
                     <h3
                       className="text-2xl font-normal text-white tracking-[0.06em]"
-                      style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+                      style={{ fontFamily: "'Orborn', sans-serif" }}
                     >
                       {category.name}
                     </h3>
@@ -244,7 +256,7 @@ export function CategoriesSection() {
                 <h3
                   className="text-xl sm:text-2xl md:text-[1.75rem] font-normal text-white tracking-[0.08em] leading-tight mb-2.5 whitespace-nowrap transition-transform duration-300 ease-out"
                   style={{
-                    fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                    fontFamily: "'Orborn', sans-serif",
                   }}
                 >
                   {category.name}
@@ -286,7 +298,8 @@ export function CategoriesSection() {
           will-change: transform;
           animation: pabloTrainScroll ${dimensions.durationSec}s linear infinite;
         }
-        .pablo-train-container:hover .pablo-train-track {
+        .pablo-train-container:hover .pablo-train-track,
+        .pablo-train-container.is-touch-paused .pablo-train-track {
           animation-play-state: paused;
         }
         @media (prefers-reduced-motion: reduce) {
@@ -390,6 +403,12 @@ export function CategoriesSection() {
           transform: translateY(0);
           background-color: #FFFFFF;
         }
+        @media (hover: none) {
+          .pablo-discover-pill {
+            opacity: 0.95;
+            transform: translateY(0);
+          }
+        }
       `}</style>
 
       {/* ─── 1. ELEGANT SECTION HEADER ─── */}
@@ -399,7 +418,7 @@ export function CategoriesSection() {
         </span>
         <h2
           className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.22em] text-[#111111] inline-block leading-tight"
-          style={{ fontFamily: "var(--font-display, 'Cormorant Garamond', serif)" }}
+          style={{ fontFamily: "'Orborn', sans-serif" }}
         >
           CATEGORIES
         </h2>
@@ -408,7 +427,18 @@ export function CategoriesSection() {
 
       {/* ─── 2. CONTINUOUS TRAIN-STYLE RUMMY CARD TRACK ─── */}
       <div
-        className="pablo-train-container relative w-full overflow-visible flex items-center py-4 cursor-default"
+        onTouchStart={() => {
+          if (touchPauseTimerRef.current) clearTimeout(touchPauseTimerRef.current);
+          setIsTouchPaused(true);
+        }}
+        onTouchEnd={() => {
+          touchPauseTimerRef.current = setTimeout(() => {
+            setIsTouchPaused(false);
+          }, 1500);
+        }}
+        className={`pablo-train-container relative w-full overflow-visible flex items-center py-4 cursor-default ${
+          isTouchPaused ? "is-touch-paused" : ""
+        }`}
         style={{
           height: `${dimensions.containerHeight}px`,
         }}

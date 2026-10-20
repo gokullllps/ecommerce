@@ -29,7 +29,7 @@ export function NewsletterSection() {
 
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.03em] sm:tracking-[0.04em] text-[#111111] mb-3 sm:mb-4"
-            style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
+            style={{ fontFamily: "'Orborn', sans-serif", fontKerning: "normal" }}
           >
             PRIVATE INVITATIONS
           </h2>

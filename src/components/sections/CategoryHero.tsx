@@ -80,7 +80,7 @@ export default function CategoryHero({ gender = "women" }: CategoryHeroProps) {
         */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
           <Image
-            src="/images/sasi-women.png"
+            src="/images/sasi-women.webp"
             alt="PABLO Women Luxury Beach Editorial Campaign"
             fill
             priority

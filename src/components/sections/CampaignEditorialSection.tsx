@@ -49,7 +49,7 @@ export function CampaignEditorialSection() {
             <Reveal direction="up" distance={28} delay={200}>
               <h2
                 className="text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.03em] sm:tracking-[0.04em] leading-[1.15] text-[#FFFFFF] mb-6"
-                style={{ fontFamily: "'Beverly', var(--font-editorial), serif", fontKerning: "normal" }}
+                style={{ fontFamily: "'Orborn', sans-serif", fontKerning: "normal" }}
               >
                 THE ART OF<br />
                 REDUCTION

@@ -310,7 +310,7 @@ export function KidsMonkeyScrollIndicator() {
         title="Kids Jungle Path — Drag monkey to explore"
       >
         {/* Top Jungle Canopy Sprout with Twin Leaves & Curled Tendril */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 pointer-events-none z-10">
+        <div className="absolute -top-4 right-0 sm:left-1/2 sm:-translate-x-1/2 pointer-events-none z-10">
           <svg viewBox="0 0 28 22" width="26" height="20" fill="none" aria-hidden="true">
             {/* Curled upward vine shoot */}
             <path

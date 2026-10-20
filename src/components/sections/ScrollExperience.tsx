@@ -257,7 +257,7 @@ export function ScrollExperience() {
                 </span>
                 <h1
                   className="mt-2 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[1.05] text-[#111111]"
-                  style={{ fontFamily: "var(--font-display, serif)" }}
+                  style={{ fontFamily: "'Orborn', sans-serif" }}
                 >
                   THE ARCHITECTURE OF SILENCE
                 </h1>

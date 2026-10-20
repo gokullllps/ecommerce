@@ -338,7 +338,7 @@ export function EditorialHeading({
     <Component
       className={`font-normal uppercase tracking-[0.03em] ${className}`}
       style={{
-        fontFamily: "'Beverly', var(--font-editorial), serif",
+        fontFamily: "'Orborn', sans-serif",
         fontKerning: "normal",
         ...style,
       }}
