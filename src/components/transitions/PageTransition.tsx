@@ -63,10 +63,10 @@ export function PageTransition({ children }: PageTransitionProps) {
 
   const [phase, setPhase] = useState<TransitionPhase>("idle");
   const [currentBg, setCurrentBg] = useState<string>(() =>
-    getRouteBackgroundColor(typeof window !== "undefined" ? window.location.pathname : "/")
+    getRouteBackgroundColor(pathname || "/")
   );
   const [destBg, setDestBg] = useState<string>(() =>
-    getRouteBackgroundColor(typeof window !== "undefined" ? window.location.pathname : "/")
+    getRouteBackgroundColor(pathname || "/")
   );
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -356,6 +356,7 @@ export function PageTransition({ children }: PageTransitionProps) {
       <div
         ref={containerRef}
         className={stageClassName}
+        suppressHydrationWarning
         style={
           {
             "--pablo-current-bg": currentBg,

@@ -2,72 +2,56 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { MEN_CATEGORIES_DATA } from "@/data/categories";
 
 export function CategoriesSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const progressRef = useRef(0);
-  const targetProgressRef = useRef<number | null>(null);
-  const isPausedRef = useRef(false);
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const lastXRef = useRef(0);
-  const hasDraggedRef = useRef(false);
-  const animFrameIdRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number | null>(null);
-  const isVisibleRef = useRef(false);
-
-  const [hasEntered, setHasEntered] = useState(false);
-  const [activeDot, setActiveDot] = useState(0);
-  const lastDotRef = useRef(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+
+  // Responsive Rummy Card Dimensions
   const [dimensions, setDimensions] = useState({
-    cardWidth: 310,
-    cardHeight: 460,
-    cardSpacing: 280,
-    arcDrop: 24,
-    rotZ: 5.4,
-    rotY: 8.2,
+    cardWidth: 290,
+    cardHeight: 440,
+    cardSpacing: 215,
+    arcDrop: 44,
+    maxRot: 3.2,
+    containerHeight: 580,
+    durationSec: 28, // ~92 px/sec (2580px / 28s)
   });
 
-  // 24 cards pool (12 duplicated twice) for mathematically seamless, infinite looping
-  const duplicatedCategories = [...MEN_CATEGORIES_DATA, ...MEN_CATEGORIES_DATA];
-  const N = duplicatedCategories.length;
-  const numUnique = MEN_CATEGORIES_DATA.length;
-
-  // Track responsive dimensions (restoring substantial, visually grand editorial scale)
   const updateDimensions = useCallback(() => {
     if (typeof window === "undefined") return;
     const w = window.innerWidth;
     if (w < 640) {
       setDimensions({
-        cardWidth: 220,
-        cardHeight: 330,
-        cardSpacing: 185,
-        arcDrop: 14,
-        rotZ: 3.8,
-        rotY: 5.6,
+        cardWidth: 210,
+        cardHeight: 320,
+        cardSpacing: 150,
+        arcDrop: 28,
+        maxRot: 2.4,
+        containerHeight: 430,
+        durationSec: 21, // ~85 px/sec (1800px / 21s)
       });
     } else if (w < 1024) {
       setDimensions({
-        cardWidth: 260,
-        cardHeight: 390,
-        cardSpacing: 230,
-        arcDrop: 18,
-        rotZ: 4.6,
-        rotY: 7.0,
+        cardWidth: 250,
+        cardHeight: 380,
+        cardSpacing: 180,
+        arcDrop: 36,
+        maxRot: 2.8,
+        containerHeight: 510,
+        durationSec: 24, // ~90 px/sec (2160px / 24s)
       });
     } else {
       setDimensions({
-        cardWidth: 310,
-        cardHeight: 460,
-        cardSpacing: 280,
-        arcDrop: 24,
-        rotZ: 5.4,
-        rotY: 8.2,
+        cardWidth: 290,
+        cardHeight: 440,
+        cardSpacing: 215,
+        arcDrop: 44,
+        maxRot: 3.2,
+        containerHeight: 580,
+        durationSec: 28, // ~92 px/sec (2580px / 28s)
       });
     }
   }, []);
@@ -88,198 +72,10 @@ export function CategoriesSection() {
     };
   }, [updateDimensions]);
 
-  // Direct GPU DOM render function: purely transform, opacity, and zIndex for 120fps smoothness
-  const renderCards = useCallback(
-    (currentP: number) => {
-      const { cardSpacing, arcDrop, rotZ, rotY } = dimensions;
-
-      for (let k = 0; k < N; k++) {
-        const el = cardRefs.current[k];
-        if (!el) continue;
-
-        // Relative offset u from center in range [-N/2, N/2)
-        let u = (k - currentP) % N;
-        if (u < -N / 2) u += N;
-        if (u > N / 2) u -= N;
-
-        const absU = Math.abs(u);
-
-        // Cull cards outside view bounds
-        if (absU > 3.8) {
-          el.style.opacity = "0";
-          el.style.pointerEvents = "none";
-          el.style.visibility = "hidden";
-          continue;
-        }
-
-        el.style.visibility = "visible";
-
-        // Curved 3D Arc Math
-        const translateX = u * cardSpacing;
-        const translateY = Math.pow(absU, 1.45) * arcDrop;
-        const rotateZ = u * rotZ;
-        const rotateY = -u * rotY;
-        const scale = Math.max(0.70, 1 - absU * 0.075);
-        const zIndex = Math.round(50 - absU * 8);
-
-        const opacity =
-          absU > 2.6 ? Math.max(0, Math.min(1, 1 - (absU - 2.6) * 0.85)) : 1;
-
-        el.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateZ(${rotateZ}deg) rotateY(${rotateY}deg) scale(${scale})`;
-        el.style.zIndex = zIndex.toString();
-        el.style.opacity = opacity.toString();
-        el.style.pointerEvents = absU < 2.0 ? "auto" : "none";
-      }
-
-      // Sync active dot without re-render thrashing
-      const currentDot = ((Math.round(currentP) % numUnique) + numUnique) % numUnique;
-      if (currentDot !== lastDotRef.current) {
-        lastDotRef.current = currentDot;
-        setActiveDot(currentDot);
-      }
-    },
-    [N, numUnique, dimensions]
-  );
-
-  // IntersectionObserver: Trigger smooth entrance once visible and run rAF only when in view
-  useEffect(() => {
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      isVisibleRef.current = true;
-      setHasEntered(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        isVisibleRef.current = entry.isIntersecting;
-        if (entry.isIntersecting) {
-          setHasEntered(true);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Continuous animation loop (with silky smooth spring/decay interpolation for dot clicks)
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    // Speed: 0.28 card steps per second (calm, luxurious glide)
-    const speed = 0.28;
-
-    const tick = (now: number) => {
-      if (lastTimeRef.current === null) {
-        lastTimeRef.current = now;
-      }
-      const deltaSec = Math.min((now - lastTimeRef.current) / 1000, 0.1);
-      lastTimeRef.current = now;
-
-      // Handle smooth animated glide when user clicks a dot
-      if (targetProgressRef.current !== null) {
-        const diff = targetProgressRef.current - progressRef.current;
-        if (Math.abs(diff) < 0.005) {
-          progressRef.current = ((targetProgressRef.current % N) + N) % N;
-          targetProgressRef.current = null;
-          isPausedRef.current = false;
-        } else {
-          // Smooth exponential ease-out glide
-          const step = diff * Math.min(1, deltaSec * 7.5);
-          progressRef.current = progressRef.current + step;
-        }
-        renderCards(progressRef.current);
-      } else if (isVisibleRef.current && !isPausedRef.current && !isDraggingRef.current) {
-        progressRef.current = (progressRef.current + speed * deltaSec) % N;
-        if (progressRef.current < 0) progressRef.current += N;
-        renderCards(progressRef.current);
-      }
-
-      animFrameIdRef.current = requestAnimationFrame(tick);
-    };
-
-    // Initial render
-    renderCards(progressRef.current);
-    animFrameIdRef.current = requestAnimationFrame(tick);
-
-    return () => {
-      if (animFrameIdRef.current !== null) {
-        cancelAnimationFrame(animFrameIdRef.current);
-        animFrameIdRef.current = null;
-      }
-      lastTimeRef.current = null;
-    };
-  }, [N, prefersReducedMotion, renderCards]);
-
-  // Interaction Handlers (Hover & Focus Pause / Resume)
-  const handleMouseEnter = () => {
-    if (targetProgressRef.current === null) {
-      isPausedRef.current = true;
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isDraggingRef.current && targetProgressRef.current === null) {
-      isPausedRef.current = false;
-    }
-  };
-
-  const handleFocus = () => {
-    isPausedRef.current = true;
-  };
-
-  const handleBlur = () => {
-    isPausedRef.current = false;
-  };
-
-  // Touch & Pointer Drag Handlers
-  const handlePointerDown = (e: React.PointerEvent) => {
-    targetProgressRef.current = null;
-    isDraggingRef.current = true;
-    startXRef.current = e.clientX;
-    lastXRef.current = e.clientX;
-    hasDraggedRef.current = false;
-  };
-
-  const handlePointerMove = (e: React.PointerEvent) => {
-    if (!isDraggingRef.current) return;
-    const deltaX = e.clientX - lastXRef.current;
-    lastXRef.current = e.clientX;
-
-    if (Math.abs(e.clientX - startXRef.current) > 5) {
-      hasDraggedRef.current = true;
-    }
-
-    progressRef.current =
-      (progressRef.current - deltaX / dimensions.cardSpacing) % N;
-    if (progressRef.current < 0) progressRef.current += N;
-    renderCards(progressRef.current);
-  };
-
-  const handlePointerUp = () => {
-    isDraggingRef.current = false;
-  };
-
-  // Smooth next/previous dot glide navigation
-  const handleDotClick = (targetIndex: number) => {
-    const curP = progressRef.current;
-    const currentBase = Math.floor(curP / numUnique) * numUnique;
-    let targetP = currentBase + targetIndex;
-    if (targetP - curP > numUnique / 2) targetP -= numUnique;
-    if (targetP - curP < -numUnique / 2) targetP += numUnique;
-    targetProgressRef.current = targetP;
-  };
-
   // Static fallback if prefers-reduced-motion is active
   if (prefersReducedMotion) {
     return (
       <section
-        ref={sectionRef}
         id="categories"
         aria-label="PABLO Categories Showcase"
         className="relative w-full py-12 sm:py-16 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
@@ -317,14 +113,6 @@ export function CategoriesSection() {
                     className="object-cover object-center w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/92 via-black/45 to-transparent pointer-events-none z-10" />
-                  <div
-                    className="absolute inset-x-0 bottom-0 h-44 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
-                    }}
-                    aria-hidden="true"
-                  />
                   <div className="absolute top-4 right-4 z-20 pointer-events-none">
                     <span className="text-[9px] uppercase tracking-[0.22em] text-white/50 font-medium font-sans">
                       PABLO
@@ -350,15 +138,262 @@ export function CategoriesSection() {
     );
   }
 
+  // Render a sequence of 12 categories in curved Rummy playing-card fanned arrangement
+  const renderCardSequence = (isClone: boolean) => {
+    return MEN_CATEGORIES_DATA.map((category, idx) => {
+      const cardKey = `${isClone ? "clone" : "orig"}-${category.id}-${idx}`;
+      const isHovered = hoveredKey === cardKey;
+
+      // Symmetrical curved arc calculation:
+      // Center cards (idx 5 & 6) sit highest (offsetY ≈ 0)
+      // Cards progressively lower toward both left (idx 0) and right (idx 11) edges
+      // Continuous cosine wave over period 12 guarantees seamless boundary continuity
+      const theta = ((idx - 5.5) / 6) * Math.PI;
+      const archVal = (1 + Math.cos(theta)) / 2; // ~0.983 at center, ~0.017 at edges
+      const naturalOffsetY = Math.round((1 - archVal) * dimensions.arcDrop);
+
+      // Arc tangent rotation with subtle rummy playing-card alternation
+      const slopeRot = Math.sin(theta) * dimensions.maxRot;
+      const rummyJitter = idx % 2 === 0 ? -0.7 : 0.7;
+      const naturalRot = Math.round((slopeRot + rummyJitter) * 10) / 10;
+
+      // Layered deck stacking: center cards sit on top, cascading down to outer edges
+      const baseZ = 10 + Math.round(archVal * 20);
+
+      return (
+        <div
+          key={cardKey}
+          className={`pablo-card-wrapper relative shrink-0 flex items-center justify-start select-none ${
+            isHovered ? "is-hovered" : ""
+          }`}
+          style={{
+            width: `${dimensions.cardSpacing}px`,
+            height: `${dimensions.cardHeight}px`,
+            zIndex: isHovered ? 90 : baseZ,
+            ...({
+              "--card-offset-y": `${naturalOffsetY}px`,
+              "--card-rot": `${naturalRot}deg`,
+            } as React.CSSProperties),
+          }}
+          onMouseEnter={() => setHoveredKey(cardKey)}
+          onMouseLeave={() => setHoveredKey(null)}
+        >
+          {/* Rummy Playing Card with genuine dimensions and curved arc positioning */}
+          <div
+            className="pablo-card-inner relative rounded-[22px] sm:rounded-[26px]"
+            style={{
+              width: `${dimensions.cardWidth}px`,
+              height: `${dimensions.cardHeight}px`,
+            }}
+          >
+            <Link
+              href={category.href}
+              aria-label={isClone ? undefined : `Explore ${category.name} Collection`}
+              tabIndex={isClone ? -1 : 0}
+              aria-hidden={isClone ? "true" : undefined}
+              className="pablo-card-link shiny-card group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden"
+            >
+              {/* Category Photographic Asset */}
+              <Image
+                src={category.imageSrc}
+                alt={category.imageAlt}
+                fill
+                sizes="(max-width: 640px) 210px, (max-width: 1024px) 250px, 290px"
+                priority={!isClone && idx < 3}
+                loading={!isClone && idx < 5 ? "eager" : "lazy"}
+                className="pablo-card-image"
+              />
+
+              {/* Top Subtle Vignette */}
+              <div
+                className="absolute inset-x-0 top-0 h-24 pointer-events-none z-10 bg-gradient-to-b from-black/45 via-black/15 to-transparent"
+                aria-hidden="true"
+              />
+
+              {/* Brand Watermark (Top-Right) */}
+              <div className="absolute top-4 right-4 z-20 pointer-events-none">
+                <span className="pablo-card-watermark text-[9px] uppercase tracking-[0.22em] text-white/50 font-medium font-sans">
+                  PABLO
+                </span>
+              </div>
+
+              {/* PABLO Signature Warm Cream Highlight Color Veil on Hover */}
+              <div className="pablo-card-veil" aria-hidden="true" />
+
+              {/* Bottom Vignette for High Text Legibility */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-44 sm:h-52 pointer-events-none z-10 bg-gradient-to-t from-black/92 via-black/45 to-transparent"
+                aria-hidden="true"
+              />
+
+              {/* Ambient dark depth vignette */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-44 sm:h-52 pointer-events-none z-10 transition-opacity duration-300 ease-out opacity-60"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(24,24,24,0.75) 0%, rgba(24,24,24,0.2) 60%, transparent 100%)",
+                }}
+                aria-hidden="true"
+              />
+
+              {/* Bottom Typography & Discover Pill */}
+              <div className="absolute inset-x-0 bottom-0 z-20 pb-6 sm:pb-7 px-5 sm:px-6 text-center flex flex-col items-center justify-end pointer-events-none">
+                <span className="text-[10px] sm:text-[10.5px] font-sans font-medium uppercase tracking-[0.26em] text-white/70 block mb-1">
+                  COLLECTION
+                </span>
+                <h3
+                  className="text-xl sm:text-2xl md:text-[1.75rem] font-normal text-white tracking-[0.08em] leading-tight mb-2.5 whitespace-nowrap transition-transform duration-300 ease-out"
+                  style={{
+                    fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+                  }}
+                >
+                  {category.name}
+                </h3>
+
+                {/* Discover Pill */}
+                <div className="pablo-discover-pill flex items-center gap-2 bg-[#EAE8E1] text-[#111111] px-4 py-1.5 rounded-full text-[9.5px] uppercase tracking-[0.22em] font-medium shadow-md">
+                  <span>DISCOVER</span>
+                  <span className="text-[10px] transition-transform duration-300">
+                    →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      );
+    });
+  };
+
   return (
     <section
-      ref={sectionRef}
       id="categories"
       aria-label="PABLO Categories Showcase"
-      className="relative w-full pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#EAE8E1] text-[#111111] overflow-hidden select-none"
+      className="relative w-full pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#EAE8E1] text-[#111111] overflow-x-clip select-none"
     >
+      <style>{`
+        @keyframes pabloTrainScroll {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        .pablo-train-track {
+          display: flex;
+          width: max-content;
+          will-change: transform;
+          animation: pabloTrainScroll ${dimensions.durationSec}s linear infinite;
+        }
+        .pablo-train-container:hover .pablo-train-track {
+          animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .pablo-train-track {
+            animation: none;
+          }
+        }
+
+        /* ─── PABLO RUMMY CARDS HOVER & HIGHLIGHT INTERACTION ─── */
+        .pablo-card-wrapper {
+          position: relative;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          user-select: none;
+        }
+        .pablo-card-wrapper:hover,
+        .pablo-card-wrapper.is-hovered {
+          z-index: 90 !important;
+        }
+
+        .pablo-card-inner {
+          position: relative;
+          will-change: transform, box-shadow;
+          transform: translate3d(0, var(--card-offset-y), 0) rotate(var(--card-rot)) scale(1);
+          box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+          transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+                      box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .pablo-card-wrapper:hover .pablo-card-inner,
+        .pablo-card-wrapper.is-hovered .pablo-card-inner {
+          transform: translate3d(0, calc(var(--card-offset-y) - 12px), 0) rotate(var(--card-rot)) scale(1.03);
+          box-shadow: 0 0 0 1px #EAE8E1, 0 26px 60px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(234, 232, 225, 0.18);
+        }
+
+        .pablo-card-link {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: #181818;
+          border: 1px solid rgba(217, 216, 211, 0.25);
+          user-select: none;
+          cursor: pointer;
+          transition: border-color 280ms ease, background-color 280ms ease;
+        }
+        .pablo-card-wrapper:hover .pablo-card-link,
+        .pablo-card-wrapper.is-hovered .pablo-card-link {
+          border-color: #EAE8E1 !important;
+          background-color: #201F1C;
+        }
+
+        .pablo-card-image {
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          height: 100%;
+          user-select: none;
+          transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                      filter 300ms ease;
+        }
+        .pablo-card-wrapper:hover .pablo-card-image,
+        .pablo-card-wrapper.is-hovered .pablo-card-image {
+          transform: scale(1.025);
+          filter: brightness(1.07) contrast(1.03);
+        }
+
+        .pablo-card-veil {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 12;
+          opacity: 0;
+          background: linear-gradient(180deg, rgba(234, 232, 225, 0.20) 0%, rgba(234, 232, 225, 0.08) 45%, rgba(24, 24, 24, 0.25) 100%);
+          transition: opacity 280ms ease-out;
+        }
+        .pablo-card-wrapper:hover .pablo-card-veil,
+        .pablo-card-wrapper.is-hovered .pablo-card-veil {
+          opacity: 1;
+        }
+
+        .pablo-card-watermark {
+          transition: color 280ms ease, letter-spacing 280ms ease;
+        }
+        .pablo-card-wrapper:hover .pablo-card-watermark,
+        .pablo-card-wrapper.is-hovered .pablo-card-watermark {
+          color: #EAE8E1;
+          letter-spacing: 0.26em;
+        }
+
+        .pablo-discover-pill {
+          opacity: 0;
+          transform: translateY(6px);
+          transition: opacity 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1), background-color 280ms ease;
+        }
+        .pablo-card-wrapper:hover .pablo-discover-pill,
+        .pablo-card-wrapper.is-hovered .pablo-discover-pill {
+          opacity: 1;
+          transform: translateY(0);
+          background-color: #FFFFFF;
+        }
+      `}</style>
+
       {/* ─── 1. ELEGANT SECTION HEADER ─── */}
-      <div className="text-center shrink-0 px-4 mb-5 sm:mb-7 pointer-events-none">
+      <div className="text-center shrink-0 px-4 mb-6 sm:mb-8 pointer-events-none">
         <span className="block text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#666666] font-medium mb-1.5">
           Maison Portfolio · 2026
         </span>
@@ -371,165 +406,37 @@ export function CategoriesSection() {
         <div className="w-8 h-[1px] bg-[#111111] mx-auto mt-2.5 opacity-40" />
       </div>
 
-      {/* ─── 2. CINEMATIC 3D CURVED CAROUSEL STAGE ─── */}
+      {/* ─── 2. CONTINUOUS TRAIN-STYLE RUMMY CARD TRACK ─── */}
       <div
-        ref={containerRef}
-        className="relative w-full overflow-hidden flex items-center justify-center py-2 cursor-grab active:cursor-grabbing touch-pan-y"
+        className="pablo-train-container relative w-full overflow-visible flex items-center py-4 cursor-default"
         style={{
-          height: `${dimensions.cardHeight + dimensions.arcDrop * 1.8 + 24}px`,
-          perspective: "1400px",
-          transformStyle: "preserve-3d",
+          height: `${dimensions.containerHeight}px`,
         }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
       >
         {/* Left Edge Luxury Vignette Fade */}
         <div
-          className="absolute left-0 inset-y-0 w-16 sm:w-28 md:w-40 bg-gradient-to-r from-[#EAE8E1] via-[#EAE8E1]/85 to-transparent pointer-events-none z-30"
+          className="absolute left-0 inset-y-0 w-16 sm:w-24 md:w-36 bg-gradient-to-r from-[#EAE8E1] to-transparent pointer-events-none z-30"
           aria-hidden="true"
         />
 
         {/* Right Edge Luxury Vignette Fade */}
         <div
-          className="absolute right-0 inset-y-0 w-16 sm:w-28 md:w-40 bg-gradient-to-l from-[#EAE8E1] via-[#EAE8E1]/85 to-transparent pointer-events-none z-30"
+          className="absolute right-0 inset-y-0 w-16 sm:w-24 md:w-36 bg-gradient-to-l from-[#EAE8E1] to-transparent pointer-events-none z-30"
           aria-hidden="true"
         />
 
-        {/* Center Origin Stage: Smooth, cinematic upward glide on entrance (700-900ms cubic-bezier) */}
-        <div
-          className="relative w-full h-full flex items-start justify-center pt-2"
-          style={{
-            opacity: prefersReducedMotion ? 1 : hasEntered ? 1 : 0,
-            transform: prefersReducedMotion
-              ? "none"
-              : hasEntered
-              ? "translate3d(0, 0px, 0) scale(1.0)"
-              : "translate3d(0, 32px, 0) scale(0.97)",
-            transition: prefersReducedMotion
-              ? "none"
-              : "opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 850ms cubic-bezier(0.22, 1, 0.36, 1)",
-            willChange: prefersReducedMotion || hasEntered ? "auto" : "opacity, transform",
-          }}
-        >
-          {duplicatedCategories.map((category, index) => (
-            <div
-              key={`${category.id}-${index}`}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-              className="absolute will-change-transform"
-              style={{
-                width: `${dimensions.cardWidth}px`,
-                height: `${dimensions.cardHeight}px`,
-                transformStyle: "preserve-3d",
-                backfaceVisibility: "hidden",
-              }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
-              <Link
-                href={category.href}
-                aria-label={`Explore ${category.name} Collection`}
-                onClick={(e) => {
-                  if (hasDraggedRef.current) {
-                    e.preventDefault();
-                  }
-                }}
-                className="shiny-card group relative block w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden bg-[#181818] shadow-[0_20px_45px_rgba(0,0,0,0.22)] border border-black/10 hover:border-black/30 transition-all duration-500 ease-out hover:-translate-y-[4px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111111] cursor-pointer select-none"
-              >
-                {/* Category Photographic Asset */}
-                <Image
-                  src={category.imageSrc}
-                  alt={category.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 310px"
-                  priority={index < 2}
-                  loading={index < 4 ? "eager" : "lazy"}
-                  className="object-cover object-center w-full h-full select-none transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
-                />
+        {/* Continuous Train Track (Sequence 1 + Sequence 2 for seamless infinite loop) */}
+        <div className="pablo-train-track flex items-center pt-6 sm:pt-8">
+          {/* Sequence 1: Accessible primary items */}
+          <div className="flex items-center">
+            {renderCardSequence(false)}
+          </div>
 
-                {/* Top Subtle Vignette */}
-                <div
-                  className="absolute inset-x-0 top-0 h-24 pointer-events-none z-10 bg-gradient-to-b from-black/45 via-black/15 to-transparent"
-                  aria-hidden="true"
-                />
-
-                {/* Brand Watermark (Top-Right) */}
-                <div className="absolute top-4 right-4 z-20 pointer-events-none">
-                  <span className="text-[9px] uppercase tracking-[0.22em] text-white/50 font-medium font-sans">
-                    PABLO
-                  </span>
-                </div>
-
-                {/* Bottom Vignette for High Text Legibility */}
-                <div
-                  className="absolute inset-x-0 bottom-0 h-44 sm:h-52 pointer-events-none z-10 bg-gradient-to-t from-black/92 via-black/45 to-transparent"
-                  aria-hidden="true"
-                />
-
-                {/* Ambient vignette: Slightly increase bottom gradient opacity on hover */}
-                <div
-                  className="absolute inset-x-0 bottom-0 h-44 sm:h-52 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)",
-                  }}
-                  aria-hidden="true"
-                />
-
-                {/* Bottom Typography & Discover Pill */}
-                <div className="absolute inset-x-0 bottom-0 z-20 pb-6 sm:pb-7 px-5 sm:px-6 text-center flex flex-col items-center justify-end pointer-events-none">
-                  <span className="text-[10px] sm:text-[10.5px] font-sans font-medium uppercase tracking-[0.26em] text-white/70 block mb-1">
-                    COLLECTION
-                  </span>
-                  <h3
-                    className="text-2xl sm:text-3xl md:text-[2rem] font-normal text-white tracking-[0.06em] leading-tight mb-3 transition-transform duration-500 ease-out group-hover:-translate-y-0.5"
-                    style={{
-                      fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
-                    }}
-                  >
-                    {category.name}
-                  </h3>
-
-                  {/* Discover Pill */}
-                  <div className="transition-all duration-300 flex items-center gap-2 bg-[#EAE8E1] text-[#111111] px-4 py-1.5 rounded-full text-[9.5px] uppercase tracking-[0.22em] font-medium shadow-md opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
-                    <span>DISCOVER</span>
-                    <span className="text-[10px] transition-transform duration-300 group-hover:translate-x-0.5">
-                      →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))}
+          {/* Sequence 2: Duplicate clone for seamless infinite loop */}
+          <div className="flex items-center" aria-hidden="true">
+            {renderCardSequence(true)}
+          </div>
         </div>
-      </div>
-
-      {/* ─── 3. ELEGANT CAROUSEL PAGINATION DOTS ─── */}
-      <div
-        className="flex items-center justify-center gap-2 mt-4 sm:mt-5 pointer-events-auto"
-        aria-label="Category Carousel Navigation"
-      >
-        {MEN_CATEGORIES_DATA.map((cat, idx) => {
-          const isActive = activeDot === idx;
-          return (
-            <button
-              key={`dot-${cat.id}`}
-              type="button"
-              onClick={() => handleDotClick(idx)}
-              aria-label={`Go to ${cat.name}`}
-              className={`h-1.5 rounded-full transition-all duration-400 ease-out focus:outline-none cursor-pointer ${
-                isActive
-                  ? "w-7 sm:w-8 bg-[#111111]"
-                  : "w-1.5 bg-[#111111]/25 hover:bg-[#111111]/55"
-              }`}
-            />
-          );
-        })}
       </div>
     </section>
   );

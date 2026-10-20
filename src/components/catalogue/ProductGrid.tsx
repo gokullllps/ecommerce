@@ -115,9 +115,13 @@ export function ProductGrid({ products, onResetFilters, activeCategory = "all" }
     ? "pablo-category-enter"
     : "";
 
+  const gridClasses = isKids
+    ? "kids-product-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3.5 gap-y-5 sm:gap-x-6 sm:gap-y-7 md:gap-x-[24px] md:gap-y-8 lg:gap-x-[30px] lg:gap-y-[36px]"
+    : "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8";
+
   return (
     <div key={isKids ? activeCategory : undefined} className={`w-full ${transitionClass}`}>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+      <div className={gridClasses}>
         {displayedProducts.map((product, idx) => (
           <ProductCard
             key={`${activeCategory}-${product.id}`}

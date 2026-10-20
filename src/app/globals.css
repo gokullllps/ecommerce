@@ -993,6 +993,29 @@ body[data-theme="kids"]::-webkit-scrollbar,
   animation: kidsGridEnter 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* ── Kids Product Grid Spacing & Alignment (Scoped) ── */
+.kids-product-grid {
+  align-items: stretch;
+}
+@media (min-width: 1024px) {
+  .kids-product-grid {
+    column-gap: 30px !important; /* 28-32px required */
+    row-gap: 36px !important;    /* 32-40px required */
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .kids-product-grid {
+    column-gap: 24px;
+    row-gap: 32px;
+  }
+}
+@media (max-width: 767px) {
+  .kids-product-grid {
+    column-gap: 14px;
+    row-gap: 20px;
+  }
+}
+
 /* ── Wishlist sparkle ── */
 @keyframes kidsSparkleIn {
   0%   { opacity: 0; transform: scale(0) rotate(0deg); }

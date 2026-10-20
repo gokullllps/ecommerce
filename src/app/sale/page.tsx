@@ -1,26 +1,32 @@
 import React from "react";
-import { getSaleProducts } from "@/data/products";
-import CataloguePage from "@/components/catalogue/CataloguePageClient";
-import SaleHero from "@/components/sections/SaleHero";
+import Image from "next/image";
+import PageWrapper from "@/components/layout/PageWrapper";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Archival Sale — Up to 40% Off — PABLO",
-  description: "Limited seasonal reductions on select archival silhouettes, virgin wool tailoring, and double-faced knitwear.",
+  title: "Sale — PABLO",
+  description: "PABLO — Distinctive luxury fashion editorial sale.",
 };
 
 export default function SalePage() {
-  const products = getSaleProducts();
-
   return (
-    <CataloguePage
-      gender="sale"
-      title="ARCHIVAL SALE"
-      subtitle="Exclusive seasonal reductions of up to 40% on rare runway and signature silhouettes."
-      products={products}
-      isSalePage={true}
-      breadcrumbs={[{ label: "SALE", href: "/sale" }]}
-      heroSlot={<SaleHero />}
-    />
+    <PageWrapper navbarProps={{ isHeroOverlay: true }}>
+      <main className="w-full min-h-[100svh] relative bg-[#181818] overflow-hidden -mt-px">
+        {/* Large, full-width, cinematic hero filling entire viewport */}
+        <section
+          aria-label="PABLO Sale Campaign Hero"
+          className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-[#181818]"
+        >
+          <Image
+            src="/images/sale-hero-damask-sofa.png"
+            alt="PABLO Sale Campaign — Vintage Recline on a Damask Sofa"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[42%_center] sm:object-center w-full h-full select-none"
+          />
+        </section>
+      </main>
+    </PageWrapper>
   );
 }

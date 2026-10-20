@@ -236,7 +236,7 @@ export function Navbar({
 
       <header
         className={`sticky top-0 ${isKidsRoute ? "z-[100]" : "z-50"} w-full select-none ${
-          isHeroOverlay ? "-mb-16 sm:-mb-20 md:-mb-22" : ""
+          isHeroOverlay ? "-mb-[65px] sm:-mb-[81px] md:-mb-[89px]" : ""
         } ${
           isIntroActive || isInsideHeroScroll
             ? "opacity-0 pointer-events-none -translate-y-full"

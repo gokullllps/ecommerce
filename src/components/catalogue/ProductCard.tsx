@@ -21,6 +21,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
   const { toggleWishlist, isInWishlist, addToCart } = useShop();
   const [isJustAdded, setIsJustAdded] = useState(false);
   const [isPhotoHovered, setIsPhotoHovered] = useState(false);
+  const [isCardHovered, setIsCardHovered] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
   const { isKids: isSiteKids } = useSiteTheme();
 
@@ -58,10 +59,25 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
     );
   }, [product]);
 
+  // Check if product has multiple color variants with distinct photographic assets
+  const hasDistinctColorImages = useMemo(() => {
+    if (variants.length <= 1) return false;
+    const urls = new Set(
+      variants.map((v) => v.images?.[0]?.url).filter((u): u is string => Boolean(u))
+    );
+    return urls.size > 1;
+  }, [variants]);
+
   // Variant state management
   const defaultColor = variants[0]?.name || product.colors?.[0]?.name || "";
   const [selectedColor, setSelectedColor] = useState<string>(defaultColor);
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
+
+  useEffect(() => {
+    setSelectedColor(defaultColor);
+    setHoveredColor(null);
+    setIsCardHovered(false);
+  }, [defaultColor, product.id]);
 
   const selectedVariantIndex = variants.findIndex(
     (v) => v.name.toLowerCase() === selectedColor.toLowerCase()
@@ -69,26 +85,78 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
   const safeSelectedIndex = selectedVariantIndex >= 0 ? selectedVariantIndex : 0;
   const selectedVariant = variants[safeSelectedIndex];
 
-  // Alternate variant for photo hover when no specific swatch is hovered
-  const alternateVariant = variants.length > 1
-    ? variants.find((v, idx) => idx !== safeSelectedIndex && v.inStock !== false) ||
-      variants[(safeSelectedIndex + 1) % variants.length]
-    : null;
-
   const selectedVariantImg =
     selectedVariant?.images?.[0]?.url ||
     product.primaryImage ||
     (typeof product.images?.[0] === "string" ? product.images[0] : product.images?.[0]?.url) ||
     "/images/pablo-hero-cutout.webp";
 
-  const altVariantImg = alternateVariant?.images?.[0]?.url || (typeof alternateVariant?.images?.[0] === "string" ? alternateVariant.images[0] : null);
-  const hasDistinctAltImage = Boolean(altVariantImg && altVariantImg !== selectedVariantImg);
+  // Identify the alternate color variant with a distinct image from the currently selected variant
+  const alternateVariant = useMemo(() => {
+    if (!hasDistinctColorImages || variants.length <= 1) return null;
+    const currentUrl = selectedVariant?.images?.[0]?.url;
+    for (let i = 1; i < variants.length; i++) {
+      const candidateIndex = (safeSelectedIndex + i) % variants.length;
+      const candidate = variants[candidateIndex];
+      const candidateUrl = candidate?.images?.[0]?.url;
+      if (candidateUrl && candidateUrl !== currentUrl) {
+        return candidate;
+      }
+    }
+    return variants[(safeSelectedIndex + 1) % variants.length] || null;
+  }, [hasDistinctColorImages, variants, safeSelectedIndex, selectedVariant]);
 
-  // Active color name:
-  // - If hovering a swatch -> that hovered color
-  // - Else if hovering photo directly and distinct alternate image exists -> alternate variant name
-  // - Else -> selected color
-  const activeColorName = hoveredColor || (isPhotoHovered && hasDistinctAltImage && alternateVariant ? alternateVariant.name : selectedColor);
+  // Active hover state
+  const isHovered = isCardHovered || isPhotoHovered;
+
+  // Active target color for image display:
+  // 1. Swatch hover takes highest priority (previewing specific swatch)
+  // 2. Card hover transitions garment to alternate color variant
+  // 3. Defaults to selectedColor
+  const activeColorName = useMemo(() => {
+    if (hoveredColor) {
+      return hoveredColor;
+    }
+    if (isHovered && alternateVariant) {
+      return alternateVariant.name;
+    }
+    return selectedColor;
+  }, [hoveredColor, isHovered, alternateVariant, selectedColor]);
+
+  // Reduced motion preference
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      setReducedMotion(mq.matches);
+      const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+      mq.addEventListener("change", handler);
+      return () => mq.removeEventListener("change", handler);
+    }
+  }, []);
+
+  // Coordinated two-layer crossfade tracking (380ms)
+  const [activeDisplayColor, setActiveDisplayColor] = useState<string>(activeColorName);
+  const [prevDisplayColor, setPrevDisplayColor] = useState<string | null>(null);
+  const transitionTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (activeColorName.toLowerCase() !== activeDisplayColor.toLowerCase()) {
+      if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+      setPrevDisplayColor(activeDisplayColor);
+      setActiveDisplayColor(activeColorName);
+
+      transitionTimerRef.current = setTimeout(() => {
+        setPrevDisplayColor(null);
+      }, 400);
+    }
+  }, [activeColorName, activeDisplayColor]);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+    };
+  }, []);
 
   const activeVariant = variants.find(
     (v) => v.name.toLowerCase() === activeColorName.toLowerCase()
@@ -142,8 +210,21 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
     setTimeout(() => setIsJustAdded(false), 1400);
   };
 
-  // Previewed color label during hover
-  const previewedColorName = hoveredColor || (isPhotoHovered && hasDistinctAltImage && alternateVariant ? alternateVariant.name : selectedColor);
+  // Previewed color label: swatch hover takes precedence, else card hover alternate color, else selected color
+  const previewedColorName =
+    hoveredColor || (isHovered && alternateVariant ? alternateVariant.name : selectedColor);
+
+  // Touch device safe hover handlers
+  const handleMouseEnterCard = () => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) {
+      return;
+    }
+    setIsCardHovered(true);
+  };
+
+  const handleMouseLeaveCard = () => {
+    setIsCardHovered(false);
+  };
 
   return (
     <article
@@ -153,6 +234,8 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           : "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
       }`}
       aria-label={product.name}
+      onMouseEnter={handleMouseEnterCard}
+      onMouseLeave={handleMouseLeaveCard}
     >
       {/* ─── 1. PRODUCT IMAGE CONTAINER ─── */}
       <div
@@ -169,17 +252,30 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
           className="block relative w-full h-full cursor-pointer focus-visible:outline-2 focus-visible:outline-[#181818] active:scale-[0.98] transition-transform duration-200"
           aria-label={`View details for ${product.name}`}
         >
-          {/* Multi-variant rendering: each color variant rendered as an absolute layer for instant, glitch-free crossfade */}
-          {variants.length > 1 ? (
+          {/* Multi-variant rendering: two-layer stacked crossfade matching reference video */}
+          {hasDistinctColorImages ? (
             variants.map((v, i) => {
               const vUrl = v.images?.[0]?.url || selectedVariantImg;
-              const isVisible = v.name.toLowerCase() === activeColorName.toLowerCase();
+              const isCurrent = v.name.toLowerCase() === activeDisplayColor.toLowerCase();
+              const isPrevious = prevDisplayColor
+                ? v.name.toLowerCase() === prevDisplayColor.toLowerCase()
+                : false;
+
+              // Top layer: active target (z-20) fading in smoothly over solid previous layer (z-10)
+              const zIndexClass = isCurrent ? "z-20" : isPrevious ? "z-10" : "z-0";
+              const opacityClass = (isCurrent || isPrevious) ? "opacity-100" : "opacity-0 pointer-events-none";
+              const transitionClass = reducedMotion
+                ? "transition-none"
+                : isCurrent
+                ? "transition-opacity duration-[380ms] ease-[cubic-bezier(0.25,1,0.5,1)]"
+                : "transition-none";
+
               return (
                 <div
                   key={v.name || i}
-                  className={`absolute inset-0 w-full h-full transition-opacity duration-300 ease-out ${
-                    isVisible ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-                  } ${isKids ? "kids-card-img" : "pablo-product-img-primary"}`}
+                  className={`absolute inset-0 w-full h-full ${zIndexClass} ${opacityClass} ${transitionClass} ${
+                    isKids ? "kids-card-img" : "pablo-product-img-primary"
+                  }`}
                 >
                   <Image
                     src={vUrl}
@@ -196,8 +292,8 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
             <>
               {/* Single-variant primary image */}
               <div
-                className={`absolute inset-0 w-full h-full transition-opacity duration-300 ease-out ${
-                  isPhotoHovered && secondaryAngleImage ? "opacity-0" : "opacity-100"
+                className={`absolute inset-0 w-full h-full transition-opacity duration-[380ms] ease-out ${
+                  isHovered && secondaryAngleImage ? "opacity-0" : "opacity-100"
                 } ${isKids ? "kids-card-img" : "pablo-product-img-primary"}`}
               >
                 <Image
@@ -212,8 +308,8 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
               {/* Secondary angle image on hover */}
               {secondaryAngleImage && (
                 <div
-                  className={`absolute inset-0 w-full h-full transition-opacity duration-300 ease-out pointer-events-none ${
-                    isPhotoHovered ? "opacity-100" : "opacity-0"
+                  className={`absolute inset-0 w-full h-full transition-opacity duration-[380ms] ease-out pointer-events-none ${
+                    isHovered ? "opacity-100" : "opacity-0"
                   } ${isKids ? "kids-card-img" : "pablo-product-img-secondary"}`}
                 >
                   <Image
@@ -283,7 +379,10 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
 
             {/* Color Swatch Dots ● ● ● */}
             {swatches.length > 0 && (
-              <div className="flex items-center gap-1 pt-0.5">
+              <div 
+                className="flex items-center gap-1 pt-0.5"
+                onMouseLeave={() => setHoveredColor(null)}
+              >
                 {swatches.slice(0, 4).map((variant) => {
                   const isCurrent = (hoveredColor ? hoveredColor.toLowerCase() === variant.name.toLowerCase() : selectedColor.toLowerCase() === variant.name.toLowerCase());
                   return (
@@ -297,6 +396,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
                         e.preventDefault();
                         e.stopPropagation();
                         setSelectedColor(variant.name);
+                        setHoveredColor(null);
                       }}
                       className={`w-2.5 h-2.5 rounded-full border transition-all ${
                         isCurrent
@@ -334,7 +434,10 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
 
           {/* Colour Swatches (Hover to preview, click to select) */}
           {swatches.length > 1 && (
-            <div className="flex items-center gap-1.5 pt-1">
+            <div 
+              className="flex items-center gap-1.5 pt-1"
+              onMouseLeave={() => setHoveredColor(null)}
+            >
               <div className="flex items-center gap-1">
                 {swatches.map((variant) => {
                   const isCurrent = (hoveredColor ? hoveredColor.toLowerCase() === variant.name.toLowerCase() : selectedColor.toLowerCase() === variant.name.toLowerCase());
@@ -350,6 +453,7 @@ export function ProductCard({ product, isKids: isKidsProp, index = 0 }: ProductC
                         e.preventDefault();
                         e.stopPropagation();
                         setSelectedColor(variant.name);
+                        setHoveredColor(null);
                       }}
                       className={`w-3.5 h-3.5 rounded-full transition-all duration-200 focus:outline-none cursor-pointer ${
                         isKids

@@ -172,10 +172,28 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
     };
   }, []);
 
-  // Active color variant
+  const [hoveredColor, setHoveredColor] = useState<string | null>(null);
+  const activeColorName = hoveredColor || selectedColor;
+
+  // Preload all variant gallery images to prevent delays
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      variantList.forEach((v) => {
+        v.images?.forEach((img: any) => {
+          const u = typeof img === "string" ? img : img?.url;
+          if (u) {
+            const i = new window.Image();
+            i.src = u;
+          }
+        });
+      });
+    }
+  }, [variantList]);
+
+  // Active color variant (previews hovered swatch immediately, otherwise selected)
   const activeVariant = React.useMemo(() => {
-    return variantList.find((v) => v.name.toLowerCase() === selectedColor.toLowerCase()) || variantList[0];
-  }, [variantList, selectedColor]);
+    return variantList.find((v) => v.name.toLowerCase() === activeColorName.toLowerCase()) || variantList[0];
+  }, [variantList, activeColorName]);
 
   // Check if variant has price override
   const variantPriceOverride = React.useMemo(() => {
@@ -1008,8 +1026,8 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                         Colour
                       </span>
                       <span className="text-xs text-[#999999]" aria-hidden="true">—</span>
-                      <span className="text-xs uppercase tracking-[0.14em] font-medium text-[#111111]">
-                        {selectedColor}
+                      <span className="text-xs uppercase tracking-[0.14em] font-medium text-[#111111] transition-colors duration-200">
+                        {hoveredColor || selectedColor}
                       </span>
                     </div>
                     <span className="text-[10.5px] uppercase tracking-[0.18em] text-[#888888]">
@@ -1017,25 +1035,36 @@ export default function ProductDetailClient({ product: initialProduct, relatedPr
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2.5 flex-wrap py-1">
+                  <div 
+                    className="flex items-center gap-2.5 flex-wrap py-1"
+                    onMouseLeave={() => setHoveredColor(null)}
+                  >
                     {variantList.map((c) => {
                       const isSelected = selectedColor.toLowerCase() === c.name.toLowerCase();
+                      const isHighlighted = hoveredColor ? hoveredColor.toLowerCase() === c.name.toLowerCase() : isSelected;
                       const isAvailable = c.inStock;
                       return (
                         <button
                           key={c.name}
                           type="button"
                           disabled={!isAvailable}
-                          onClick={() => isAvailable && handleColorChange(c.name)}
+                          onMouseEnter={() => isAvailable && setHoveredColor(c.name)}
+                          onMouseLeave={() => setHoveredColor(null)}
+                          onClick={() => {
+                            if (isAvailable) {
+                              handleColorChange(c.name);
+                              setHoveredColor(null);
+                            }
+                          }}
                           aria-label={`Select colour ${c.name}${!isAvailable ? " (Out of Stock)" : ""}`}
                           aria-pressed={isSelected}
                           className={`group relative inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full transition-all duration-200 cursor-pointer ${
                             !isAvailable
                               ? "opacity-35 cursor-not-allowed border border-[#D9D8D3] bg-transparent"
-                              : isSelected
+                              : isHighlighted
                               ? isKids
                                 ? "border-2 border-[#181818] bg-[#FEF08A] text-[#181818] shadow-[2px_2px_0px_#181818]"
-                                : "border-[#111111] bg-white text-[#111111] shadow-xs"
+                                : "border-[#111111] bg-white text-[#111111] shadow-xs ring-1 ring-[#111111]"
                               : "border border-[#D9D8D3] bg-white/40 hover:bg-white text-[#666666] hover:text-[#111111] hover:border-[#111111]"
                           }`}
                           title={`${c.name}${!isAvailable ? " — Out of Stock" : ""}`}

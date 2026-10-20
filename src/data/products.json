@@ -752,7 +752,8 @@
       {
         "name": "Noir",
         "hex": "#111111",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/trousers-noir.webp"
       }
     ],
     "sizes": [
@@ -825,25 +826,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/pleated-flannel-straight-trousers-front.webp",
-            "alt": "Pleated Flannel Straight Trousers in Noir — Front View",
-            "viewType": "front",
+            "url": "/images/products/trousers-noir.webp",
+            "alt": "Noir",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/pleated-flannel-straight-trousers-detail.webp",
-            "alt": "Pleated Flannel Straight Trousers in Noir — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/pleated-flannel-straight-trousers-styling.webp",
-            "alt": "Pleated Flannel Straight Trousers in Noir — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/pleated-flannel-straight-trousers-side.webp",
-            "alt": "Pleated Flannel Straight Trousers in Noir — Profile View",
-            "viewType": "side"
           }
         ]
       }
@@ -1363,7 +1348,8 @@
       {
         "name": "Noir",
         "hex": "#111111",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/tshirt-noir.webp"
       }
     ],
     "sizes": [
@@ -1436,25 +1422,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/raw-edge-boxy-heavy-cotton-tee-front.webp",
-            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Front View",
-            "viewType": "front",
+            "url": "/images/products/tshirt-noir.webp",
+            "alt": "Noir",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/raw-edge-boxy-heavy-cotton-tee-detail.webp",
-            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/raw-edge-boxy-heavy-cotton-tee-styling.webp",
-            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/raw-edge-boxy-heavy-cotton-tee-side.webp",
-            "alt": "Raw-Edge Boxy Heavy Cotton Tee in Noir — Profile View",
-            "viewType": "side"
           }
         ]
       }
@@ -1658,7 +1628,8 @@
       {
         "name": "Champagne Ivory",
         "hex": "#EFEBD9",
-        "inStock": false
+        "inStock": false,
+        "imageOverride": "/images/products/shirt-white.webp"
       }
     ],
     "sizes": [
@@ -1728,25 +1699,9 @@
         "inStock": false,
         "images": [
           {
-            "url": "/images/products/heavy-silk-twill-overshirt-front.webp",
-            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Front View",
-            "viewType": "front",
+            "url": "/images/products/shirt-white.webp",
+            "alt": "Champagne Ivory",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/heavy-silk-twill-overshirt-detail.webp",
-            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/heavy-silk-twill-overshirt-styling.webp",
-            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/heavy-silk-twill-overshirt-side.webp",
-            "alt": "Heavy Silk Twill Overshirt in Champagne Ivory — Profile View",
-            "viewType": "side"
           }
         ]
       }
@@ -3903,7 +3858,8 @@
       {
         "name": "Washed Carbon",
         "hex": "#353538",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/jeans-washed-noir.webp"
       }
     ],
     "sizes": [
@@ -3981,25 +3937,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/high-rise-selvedge-wide-leg-jeans-front.webp",
-            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Front View",
-            "viewType": "front",
+            "url": "/images/products/jeans-washed-noir.webp",
+            "alt": "Washed Carbon",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/high-rise-selvedge-wide-leg-jeans-detail.webp",
-            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/high-rise-selvedge-wide-leg-jeans-styling.webp",
-            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/high-rise-selvedge-wide-leg-jeans-side.webp",
-            "alt": "High-Rise Selvedge Wide-Leg Jeans in Washed Carbon — Profile View",
-            "viewType": "side"
           }
         ]
       }
@@ -4948,7 +4888,7 @@
     "salePrice": 770,
     "images": [
       {
-        "url": "/images/products/sunburst-accordion-pleated-midi-dress-front.webp",
+        "url": "/images/products/sunburst-accordion-pleated-midi-dress-basalt-front.webp",
         "alt": "Sunburst Accordion Pleated Midi Dress — Full Front View",
         "viewType": "front",
         "isPrimary": true
@@ -4973,12 +4913,14 @@
       {
         "name": "Raw Basalt",
         "hex": "#29292B",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/sunburst-accordion-pleated-midi-dress-basalt-front.webp"
       },
       {
         "name": "Ivory",
         "hex": "#EBE8DF",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/sunburst-accordion-pleated-midi-dress-ivory-front.webp"
       }
     ],
     "sizes": [
@@ -5009,7 +4951,7 @@
     "isSale": true,
     "popularityScore": 89,
     "createdAt": "2026-06-18T10:00:00Z",
-    "primaryImage": "/images/products/sunburst-accordion-pleated-midi-dress-front.webp",
+    "primaryImage": "/images/products/sunburst-accordion-pleated-midi-dress-basalt-front.webp",
     "hoverImage": "/images/products/sunburst-accordion-pleated-midi-dress-styling.webp",
     "colorVariants": [
       {
@@ -5019,25 +4961,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-front.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Raw Basalt — Front View",
-            "viewType": "front",
+            "url": "/images/products/sunburst-accordion-pleated-midi-dress-basalt-front.webp",
+            "alt": "Raw Basalt",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-detail.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Raw Basalt — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-styling.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Raw Basalt — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-side.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Raw Basalt — Profile View",
-            "viewType": "side"
           }
         ]
       },
@@ -5048,25 +4974,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-front.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Front View",
-            "viewType": "front",
+            "url": "/images/products/sunburst-accordion-pleated-midi-dress-ivory-front.webp",
+            "alt": "Ivory",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-detail.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-styling.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/sunburst-accordion-pleated-midi-dress-side.webp",
-            "alt": "Sunburst Accordion Pleated Midi Dress in Ivory — Profile View",
-            "viewType": "side"
           }
         ]
       }
@@ -7055,7 +6965,7 @@
     "salePrice": 620,
     "images": [
       {
-        "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-front.webp",
+        "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-noir-front.webp",
         "alt": "Wide-Leg Fluid Silk Crepe Trousers — Full Front View",
         "viewType": "front",
         "isPrimary": true
@@ -7080,12 +6990,14 @@
       {
         "name": "Noir",
         "hex": "#111111",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/wide-leg-fluid-silk-crepe-trousers-noir-front.webp"
       },
       {
         "name": "Ivory",
         "hex": "#EAE7DF",
-        "inStock": true
+        "inStock": true,
+        "imageOverride": "/images/products/wide-leg-fluid-silk-crepe-trousers-ivory-front.webp"
       }
     ],
     "sizes": [
@@ -7117,7 +7029,7 @@
     "isSale": true,
     "popularityScore": 92,
     "createdAt": "2026-06-30T10:00:00Z",
-    "primaryImage": "/images/products/wide-leg-fluid-silk-crepe-trousers-front.webp",
+    "primaryImage": "/images/products/wide-leg-fluid-silk-crepe-trousers-noir-front.webp",
     "hoverImage": "/images/products/wide-leg-fluid-silk-crepe-trousers-styling.webp",
     "colorVariants": [
       {
@@ -7127,25 +7039,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-front.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Noir — Front View",
-            "viewType": "front",
+            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-noir-front.webp",
+            "alt": "Noir",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-detail.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Noir — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-styling.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Noir — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-side.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Noir — Profile View",
-            "viewType": "side"
           }
         ]
       },
@@ -7156,25 +7052,9 @@
         "inStock": true,
         "images": [
           {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-front.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Front View",
-            "viewType": "front",
+            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-ivory-front.webp",
+            "alt": "Ivory",
             "isPrimary": true
-          },
-          {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-detail.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Tailoring Detail",
-            "viewType": "detail"
-          },
-          {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-styling.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Styling View",
-            "viewType": "styling"
-          },
-          {
-            "url": "/images/products/wide-leg-fluid-silk-crepe-trousers-side.webp",
-            "alt": "Wide-Leg Fluid Silk Crepe Trousers in Ivory — Profile View",
-            "viewType": "side"
           }
         ]
       }
