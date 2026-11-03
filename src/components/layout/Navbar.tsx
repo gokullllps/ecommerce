@@ -658,7 +658,6 @@ export function Navbar({
                                     fill
                                     className="object-cover object-top transition-transform duration-300 group-hover/item:scale-105"
                                     sizes="44px"
-                                    unoptimized
                                   />
                                 </div>
                                 <div className="flex-1 min-w-0">
@@ -799,7 +798,6 @@ export function Navbar({
                                       fill
                                       className="object-cover object-top"
                                       sizes="40px"
-                                      unoptimized
                                     />
                                   </div>
                                   <div className="flex-1 min-w-0">
@@ -882,7 +880,6 @@ export function Navbar({
                                     fill
                                     className="object-cover object-top"
                                     sizes="48px"
-                                    unoptimized
                                   />
                                 </div>
                                 <div className="flex-1 min-w-0">

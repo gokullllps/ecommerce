@@ -67,7 +67,7 @@ export function AboutHero() {
         aria-hidden="true"
       >
         <Image
-          src="/images/about-hero-bg.jpg"
+          src="/images/about-hero-bg.webp"
           alt="Maison PABLO Vintage Haute Couture Atelier"
           fill
           priority

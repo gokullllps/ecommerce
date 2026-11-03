@@ -38,7 +38,7 @@ export function CollectionPreviewModal({ isOpen, onClose, collection }: Collecti
     });
   }
 
-  const heroImage = collection.banner || collection.image || "/images/hero-desktop.jpg";
+  const heroImage = collection.banner || collection.image || "/images/homepage-hero.webp";
 
   return (
     <div className="pablo-admin-modal fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto animate-fadeIn">

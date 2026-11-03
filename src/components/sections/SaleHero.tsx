@@ -197,7 +197,6 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
             width={1024}
             height={985}
             priority
-            unoptimized
             className="h-full w-auto object-contain object-bottom select-none pointer-events-none"
           />
         </div>
@@ -474,7 +473,6 @@ export default function SaleHero({ onExploreClick }: SaleHeroProps) {
               width={1024}
               height={985}
               priority
-              unoptimized
               className="h-full w-auto object-contain object-bottom select-none pointer-events-none drop-shadow-[0_16px_32px_rgba(0,0,0,0.85)]"
             />
           </div>

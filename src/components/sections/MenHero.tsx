@@ -87,7 +87,6 @@ export default function MenHero({ onExploreClick }: MenHeroProps = {}) {
             alt="PABLO Men Autumn / Winter 2026 Campaign"
             fill
             priority
-            unoptimized
             sizes="100vw"
             className="object-cover object-[46%_center] sm:object-[45%_center] md:object-center w-full h-full select-none pointer-events-none"
           />

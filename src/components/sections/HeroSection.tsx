@@ -30,21 +30,21 @@ const EDITORIAL_CARDS: EditorialCardItem[] = [
     id: "card-men",
     category: "Men",
     subtitle: "MENSWEAR",
-    image: "/images/cards/card-men.jpg",
+    image: "/images/cards/card-men.webp",
     href: "/men",
   },
   {
     id: "card-women",
     category: "Women",
     subtitle: "WOMENSWEAR",
-    image: "/images/cards/card-women.jpg",
+    image: "/images/cards/card-women.webp",
     href: "/women",
   },
   {
     id: "card-kids",
     category: "Kids",
     subtitle: "KIDSWEAR",
-    image: "/images/cards/card-kids.jpg",
+    image: "/images/cards/card-kids.webp",
     href: "/kids",
   },
 ];
@@ -180,7 +180,6 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
               alt="PABLO Luxury Fashion Campaign"
               fill
               priority
-              unoptimized
               sizes="100vw"
               className="object-cover object-[65%_center] md:object-center w-full h-full select-none"
             />
@@ -279,7 +278,6 @@ export function HeroSection({ onCardsVisibilityChange }: HeroSectionProps) {
               alt="PABLO Luxury Fashion Campaign"
               fill
               priority
-              unoptimized
               sizes="100vw"
               className="object-cover object-[65%_center] md:object-center w-full h-full select-none"
             />

@@ -80,7 +80,6 @@ export default function KidsHero() {
             alt="PABLO Kids Luxury Editorial Showcase"
             fill
             priority
-            unoptimized
             sizes="100vw"
             className="object-cover object-[55%_center] sm:object-[54%_center] md:object-center w-full h-full select-none pointer-events-none"
           />

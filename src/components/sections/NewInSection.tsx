@@ -229,7 +229,6 @@ export function NewInSection() {
                           width={600}
                           height={600}
                           priority={index === 0}
-                          unoptimized
                           className="object-contain object-bottom w-auto h-full max-h-[385px] lg:max-h-[415px] select-none"
                         />
                       </div>
@@ -311,7 +310,6 @@ export function NewInSection() {
                           width={400}
                           height={400}
                           priority={index === 0}
-                          unoptimized
                           className="h-full w-auto object-contain object-bottom"
                         />
                       </div>

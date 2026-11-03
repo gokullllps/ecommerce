@@ -18,8 +18,8 @@ export function CollectionBuilderModal({ isOpen, onClose, collection }: Collecti
     name: "",
     slug: "",
     description: "",
-    image: "/images/hero-desktop.jpg",
-    banner: "/images/hero-desktop.jpg",
+    image: "/images/homepage-hero.webp",
+    banner: "/images/homepage-hero.webp",
     status: "active",
     gender: "all",
     mode: "manual",
@@ -53,8 +53,8 @@ export function CollectionBuilderModal({ isOpen, onClose, collection }: Collecti
           name: "",
           slug: "",
           description: "",
-          image: "/images/hero-desktop.jpg",
-          banner: "/images/hero-desktop.jpg",
+          image: "/images/homepage-hero.webp",
+          banner: "/images/homepage-hero.webp",
           status: "active",
           gender: "all",
           mode: "manual",
@@ -213,8 +213,8 @@ export function CollectionBuilderModal({ isOpen, onClose, collection }: Collecti
       name: formData.name!.trim(),
       slug: formData.slug!.trim(),
       description: formData.description || "",
-      image: formData.image || "/images/hero-desktop.jpg",
-      banner: formData.banner || "/images/hero-desktop.jpg",
+      image: formData.image || "/images/homepage-hero.webp",
+      banner: formData.banner || "/images/homepage-hero.webp",
       status: formData.status as "draft" | "active" | "archived" | "scheduled",
       gender: formData.gender as "all" | "men" | "women" | "kids",
       mode: formData.mode as CollectionMode,
@@ -323,7 +323,7 @@ export function CollectionBuilderModal({ isOpen, onClose, collection }: Collecti
                 type="text"
                 value={formData.banner || ""}
                 onChange={(e) => setFormData((prev) => ({ ...prev, banner: e.target.value, image: e.target.value }))}
-                placeholder="/images/hero-desktop.jpg"
+                placeholder="/images/homepage-hero.webp"
                 className="w-full px-3 py-2 bg-white border border-[rgba(17,17,17,0.15)] rounded-lg text-[#111111] font-mono text-[11px]"
               />
             </div>

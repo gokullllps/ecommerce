@@ -61,10 +61,10 @@
   },
   {
     "id": "med_01",
-    "filename": "homepage-hero.jpg",
-    "url": "/images/homepage-hero.jpg",
+    "filename": "homepage-hero.webp",
+    "url": "/images/homepage-hero.webp",
     "sizeBytes": 1420000,
-    "mimeType": "image/jpeg",
+    "mimeType": "image/webp",
     "folder": "heroes",
     "tags": [
       "hero",
@@ -79,10 +79,10 @@
   },
   {
     "id": "med_02",
-    "filename": "about-hero-bg.jpg",
-    "url": "/images/about-hero-bg.jpg",
+    "filename": "about-hero-bg.webp",
+    "url": "/images/about-hero-bg.webp",
     "sizeBytes": 1350000,
-    "mimeType": "image/jpeg",
+    "mimeType": "image/webp",
     "folder": "heroes",
     "tags": [
       "hero",
